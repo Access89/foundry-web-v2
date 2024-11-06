@@ -1,42 +1,40 @@
-import { CustomButton } from '@/components/shared_customs';
+import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
-import React, { useRef } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
-import { Accordion, AccordionItem, cn } from '@nextui-org/react';
+import { Link, useLocation } from 'react-router-dom';
+import { Accordion, AccordionItem, Image, cn } from '@nextui-org/react';
 import { AnimatePresence, motion } from 'framer-motion';
+import Retail from './retail';
+import MicroFinance from './micro_finance';
+import Restaurants from './restaurants';
+import Schools from './school';
+import CreditUnions from './credit_union';
+import AllExperience from './all_experience';
+import { useInView } from 'react-intersection-observer';
 
 const UseCases = () => {
-  const [isStickyVisible, setIsStickyVisible] = React.useState(false);
-  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const { ref, inView } = useInView({
+    threshold: 0,
+    initialInView: true,
+  });
 
-  const { pathname } = useLocation();
+  const { search } = useLocation();
 
-  const handleScroll = () => {
-    if (sectionRef.current) {
-      const sectionRect = sectionRef.current.getBoundingClientRect();
+  const params = new URLSearchParams(search);
+  const view = params.get('v') || 'all';
 
-      const isSectionInView =
-        sectionRect.top < window.innerHeight && sectionRect.bottom >= 0;
-
-      if (sectionRect.bottom <= window.innerHeight && !isSectionInView) {
-        setIsStickyVisible(true);
-      } else {
-        setIsStickyVisible(false);
-      }
-    }
+  const displayView: Record<string, JSX.Element> = {
+    all: <AllExperience />,
+    retail: <Retail />,
+    'micro-finance': <MicroFinance />,
+    restaurants: <Restaurants />,
+    'credit-unions': <CreditUnions />,
+    schools: <Schools />,
   };
-
-  React.useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <main>
       {/* hero */}
-      <section ref={sectionRef} className="container">
+      <section ref={ref} className="container">
         <div className="border-3 border-white rounded-xl relative overflow-hidden flex flex-col">
           <div className="lg:px-28 md:pt-16 md:pb-28 px-5 flex flex-col-reverse md:flex-col">
             <div className="lg:max-w-lg md:max-w-xs">
@@ -57,10 +55,15 @@ const UseCases = () => {
                 </CustomButton>
               </div>
             </div>
-            <img
+            <Image
               src="/images/LS_3.webp"
-              alt="pos device"
-              className="md:w-[19rem] lg:w-[21rem] md:absolute right-10 top-0"
+              alt="AI marketplace"
+              width={336}
+              height={458}
+              classNames={{
+                wrapper: 'md:absolute right-10 rounded-none top-0',
+                img: 'rounded-none',
+              }}
             />
           </div>
 
@@ -74,26 +77,35 @@ const UseCases = () => {
               />
             </p>
             <div className="flex items-center flex-wrap gap-2">
-              {navLinks.map((subNav, index) => (
-                <CustomButton
-                  key={index}
-                  as={Link}
-                  to={subNav.link}
-                  className={cn(
-                    'relative cursor-pointer overflow-hidden rounded-md text-foundry-secondary bg-transparent border-2 border-foundry-secondary font-medium flex items-center gap-x-2 transition-all custom-button hover:text-white',
-                    pathname === subNav.link &&
-                      'bg-foundry-secondary text-white'
-                  )}
-                >
-                  {subNav.title}
-                </CustomButton>
-              ))}
+              {navLinks.map((subNav, index) => {
+                return (
+                  <CustomButton
+                    key={index}
+                    as={Link}
+                    to={subNav.link}
+                    onPress={() =>
+                      window.scrollTo({
+                        top: 733,
+                        left: 0,
+                        behavior: 'smooth',
+                      })
+                    }
+                    className={cn(
+                      'relative cursor-pointer overflow-hidden rounded-md text-foundry-secondary bg-transparent border-2 border-foundry-secondary font-medium flex items-center gap-x-2 transition-all custom-button hover:text-white',
+                      view === subNav.link.split('=')[1] &&
+                        'bg-foundry-secondary text-white'
+                    )}
+                  >
+                    {subNav.title}
+                  </CustomButton>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
-      {isStickyVisible && (
+      {!inView && (
         <div className="lg:hidden flex sticky top-0 z-50 w-full shadow-md bg-white">
           <Accordion
             itemClasses={{
@@ -107,12 +119,12 @@ const UseCases = () => {
             isCompact
           >
             <AccordionItem
-              aria-label="Accordion 1"
+              aria-label="navlink-mobile"
               title={
                 <div>
                   {navLinks.map(
                     (item) =>
-                      pathname === item.link && (
+                      view === item.link.split('=')[1] && (
                         <div key={item.link} className="text-xl">
                           {item.title}
                         </div>
@@ -130,20 +142,29 @@ const UseCases = () => {
                     className="text-foundry-secondary group-hover:translate-x-1  transition-all"
                   />
                 </p>
-                {navLinks.map((subNav, index) => (
-                  <CustomButton
-                    key={index}
-                    as={Link}
-                    to={subNav.link}
-                    className={cn(
-                      'relative cursor-pointer overflow-hidden rounded-md text-foundry-secondary bg-transparent border-2 border-foundry-secondary font-medium flex items-center gap-x-2 transition-all custom-button hover:text-white  mb-3',
-                      pathname === subNav.link &&
-                        'bg-foundrysecondary text-white'
-                    )}
-                  >
-                    {subNav.title}
-                  </CustomButton>
-                ))}
+                {navLinks.map((subNav, index) => {
+                  return (
+                    <CustomButton
+                      key={index}
+                      as={Link}
+                      to={subNav.link}
+                      onPress={() =>
+                        window.scrollTo({
+                          top: 733,
+                          left: 0,
+                          behavior: 'smooth',
+                        })
+                      }
+                      className={cn(
+                        'relative cursor-pointer overflow-hidden rounded-md text-foundry-secondary bg-transparent border-2 border-foundry-secondary font-medium flex items-center gap-x-2 transition-all custom-button hover:text-white mb-3',
+                        view === subNav.link.split('=')[1] &&
+                          'bg-foundry-secondary text-white'
+                      )}
+                    >
+                      {subNav.title}
+                    </CustomButton>
+                  );
+                })}
               </div>
             </AccordionItem>
           </Accordion>
@@ -151,7 +172,7 @@ const UseCases = () => {
       )}
 
       <AnimatePresence>
-        {isStickyVisible && (
+        {!inView && (
           <motion.div
             exit={{ opacity: 0 }}
             className={
@@ -159,10 +180,10 @@ const UseCases = () => {
             }
           >
             <motion.div
-              initial={{ x: 20 }}
+              initial={{ x: 40 }}
               animate={{ x: 0 }}
-              exit={{ x: 20, opacity: 0 }}
-              className="flex items-center gap-5"
+              exit={{ x: 40, opacity: 0 }}
+              className="flex items-center gap-5 "
             >
               <p className="text-foundry-secondary flex items-center text-sm gap-x-3 text-nowrap">
                 Customise your experience by
@@ -173,29 +194,38 @@ const UseCases = () => {
                 />
               </p>
               <div className="flex gap-5 max-w-[1200px]">
-                {navLinks.map((subNav, index) => (
-                  <CustomButton
-                    key={index}
-                    as={Link}
-                    to={subNav.link}
-                    className={cn(
-                      'relative cursor-pointer overflow-hidden rounded-md text-foundry-secondary bg-transparent border-2 border-foundry-secondary font-medium flex items-center gap-x-2 transition-all custom-button hover:text-white',
-                      pathname === subNav.link &&
-                        'bg-foundry-secondary text-white'
-                    )}
-                  >
-                    {subNav.title}
-                  </CustomButton>
-                ))}
+                {navLinks.map((subNav, index) => {
+                  return (
+                    <CustomButton
+                      key={index}
+                      as={Link}
+                      to={subNav.link}
+                      onPress={() =>
+                        window.scrollTo({
+                          top: 733,
+                          left: 0,
+                          behavior: 'smooth',
+                        })
+                      }
+                      className={cn(
+                        'relative cursor-pointer overflow-hidden rounded-md text-foundry-secondary bg-transparent border-2 border-secondary font-medium flex items-center gap-x-2 transition-all custom-button hover:text-white',
+                        view === subNav.link.split('=')[1] &&
+                          'bg-foundry-secondary text-white'
+                      )}
+                    >
+                      {subNav.title}
+                    </CustomButton>
+                  );
+                })}
               </div>
             </motion.div>
             <motion.div
-              initial={{ x: -20 }}
+              initial={{ x: -40 }}
               animate={{ x: 0 }}
-              exit={{ x: -20, opacity: 0 }}
+              exit={{ x: -40, opacity: 0 }}
               className=" items-center gap-x-4 hidden xl:flex"
             >
-              <CustomButton className="bg-transparent border-2 border-primary px-5 ">
+              <CustomButton className="bg-transparent border-2 border-foundry-primary px-5 ">
                 Get Started
               </CustomButton>
               <CustomButton className="bg-foundry-primary text-white font-medium px-5 ">
@@ -206,7 +236,7 @@ const UseCases = () => {
         )}
       </AnimatePresence>
 
-      <Outlet />
+      {displayView[String(view)]}
     </main>
   );
 };
@@ -216,26 +246,26 @@ export default UseCases;
 const navLinks = [
   {
     title: 'All',
-    link: '/use-cases',
+    link: '/use-cases?v=all',
   },
   {
     title: 'Retail',
-    link: '/use-cases/retail',
+    link: '/use-cases?v=retail',
   },
   {
     title: 'Micro Finance / Credit',
-    link: '/use-cases/micro-finance',
+    link: '/use-cases?v=micro-finance',
   },
   {
     title: 'Credit Unions',
-    link: '/use-cases/credit-unions',
+    link: '/use-cases?v=credit-unions',
   },
   {
     title: 'Schools',
-    link: '/use-cases/schools',
+    link: '/use-cases?v=schools',
   },
   {
     title: 'Restaurants',
-    link: '/use-cases/restaurants',
+    link: '/use-cases?v=restaurants',
   },
 ];

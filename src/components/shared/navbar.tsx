@@ -7,10 +7,13 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   cn,
+  useDisclosure,
 } from '@nextui-org/react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { CustomButton } from '../shared_customs';
+import { CustomButton } from './shared_customs';
+import CustomModal from './modal';
+import SignUp from '../../pages/sign_up';
 
 export default function NavbarComponent() {
   const menuItems = [
@@ -39,11 +42,12 @@ export default function NavbarComponent() {
       title: 'Pricing',
     },
   ];
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const { pathname } = useLocation();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const isUseCase = pathname.includes('use-cases');
+  const { pathname } = useLocation();
 
   return (
     <>
@@ -51,12 +55,11 @@ export default function NavbarComponent() {
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         isBordered
-        // position="static"
+        position="static"
         {...{
           ariaLabel: 'Foundry Navbar',
-          shouldHideOnScroll: isUseCase ? false : true,
+          shouldHideOnScroll: false,
           isInverted: true,
-          position: isUseCase ? 'static' : 'sticky',
         }}
         maxWidth="2xl"
         className="bg-white w-full"
@@ -66,6 +69,13 @@ export default function NavbarComponent() {
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           />
         </NavbarContent>
+
+        <CustomModal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          header="Register/Sign up"
+          body={<SignUp />}
+        />
 
         <NavbarContent className="lg:hidden pr-3" justify="center">
           <NavbarBrand as={Link} to="/" className="flex gap-x-3">
@@ -100,7 +110,13 @@ export default function NavbarComponent() {
         </NavbarContent>
 
         <NavbarContent justify="end">
-          <NavbarItem>
+          <NavbarItem className=" gap-x-3 hidden lg:flex">
+            <CustomButton
+              onPress={() => onOpen()}
+              className="bg-foundry-primary text-white hidden md:flex"
+            >
+              Sign up
+            </CustomButton>
             <CustomButton className="bg-[#EDF2EE] border-2 border-foundry-secondary text-foundry-primary">
               Log In
             </CustomButton>

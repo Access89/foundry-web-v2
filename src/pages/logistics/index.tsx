@@ -1,6 +1,6 @@
-import { CustomButton } from '@/components/shared_customs';
+import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { cn } from '@nextui-org/react';
+import { Image, cn } from '@nextui-org/react';
 import { useNavigate } from 'react-router-dom';
 
 const LogisticsAndSupply = () => {

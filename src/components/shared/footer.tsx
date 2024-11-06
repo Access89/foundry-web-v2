@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Accordion, AccordionItem } from '@nextui-org/react';
-import { CustomButton } from '../shared_customs';
+import { CustomButton } from './shared_customs';
+import { Icon } from '@iconify/react/dist/iconify.js';
 
 const Footer = () => {
   return (
@@ -24,19 +25,16 @@ const Footer = () => {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, est?
           </p>
           <div className="flex items-center gap-x-3">
-            <img src="/icons/fb.svg" alt="facebook" className="w-[1.8rem]" />
-            <img src="/icons/x.svg" alt="x" className="w-[1.8rem]" />
-            <img
-              src="/icons/insta.svg"
-              alt="instagram"
-              className="w-[1.8rem]"
-            />
-            <img
-              src="/icons/linkedIn.svg"
-              alt="linkedIn"
-              className="w-[1.8rem]"
-            />
-          </div>
+						{socials.map((item, index) => (
+							<a
+								key={index}
+								href={item.href}
+								target="_blank"
+								className="hover:opacity-80">
+								<Icon icon={item.icon} fontSize={30} />
+							</a>
+						))}
+					</div>
         </div>
         <div className="hidden lg:grid grid-cols-3">
           {FOOTER_ITEMS.map((item, index) => (
@@ -127,6 +125,25 @@ const Footer = () => {
 };
 
 export default Footer;
+
+const socials = [
+	{
+		icon: 'bi:facebook',
+		href: 'https://www.facebook.com/profile.php?id=61558790128679',
+	},
+	{
+		icon: 'bi:instagram',
+		href: 'https://www.instagram.com/Foundry_platform/',
+	},
+	{
+		icon: 'simple-icons:linkedin',
+		href: 'https://www.linkedin.com/company/foundryplatform',
+	},
+	{
+		icon: 'fa-brands:youtube',
+		href: 'https://www.youtube.com/@foundry-platform',
+	},
+];
 
 const FOOTER_ITEMS = [
   {

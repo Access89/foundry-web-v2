@@ -1,9 +1,9 @@
-import { CustomButton } from '@/components/shared_customs';
+import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import React from 'react';
 import ScrollIntoView from 'react-scroll-into-view';
 import { Link } from 'react-router-dom';
-import { cn } from '@nextui-org/react';
+import { Image, cn } from '@nextui-org/react';
 import CustomFAQs from '@/components/shared/custom-faq';
 
 const Pricing = () => {
@@ -53,10 +53,15 @@ const Pricing = () => {
                 </CustomButton>
               </div>
             </div>
-            <img
+            <Image
               src="/images/LS_3.webp"
-              alt="pos device"
-              className="md:w-[19rem] lg:w-[21rem] md:absolute right-10 top-0"
+              alt="AI marketplace"
+              width={336}
+              height={458}
+              classNames={{
+                wrapper: 'md:absolute right-10 rounded-none top-0',
+                img: 'rounded-none',
+              }}
             />
           </div>
 
@@ -67,7 +72,7 @@ const Pricing = () => {
                 as={ScrollIntoView}
                 onClick={() => setActiveHash(subNav.link)}
                 selector={subNav.link}
-                className="relative cursor-pointer overflow-hidden rounded-md text-secondary bg-transparent border-2 border-secondary font-medium flex items-center gap-x-2 transition-all custom-button hover:text-white"
+                className="relative cursor-pointer overflow-hidden rounded-md text-foundry-secondary bg-transparent border-2 border-foundry-secondary font-medium flex items-center gap-x-2 transition-all custom-button hover:text-white"
               >
                 {subNav.title}
                 <Icon icon="iconamoon:arrow-down-2-light" fontSize={22} />
@@ -105,7 +110,7 @@ const Pricing = () => {
                   className={cn(
                     'bg-foundry-primary text-white font-medium w-full mt-auto',
                     index === 2 &&
-                      'border-2 border-primary bg-transparent text-primary'
+                      'border-2 border-primary bg-transparent text-foundry-primary'
                   )}
                 >
                   Get Started
@@ -151,9 +156,9 @@ const Pricing = () => {
                   disabled={selectedToolOption === item}
                   onPress={() => setSelectedToolOption(item)}
                   className={cn(
-                    'relative cursor-pointer overflow-hidden rounded-md text-secondary bg-transparent border-2 border-secondary font-medium flex items-center gap-x-2 transition-all custom-button hover:text-white',
+                    'relative cursor-pointer overflow-hidden rounded-md text-foundry-secondary bg-transparent border-2 border-foundry-secondary font-medium flex items-center gap-x-2 transition-all custom-button hover:text-white',
                     selectedToolOption === item &&
-                      'text-white bg-secondary disabled:cursor-not-allowed'
+                      'text-white bg-foundry-secondary disabled:cursor-not-allowed'
                   )}
                 >
                   {item}
@@ -234,7 +239,7 @@ const Pricing = () => {
           <div className="flex items-center gap-x-5 my-2">
             <Link
               to={''}
-              className="flex items-center gap-x-2 text-primary group hover:opacity-80"
+              className="flex items-center gap-x-2 text-foundry-primary group hover:opacity-80"
             >
               Discover every hardware and accessory available.
               <Icon

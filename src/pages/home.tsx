@@ -1,5 +1,5 @@
 import InfoCard from '@/components/shared/info_card';
-import { CustomButton } from '@/components/shared_customs';
+import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react';
 
 const Home = () => {

@@ -1,6 +1,6 @@
 import FinancialServicesForm from '@/components/financial_services/form';
 import InfoCard from '@/components/shared/info_card';
-import { CustomButton } from '@/components/shared_customs';
+import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import {
   Modal,
@@ -11,6 +11,7 @@ import {
   // Button,
   useDisclosure,
 } from '@nextui-org/react';
+import { Image } from '@nextui-org/react';
 
 const FinancialServices = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -56,15 +57,23 @@ const FinancialServices = () => {
             </CustomButton>
           </div>
         </div>
-        <img
+        <Image
           src="/images/FS_1.webp"
-          alt="pos device"
-          className="w-[16rem] hidden md:block absolute -right-3 -top-16"
+					width={256}
+					height={500}
+          alt="mobile device"
+          classNames={{
+						wrapper: 'hidden md:block absolute -right-3 -top-16',
+					}}
         />
-        <img
+        <Image
           src="/images/FS_1.webp"
-          alt="pos device"
-          className="w-[13rem] md:hidden mx-auto mb-5"
+					width={208}
+					height={400}
+          alt="mobile device"
+          classNames={{
+						wrapper: 'md:hidden mx-auto mb-5',
+					}}
         />
       </section>
 

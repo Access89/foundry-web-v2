@@ -32,7 +32,7 @@ const InfoSectionWithLinksAndCards: React.FC<
             <Link
               key={index}
               to={item.link}
-              className="flex items-center gap-x-2 text-primary group hover:opacity-80"
+              className="flex items-center gap-x-2 text-foundry-primary group hover:opacity-80"
             >
               {item.title}
               <Icon

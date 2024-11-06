@@ -1,6 +1,7 @@
 import InfoCard from '@/components/shared/info_card';
-import { CustomButton } from '@/components/shared_customs';
+import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
+import { Image } from '@nextui-org/react';
 
 const BusinessAutomation = () => {
   return (
@@ -45,12 +46,13 @@ const BusinessAutomation = () => {
           ))}
         </div>
 
-        <img
-          src="/images/BA_1.webp"
-          alt="pos device"
-          className="w-[20rem] md:w-[28rem]"
-        />
-      </section>
+				<Image
+					src="/images/BA_1.webp"
+					width={450}
+					height={320}
+					alt="pos device"
+				/>
+			</section>
 
       <section className="md:grid grid-cols-2 gap-x-5 mt-8 space-y-4 md:space-y-0">
         {[
