@@ -132,7 +132,7 @@ const AllExperience = () => {
 				]}
 			/>
 
-			<section className=" bg-primary p-5 md:p-10 my-16 w-full text-primary-white">
+			<section className=" bg-foundry-primary p-5 md:p-10 my-16 w-full text-primary-white">
 				<div className="container">
 					<div className="md:grid grid-cols-[0.5fr,1fr] gap-x-10 my-5 text-sm">
 						<h5 className="font-medium text-3xl lg:text-4xl">

@@ -20,49 +20,49 @@ const UseCases = lazy(() => import('./pages/use_cases'));
 const LogisticsAndSupply = lazy(() => import('./pages/logistics'));
 
 function App() {
-	const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll();
 
-	return (
-		<main className="bg-background h-full w-full text-base font-roboto">
-			<div>
-				<motion.div
-					style={{ scaleX: scrollYProgress }}
-					className="fixed top-0 left-0 right-0 "
-				/>
+  return (
+    <main className="bg-foundry-background h-full w-full text-base ">
+      <div>
+        <motion.div
+          style={{ scaleX: scrollYProgress }}
+          className="fixed top-0 left-0 right-0 "
+        />
 
-				<ScrollToTop />
-				<Routes>
-					<Route path="/" element={<MainLayout />}>
-						<Route path="" element={<Home />} />
-						<Route path="*" element={<NotFound />} />
-						<Route
-							path="business-automation"
-							element={<BusinessAutomation />}
-						/>
-						<Route path="financial-services" element={<FinancialServices />} />
-						<Route path="use-cases" element={<UseCases />}>
-							<Route path="" element={<AllExperience />} />
-							<Route path="retail" element={<Retail />} />
-							<Route path="micro-finance" element={<MicroFinance />} />
-							<Route path="credit-unions" element={<CreditUnions />} />
-							<Route path="schools" element={<Schools />} />
-							<Route path="restaurants" element={<Restaurants />} />
-						</Route>
-						<Route path="pricing" element={<Pricing />} />
-						<Route
-							path="logistics-supply-chain"
-							element={<LogisticsAndSupply />}
-						/>
-						<Route
-							path="logistics-supply-chain/booking-management"
-							element={<BookingManagement />}
-						/>
-					</Route>
-				</Routes>
-			</div>
-			<Toaster position="top-right" />
-		</main>
-	);
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route path="" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+            <Route
+              path="business-automation"
+              element={<BusinessAutomation />}
+            />
+            <Route path="financial-services" element={<FinancialServices />} />
+            <Route path="use-cases" element={<UseCases />}>
+              <Route path="" element={<AllExperience />} />
+              <Route path="retail" element={<Retail />} />
+              <Route path="micro-finance" element={<MicroFinance />} />
+              <Route path="credit-unions" element={<CreditUnions />} />
+              <Route path="schools" element={<Schools />} />
+              <Route path="restaurants" element={<Restaurants />} />
+            </Route>
+            <Route path="pricing" element={<Pricing />} />
+            <Route
+              path="logistics-supply-chain"
+              element={<LogisticsAndSupply />}
+            />
+            <Route
+              path="logistics-supply-chain/booking-management"
+              element={<BookingManagement />}
+            />
+          </Route>
+        </Routes>
+      </div>
+      <Toaster position="top-right" />
+    </main>
+  );
 }
 
 export default App;
