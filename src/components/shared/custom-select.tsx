@@ -37,9 +37,6 @@ const CustomSelect = ({
           />
         </SelectTrigger>
         <SelectContent>
-          {/* <SelectItem value="light">Light</SelectItem>
-            <SelectItem value="dark">Dark</SelectItem>
-            <SelectItem value="system">System</SelectItem> */}
           {items.map((e) => {
             return (
               <SelectItem value={e.value} key={e.label}>

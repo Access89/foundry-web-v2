@@ -1,20 +1,17 @@
-import FinancialServicesForm from '@/components/financial_services/form';
+import BookADemo from '@/components/financial_services/book-demo-modal';
 import InfoCard from '@/components/shared/info_card';
+import CustomModal from '@/components/shared/modal';
 import { CustomButton } from '@/components/shared/shared_customs';
+import useScrollToSection from '@/hooks/useScrollToSection';
 import { Icon } from '@iconify/react/dist/iconify.js';
-import {
-  Modal,
-  ModalContent,
-  // ModalHeader,
-  ModalBody,
-  // ModalFooter,
-  // Button,
-  useDisclosure,
-} from '@nextui-org/react';
+import { useDisclosure } from '@nextui-org/react';
 import { Image } from '@nextui-org/react';
+import { useNavigate } from 'react-router-dom';
 
 const FinancialServices = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const nav = useNavigate();
+  useScrollToSection();
   return (
     <main className="container md:pt-5">
       <section className="border-3 border-white rounded-xl px-5 lg:px-28 md:pt-16 pb-28 md:mt-[4.5rem] mt-6 relative">
@@ -45,7 +42,12 @@ const FinancialServices = () => {
           </h1>
 
           <div className="flex items-center gap-4">
-            <CustomButton className="bg-foundry-primary text-white font-medium px-5 ">
+            <CustomButton
+              className="bg-foundry-primary text-white font-medium px-5 "
+              onClick={() => {
+                nav('#explore');
+              }}
+            >
               Explore <Icon icon="solar:arrow-right-outline" fontSize={20} />
             </CustomButton>
 
@@ -59,25 +61,25 @@ const FinancialServices = () => {
         </div>
         <Image
           src="/images/FS_1.webp"
-					width={256}
-					height={500}
+          width={256}
+          height={500}
           alt="mobile device"
           classNames={{
-						wrapper: 'hidden md:block absolute -right-3 -top-16',
-					}}
+            wrapper: 'hidden md:block absolute -right-3 -top-16',
+          }}
         />
         <Image
           src="/images/FS_1.webp"
-					width={208}
-					height={400}
+          width={208}
+          height={400}
           alt="mobile device"
           classNames={{
-						wrapper: 'md:hidden mx-auto mb-5',
-					}}
+            wrapper: 'md:hidden mx-auto mb-5',
+          }}
         />
       </section>
 
-      <section className="py-10 pt-28 lg:pt-20">
+      <section className="py-10 pt-28 lg:pt-20" id="explore">
         <div className="flex justify-between">
           <h2 className="font-medium text-3xl md:text-4xl mb-5">
             More from Financial Service
@@ -89,21 +91,25 @@ const FinancialServices = () => {
               key={index}
               title={item.title}
               description={item.description}
+              showLearnMore
+              onLearnMoreClick={() => {
+                nav(
+                  `/financial-service/${item.title
+                    .toLocaleLowerCase()
+                    .split(' ')
+                    .join('-')}`
+                );
+              }}
             />
           ))}
         </div>
       </section>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-        <ModalContent>
-          {() => (
-            <ModalBody>
-              <div className="p-4">
-                <FinancialServicesForm />
-              </div>
-            </ModalBody>
-          )}
-        </ModalContent>
-      </Modal>
+      <CustomModal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        header=""
+        body={<BookADemo />}
+      />
     </main>
   );
 };

@@ -38,7 +38,7 @@ const Home = () => {
           {itemCard.map((item, index) => (
             <div key={index} className="text-primary-white">
               <img src={item.icon} alt={item.title} className="w-[1.6rem]" />
-              <h2 className="font-semibold my-2.5">{item.title}</h2>
+              <h2 className="font-medium my-2.5">{item.title}</h2>
               <p className="text-sm">{item.description}</p>
             </div>
           ))}
