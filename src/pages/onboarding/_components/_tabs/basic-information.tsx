@@ -21,6 +21,16 @@ const BasicInformation = () => {
     }
   }, [dispatch, email, mobile]);
 
+  useEffect(() => {
+    if (email !== "" && mobile !== "") {
+      dispatch(
+        updateSubscriberState({
+          safe: true,
+        })
+      );
+    }
+  }, [dispatch, email, mobile]);
+
   const form = useFormik({
     initialValues: {
       email: "",

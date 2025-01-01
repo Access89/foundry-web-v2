@@ -14,6 +14,7 @@ import toast from "react-hot-toast";
 import { useMutation } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react"; // Import useState
+import { useNavigate } from "react-router-dom";
 
 const PricingPage = () => {
   const {
@@ -29,6 +30,8 @@ const PricingPage = () => {
   } = useSelector((state: RootState) => state.subscriber);
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   // State to track which plan's button is loading
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
@@ -99,54 +102,51 @@ const PricingPage = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 gap-y-5 lg:pt-12 pt-6 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:pt-8 pt-4">
         {allPlans.map((plan, index) => (
           <div
             key={index}
-            className="p-6 bg-[#619B7D]/10 rounded-[1.8rem] cursor-pointer hover:scale-[1.01] duration-700 justify-between lg:grid lg:grid-rows-3"
+            className="p-4 bg-[#619B7D]/10 rounded-lg cursor-pointer hover:scale-[1.01] duration-300 flex flex-col"
           >
-            <div className=" ">
-              <h3 className="text-[1.5rem] lg:text-[3rem] font-medium">
+            <div className="mb-2">
+              <h3 className="text-[1.2rem] lg:text-[2rem] font-medium">
                 {plan.title}
               </h3>
-              <p className="lg:text-[1.1rem] text-[0.9rem]  font-light text-secondary-black my-2">
+              <p className="lg:text-[0.9rem] text-[0.8rem] font-light text-secondary-black">
                 {plan.description}
               </p>
             </div>
-            <div className="row-span-2 flex flex-col justify-between">
-              <div className="pt-4 lg:pt-0">
-                <h6 className="font-semibold text-[1.2rem] mb-1">Features</h6>
-                <div className="grid grid-cols-1 gap-y-2">
-                  {plan?.features?.map((feature) => (
-                    <div className="flex items-center gap-2">
-                      <Icon icon={"uil:check"} className="text-primary" />
-                      <p className="font-light">{feature}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className=" pt-2">
-                <div className="">
-                  <p className="">
-                    <span className="lg:text-[2.7rem] text-[1.7rem] font-medium">
-                      {plan.price}
-                    </span>
-                    {index !== 2 && "/mo"}
-                  </p>
-                </div>
-
-                <CustomButton
-                  className={cn(
-                    "bg-primary text-white font-medium w-full mt-auto lg:py-6 lg:text-[1.1rem]",
-                    index === 3 &&
-                      "border-2 border-primary bg-transparent text-primary"
-                  )}
-                  isLoading={loadingPlan === plan.title} // Show loading only for the clicked button
-                  onClick={() => (index === 3 ? {} : onSubmit(plan.title))}
-                >
-                  {index == 3 ? "Contact Sales" : "Subscribe"}
-                </CustomButton>
-              </div>
+            <div className="flex-grow">
+              <h6 className="font-semibold text-[1rem] mb-1">Features</h6>
+              <ul className="space-y-1 text-[0.8rem] lg:text-[0.9rem]">
+                {plan.features.map((feature, i) => (
+                  <li key={i} className="flex items-center gap-2">
+                    <Icon icon={"uil:check"} className="text-primary" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-4">
+              <p>
+                <span className="lg:text-[2.3rem] text-[1.5rem] font-medium">
+                  {plan.price}
+                </span>
+                {index !== 3 && <span className="text-sm">/mo</span>}
+              </p>
+              <CustomButton
+                className={cn(
+                  "bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]",
+                  index === 3 &&
+                    "border-2 border-primary bg-transparent text-primary"
+                )}
+                isLoading={loadingPlan === plan.title}
+                onClick={() =>
+                  index === 3 ? navigate("/custom-plan") : onSubmit(plan.title)
+                }
+              >
+                {index === 3 ? "Contact Sales" : "Subscribe"}
+              </CustomButton>
             </div>
           </div>
         ))}
