@@ -5,7 +5,7 @@ import globalSlice from './features/global';
 import subscriberSlice from './features/subscriber';
 
 const persistConfig = {
-	key: 'Foundry Eat',
+	key: 'Foundry Web',
 	storage,
 	whitelist: [''],
 	blacklist: [],

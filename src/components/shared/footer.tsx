@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className="bg-primary text-primary-white relative h-full"
+      className="bg-primary text-primary-white relative"
     >
       <img
         src="/images/logo_clustered.png"

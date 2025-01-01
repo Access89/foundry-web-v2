@@ -66,7 +66,7 @@ const Onboarding = () => {
     },
   };
   return (
-    <div className="lg:w-[700px] lg:h-screen lg:pt-12 lg:px-6  mx-auto font-sans flex flex-col justify-between lg:pb-12 px-6 pt-6 h-[95vh]">
+    <div className="lg:w-[700px] w-full h-full lg:pt-12 lg:px-6 mx-auto font-sans flex flex-col justify-between lg:pb-12 px-6 py-6">
       <div className="flex flex-col gap-4">
         <div
           className="flex items-center justify-start cursor-pointer"

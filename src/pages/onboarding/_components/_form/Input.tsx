@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Input } from "@nextui-org/react";
-import { useState } from "react";
+import { Input } from '@nextui-org/react';
+import { useState } from 'react';
 interface props {
   type: string;
   label: string;
@@ -32,21 +32,21 @@ const CustomInput = ({
       <Input
         id={id}
         // type={type}
-        type={type === "password" && showPassword ? "text" : type}
+        type={type === 'password' && showPassword ? 'text' : type}
         label={label}
         placeholder={placeholder}
         errorMessage={errors[id]}
         value={values[id]}
         onChange={handleChange}
         onBlur={handleBlur}
+        classNames={{ input: 'text-[16px]' }}
       />
 
-      {type === "password" && (
+      {type === 'password' && (
         <button
           type="button"
           onClick={handleTogglePassword}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
-        >
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700">
           {showPassword ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -54,8 +54,7 @@ const CustomInput = ({
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5"
-            >
+              className="w-5 h-5">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -69,8 +68,7 @@ const CustomInput = ({
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5"
-            >
+              className="w-5 h-5">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

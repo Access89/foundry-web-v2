@@ -35,7 +35,7 @@ const Home = () => {
                     navigate('/onboarding');
                   }}
                 >
-                  Get in touch{' '}
+                  Get Started{' '}
                   <Icon icon="solar:arrow-right-outline" fontSize={20} />
                 </CustomButton>
               </div>

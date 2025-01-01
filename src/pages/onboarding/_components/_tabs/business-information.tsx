@@ -98,7 +98,7 @@ const BasicInformation = () => {
             { label: "Fund Management", value: "Fund Management" },
           ]}
           label={"Business Type"}
-          placeholder={"e.g. Limited Liability"}
+          placeholder={"e.g. Retail"}
           id={"email"}
           {...form}
           handleChange={(e: any) => {

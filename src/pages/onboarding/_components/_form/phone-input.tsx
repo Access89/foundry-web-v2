@@ -53,7 +53,7 @@ const PhoneInput = ({
         <Input
           id={id}
           type={type}
-          label={"Country code"}
+          label={'Country Code'}
           placeholder={placeholder}
           errorMessage={errors[id]}
           value={country_code}
@@ -62,7 +62,9 @@ const PhoneInput = ({
           disabled
           className="col-span-5"
           classNames={{
-            inputWrapper: "h-14",
+            inputWrapper: 'h-14',
+            input: 'text-[16px]',
+            label: "whitespace-nowrap"
           }}
         />
       </div>
@@ -77,7 +79,8 @@ const PhoneInput = ({
         onBlur={handleBlur}
         className="col-span-5"
         classNames={{
-          inputWrapper: "h-14",
+          inputWrapper: 'h-14',
+          input: 'text-[16px]',
         }}
       />
     </div>

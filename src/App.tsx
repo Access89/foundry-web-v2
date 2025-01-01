@@ -1,76 +1,73 @@
-import { lazy } from 'react';
-import { Toaster } from 'react-hot-toast';
-import { Route, Routes } from 'react-router-dom';
-import ScrollToTop from './components/shared/scroll_to_top';
-import { motion, useScroll } from 'framer-motion';
-import MainLayout from './layout/main_layout';
-import BookingManagement from './pages/logistics/booking_management';
-import Pricing from './pages/pricing';
-import NotFound from './components/shared/not_found';
-import OrderManagement from './pages/logistics/order_management';
-import Trucking from './pages/logistics/trucking';
-import Onboarding from './pages/onboarding';
-import PricingPage from './pages/onboarding/_pages/pricing';
-import BookADemo from './pages/book-a-demo';
-import FinancialServiceExpansion from './pages/financial-service';
-const Home = lazy(() => import('./pages/home'));
-const BusinessAutomation = lazy(() => import('./pages/business_automation'));
-const FinancialServices = lazy(() => import('./pages/financial_services'));
-const UseCases = lazy(() => import('./pages/use_cases'));
-const LogisticsAndSupply = lazy(() => import('./pages/logistics'));
+import { motion, useScroll } from "framer-motion";
+import { lazy } from "react";
+import { Toaster } from "react-hot-toast";
+import { Route, Routes } from "react-router-dom";
+import NotFound from "./components/shared/not_found";
+import ScrollToTop from "./components/shared/scroll_to_top";
+import MainLayout from "./layout/main_layout";
+import BookADemo from "./pages/book-a-demo";
+import FinancialServiceExpansion from "./pages/financial-service";
+import BookingManagement from "./pages/logistics/booking_management";
+import OrderManagement from "./pages/logistics/order_management";
+import Trucking from "./pages/logistics/trucking";
+import Onboarding from "./pages/onboarding";
+import PricingPage from "./pages/onboarding/_pages/pricing";
+import Pricing from "./pages/pricing";
+import CustomPlan from "./pages/custom-plan";
+const Home = lazy(() => import("./pages/home"));
+const BusinessAutomation = lazy(() => import("./pages/business_automation"));
+const FinancialServices = lazy(() => import("./pages/financial_services"));
+const UseCases = lazy(() => import("./pages/use_cases"));
+const LogisticsAndSupply = lazy(() => import("./pages/logistics"));
 
 function App() {
   const { scrollYProgress } = useScroll();
 
   return (
-    <main className=" h-full w-full text-base font-roboto">
-      <div>
-        <motion.div
-          style={{ scaleX: scrollYProgress }}
-          className="fixed top-0 left-0 right-0 "
-        />
+    <main className="w-full h-[100dvh] flex flex-col text-base font-roboto">
+      <motion.div
+        style={{ scaleX: scrollYProgress }}
+        className="fixed top-0 left-0 right-0"
+      />
 
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route path="" element={<Home />} />
-            <Route path="*" element={<NotFound />} />
-            <Route
-              path="business-automation"
-              element={<BusinessAutomation />}
-            />
-            <Route path="financial-services" element={<FinancialServices />} />
-            <Route
-              path="/financial-service/:service"
-              element={<FinancialServiceExpansion />}
-            />
-            <Route path="use-cases" element={<UseCases />} />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route path="" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="business-automation" element={<BusinessAutomation />} />
+          <Route path="financial-services" element={<FinancialServices />} />
+          <Route
+            path="/financial-service/:service"
+            element={<FinancialServiceExpansion />}
+          />
+          <Route path="use-cases" element={<UseCases />} />
 
-            <Route path="pricing" element={<Pricing />} />
-            <Route
-              path="logistics-supply-chain"
-              element={<LogisticsAndSupply />}
-            />
-            <Route
-              path="logistics-supply-chain/booking-management"
-              element={<BookingManagement />}
-            />
-            <Route
-              path="logistics-supply-chain/order-management"
-              element={<OrderManagement />}
-            />
-            <Route
-              path="logistics-supply-chain/trucking"
-              element={<Trucking />}
-            />
-          </Route>
-          <Route path="book-a-demo" element={<BookADemo />} />
-          <Route path="onboarding/">
-            <Route path="" element={<Onboarding />} />
-            <Route path="pricing" element={<PricingPage />} />
-          </Route>
-        </Routes>
-      </div>
+          <Route path="pricing" element={<Pricing />} />
+          <Route
+            path="logistics-supply-chain"
+            element={<LogisticsAndSupply />}
+          />
+          <Route
+            path="logistics-supply-chain/booking-management"
+            element={<BookingManagement />}
+          />
+          <Route
+            path="logistics-supply-chain/order-management"
+            element={<OrderManagement />}
+          />
+          <Route
+            path="logistics-supply-chain/trucking"
+            element={<Trucking />}
+          />
+        </Route>
+        <Route path="book-a-demo" element={<BookADemo />} />
+        <Route path="custom-plan" element={<CustomPlan />} />
+        <Route path="onboarding/">
+          <Route path="" element={<Onboarding />} />
+          <Route path="pricing" element={<PricingPage />} />
+        </Route>
+      </Routes>
       <Toaster position="top-right" />
     </main>
   );
