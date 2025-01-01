@@ -142,7 +142,7 @@ const PricingPage = () => {
                       "border-2 border-primary bg-transparent text-primary"
                   )}
                   isLoading={loadingPlan === plan.title} // Show loading only for the clicked button
-                  onClick={() => onSubmit(plan.title)}
+                  onClick={() => (index === 3 ? {} : onSubmit(plan.title))}
                 >
                   {index == 3 ? "Contact Sales" : "Subscribe"}
                 </CustomButton>
