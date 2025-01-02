@@ -1,31 +1,31 @@
-import { CustomButton } from '@/components/shared/shared_customs';
-import { Icon } from '@iconify/react/dist/iconify.js';
-import React from 'react';
-import ScrollIntoView from 'react-scroll-into-view';
-import { Link } from 'react-router-dom';
-import { Image, cn } from '@nextui-org/react';
-import CustomFAQs from '@/components/shared/custom-faq';
+import { CustomButton } from "@/components/shared/shared_customs";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import React from "react";
+import ScrollIntoView from "react-scroll-into-view";
+import { Link } from "react-router-dom";
+import { Image, cn } from "@nextui-org/react";
+import CustomFAQs from "@/components/shared/custom-faq";
 
 const Pricing = () => {
-  const [, setActiveHash] = React.useState('');
-  const [selectedToolOption, setSelectedToolOption] = React.useState('All');
+  const [, setActiveHash] = React.useState("");
+  const [selectedToolOption, setSelectedToolOption] = React.useState("All");
 
   React.useEffect(() => {
     const scrollActive = () => {
-      const sections = document.querySelectorAll('section');
+      const sections = document.querySelectorAll("section");
       sections.forEach((section) => {
         const top = section.offsetTop;
         const height = section.offsetHeight;
         if (window.scrollY >= top && window.scrollY < top + height) {
-          const id = section.getAttribute('id');
-          setActiveHash(String('#' + id));
+          const id = section.getAttribute("id");
+          setActiveHash(String("#" + id));
 
           // window.scrollTo({ top: top, left: 0, behavior: 'smooth' });
         }
       });
     };
-    window.addEventListener('scroll', scrollActive);
-    return () => window.removeEventListener('scroll', scrollActive);
+    window.addEventListener("scroll", scrollActive);
+    return () => window.removeEventListener("scroll", scrollActive);
   }, []);
 
   return (
@@ -59,8 +59,8 @@ const Pricing = () => {
               width={336}
               height={458}
               classNames={{
-                wrapper: 'md:absolute right-10 rounded-none top-0',
-                img: 'rounded-none',
+                wrapper: "md:absolute right-10 rounded-none top-0",
+                img: "rounded-none",
               }}
             />
           </div>
@@ -135,7 +135,7 @@ const Pricing = () => {
                     <div className="grid grid-cols-1 gap-y-2">
                       {plan?.features?.map((feature) => (
                         <div className="flex items-center gap-2">
-                          <Icon icon={'uil:check'} className="text-primary" />
+                          <Icon icon={"uil:check"} className="text-primary" />
                           <p className="font-light">{feature}</p>
                         </div>
                       ))}
@@ -147,7 +147,7 @@ const Pricing = () => {
                         <span className="lg:text-[2.7rem] text-[1.7rem] font-medium">
                           {plan.price}
                         </span>
-                        {index !== 2 && '/mo'}
+                        {index !== 2 && "/mo"}
                         {/* <br />
 									<p className="text-sm text-secondary-black ">
 									  + processing fees
@@ -157,12 +157,12 @@ const Pricing = () => {
 
                     <CustomButton
                       className={cn(
-                        'bg-primary text-white font-medium w-full mt-auto lg:py-6 lg:text-[1.1rem]',
+                        "bg-primary text-white font-medium w-full mt-auto lg:py-6 lg:text-[1.1rem]",
                         index === 2 &&
-                          'border-2 border-primary bg-transparent text-primary'
+                          "border-2 border-primary bg-transparent text-primary"
                       )}
                     >
-                      {index == 2 ? 'Contact Sales' : 'Get Started'}
+                      {index == 2 ? "Contact Sales" : "Get Started"}
                     </CustomButton>
                   </div>
                 </div>
@@ -200,16 +200,16 @@ const Pricing = () => {
             Tools to mix & match
           </h2>
           <div className="flex gap-5 flex-wrap mb-10">
-            {['All', 'Free', 'Commerce', 'Customers', 'Banking', 'Staff'].map(
+            {["All", "Free", "Commerce", "Customers", "Banking", "Staff"].map(
               (item, index) => (
                 <CustomButton
                   key={index}
                   disabled={selectedToolOption === item}
                   onPress={() => setSelectedToolOption(item)}
                   className={cn(
-                    'relative cursor-pointer overflow-hidden rounded-md text-secondary bg-transparent border-2 border-secondary font-medium flex items-center gap-x-2 transition-all custom-button hover:text-white',
+                    "relative cursor-pointer overflow-hidden rounded-md text-secondary bg-transparent border-2 border-secondary font-medium flex items-center gap-x-2 transition-all custom-button hover:text-white",
                     selectedToolOption === item &&
-                      'text-white bg-secondary disabled:cursor-not-allowed'
+                      "text-white bg-secondary disabled:cursor-not-allowed"
                   )}
                 >
                   {item}
@@ -268,9 +268,9 @@ const Pricing = () => {
         </div>
         <div className="md:grid md:grid-cols-auto-fill-300 gap-8 space-y-5 md:space-y-0">
           {[
-            'Streamline the allocation of resources and time slots, optimising bookings to minimise gaps and maximise utilisation',
-            'Streamline the allocation of resources and time slots, optimising bookings to minimise gaps and maximise utilisation',
-            'Streamline the allocation of resources and time slots, optimising bookings to minimise gaps and maximise utilisation',
+            "Streamline the allocation of resources and time slots, optimising bookings to minimise gaps and maximise utilisation",
+            "Streamline the allocation of resources and time slots, optimising bookings to minimise gaps and maximise utilisation",
+            "Streamline the allocation of resources and time slots, optimising bookings to minimise gaps and maximise utilisation",
           ].map((item, index) => (
             <div key={index} className="space-y-2 text-sm">
               <div className="border-2 border-white p-3 rounded-xl h-[15rem]"></div>
@@ -289,7 +289,7 @@ const Pricing = () => {
           </h2>
           <div className="flex items-center gap-x-5 my-2">
             <Link
-              to={''}
+              to={""}
               className="flex items-center gap-x-2 text-primary group hover:opacity-80"
             >
               Discover every hardware and accessory available.
@@ -302,7 +302,7 @@ const Pricing = () => {
           </div>
 
           <div className="md:grid md:grid-cols-auto-fill-300 gap-8 space-y-5 md:space-y-0 mt-5">
-            {['Foundry Register', 'Foundry Terminal', 'Foundry KDS'].map(
+            {["Foundry Register", "Foundry Terminal", "Foundry KDS"].map(
               (item, index) => (
                 <div
                   key={index}
@@ -343,11 +343,11 @@ export default Pricing;
 
 const faqQuestion = [
   {
-    header: 'How does buy now, pay later work?',
+    header: "How does buy now, pay later work?",
     desc: [
       <>
-        Foundry's{' '}
-        <strong className="font-semibold">Buy Now, Pay Later (BNPL)</strong>{' '}
+        Foundry's{" "}
+        <strong className="font-semibold">Buy Now, Pay Later (BNPL)</strong>{" "}
         solution allows businesses to access flexible payment options for their
         transactions. Buyers can purchase goods or services immediately while
         spreading the cost over time in manageable installments. This improves
@@ -359,10 +359,10 @@ const faqQuestion = [
     ],
   },
   {
-    header: 'How does Foundry compare to other business software providers?',
+    header: "How does Foundry compare to other business software providers?",
     desc: [
       <>
-        Foundry stands out by offering a{' '}
+        Foundry stands out by offering a{" "}
         <strong className="font-semibold">
           comprehensive ecosystem tailored for B2B interactions
         </strong>
@@ -375,7 +375,7 @@ const faqQuestion = [
     ],
   },
   {
-    header: 'What kind of resources does Foundry provide businesses?',
+    header: "What kind of resources does Foundry provide businesses?",
     desc: [
       <>
         Foundry equips wholesale marketplaces with a robust set of tools and
@@ -385,48 +385,48 @@ const faqQuestion = [
           <li>
             <strong className="font-semibold">
               Supplier and Buyer Management:
-            </strong>{' '}
+            </strong>{" "}
             Tools to easily onboard and manage suppliers and buyers, ensuring
             seamless interactions and communication.
           </li>
           <li>
             <strong className="font-semibold">
               Order Processing and Tracking:
-            </strong>{' '}
+            </strong>{" "}
             Real-time tracking and streamlined workflows for managing bulk
             orders efficiently.
           </li>
           <li>
-            <strong className="font-semibold">Inventory Management:</strong>{' '}
+            <strong className="font-semibold">Inventory Management:</strong>{" "}
             Advanced systems to monitor stock levels, predict demand, and
             prevent overstocking or shortages.
           </li>
           <li>
             <strong className="font-semibold">
               Payment and Financing Solutions:
-            </strong>{' '}
+            </strong>{" "}
             Integrated payment gateways, credit facilities like Buy Now, Pay
             Later (BNPL), and support for multi-currency transactions to
             simplify payment processes.
           </li>
           <li>
-            <strong className="font-semibold">Logistics Integration:</strong>{' '}
+            <strong className="font-semibold">Logistics Integration:</strong>{" "}
             Tools to manage shipping, delivery tracking, and cross-border
             logistics with minimal hassle.
           </li>
           <li>
-            <strong className="font-semibold">Data and Insights</strong>{' '}
+            <strong className="font-semibold">Data and Insights</strong>{" "}
             Analytics dashboards offering deep insights into sales trends,
             customer behavior, and supply chain performance to inform strategic
             decisions.
           </li>
           <li>
-            <strong className="font-semibold">Marketing Support:</strong>{' '}
+            <strong className="font-semibold">Marketing Support:</strong>{" "}
             Features like promotional tools, custom discounts, and marketplace
             campaigns to help suppliers reach more buyers.
           </li>
           <li>
-            <strong className="font-semibold">Compliance Tools:</strong>{' '}
+            <strong className="font-semibold">Compliance Tools:</strong>{" "}
             Built-in solutions to ensure adherence to regional trade
             regulations, tax compliance, and fraud detection.
           </li>
@@ -435,14 +435,14 @@ const faqQuestion = [
     ],
   },
   {
-    header: 'Does Foundry have tools for complex businesses?',
+    header: "Does Foundry have tools for complex businesses?",
     desc: [
       <>
         Yes! Foundry is designed to handle the needs of complex businesses,
         offering:
         <ul className="list-disc pt-2 flex flex-col gap-2">
           <li>
-            <strong className="font-semibold">Advanced case management:</strong>{' '}
+            <strong className="font-semibold">Advanced case management:</strong>{" "}
             for compliance and fraud detection.
           </li>
           <li>
@@ -456,7 +456,7 @@ const faqQuestion = [
           <li>
             <strong className="font-semibold">
               Customizable integrations:
-            </strong>{' '}
+            </strong>{" "}
             s to connect with existing ERP or CRM systems, ensuring seamless
             operations.
           </li>
@@ -465,7 +465,7 @@ const faqQuestion = [
     ],
   },
   {
-    header: 'What are merchant services?',
+    header: "What are merchant services?",
     desc: [
       <>
         Merchant services refer to the financial tools and technologies that the
@@ -473,8 +473,8 @@ const faqQuestion = [
         <ul className="list-disc pt-2 flex flex-col gap-2">
           <li>
             <strong className="font-semibold">
-              Payment processing solutions{' '}
-            </strong>{' '}
+              Payment processing solutions{" "}
+            </strong>{" "}
             for online and offline sales.
           </li>
           <li>
@@ -484,11 +484,11 @@ const faqQuestion = [
             to track inventory and sales in real-time.
           </li>
           <li>
-            <strong className="font-semibold">Fraud protection measures</strong>{' '}
+            <strong className="font-semibold">Fraud protection measures</strong>{" "}
             to secure transactions.
           </li>
           <li>
-            <strong className="font-semibold">Custom invoicing systems</strong>{' '}
+            <strong className="font-semibold">Custom invoicing systems</strong>{" "}
             to streamline billing and collection processes. operations.
           </li>
         </ul>
@@ -496,7 +496,7 @@ const faqQuestion = [
     ],
   },
   {
-    header: 'Does Foundry have tools for professional services businesses?',
+    header: "Does Foundry have tools for professional services businesses?",
     desc: [
       <>
         Absolutely. Foundry offers tools specifically designed for professional
@@ -505,7 +505,7 @@ const faqQuestion = [
           <li>
             <strong className="font-semibold">
               Time tracking and billing systems
-            </strong>{' '}
+            </strong>{" "}
             to manage client projects efficiently.
           </li>
           <li>
@@ -517,11 +517,11 @@ const faqQuestion = [
           <li>
             <strong className="font-semibold">
               Digital contract management
-            </strong>{' '}
+            </strong>{" "}
             allows businesses to securely create, sign, and store contracts.
           </li>
           <li>
-            <strong className="font-semibold">Financial planning tools,</strong>{' '}
+            <strong className="font-semibold">Financial planning tools,</strong>{" "}
             like expense tracking and revenue forecasting, are tailored for
             service-based workflows.
           </li>
@@ -533,24 +533,24 @@ const faqQuestion = [
 
 const navLinks = [
   {
-    title: 'See Plans',
-    link: '#plans',
+    title: "See Plans",
+    link: "#plans",
   },
   {
-    title: 'Explore all tools',
-    link: '#explore-tools',
+    title: "Explore all tools",
+    link: "#explore-tools",
   },
   {
-    title: 'Processing  Fees',
-    link: '#processing-fees',
+    title: "Processing  Fees",
+    link: "#processing-fees",
   },
   {
-    title: 'By business type',
-    link: '#business-type',
+    title: "By business type",
+    link: "#business-type",
   },
   {
-    title: 'Shop hardware',
-    link: '#shop-hardware',
+    title: "Shop hardware",
+    link: "#shop-hardware",
   },
 ];
 
@@ -577,94 +577,108 @@ const navLinks = [
 
 const mix_and_match = [
   {
-    title: 'Foundry POS ',
-    desc: 'Easily start selling in person, online, by phone, or on the go — no training needed.',
-    startingPrice: '',
+    title: "Foundry POS ",
+    desc: "Easily start selling in person, online, by phone, or on the go — no training needed.",
+    startingPrice: "",
     tags: [],
   },
   {
-    title: 'Payroll ',
-    desc: 'Manage hours, expedite employee payments, and automate tax filings all from one platform to simplify payroll.',
-    startingPrice: '',
+    title: "Payroll ",
+    desc: "Manage hours, expedite employee payments, and automate tax filings all from one platform to simplify payroll.",
+    startingPrice: "",
     tags: [],
   },
   {
-    title: 'Online Store',
-    desc: 'Effortlessly sell, accept bookings, and showcase your services online. Expand your reach to customers on Instagram and Facebook.',
-    startingPrice: '',
+    title: "Online Store",
+    desc: "Effortlessly sell, accept bookings, and showcase your services online. Expand your reach to customers on Instagram and Facebook.",
+    startingPrice: "",
     tags: [],
   },
   {
-    title: 'Invoices',
-    desc: 'Create and send digital invoices and estimates, accept payments, issue reminders, and track payment statuses.',
-    startingPrice: '',
+    title: "Invoices",
+    desc: "Create and send digital invoices and estimates, accept payments, issue reminders, and track payment statuses.",
+    startingPrice: "",
     tags: [],
   },
   {
-    title: 'Loans',
-    desc: 'Qualify for loans selling using Foundry. Receive funds as quickly as the next business day.',
-    startingPrice: '',
+    title: "Loans",
+    desc: "Qualify for loans selling using Foundry. Receive funds as quickly as the next business day.",
+    startingPrice: "",
     tags: [],
   },
   {
-    title: 'Loyalty',
-    desc: 'Encourage repeat business with a simple and effective rewards program.',
-    startingPrice: '',
+    title: "Loyalty",
+    desc: "Encourage repeat business with a simple and effective rewards program.",
+    startingPrice: "",
     tags: [],
   },
   {
-    title: 'Marketing suite ',
-    desc: 'Reach out to customers directly with updates on sales, new arrivals, coupons, and more to keep your business top of mind.',
-    startingPrice: '',
+    title: "Marketing suite ",
+    desc: "Reach out to customers directly with updates on sales, new arrivals, coupons, and more to keep your business top of mind.",
+    startingPrice: "",
     tags: [],
   },
 ];
 const allPlans = [
   {
-    title: 'Basic',
+    title: "Free Tier",
     description:
-      'Expand your reach and sell anywhere: in-store, online, over the phone, or while on the move.',
-    price: '₵650',
+      "Experience all the essential tools and features your business needs to thrive completely FREE for the first month. Enjoy full access to manage sales, inventory, and finances seamlessly.",
+    price: "₵0",
     features: [
-      'Virtual Terminal (POS)',
-      'Generate Invoices',
-      'Manage Inventory',
-      'Basic Accounting and Book keeping',
-      'Manage Cash flow',
-      'Single Location ',
+      "Virtual Terminal (POS)",
+      "Generate Invoices",
+      "Manage Inventory",
+      "Basic Accounting and Book keeping",
+      "Manage Cash flow",
+      "Single Location ",
     ],
   },
   {
-    title: 'Plus',
+    title: "Basic",
     description:
-      ' Unlock advanced features tailored to meet the unique needs of restaurants, retail shops, and appointment-based businesses. Enjoy the flexibility to upgrade your plan whenever it suits you and cancel at any time without hassle.',
-    price: '₵1,500',
+      "Expand your reach and sell anywhere: in-store, online, over the phone, or while on the move.",
+    price: "₵650",
     features: [
-      'Advance invoicing',
-      'Generate Purchase Orders',
-      'Inventory analytics',
-      'Live phone support',
-      'Online Checkout',
-      'Single Location',
-      '1 Warehouse',
-      'Barcode generation and printing',
+      "Virtual Terminal (POS)",
+      "Generate Invoices",
+      "Manage Inventory",
+      "Basic Accounting and Book keeping",
+      "Manage Cash flow",
+      "Single Location ",
     ],
   },
   {
-    title: 'Advanced',
+    title: "Plus",
     description:
-      'Create a tailored plan designed to address the unique complexities of your operations. Custom processing rates may be offered based on eligibility.',
-    price: 'Custom',
+      " Unlock advanced features tailored to meet the unique needs of restaurants, retail shops, and appointment-based businesses. Enjoy the flexibility to upgrade your plan whenever it suits you and cancel at any time without hassle.",
+    price: "₵1,500",
     features: [
-      'Staff Payroll',
-      'Advanced Accounting',
-      'Warehouse Management',
-      '24/7 support',
-      'Integrations',
-      'Online Ordering',
-      'Multi Store ',
-      'Business Account ',
-      'Business Analytics ',
+      "Advance invoicing",
+      "Generate Purchase Orders",
+      "Inventory analytics",
+      "Live phone support",
+      "Online Checkout",
+      "Single Location",
+      "1 Warehouse",
+      "Barcode generation and printing",
+    ],
+  },
+  {
+    title: "Advanced",
+    description:
+      "Create a tailored plan designed to address the unique complexities of your operations. Custom processing rates may be offered based on eligibility.",
+    price: "Custom",
+    features: [
+      "Staff Payroll",
+      "Advanced Accounting",
+      "Warehouse Management",
+      "24/7 support",
+      "Integrations",
+      "Online Ordering",
+      "Multi Store ",
+      "Business Account ",
+      "Business Analytics ",
     ],
   },
 ];
