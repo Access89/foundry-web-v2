@@ -1,14 +1,11 @@
-import { Link } from 'react-router-dom';
-import { Accordion, AccordionItem } from '@nextui-org/react';
-import { CustomButton } from './shared_customs';
-import { Icon } from '@iconify/react/dist/iconify.js';
+import { Link } from "react-router-dom";
+import { Accordion, AccordionItem } from "@nextui-org/react";
+import { CustomButton } from "./shared_customs";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 const Footer = () => {
   return (
-    <footer
-      id="footer"
-      className="bg-primary text-primary-white relative"
-    >
+    <footer id="footer" className="bg-primary text-primary-white relative">
       <img
         src="/images/logo_clustered.png"
         alt="clustered_logos"
@@ -56,12 +53,12 @@ const Footer = () => {
         <div className="lg:hidden block mt-5">
           <Accordion
             itemClasses={{
-              base: 'py-0 w-full',
-              title: 'font-normal text-medium text-primary-white',
+              base: "py-0 w-full",
+              title: "font-normal text-medium text-primary-white",
               trigger:
-                ' py-0 data-[hover=true]:bg-default-100  rounded-lg h-10 flex items-center',
-              indicator: 'text-medium',
-              content: 'text-small  text-white',
+                " py-0 data-[hover=true]:bg-default-100  rounded-lg h-10 flex items-center",
+              indicator: "text-medium",
+              content: "text-small  text-white",
             }}
             isCompact
           >
@@ -91,14 +88,14 @@ const Footer = () => {
           <div className="flex items-center gap-x-4">
             {[
               {
-                title: 'App Store',
-                icon: '/icons/Apple.svg',
-                link: 'https://apps.apple.com/gh/developer/access89/id1781630972',
+                title: "App Store",
+                icon: "/icons/Apple.svg",
+                link: "https://apps.apple.com/gh/developer/access89/id1781630972",
               },
               {
-                title: 'Google play',
-                icon: '/icons/playstore.svg',
-                link: 'https://play.google.com/store/apps/developer?id=access+89&hl=en_US',
+                title: "Google play",
+                icon: "/icons/playstore.svg",
+                link: "https://play.google.com/store/apps/developer?id=access+89&hl=en_US",
               },
             ].map((item, index) => (
               <a href={item.link} target="_blank" key={index}>
@@ -116,7 +113,7 @@ const Footer = () => {
       </div>
       <div className="w-full h-[1px] bg-black/40" />
       <div className="py-3 text-center text-xs">
-        Foundry © 2024. All Rights Reserved
+        Foundry © {new Date().getFullYear()}. All Rights Reserved
       </div>
     </footer>
   );
@@ -126,84 +123,84 @@ export default Footer;
 
 const socials = [
   {
-    icon: 'bi:facebook',
-    href: 'https://www.facebook.com/profile.php?id=61558790128679',
+    icon: "bi:facebook",
+    href: "https://www.facebook.com/profile.php?id=61558790128679",
   },
   {
-    icon: 'bi:instagram',
-    href: 'https://www.instagram.com/Foundry_platform/',
+    icon: "bi:instagram",
+    href: "https://www.instagram.com/Foundry_platform/",
   },
   {
-    icon: 'simple-icons:linkedin',
-    href: 'https://www.linkedin.com/company/foundryplatform',
+    icon: "simple-icons:linkedin",
+    href: "https://www.linkedin.com/company/foundryplatform",
   },
   {
-    icon: 'fa-brands:youtube',
-    href: 'https://www.youtube.com/@foundry-platform',
+    icon: "fa-brands:youtube",
+    href: "https://www.youtube.com/@foundry-platform",
   },
 ];
 
 const FOOTER_ITEMS = [
   {
-    header: 'My Account',
+    header: "My Account",
     links: [
       {
-        title: 'My Account',
-        href: '',
+        title: "My Account",
+        href: "",
       },
       {
-        title: 'Order History',
-        href: '',
+        title: "Order History",
+        href: "",
       },
       {
-        title: 'Shopping Cart',
-        href: '',
+        title: "Shopping Cart",
+        href: "",
       },
       {
-        title: 'Wishlist',
-        href: '',
+        title: "Wishlist",
+        href: "",
       },
     ],
   },
   {
-    header: 'Helps',
+    header: "Helps",
     links: [
       {
-        title: 'Contact',
-        href: '',
+        title: "Contact",
+        href: "",
       },
       {
-        title: 'Faqs',
-        href: '',
+        title: "Faqs",
+        href: "",
       },
       {
-        title: 'Terms & Conditions',
-        href: '',
+        title: "Terms & Conditions",
+        href: "",
       },
       {
-        title: 'Privacy',
-        href: '',
+        title: "Privacy",
+        href: "",
       },
     ],
   },
   {
-    header: 'Proxy',
+    header: "Proxy",
     links: [
       {
-        title: 'About',
-        href: '',
+        title: "About",
+        href: "",
       },
       {
-        title: 'Shop',
-        href: '',
+        title: "Shop",
+        href: "",
       },
       {
-        title: 'Product',
-        href: '',
+        title: "Product",
+        href: "",
       },
       {
-        title: 'Track Order',
-        href: '',
+        title: "Track Order",
+        href: "",
       },
     ],
   },
