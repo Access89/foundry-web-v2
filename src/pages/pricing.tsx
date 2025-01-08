@@ -2,7 +2,7 @@ import { CustomButton } from "@/components/shared/shared_customs";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React from "react";
 import ScrollIntoView from "react-scroll-into-view";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Image, cn } from "@nextui-org/react";
 import CustomFAQs from "@/components/shared/custom-faq";
 
@@ -27,6 +27,8 @@ const Pricing = () => {
     window.addEventListener("scroll", scrollActive);
     return () => window.removeEventListener("scroll", scrollActive);
   }, []);
+
+  const navigate = useNavigate();
 
   return (
     <main>
@@ -88,83 +90,52 @@ const Pricing = () => {
           <h2 className="font-medium text-3xl lg:text-4xl mb-5">
             Plans for every stage
           </h2>
-          <div className="grid grid-cols-auto-fill-300 gap-5 space-y-5 md:space-y-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:pt-8 pt-4">
             {allPlans.map((plan, index) => (
-              // <div
-              // 	key={index}
-              // 	className="p-5 bg-[#619B7D]/10 rounded-xl flex flex-col">
-              // 	<h3 className="text-lg font-medium">{plan.title}</h3>
-              // 	<p className="text-sm text-secondary-black my-2">
-              // 		{plan.description}
-              // 	</p>
-
-              // 	<p>
-              // 		<span className="text-2xl font-medium">{plan.price}</span>
-              // 		{index !== 2 && '/mo'}
-              // 	</p>
-              // 	<p className="text-sm text-secondary-black my-4">
-              // 		+ processing fees
-              // 	</p>
-              // 	<CustomButton
-              // 		className={cn(
-              // 			'bg-primary text-white font-medium w-full mt-auto',
-              // 			index === 2 &&
-              // 				'border-2 border-primary bg-transparent text-primary',
-              // 		)}>
-              // 		Get Started
-              // 	</CustomButton>
-              // </div>
               <div
                 key={index}
-                className="p-6 bg-[#619B7D]/10 rounded-[1.8rem] cursor-pointer hover:scale-[1.01] duration-700 justify-between lg:grid lg:grid-rows-3"
-                // flex flex-col
+                className="p-4 bg-[#619B7D]/10 rounded-lg cursor-pointer hover:scale-[1.01] duration-300 flex flex-col"
               >
-                <div className=" ">
-                  <h3 className="text-[1.5rem] lg:text-[3rem] font-medium">
+                <div className="mb-2">
+                  <h3 className="text-[1.2rem] lg:text-[2rem] font-medium">
                     {plan.title}
                   </h3>
-                  <p className="lg:text-[1.1rem] text-[0.9rem]  font-light text-secondary-black my-2">
+                  <p className="lg:text-[0.9rem] text-[0.8rem] font-light text-secondary-black">
                     {plan.description}
                   </p>
                 </div>
-                <div className="row-span-2 flex flex-col justify-between">
-                  <div className="pt-4 lg:pt-0">
-                    <h6 className="font-semibold text-[1.2rem] mb-1">
-                      Features
-                    </h6>
-                    <div className="grid grid-cols-1 gap-y-2">
-                      {plan?.features?.map((feature) => (
-                        <div className="flex items-center gap-2">
-                          <Icon icon={"uil:check"} className="text-primary" />
-                          <p className="font-light">{feature}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="lg:pt-6 pt-4">
-                    <div className="lg:mb-4 mb-2">
-                      <p className="">
-                        <span className="lg:text-[2.7rem] text-[1.7rem] font-medium">
-                          {plan.price}
-                        </span>
-                        {index !== 2 && "/mo"}
-                        {/* <br />
-									<p className="text-sm text-secondary-black ">
-									  + processing fees
-									</p> */}
-                      </p>
-                    </div>
-
-                    <CustomButton
-                      className={cn(
-                        "bg-primary text-white font-medium w-full mt-auto lg:py-6 lg:text-[1.1rem]",
-                        index === 2 &&
-                          "border-2 border-primary bg-transparent text-primary"
-                      )}
-                    >
-                      {index == 2 ? "Contact Sales" : "Get Started"}
-                    </CustomButton>
-                  </div>
+                <div className="flex-grow">
+                  <h6 className="font-semibold text-[1rem] mb-1">Features</h6>
+                  <ul className="space-y-1 text-[0.8rem] lg:text-[0.9rem]">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <Icon icon={"uil:check"} className="text-primary" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-4">
+                  <p>
+                    <span className="lg:text-[2.3rem] text-[1.5rem] font-medium">
+                      {plan.price}
+                    </span>
+                    {index !== 3 && <span className="text-sm">/mo</span>}
+                  </p>
+                  <CustomButton
+                    className={cn(
+                      "bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]",
+                      index === 3 &&
+                        "border-2 border-primary bg-transparent text-primary"
+                    )}
+                    onClick={() =>
+                      index === 3
+                        ? navigate("/custom-plan")
+                        : navigate("/onboarding")
+                    }
+                  >
+                    {index === 3 ? "Contact Sales" : "Get Started"}
+                  </CustomButton>
                 </div>
               </div>
             ))}

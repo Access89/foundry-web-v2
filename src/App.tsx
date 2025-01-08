@@ -14,6 +14,7 @@ import Onboarding from "./pages/onboarding";
 import PricingPage from "./pages/onboarding/_pages/pricing";
 import Pricing from "./pages/pricing";
 import CustomPlan from "./pages/custom-plan";
+import ContactPage from "./pages/contact";
 const Home = lazy(() => import("./pages/home"));
 const BusinessAutomation = lazy(() => import("./pages/business_automation"));
 const FinancialServices = lazy(() => import("./pages/financial_services"));
@@ -62,6 +63,7 @@ function App() {
           />
         </Route>
         <Route path="book-a-demo" element={<BookADemo />} />
+        <Route path="contact" element={<ContactPage />} />
         <Route path="custom-plan" element={<CustomPlan />} />
         <Route path="onboarding/">
           <Route path="" element={<Onboarding />} />

@@ -142,23 +142,15 @@ const socials = [
 
 const FOOTER_ITEMS = [
   {
-    header: "My Account",
+    header: "Our Platforms",
     links: [
       {
-        title: "My Account",
-        href: "",
+        title: "Marketplace",
+        href: "https://hub.foundry-platform.app",
       },
       {
-        title: "Order History",
-        href: "",
-      },
-      {
-        title: "Shopping Cart",
-        href: "",
-      },
-      {
-        title: "Wishlist",
-        href: "",
+        title: "Developers",
+        href: "https://developer.access89.com",
       },
     ],
   },
@@ -166,42 +158,104 @@ const FOOTER_ITEMS = [
     header: "Helps",
     links: [
       {
-        title: "Contact",
-        href: "",
+        title: "Use Cases",
+        href: "/use-cases",
       },
       {
-        title: "Faqs",
-        href: "",
+        title: "Pricing",
+        href: "/pricing",
       },
-      {
-        title: "Terms & Conditions",
-        href: "",
-      },
-      {
-        title: "Privacy",
-        href: "",
-      },
+      // {
+      //   title: "Faqs",
+      //   href: "",
+      // },
+      // {
+      //   title: "Terms & Conditions",
+      //   href: "",
+      // },
+      // {
+      //   title: "Privacy",
+      //   href: "",
+      // },
     ],
   },
   {
-    header: "Proxy",
+    header: "Contact",
     links: [
       {
-        title: "About",
+        title: "hello@access89.com",
         href: "",
       },
       {
-        title: "Shop",
-        href: "",
-      },
-      {
-        title: "Product",
-        href: "",
-      },
-      {
-        title: "Track Order",
+        title: "+233 54 256 0336",
         href: "",
       },
     ],
   },
 ];
+
+// const FOOTER_ITEMS = [
+//   {
+//     header: "My Account",
+//     links: [
+//       {
+//         title: "My Account",
+//         href: "",
+//       },
+//       {
+//         title: "Order History",
+//         href: "",
+//       },
+//       {
+//         title: "Shopping Cart",
+//         href: "",
+//       },
+//       {
+//         title: "Wishlist",
+//         href: "",
+//       },
+//     ],
+//   },
+//   {
+//     header: "Helps",
+//     links: [
+//       {
+//         title: "Contact",
+//         href: "/contact",
+//       },
+//       {
+//         title: "Faqs",
+//         href: "",
+//       },
+//       {
+//         title: "Terms & Conditions",
+//         href: "",
+//       },
+//       {
+//         title: "Privacy",
+//         href: "",
+//       },
+//     ],
+//   },
+//   {
+//     header: "Proxy",
+//     links: [
+//       {
+//         title: "About",
+//         href: "",
+//       },
+//       {
+//         title: "Shop",
+//         href: "",
+//       },
+//       {
+//         title: "Product",
+//         href: "",
+//       },
+//       {
+//         title: "Track Order",
+//         href: "",
+//       },
+//     ],
+//   },
+// ];

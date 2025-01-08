@@ -8,12 +8,12 @@ import {
   NavbarMenuItem,
   cn,
   useDisclosure,
-} from '@nextui-org/react';
-import { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { CustomButton } from './shared_customs';
-import CustomModal from './modal';
-import SignUp from '../../pages/sign_up';
+} from "@nextui-org/react";
+import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { CustomButton } from "./shared_customs";
+import CustomModal from "./modal";
+import SignUp from "../../pages/sign_up";
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,7 +30,7 @@ export default function NavbarComponent() {
         isBordered
         position="static"
         {...{
-          ariaLabel: 'Foundry Navbar',
+          ariaLabel: "Foundry Navbar",
           shouldHideOnScroll: false,
           isInverted: true,
         }}
@@ -39,7 +39,7 @@ export default function NavbarComponent() {
       >
         <NavbarContent className="lg:hidden" justify="start">
           <NavbarMenuToggle
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           />
         </NavbarContent>
 
@@ -72,13 +72,13 @@ export default function NavbarComponent() {
                 <NavbarItem key={`${item}-${index}`}>
                   <Link
                     to={
-                      item.link + (item.title === 'Use Cases' ? '?v=all' : '')
+                      item.link + (item.title === "Use Cases" ? "?v=all" : "")
                     }
                     // onClick={() => setIsMenuOpen(false)}
                     className={cn(
-                      'w-full text-sm text-[#808080]',
+                      "w-full text-sm text-[#808080]",
                       pathname.includes(item?.link as string) &&
-                        'text-[#1A1A1A]'
+                        "text-[#1A1A1A]"
                     )}
                   >
                     {item.title}
@@ -99,7 +99,7 @@ export default function NavbarComponent() {
             <CustomButton
               // onPress={() => onOpen()}
               onPress={() => {
-                navigate('/onboarding');
+                navigate("/onboarding");
               }}
               className="bg-primary text-white hidden md:flex"
             >
@@ -108,7 +108,7 @@ export default function NavbarComponent() {
             <CustomButton
               className="bg-[#EDF2EE] border-2 border-secondary text-primary"
               onClick={() => {
-                window.open('https://foundry-platform.com', '_blank');
+                window.open("https://foundry-platform.com", "_blank");
               }}
             >
               Log In
@@ -124,8 +124,8 @@ export default function NavbarComponent() {
                 to={item.link}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
-                  'w-full text-sm text-[#808080]',
-                  pathname.includes(item.link as string) && 'text-[#1A1A1A]'
+                  "w-full text-sm text-[#808080]",
+                  pathname.includes(item.link as string) && "text-[#1A1A1A]"
                 )}
               >
                 {item.title}
@@ -141,7 +141,7 @@ export default function NavbarComponent() {
           <div className="flex gap-x-4">
             <CustomButton
               onPress={() => {
-                navigate('/onboarding');
+                navigate("/onboarding");
               }}
               className="bg-primary text-white"
             >
@@ -150,7 +150,7 @@ export default function NavbarComponent() {
             <CustomButton
               className="bg-[#EDF2EE] border-2 border-secondary text-primary"
               onClick={() => {
-                window.open('https://foundry-platform.com', '_blank');
+                window.open("https://foundry-platform.com", "_blank");
               }}
             >
               Log In
@@ -164,28 +164,32 @@ export default function NavbarComponent() {
 
 const menuItems = [
   {
-    link: '/business-automation',
-    title: 'Business Automation',
+    link: "/business-automation",
+    title: "Business Automation",
   },
   {
-    link: '/financial-services',
-    title: 'Financial Services',
+    link: "/financial-services",
+    title: "Financial Services",
   },
   {
-    link: '/logistics-supply-chain',
-    title: 'Logistics & Supply Chain',
+    link: "/logistics-supply-chain",
+    title: "Logistics & Supply Chain",
   },
   {
     // link: '/products',
-    title: 'Marketplace',
-    link: 'https://hub.foundry-platform.app',
+    title: "Marketplace",
+    link: "https://hub.foundry-platform.app",
   },
   {
-    link: '/use-cases',
-    title: 'Use Cases',
+    link: "/use-cases",
+    title: "Use Cases",
   },
   {
-    link: '/pricing',
-    title: 'Pricing',
+    link: "/pricing",
+    title: "Pricing",
   },
+  // {
+  //   link: "/contact",
+  //   title: "Contact Us",
+  // },
 ];
