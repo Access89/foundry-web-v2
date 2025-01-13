@@ -4,7 +4,7 @@ import { useState } from "react";
 import BasicInformation from "./_components/_tabs/basic-information";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import BusinessInformation from "./_components/_tabs/business-information";
-import PasswordSetting from "./_components/_tabs/password";
+// import PasswordSetting from "./_components/_tabs/password";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
@@ -51,19 +51,20 @@ const Onboarding = () => {
         return "basic-information";
       },
       next: () => {
-        return "password";
+        // return "password";
+        navigate("password");
       },
       component: <BusinessInformation />,
     },
-    password: {
-      prev: () => {
-        return "business-information";
-      },
-      next: () => {
-        navigate("pricing");
-      },
-      component: <PasswordSetting />,
-    },
+    // password: {
+    //   prev: () => {
+    //     return "business-information";
+    //   },
+    //   next: () => {
+    //     navigate("pricing");
+    //   },
+    //   component: <PasswordSetting />,
+    // },
   };
   return (
     <div className="lg:w-[700px] w-full h-full lg:pt-12 lg:px-6 mx-auto font-sans flex flex-col justify-between lg:pb-12 px-6 py-6">

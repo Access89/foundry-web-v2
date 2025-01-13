@@ -1,96 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CustomButton } from "@/components/shared/shared_customs";
-import { mutateFn } from "@/services/mutation.api";
-import {
-  resetSubscriber,
-  SubscriberStateType,
-  updateSubscriberState,
-} from "@/store/features/subscriber";
-import { RootState } from "@/store/store";
-import { variables } from "@/utils/helper";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { cn } from "@nextui-org/react";
-import toast from "react-hot-toast";
-import { useMutation } from "react-query";
-import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react"; // Import useState
-import { useNavigate } from "react-router-dom";
 
 const PricingPage = () => {
-  const {
-    customer_name,
-    country,
-    email,
-    mobile,
-    business_location,
-    business_type,
-    nature_of_business,
-    password,
-    country_code,
-  } = useSelector((state: RootState) => state.subscriber);
-
-  const dispatch = useDispatch();
-
-  const navigate = useNavigate();
-
-  // State to track which plan's button is loading
-  const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
-
-  const { mutate: mutateSubscriber } = useMutation(
-    (newData: SubscriberStateType) =>
-      mutateFn({
-        url: `${variables.base_url}/create/subscriber`,
-        data: newData,
-      }),
-    {
-      onSuccess: () => {
-        dispatch(resetSubscriber());
-        setLoadingPlan(null);
-        toast.success(
-          "Details submitted for verification! Redirecting to Foundry Platform..."
-        );
-        // showCustomToast(
-        //   "Details submitted for verification! Redirecting to Foundry Platform...",
-        //   "Okay",
-        //   () => {
-        //     window.location.href = variables.redirectUrl;
-        //   }
-        // );
-        window.location.href = variables.redirectUrl;
-      },
-      onError: (error: any) => {
-        console.error("Error creating subscriber:", error);
-        toast.error("Details were not submitted, please try again");
-        setLoadingPlan(null); // Reset loading state after error
-      },
-    }
-  );
-
-  const onSubmit = async (plan: string) => {
-    dispatch(updateSubscriberState({ subscription_plan: plan }));
-
-    setLoadingPlan(plan); // Set loading state for the clicked plan
-    mutateSubscriber({
-      customer_name,
-      country,
-      email,
-      mobile: country_code + mobile,
-      subscription_plan:
-        plan === "Free Tier" ? "free_tier" : plan.toLocaleLowerCase(),
-      business_location,
-      business_type,
-      nature_of_business,
-      password,
-    });
-    // showCustomToast(
-    //   "Details submitted for verification! Redirecting to Foundry Platform...",
-    //   "Okay",
-    //   () => {
-    //     window.location.href = variables.redirectUrl;
-    //   }
-    // );
-  };
-
   return (
     <div className="lg:w-[80vw] lg:mx-auto lg:pt-12 p-6 ">
       <div>
@@ -140,10 +53,10 @@ const PricingPage = () => {
                   index === 3 &&
                     "border-2 border-primary bg-transparent text-primary"
                 )}
-                isLoading={loadingPlan === plan.title}
-                onClick={() =>
-                  index === 3 ? navigate("/custom-plan") : onSubmit(plan.title)
-                }
+                // isLoading={loadingPlan === plan.title}
+                // onClick={() =>
+                //   index === 3 ? navigate("/custom-plan") : onSubmit(plan.title)
+                // }
               >
                 {index === 3 ? "Contact Sales" : "Subscribe"}
               </CustomButton>

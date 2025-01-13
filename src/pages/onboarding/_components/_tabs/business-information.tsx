@@ -72,11 +72,14 @@ const BasicInformation = () => {
         />
         <SelectInput
           items={[
-            { label: "Limited Liability", value: "Limited Liability" },
+            {
+              label: "Limited Liability Company",
+              value: "Limited Liability Company",
+            },
             { label: "Sole Proprietorship", value: "Sole Proprietorship" },
           ]}
           label={"Nature of Business"}
-          placeholder={"e.g. Limited Liability"}
+          placeholder={"e.g. Limited Liability Company"}
           id={"email"}
           {...form}
           handleChange={(e: any) => {

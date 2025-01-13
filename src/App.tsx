@@ -15,6 +15,7 @@ import PricingPage from "./pages/onboarding/_pages/pricing";
 import Pricing from "./pages/pricing";
 import CustomPlan from "./pages/custom-plan";
 import ContactPage from "./pages/contact";
+import PasswordSetting from "./pages/onboarding/_components/_tabs/password";
 const Home = lazy(() => import("./pages/home"));
 const BusinessAutomation = lazy(() => import("./pages/business_automation"));
 const FinancialServices = lazy(() => import("./pages/financial_services"));
@@ -68,6 +69,7 @@ function App() {
         <Route path="onboarding/">
           <Route path="" element={<Onboarding />} />
           <Route path="pricing" element={<PricingPage />} />
+          <Route path="password" element={<PasswordSetting />} />
         </Route>
       </Routes>
       <Toaster position="top-right" />
