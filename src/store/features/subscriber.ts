@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type SubscriberStateType = {
 	customer_name: string;
-	subscription_plan: string;
+	// subscription_plan: string;
 	country: string;
 	country_code?: string;
 	email: string;
@@ -16,7 +16,7 @@ export type SubscriberStateType = {
 
 const initialState: SubscriberStateType = {
 	customer_name: "",
-	subscription_plan: "",
+	// subscription_plan: "",
 	country: "Ghana",
 	country_code: "+233",
 	email: "",
