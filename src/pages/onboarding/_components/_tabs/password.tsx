@@ -19,7 +19,9 @@ import { cn } from "@nextui-org/react";
 const PasswordSetting = () => {
   const dispatch = useDispatch();
 
-  // const { password } = useSelector((state: RootState) => state.subscriber);
+  const thiss = useSelector((state: RootState) => state.subscriber);
+
+  console.log(thiss);
 
   const {
     customer_name,
@@ -31,6 +33,7 @@ const PasswordSetting = () => {
     nature_of_business,
     password,
     country_code,
+    business_owner,
   } = useSelector((state: RootState) => state.subscriber);
 
   // State to track which plan's button is loading
@@ -64,6 +67,7 @@ const PasswordSetting = () => {
       country,
       email,
       mobile: country_code + mobile,
+      business_owner: business_owner,
       // subscription_plan:
       //   plan === "Free Tier" ? "free_tier" : plan.toLocaleLowerCase(),
       business_location,
