@@ -9,15 +9,15 @@ import { RootState } from "@/store/store";
 
 const BasicInformation = () => {
   const dispatch = useDispatch();
-  const { customer_name, business_location, business_type } = useSelector(
-    (state: RootState) => state.subscriber
-  );
+  const { customer_name, business_location, business_type, business_owner } =
+    useSelector((state: RootState) => state.subscriber);
 
   useEffect(() => {
     if (
       customer_name !== "" &&
       business_location !== "" &&
-      business_type !== ""
+      business_type !== "" &&
+      business_owner !== ""
     ) {
       dispatch(
         updateSubscriberState({
@@ -25,7 +25,13 @@ const BasicInformation = () => {
         })
       );
     }
-  }, [business_location, customer_name, business_type, dispatch]);
+  }, [
+    business_location,
+    customer_name,
+    business_type,
+    business_owner,
+    dispatch,
+  ]);
 
   const { ...form } = useFormik({
     initialValues: {
@@ -56,6 +62,16 @@ const BasicInformation = () => {
           {...form}
           handleChange={(e: any) => {
             dispatch(updateSubscriberState({ customer_name: e.target.value }));
+          }}
+        />
+        <CustomInput
+          type={"text"}
+          label={"Your name"}
+          placeholder={"e.g. Jane Doe"}
+          id={"email"}
+          {...form}
+          handleChange={(e: any) => {
+            dispatch(updateSubscriberState({ business_owner: e.target.value }));
           }}
         />
         <CustomInput

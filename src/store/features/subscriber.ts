@@ -12,11 +12,13 @@ export type SubscriberStateType = {
 	nature_of_business: string,
 	business_type: string,
 	safe?: boolean
+	business_owner: string,
 };
 
 const initialState: SubscriberStateType = {
 	customer_name: "",
 	// subscription_plan: "",
+	business_owner: "",
 	country: "Ghana",
 	country_code: "+233",
 	email: "",
