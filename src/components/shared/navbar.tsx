@@ -76,7 +76,7 @@ export default function NavbarComponent() {
                     }
                     // onClick={() => setIsMenuOpen(false)}
                     className={cn(
-                      "w-full text-sm text-[#808080]",
+                      "w-full text-xs text-[#808080]",
                       pathname.includes(item?.link as string) &&
                         "text-[#1A1A1A]"
                     )}
@@ -124,7 +124,7 @@ export default function NavbarComponent() {
                 to={item.link}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
-                  "w-full text-sm text-[#808080]",
+                  "w-full text-xs text-[#808080]",
                   pathname.includes(item.link as string) && "text-[#1A1A1A]"
                 )}
               >

@@ -1,18 +1,24 @@
 import FoundrySection from "@/components/reusable/foundry-stars-section";
+import GetStartedSection from "@/components/reusable/get-started-section";
+import GlobalTradeSection from "@/components/reusable/global-trade-section";
+import GreenSection from "@/components/reusable/green-section";
 import PartnersSection from "@/components/reusable/partners-section";
-import InfoCard from "@/components/shared/info_card";
-import { CustomButton } from "@/components/shared/shared_customs";
-import { Icon } from "@iconify/react";
-import { useNavigate } from "react-router-dom";
+// import InfoCard from "@/components/shared/info_card";
+// import { CustomButton } from "@/components/shared/shared_customs";
+// import { Icon } from "@iconify/react";
+// import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <>
       <FoundrySection />
       <PartnersSection />
-      <main className="container">
-        {/* <section className="bg-[#F9FFF6] rounded-3xl overflow-hidden pt-16 relative">
+      <GreenSection />
+      <GetStartedSection />
+      <GlobalTradeSection />
+      {/* <main className="container">
+        <section className="bg-[#F9FFF6] rounded-3xl overflow-hidden pt-16 relative">
         <div className="md:grid grid-cols-2 lg:px-24 px-16 z-50">
           <div className="lg:h-full flex items-center">
             <h1 className="font-medium text-3xl md:text-4xl lg:text-[3.2rem] lg:leading-tight lg:font-semibold md:pr-10 mb-10 md:mb-0">
@@ -57,7 +63,7 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </section> */}
+      </section>
 
         <section className="md:grid grid-cols-[1fr,0.7fr] gap-x-20 py-16">
           <div className="lg:h-full flex items-center text-center lg:text-start   lg:items-start justify-center flex-col ">
@@ -221,7 +227,7 @@ const Home = () => {
             ))}
           </div>
         </section>
-      </main>
+      </main> */}
     </>
   );
 };
@@ -243,84 +249,84 @@ export default Home;
 //   },
 // ];
 
-const infoCardDetails = [
-  {
-    title: "Retail & Wholesale",
-    description:
-      "Designed to streamline your daily operations, our best-in-class POS software helps you maximize productivity when faced with numerous tasks and limited time",
-  },
-  {
-    title: "Restaurant",
-    description:
-      "Boost order efficiency and profitability for your FSR, QSR, bar, or multi-concept restaurant with our user-friendly cloud-based solution.",
-  },
-  {
-    title: "Pharmacy",
-    description:
-      "Choose a pharmacy POS system that reduces the time spent on business administration, inventory management, and accounting, allowing you to dedicate more time to serving customers.",
-  },
-  {
-    title: "Beauty & Barber Shop",
-    description:
-      "Transform your barber shop with the perfect salon POS solution. From head to toe, our POS system ensures smooth operations for your spa and salon needs!",
-  },
-  {
-    title: "Bakery",
-    description:
-      "Discover the ideal POS system for bakeries. Enhance your baking process with Foundry’s advanced stock control, fast checkout software, and real-time reports.",
-  },
-  {
-    title: "Online Store",
-    description:
-      "Accelerate your online business growth with Foundry's user-friendly website builder. Expand your reach and establish a strong online presence effortlessly",
-  },
-];
+// const infoCardDetails = [
+//   {
+//     title: "Retail & Wholesale",
+//     description:
+//       "Designed to streamline your daily operations, our best-in-class POS software helps you maximize productivity when faced with numerous tasks and limited time",
+//   },
+//   {
+//     title: "Restaurant",
+//     description:
+//       "Boost order efficiency and profitability for your FSR, QSR, bar, or multi-concept restaurant with our user-friendly cloud-based solution.",
+//   },
+//   {
+//     title: "Pharmacy",
+//     description:
+//       "Choose a pharmacy POS system that reduces the time spent on business administration, inventory management, and accounting, allowing you to dedicate more time to serving customers.",
+//   },
+//   {
+//     title: "Beauty & Barber Shop",
+//     description:
+//       "Transform your barber shop with the perfect salon POS solution. From head to toe, our POS system ensures smooth operations for your spa and salon needs!",
+//   },
+//   {
+//     title: "Bakery",
+//     description:
+//       "Discover the ideal POS system for bakeries. Enhance your baking process with Foundry’s advanced stock control, fast checkout software, and real-time reports.",
+//   },
+//   {
+//     title: "Online Store",
+//     description:
+//       "Accelerate your online business growth with Foundry's user-friendly website builder. Expand your reach and establish a strong online presence effortlessly",
+//   },
+// ];
 
-const stores = [
-  {
-    name: "Cepodek",
-    image: "/images/cepodek.webp",
-    description:
-      "Cepodek’s wholesale operations entail the bulk sale of products to retailers or distributors.",
-  },
-  {
-    name: "Kimimi",
-    image: "/images/kimimi.webp",
-    description:
-      "Kimimi's retail operations involve selling fabrics directly to consumers through various channels such as physical stores, online platforms, or other retail outlets.",
-  },
-  {
-    name: "We Naturals",
-    image: "/images/we_natural.webp",
-    description:
-      "We Naturals hair products cater to a wide range of hair needs, offering carefully formulated solutions specifically designed for natural hair, including kinky, curly, and coily textures.",
-  },
-  {
-    name: "Ras Mawuli Ventures",
-    image: "/images/ras_mawuli.webp",
-    description:
-      "Ras Mawuli Ventures specializes in retailing consumer electronics, offering a diverse range of products tailored to meet various needs and preferences.",
-  },
-];
+// const stores = [
+//   {
+//     name: "Cepodek",
+//     image: "/images/cepodek.webp",
+//     description:
+//       "Cepodek’s wholesale operations entail the bulk sale of products to retailers or distributors.",
+//   },
+//   {
+//     name: "Kimimi",
+//     image: "/images/kimimi.webp",
+//     description:
+//       "Kimimi's retail operations involve selling fabrics directly to consumers through various channels such as physical stores, online platforms, or other retail outlets.",
+//   },
+//   {
+//     name: "We Naturals",
+//     image: "/images/we_natural.webp",
+//     description:
+//       "We Naturals hair products cater to a wide range of hair needs, offering carefully formulated solutions specifically designed for natural hair, including kinky, curly, and coily textures.",
+//   },
+//   {
+//     name: "Ras Mawuli Ventures",
+//     image: "/images/ras_mawuli.webp",
+//     description:
+//       "Ras Mawuli Ventures specializes in retailing consumer electronics, offering a diverse range of products tailored to meet various needs and preferences.",
+//   },
+// ];
 
-const moreFoundry = [
-  {
-    name: "Hub - B2B Marketplace",
-    image: "/images/hub.webp",
-    description:
-      "Full-stack B2B Ecosystem for small and medium enterprises (SMEs) in Africa",
-    link: "https://hub.foundry-platform.app",
-  },
-  {
-    name: "CornerShop",
-    image: "/images/cornershop.webp",
-    description:
-      "Corner shop enables shopkeepers to seamlessly restock directly from Foundry Hub with physical and digital payments and one-day delivery",
-  },
-  {
-    name: "Logistics",
-    image: "/images/logistics.webp",
-    description:
-      "Foundry, logistics and supply chain management involves efficiently sourcing raw materials, managing production processes, and delivering finished products to customers while optimizing costs and ensuring quality.",
-  },
-];
+// const moreFoundry = [
+//   {
+//     name: "Hub - B2B Marketplace",
+//     image: "/images/hub.webp",
+//     description:
+//       "Full-stack B2B Ecosystem for small and medium enterprises (SMEs) in Africa",
+//     link: "https://hub.foundry-platform.app",
+//   },
+//   {
+//     name: "CornerShop",
+//     image: "/images/cornershop.webp",
+//     description:
+//       "Corner shop enables shopkeepers to seamlessly restock directly from Foundry Hub with physical and digital payments and one-day delivery",
+//   },
+//   {
+//     name: "Logistics",
+//     image: "/images/logistics.webp",
+//     description:
+//       "Foundry, logistics and supply chain management involves efficiently sourcing raw materials, managing production processes, and delivering finished products to customers while optimizing costs and ensuring quality.",
+//   },
+// ];

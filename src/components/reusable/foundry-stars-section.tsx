@@ -4,6 +4,58 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 
+const CARDS_TO_SHOW = {
+  desktop: 4,
+  tablet: 2,
+  mobile: 1,
+};
+
+const foundry_stars = [
+  {
+    title: "I want to borrow money and pay in 30, 60 or 90 days",
+    boldedGreen: ["I want to", "money and"],
+    breakAt: ["borrow"],
+    boldedBlack: ["borrow", "pay in 30, 60 or 90 days"],
+    link: "",
+    image: "/images/foundry_stars/foundry_stars_loan.png",
+    imageSize: "w-[40%]",
+  },
+  {
+    title: "I want to manage my business",
+    boldedGreen: ["I want to"],
+    boldedBlack: ["manage my business"],
+    link: "/onboarding",
+    image: "/images/foundry_stars/foundry_stars_business.png",
+    imageSize: "w-[50%]",
+  },
+  {
+    title: "I want to embed Finance into my platform with one API",
+    boldedGreen: ["I want to embed"],
+    boldedBlack: ["Finance"],
+    link: "https://developer.access89.com/api-reference/origination",
+    image: "/images/foundry_stars/foundry_stars_api.png",
+    imageSize: "w-[20%]",
+    external: true,
+  },
+  {
+    title: "I want to buy items at wholesale prices",
+    boldedGreen: ["I want to"],
+    breakAt: ["I want to"],
+    boldedBlack: ["buy items at wholesale prices"],
+    link: "https://hub.foundry-platform.app/",
+    image: "/images/foundry_stars/foundry_stars_hub.png",
+    imageSize: "w-[50%]",
+    external: true,
+  },
+  {
+    title: "I want to hire a sales person",
+    boldedGreen: ["I want to"],
+    boldedBlack: ["hire"],
+    link: "/hire",
+    imageSize: "w-[20%]",
+    image: "/images/foundry_stars/foundry_stars_api.png",
+  },
+];
 interface FoundryCardProps {
   title: string;
   boldedGreen: string[];
@@ -64,8 +116,8 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-lg border shadow-lg flex items-end gap-4 hover:shadow-xl transition-transform w-[360px] h-[180px] group">
-      <div className="flex-1 pt-3 pb-5 pl-5    justify-between flex flex-col h-full">
+    <div className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group">
+      <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
           {highlightText(title, boldedGreen, boldedBlack, breakAt)}
         </h3>
@@ -74,7 +126,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 hover:scale-110 transition-transform"
+            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group-hover:scale-125 transition-transform"
           >
             <Icon
               icon="prime:arrow-right"
@@ -85,7 +137,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
         ) : (
           <Link
             to={link}
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 hover:scale-110 transition-transform"
+            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group-hover:scale-125 transition-transform"
           >
             <Icon
               icon="prime:arrow-right"
@@ -105,59 +157,6 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
     </div>
   );
 };
-
-const CARDS_TO_SHOW = {
-  desktop: 4,
-  tablet: 2,
-  mobile: 1,
-};
-
-const foundry_stars = [
-  {
-    title: "I want to borrow money and pay in 30, 60 or 90 days",
-    boldedGreen: ["I want to", "money and"],
-    breakAt: ["borrow"],
-    boldedBlack: ["borrow", "pay in 30, 60 or 90 days"],
-    link: "",
-    image: "/images/foundry_stars/foundry_stars_loan.png",
-    imageSize: "w-[40%]",
-  },
-  {
-    title: "I want to manage my business",
-    boldedGreen: ["I want to"],
-    boldedBlack: ["manage my business"],
-    link: "/onboarding",
-    image: "/images/foundry_stars/foundry_stars_business.png",
-    imageSize: "w-[50%]",
-  },
-  {
-    title: "I want to embed Finance into my platform with one API",
-    boldedGreen: ["I want to embed"],
-    boldedBlack: ["Finance"],
-    link: "https://developer.access89.com/api-reference/origination",
-    image: "/images/foundry_stars/foundry_stars_api.png",
-    imageSize: "w-[20%]",
-    external: true,
-  },
-  {
-    title: "I want to buy items at wholesale prices",
-    boldedGreen: ["I want to"],
-    breakAt: ["I want to"],
-    boldedBlack: ["buy items at wholesale prices"],
-    link: "https://hub.foundry-platform.app/",
-    image: "/images/foundry_stars/foundry_stars_hub.png",
-    imageSize: "w-[50%]",
-    external: true,
-  },
-  {
-    title: "I want to hire a sales person",
-    boldedGreen: ["I want to"],
-    boldedBlack: ["hire"],
-    link: "/hire",
-    imageSize: "w-[20%]",
-    image: "/images/foundry_stars/foundry_stars_api.png",
-  },
-];
 
 const FoundrySection = () => {
   const [index, setIndex] = useState(0);
@@ -186,12 +185,13 @@ const FoundrySection = () => {
   const prevSlide = () => setIndex((prev) => (prev > 0 ? prev - 1 : prev));
 
   return (
-    <section className="py-10 lg:mb-20   mx-auto flex flex-col overflow-hidden">
-      <h1 className="text-3xl md:text-5xl font-semibold mb-2 text-center font-roboto w-full">
-        Empowering all the ways you do business
+    <section className="py-10 lg:mb-20  mx-auto flex flex-col overflow-hidden">
+      <h1 className="text-3xl md:text-5xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full">
+        Empowering Businesses for Growth{" "}
       </h1>
-      <p className="text-[#B1B1B1] font-normal mb-6 text-center font-sans">
-        Seamless solutions for lending, procurement, and logistics.
+      <p className="text-[#B1B1B1] font-normal mb-6 lg:mb-10 text-center font-sans">
+        Seamless solutions for lending, procurement, and logistics. Transform
+        your operations with our integrated platform.{" "}
       </p>
 
       <div className="relative w-full overflow-hidden md:ml-[8%]">
@@ -224,7 +224,7 @@ const FoundrySection = () => {
       </div>
 
       {/* Indicator Dots */}
-      <div className="flex justify-center mt-4 gap-2">
+      <div className=" justify-center mt-4 gap-2 hidden">
         {Array.from(
           { length: foundry_stars.length - cardsToShow + 1 },
           (_, i) => (
