@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 
 const GreenSection = () => {
   return (
-    <section className="bg-[#4C7F64] p-5 md:p-10 mt-10 w-full text-primary-white">
+    <motion.section
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="bg-[#4C7F64] p-5 md:p-10 mt-10 w-full text-primary-white"
+    >
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div>
           <h2 className="font-medium text-xl lg:text-2xl mb-8 md:w-[65%]">
             Trade with confidence, from production quality assurance to purchase
             protection.
@@ -32,7 +33,7 @@ const GreenSection = () => {
                 key={index}
                 className="bg-[#5F9779] p-6 rounded-xl h-[300px] flex flex-col"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
               >
                 <div className="mt-auto text-xl ">
@@ -54,12 +55,12 @@ const GreenSection = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         <motion.div
           className="md:flex grid-cols-[0.4fr,1fr] gap-x-10 my-16 text-sm"
           initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
         >
           <div className="md:w-[60%]">
@@ -72,7 +73,7 @@ const GreenSection = () => {
                 key={index}
                 className="flex flex-col gap-4 text-sm text-white border-b border-[#929292] mt-3 pb-3"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
               >
                 <div className="flex items-center gap-x-2 mb-1.5 md:mb-0 text-white">
@@ -109,7 +110,7 @@ const GreenSection = () => {
         <motion.div
           className="my-16"
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           <div className="mb-8 text-sm">
@@ -150,7 +151,7 @@ const GreenSection = () => {
                 key={index}
                 className="bg-[#5F9779] p-6 rounded-xl h-[300px] flex flex-col"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
               >
                 <img src={item.icon} alt="support" className="w-[2rem]" />
@@ -173,7 +174,7 @@ const GreenSection = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

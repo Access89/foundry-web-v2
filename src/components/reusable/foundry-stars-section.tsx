@@ -116,7 +116,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group">
+    <div className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card">
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
           {highlightText(title, boldedGreen, boldedBlack, breakAt)}
@@ -126,7 +126,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group-hover:scale-125 transition-transform"
+            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform"
           >
             <Icon
               icon="prime:arrow-right"
@@ -137,7 +137,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
         ) : (
           <Link
             to={link}
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group-hover:scale-125 transition-transform"
+            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform"
           >
             <Icon
               icon="prime:arrow-right"
@@ -185,46 +185,67 @@ const FoundrySection = () => {
   const prevSlide = () => setIndex((prev) => (prev > 0 ? prev - 1 : prev));
 
   return (
-    <section className="py-10 lg:mb-20  mx-auto flex flex-col overflow-hidden">
-      <h1 className="text-3xl md:text-5xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full">
-        Empowering Businesses for Growth{" "}
-      </h1>
-      <p className="text-[#B1B1B1] font-normal mb-6 lg:mb-10 text-center font-sans">
+    <motion.section
+      className="py-10 lg:mb-20 mx-auto flex flex-col overflow-hidden flex-1"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <motion.h1
+        className="text-3xl md:text-5xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.8 }}
+      >
+        Empowering Businesses for Growth
+      </motion.h1>
+      <motion.p
+        className="text-[#B1B1B1] font-normal mb-6 lg:mb-10 text-center font-sans"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.8 }}
+      >
         Seamless solutions for lending, procurement, and logistics. Transform
-        your operations with our integrated platform.{" "}
-      </p>
+        your operations with our integrated platform.
+      </motion.p>
 
-      <div className="relative w-full overflow-hidden md:ml-[8%]">
+      <div className=" w-full overflow-hidden md:ml-[8%] group">
         <motion.div
           className="flex gap-1"
-          animate={{ x: `-${index * (100 / cardsToShow)}%` }}
+          whileInView={{ x: `-${index * (100 / cardsToShow)}%` }}
           transition={{ type: "spring", stiffness: 100 }}
           style={{ width: `${(foundry_stars.length / cardsToShow) * 100}%` }}
         >
           {foundry_stars.map((item, i) => (
-            <div key={i} className={`lg:w-[20%] flex-shrink-0 px-2`}>
+            <motion.div
+              key={i}
+              className="lg:w-[20%] flex-shrink-0 px-2"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
+            >
               <FoundryCard {...item} />
-            </div>
+            </motion.div>
           ))}
         </motion.div>
 
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 p-2  hidden   text-gray-500  rounded-full shadow-lg hover:text-black  transition duration-300"
+          className="absolute left-[1rem] top-1/2 transform -translate-y-1/2 p-2 text-gray-500 rounded-full shadow-lg transition duration-300 opacity-35 group-hover:opacity-100"
         >
           <Icon icon="icons8:chevron-left-round" fontSize={24} />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 text-gray-500 hidden  rounded-full shadow-lg hover:text-black  transition duration-300"
+          className="absolute right-[5rem] top-1/2 transform -translate-y-1/2 p-2 text-gray-500 rounded-full shadow-lg transition duration-300 opacity-35 group-hover:opacity-100"
         >
           <Icon icon="icons8:chevron-right-round" fontSize={24} />
         </button>
       </div>
 
       {/* Indicator Dots */}
-      <div className=" justify-center mt-4 gap-2 hidden">
+      <div className="justify-center mt-4 gap-2 hidden">
         {Array.from(
           { length: foundry_stars.length - cardsToShow + 1 },
           (_, i) => (
@@ -238,7 +259,7 @@ const FoundrySection = () => {
           )
         )}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -12,8 +12,11 @@ const Home = () => {
   // const navigate = useNavigate();
   return (
     <>
-      <FoundrySection />
-      <PartnersSection />
+      <div className="h-[100vh]">
+        <FoundrySection />
+        <PartnersSection />
+      </div>
+
       <GreenSection />
       <GetStartedSection />
       <GlobalTradeSection />

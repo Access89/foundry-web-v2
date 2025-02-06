@@ -15,21 +15,42 @@ const PartnersSection = () => {
     { name: "Cal bank", logo: "/images/brands/cal (1) 1.png" },
   ];
 
+  // Duplicate logos for seamless scrolling
+  const scrollingPartners = [...partners, ...partners];
+
   return (
-    <section className="container  my-5 flex flex-col gap-4">
-      <div className="text-center ">
+    <section className="container my-5 flex flex-col gap-6 overflow-hidden flex-1">
+      {/* Title Section with Fade-In Animation */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="text-center"
+      >
         <h2 className="text-2xl font-semibold">You are in good company</h2>
-      </div>
-      <div className="flex justify-center items-center gap-8  whitespace-nowrap">
-        {partners.map((partner, index) => (
-          <motion.div key={index} className="w-[5rem] h-[3rem]">
-            <img
-              src={partner.logo}
-              alt={partner.name}
-              className="w-full h-full object-contain"
-            />{" "}
-          </motion.div>
-        ))}
+      </motion.div>
+
+      {/* Scrolling Animation */}
+      <div className="relative w-full overflow-hidden">
+        <motion.div
+          className="flex items-center gap-10 whitespace-nowrap"
+          animate={{ x: ["0%", "-100%"] }} // Move from right to left
+          transition={{
+            repeat: Infinity,
+            duration: 20, // Adjust speed of scrolling
+            ease: "linear",
+          }}
+        >
+          {scrollingPartners.map((partner, index) => (
+            <div key={index} className="w-[6rem] h-[3rem] flex-shrink-0">
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="w-full h-full object-contain"
+              />
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

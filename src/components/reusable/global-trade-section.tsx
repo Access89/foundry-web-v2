@@ -1,19 +1,38 @@
+import { motion } from "framer-motion";
+
 const GlobalTradeSection = () => {
   return (
     <section className="p-5 md:p-10 md:my-10 w-full text-primary-white container">
       <div className="container flex flex-col gap-5 items-center justify-center">
-        <h2 className="text-[#1A1A1A] font-medium text-xl md:text-3xl md:text-center">
+        <motion.h2
+          className="text-[#1A1A1A] font-medium text-xl md:text-3xl md:text-center"
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+        >
           Empowering businesses through global trade
-        </h2>
-        <p className="text-[#575757]  text-xs md:text-sm font-normal md:text-center">
+        </motion.h2>
+
+        <motion.p
+          className="text-[#575757] text-xs md:text-sm font-normal md:text-center"
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
           Foundry.app provides comprehensive B2B trading solutions for small and
           medium-sized businesses worldwide, empowering them to transform
           through digital trade, seize opportunities, and accelerate
           international growth.
-        </p>
+        </motion.p>
       </div>
+
       <div className="md:grid lg:grid-cols-2 gap-5 mt-10 mx-auto">
-        <div className="relative overflow-hidden rounded-lg flex flex-col lg:max-h-[30rem] max-h-[20rem]">
+        <motion.div
+          className="relative overflow-hidden rounded-lg flex flex-col lg:max-h-[30rem] max-h-[20rem]"
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.8 }}
+        >
           <img
             src="/images/LS_4.webp"
             alt="a store with a woman in front of it"
@@ -29,10 +48,15 @@ const GlobalTradeSection = () => {
               />
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col gap-5  max-h-[45rem] lg:max-h-[30rem]">
-          <div className="relative overflow-hidden rounded-lg bg-secondary/20 flex flex-2 mt-4 lg:mt-0">
+        <div className="flex flex-col gap-5 max-h-[45rem] lg:max-h-[30rem]">
+          <motion.div
+            className="relative overflow-hidden rounded-lg bg-secondary/20 flex flex-2 mt-4 lg:mt-0"
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
             <img
               src="/images/map.webp"
               alt="map"
@@ -48,8 +72,14 @@ const GlobalTradeSection = () => {
                 />
               </p>
             </div>
-          </div>
-          <div className="relative overflow-hidden rounded-lg flex-1 flex lg:max-h-[30rem] max-h-[20rem] ">
+          </motion.div>
+
+          <motion.div
+            className="relative overflow-hidden rounded-lg flex-1 flex lg:max-h-[30rem] max-h-[20rem]"
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
             <img
               src="/images/LS_4.webp"
               alt="a store with a woman in front of it"
@@ -65,7 +95,7 @@ const GlobalTradeSection = () => {
                 />
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
