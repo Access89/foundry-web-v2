@@ -8,6 +8,7 @@ interface FoundryCardProps {
   title: string;
   boldedGreen: string[];
   boldedBlack: string[];
+  breakAt?: string[];
   link: string;
   image: string;
   imageSize: string;
@@ -18,6 +19,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   title,
   boldedGreen,
   boldedBlack,
+  breakAt = [],
   link,
   image,
   imageSize = "w-[40%]",
@@ -26,10 +28,11 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   const highlightText = (
     text: string,
     greenHighlights: string[],
-    blackHighlights: string[]
+    blackHighlights: string[],
+    breakPoints: string[]
   ) => {
     const regex = new RegExp(
-      `(${[...greenHighlights, ...blackHighlights].join("|")})`,
+      `(${[...greenHighlights, ...blackHighlights, ...breakPoints].join("|")})`,
       "gi"
     );
     const parts = text.split(regex);
@@ -48,15 +51,23 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
           </span>
         );
       }
+      if (breakPoints.includes(part)) {
+        return (
+          <React.Fragment key={i}>
+            {part}
+            <br />
+          </React.Fragment>
+        );
+      }
       return <span key={i}>{part}</span>;
     });
   };
 
   return (
     <div className="bg-white rounded-lg border shadow-lg flex items-end gap-4 hover:shadow-xl transition-transform w-[360px] h-[180px] group">
-      <div className="flex-1 pt-3 pb-5 pl-5 pr-10   justify-between flex flex-col h-full">
+      <div className="flex-1 pt-3 pb-5 pl-5    justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
-          {highlightText(title, boldedGreen, boldedBlack)}
+          {highlightText(title, boldedGreen, boldedBlack, breakAt)}
         </h3>
         {external ? (
           <a
@@ -105,6 +116,7 @@ const foundry_stars = [
   {
     title: "I want to borrow money and pay in 30, 60 or 90 days",
     boldedGreen: ["I want to", "money and"],
+    breakAt: ["borrow"],
     boldedBlack: ["borrow", "pay in 30, 60 or 90 days"],
     link: "",
     image: "/images/foundry_stars/foundry_stars_loan.png",
@@ -130,6 +142,7 @@ const foundry_stars = [
   {
     title: "I want to buy items at wholesale prices",
     boldedGreen: ["I want to"],
+    breakAt: ["I want to"],
     boldedBlack: ["buy items at wholesale prices"],
     link: "https://hub.foundry-platform.app/",
     image: "/images/foundry_stars/foundry_stars_hub.png",
@@ -174,7 +187,7 @@ const FoundrySection = () => {
 
   return (
     <section className="py-10 lg:mb-20   mx-auto flex flex-col overflow-hidden">
-      <h1 className="text-3xl md:text-5xl font-semibold mb-2 text-center font-roboto">
+      <h1 className="text-3xl md:text-5xl font-semibold mb-2 text-center font-roboto w-full">
         Empowering all the ways you do business
       </h1>
       <p className="text-[#B1B1B1] font-normal mb-6 text-center font-sans">
