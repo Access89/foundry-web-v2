@@ -87,8 +87,8 @@ export default function NavbarComponent() {
                 </DropdownTrigger>
                 <DropdownMenu>
                   {item.subItems.map((subItem, subIndex) => (
-                    <DropdownItem key={subIndex} as={Link} to={subItem.link}>
-                      {subItem.title}
+                    <DropdownItem key={subIndex} as={Link}>
+                      <Link to={subItem.link as string}>{subItem.title}</Link>
                     </DropdownItem>
                   ))}
                 </DropdownMenu>
@@ -96,10 +96,10 @@ export default function NavbarComponent() {
             ) : (
               <NavbarItem key={index}>
                 <Link
-                  to={item.link}
+                  to={item?.link as string}
                   className={cn(
                     "w-full text-xs text-[#808080]",
-                    pathname.includes(item.link) && "text-[#1A1A1A]"
+                    pathname.includes(item?.link as string) && "text-[#1A1A1A]"
                   )}
                 >
                   {item.title}
@@ -141,8 +141,8 @@ export default function NavbarComponent() {
               </DropdownTrigger>
               <DropdownMenu>
                 {item.subItems.map((subItem, subIndex) => (
-                  <DropdownItem key={subIndex} as={Link} to={subItem.link}>
-                    {subItem.title}
+                  <DropdownItem key={subIndex} as={Link}>
+                    <Link to={subItem.link as string}>{subItem.title}</Link>
                   </DropdownItem>
                 ))}
               </DropdownMenu>
@@ -150,11 +150,11 @@ export default function NavbarComponent() {
           ) : (
             <NavbarMenuItem key={index}>
               <Link
-                to={item.link}
+                to={item.link as string}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
                   "w-full text-xs text-[#808080]",
-                  pathname.includes(item.link) && "text-[#1A1A1A]"
+                  pathname.includes(item?.link as string) && "text-[#1A1A1A]"
                 )}
               >
                 {item.title}
