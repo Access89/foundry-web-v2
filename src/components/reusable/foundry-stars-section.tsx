@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
+import { useSwipeable } from "react-swipeable";
 
 const CARDS_TO_SHOW = {
   desktop: 4,
@@ -160,6 +161,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
 
 const FoundrySection = () => {
   const [index, setIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const getCardsToShow = () => {
     if (window.innerWidth < 640) return CARDS_TO_SHOW.mobile;
@@ -168,21 +170,29 @@ const FoundrySection = () => {
   };
 
   const [cardsToShow, setCardsToShow] = useState(getCardsToShow());
-
-  const maxIndex = foundry_stars.length - cardsToShow;
-
-  const handleResize = () => {
-    setCardsToShow(getCardsToShow());
-  };
+  const maxIndex = Math.max(0, foundry_stars.length);
 
   React.useEffect(() => {
+    const handleResize = () => setCardsToShow(getCardsToShow());
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const nextSlide = () =>
-    setIndex((prev) => (prev < maxIndex ? prev + 1 : prev));
-  const prevSlide = () => setIndex((prev) => (prev > 0 ? prev - 1 : prev));
+  const nextSlide = () => setIndex((prev) => Math.min(prev + 1, maxIndex));
+  const prevSlide = () => setIndex((prev) => Math.max(prev - 1, 0));
+
+  const handlers = useSwipeable({
+    onSwiping: (event) => {
+      if (containerRef.current) {
+        containerRef.current.style.transform = `translateX(${
+          -index * 100 + event.deltaX
+        }px)`;
+      }
+    },
+    onSwipedLeft: () => nextSlide(),
+    onSwipedRight: () => prevSlide(),
+    trackMouse: true, // Enables swiping with a mouse
+  });
 
   return (
     <motion.section
@@ -191,73 +201,46 @@ const FoundrySection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <motion.h1
-        className="text-2xl md:text-5xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-      >
+      <motion.h1 className="text-2xl md:text-5xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full">
         Empowering Businesses for Growth
       </motion.h1>
-      <motion.p
-        className="text-[#B1B1B1] text-xs lg:text-base font-normal mb-6 lg:mb-10  text-center font-sans"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.8 }}
-      >
+      <motion.p className="text-[#B1B1B1] text-xs lg:text-base font-normal mb-6 lg:mb-10 text-center font-sans">
         Seamless solutions for lending, procurement, and logistics. Transform
         your operations with our integrated platform.
       </motion.p>
 
       <div className=" w-full overflow-hidden md:ml-[8%] group">
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-0  hidden lg:flex lg:top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full "
+        >
+          <Icon icon="mdi:chevron-left" className="text-3xl text-gray-600" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-0 top-3/4 lg:top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full "
+        >
+          <Icon icon="mdi:chevron-right" className="text-3xl text-gray-600" />
+        </button>
+
+        {/* Swipeable Carousel */}
         <motion.div
-          className="flex gap-1"
-          whileInView={{ x: `-${index * (100 / cardsToShow)}%` }}
+          {...handlers}
+          ref={containerRef}
+          className="flex gap-1 cursor-grab active:cursor-grabbing"
+          drag="x"
+          dragConstraints={{ left: -maxIndex * 360, right: 0 }}
+          animate={{ x: `-${(index / maxIndex) * 100}%` }}
           transition={{ type: "tween" }}
           style={{ width: `${(foundry_stars.length / cardsToShow) * 100}%` }}
         >
           {foundry_stars.map((item, i) => (
-            <motion.div
-              key={i}
-              className="lg:w-[20%] flex-shrink-0 px-2"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
-            >
+            <motion.div key={i} className="lg:w-[20%] flex-shrink-0 px-2">
               <FoundryCard {...item} />
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-[1rem] lg:top-1/2 transform -translate-y-1/2 p-2 text-gray-500 rounded-full shadow-lg transition duration-300 opacity-35 group-hover:opacity-100"
-        >
-          <Icon icon="icons8:chevron-left-round" fontSize={24} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-[2rem] lg:top-1/2 transform -translate-y-1/2 p-2 text-gray-500 rounded-full shadow-lg transition duration-300 opacity-35 group-hover:opacity-100"
-        >
-          <Icon icon="icons8:chevron-right-round" fontSize={24} />
-        </button>
-      </div>
-
-      {/* Indicator Dots */}
-      <div className="justify-center mt-4 gap-2 hidden">
-        {Array.from(
-          { length: foundry_stars.length - cardsToShow + 1 },
-          (_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                i === index ? "bg-green-700 scale-125" : "bg-gray-300"
-              } hover:scale-150 hover:bg-green-500`}
-            />
-          )
-        )}
       </div>
     </motion.section>
   );
