@@ -186,13 +186,13 @@ const FoundrySection = () => {
 
   return (
     <motion.section
-      className="py-10 lg:mb-20 mx-auto flex flex-col overflow-hidden flex-1"
+      className="py-10 lg:mb-20 lg:mx-auto mx-5 flex flex-col overflow-hidden flex-1"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <motion.h1
-        className="text-3xl md:text-5xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full"
+        className="text-2xl md:text-5xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.8 }}
@@ -200,7 +200,7 @@ const FoundrySection = () => {
         Empowering Businesses for Growth
       </motion.h1>
       <motion.p
-        className="text-[#B1B1B1] font-normal mb-6 lg:mb-10 text-center font-sans"
+        className="text-[#B1B1B1] text-xs lg:text-base font-normal mb-6 lg:mb-10  text-center font-sans"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.8 }}
@@ -232,13 +232,13 @@ const FoundrySection = () => {
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-[1rem] top-1/2 transform -translate-y-1/2 p-2 text-gray-500 rounded-full shadow-lg transition duration-300 opacity-35 group-hover:opacity-100"
+          className="absolute left-[1rem] lg:top-1/2 transform -translate-y-1/2 p-2 text-gray-500 rounded-full shadow-lg transition duration-300 opacity-35 group-hover:opacity-100"
         >
           <Icon icon="icons8:chevron-left-round" fontSize={24} />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-[5rem] top-1/2 transform -translate-y-1/2 p-2 text-gray-500 rounded-full shadow-lg transition duration-300 opacity-35 group-hover:opacity-100"
+          className="absolute right-[2rem] lg:top-1/2 transform -translate-y-1/2 p-2 text-gray-500 rounded-full shadow-lg transition duration-300 opacity-35 group-hover:opacity-100"
         >
           <Icon icon="icons8:chevron-right-round" fontSize={24} />
         </button>

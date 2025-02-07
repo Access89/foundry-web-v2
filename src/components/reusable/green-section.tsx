@@ -8,7 +8,7 @@ const GreenSection = () => {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-[#4C7F64] p-5 md:p-10 mt-10 w-full text-primary-white"
+      className="bg-[#4C7F64] p-5 md:p-10  mt-2 w-full text-primary-white"
     >
       <div className="container">
         <div>

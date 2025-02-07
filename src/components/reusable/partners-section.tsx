@@ -19,7 +19,7 @@ const PartnersSection = () => {
   const scrollingPartners = [...partners, ...partners];
 
   return (
-    <section className="container my-5 flex flex-col gap-6 overflow-hidden flex-1">
+    <section className=" my-5 flex flex-col gap-6 overflow-hidden flex-1 max-w-[100vw]">
       {/* Title Section with Fade-In Animation */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -27,7 +27,9 @@ const PartnersSection = () => {
         transition={{ duration: 1, ease: "easeOut" }}
         className="text-center"
       >
-        <h2 className="text-2xl font-semibold">You are in good company</h2>
+        <h2 className="lg:text-2xl text-lg font-semibold">
+          You are in good company
+        </h2>
       </motion.div>
 
       {/* Scrolling Animation */}
@@ -42,7 +44,10 @@ const PartnersSection = () => {
           }}
         >
           {scrollingPartners.map((partner, index) => (
-            <div key={index} className="w-[6rem] h-[3rem] flex-shrink-0">
+            <div
+              key={index}
+              className="lg:w-[6rem] lg:h-[3rem] w-[4rem] h-[2rem] flex-shrink-0"
+            >
               <img
                 src={partner.logo}
                 alt={partner.name}
