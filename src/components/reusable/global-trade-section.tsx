@@ -5,7 +5,7 @@ const GlobalTradeSection = () => {
     <section className="p-5 md:p-10 md:my-10 w-full text-primary-white container">
       <div className="container flex flex-col gap-5 items-center justify-center">
         <motion.h2
-          className="text-[#1A1A1A] font-medium text-xl md:text-3xl md:text-center"
+          className="text-[#1A1A1A] font-medium text-2xl md:text-4xl text-center"
           whileInView={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ duration: 1 }}
@@ -14,7 +14,7 @@ const GlobalTradeSection = () => {
         </motion.h2>
 
         <motion.p
-          className="text-[#575757] text-xs md:text-sm font-normal md:text-center"
+          className="text-[#575757] text-sm font-normal md:text-center"
           whileInView={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ duration: 1, delay: 0.5 }}

@@ -178,7 +178,9 @@ const FoundrySection = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const nextSlide = () => setIndex((prev) => Math.min(prev + 1, maxIndex));
+  const nextSlide = () => {
+    setIndex((prev) => (prev < maxIndex - 3 ? prev + 1 : prev));
+  };
   const prevSlide = () => setIndex((prev) => Math.max(prev - 1, 0));
 
   const handlers = useSwipeable({
