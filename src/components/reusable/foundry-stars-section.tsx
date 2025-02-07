@@ -213,7 +213,7 @@ const FoundrySection = () => {
         <motion.div
           className="flex gap-1"
           whileInView={{ x: `-${index * (100 / cardsToShow)}%` }}
-          transition={{ type: "spring", stiffness: 100 }}
+          transition={{ type: "tween" }}
           style={{ width: `${(foundry_stars.length / cardsToShow) * 100}%` }}
         >
           {foundry_stars.map((item, i) => (
