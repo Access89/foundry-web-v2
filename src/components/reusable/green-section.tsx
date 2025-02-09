@@ -13,59 +13,62 @@ const GreenSection = () => {
       <div className="container">
         <div>
           <h2 className="font-medium text-xl lg:text-2xl mb-8 md:w-[65%]">
-            Trade with confidence, from production quality assurance to purchase
-            protection.
+            Security & support you can trust.
           </h2>
           <div className="grid md:grid-cols-2 gap-5 space-y-5 md:space-y-0">
             {[
               {
-                description: `Connect with a diverse range of suppliers with third-party-verified credentials and capabilities. Look for the "Verified" logo to start sourcing from experienced suppliers your business can trust.`,
+                description: `Strengthen your platform by integrating financial services like accounts and lending. Businesses embedded financial solutions designed for their core users, helping them attract more customers, generate additional revenue streams, and enhance the overall customer experience.`,
                 linkTitle: "Visit Support",
                 link: "",
+                title: "Launch financial services on your platform",
               },
               {
                 description: `Connect with a diverse range of suppliers with third-party-verified credentials and capabilities. Look for the "Verified" logo to start sourcing from experienced suppliers your business can trust.`,
                 linkTitle: "Visit The Bottom Line",
                 link: "",
+                title:
+                  "We can tailor the right mix of services and expertise to support any operations goal",
               },
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-[#5F9779] p-6 rounded-xl h-[300px] flex flex-col"
+                className="bg-[#5F9779] p-6 rounded-xl  flex flex-col justify-between"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
               >
-                <div className="mt-auto text-xl ">
-                  <h5 className="pb-4 font-light text-sm text-[#E6E6E6]">
-                    {item.description}
-                  </h5>
-                  <Link
-                    to={item.link}
-                    className="text-sm font-light flex items-center gap-x-1 hover:opacity-80 group justify-between"
-                  >
-                    {item.linkTitle}
-                    <Icon
-                      icon="iconamoon:arrow-right-2-duotone"
-                      fontSize={20}
-                      className="group-hover:translate-x-1 transition-all"
-                    />
-                  </Link>
-                </div>
+                <h5 className="pb-4 font-medium text-lgs lg:text-2xl md:text-xl lg:h-[100px] text-[#E6E6E6] w-[90%]">
+                  {item.title}
+                </h5>
+                <h5 className="pb-4 font-light text-sm text-[#E6E6E6]">
+                  {item.description}
+                </h5>
+                <Link
+                  to={item.link}
+                  className="text-sm font-light flex items-center gap-x-1 hover:opacity-80 group justify-between"
+                >
+                  {item.linkTitle}
+                  <Icon
+                    icon="iconamoon:arrow-right-2-duotone"
+                    fontSize={20}
+                    className="group-hover:translate-x-1 transition-all"
+                  />
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
 
         <motion.div
-          className="md:flex grid-cols-[0.4fr,1fr] gap-x-10 my-16 text-sm"
+          className="lg:flex grid-cols-[0.4fr,1fr] gap-x-10 my-16 text-sm"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="md:w-[60%]">
-            <h5 className="font-medium text-xl lg:text-2xl mb-10 w-[100%]">
-              Simplify ordering from search to fulfillment, all in one platform.
+          <div className="lg:w-[60%]">
+            <h5 className="font-medium text-xl lg:text-2xl mb-10 lg:w-[60%]">
+              Full-Stack B2B ecosystem, all in one platform.
             </h5>
 
             {goalsConst.map((item, index) => (
@@ -88,7 +91,7 @@ const GreenSection = () => {
               </motion.div>
             ))}
           </div>
-          <div className="h-full md:w-[40%] flex justify-center items-center mt-20">
+          <div className="h-full lg:w-[40%] flex justify-center items-center mt-20">
             <div className="bg-[#D9D9D9]/30 flex justify-center items-center w-full">
               {/* <img
               src="/icons/camera.svg"
@@ -115,14 +118,11 @@ const GreenSection = () => {
         >
           <div className="mb-8 text-sm">
             <h5 className="font-medium text-xl lg:text-2xl mb-5 md:w-[68%]">
-              Receive customized discounts, services, and tools tailored to your
-              business stage.
+              Collaborate Within the Ecosystem
             </h5>
-            <p className="font-light text-lg text-[#F5F5F5]">
-              Expand your business with the curated benefits of a free
-              Foundry.com Membership. Whether you're a small business seeking
-              essential sourcing tools or an established enterprise requiring
-              advanced solutions for complex orders, we've got you covered.
+            <p className="font-light text-base lg:text-lg text-[#F5F5F5]">
+              Connect with industry peers, exchange ideas, and build strategic
+              partnerships to drive innovation and growth
             </p>
           </div>
           <div className="grid grid-cols-auto-fill-300 gap-5 space-y-5 md:space-y-0">
@@ -143,7 +143,7 @@ const GreenSection = () => {
               {
                 description: "To connect with other business owners.",
                 icon: "/icons/chat.svg",
-                linkTitle: "Visit Foundry Hub",
+                linkTitle: "Learn More",
                 link: "",
               },
             ].map((item, index) => (
@@ -180,24 +180,24 @@ const GreenSection = () => {
 
 const goalsConst = [
   {
-    title: "Search for Matches",
-    desc: "Enhance customer loyalty and value by leveraging centralized customer data and insights.",
+    title: "connect with verified players",
+    desc: "Partner with reliable suppliers, service providers, and industry leaders to strengthen your business network",
   },
   {
-    title: "identify the right one",
-    desc: "Expand your revenue streams by exploring new avenues.Monitor",
+    title: "Scale Your Business with capital",
+    desc: "Expand your reach, increase efficiency, and drive sustainable growth with the right strategies and capital.",
   },
   {
-    title: "pay with confidence",
-    desc: "Get powerful insights to make confident decisions.",
+    title: "Gain Operational Insights",
+    desc: "Leverage data-driven insights to monitor performance, streamline processes, and make informed decisions",
   },
   {
-    title: "Fulfill with transparency",
-    desc: "Get powerful insights to make confident decisions.",
+    title: "Optimize & Eliminate Waste",
+    desc: "Improve efficiency, reduce costs, and enhance productivity by eliminating inefficiencies.",
   },
   {
-    title: "manage with ease",
-    desc: "Get powerful insights to make confident decisions.",
+    title: "Enhance Customer Experience",
+    desc: "Build lasting relationships by delivering exceptional service and personalized experiences.",
   },
 ];
 

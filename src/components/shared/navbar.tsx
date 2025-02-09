@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Navbar,
   NavbarBrand,
@@ -86,7 +87,7 @@ export default function NavbarComponent() {
                   </NavbarItem>
                 </DropdownTrigger>
                 <DropdownMenu>
-                  {item.subItems.map((subItem, subIndex) => (
+                  {item.subItems.map((subItem: any, subIndex) => (
                     <DropdownItem key={subIndex} as={Link}>
                       <Link to={subItem.link as string}>{subItem.title}</Link>
                     </DropdownItem>
@@ -96,6 +97,7 @@ export default function NavbarComponent() {
             ) : (
               <NavbarItem key={index}>
                 <Link
+                  target="_blank"
                   to={item?.link as string}
                   className={cn(
                     "w-full text-xs text-[#808080]",
@@ -120,7 +122,7 @@ export default function NavbarComponent() {
           </CustomButton>
           <CustomButton
             className="bg-[#EDF2EE] border-2 border-secondary text-primary"
-            onClick={() =>
+            onPress={() =>
               window.open("https://foundry-platform.com", "_blank")
             }
           >
@@ -140,7 +142,7 @@ export default function NavbarComponent() {
                 </NavbarMenuItem>
               </DropdownTrigger>
               <DropdownMenu>
-                {item.subItems.map((subItem, subIndex) => (
+                {item.subItems.map((subItem: any, subIndex) => (
                   <DropdownItem key={subIndex} as={Link}>
                     <Link to={subItem.link as string}>{subItem.title}</Link>
                   </DropdownItem>
@@ -185,30 +187,14 @@ export default function NavbarComponent() {
 
 const menuItems = [
   {
-    title: "Finance",
+    title: "Solutions",
     subItems: [
-      { link: "/finance/morden-banking", title: "Modern Banking Platform" },
-      { link: "/finance/banking-as-a-service", title: "Banking as a Service" },
-      { link: "/finance/kyc-aml", title: "KYC / AML" },
-      { link: "/finance/lending", title: "Lending" },
-      { link: "/finance/credit-scoring", title: "Credit Scoring" },
-      { link: "/finance/fund-management", title: "Fund Management" },
+      // { link: "/finance/morden-banking", title: "Modern Banking Platform" },
     ],
   },
   {
-    title: "Business",
-    subItems: [
-      { link: "/business/pos", title: "Point of Sale" },
-      { link: "/business/foundry-terminal", title: "Foundry Terminal" },
-      { link: "/business/accounting", title: "Advanced Accounting Tools" },
-      { link: "/business/process-improvement", title: "Process Improvement" },
-      {
-        link: "/business/supply-chain",
-        title: "Supply Chain, Manufacturing & Procurement",
-      },
-      { link: "/business/connect-your-bank", title: "Connect Your Bank" },
-      { link: "/business/intelligence", title: "Business Intelligence" },
-    ],
+    title: "Industry",
+    subItems: [],
   },
   {
     link: "/use-cases",
@@ -221,9 +207,8 @@ const menuItems = [
     subItems: [],
   },
   {
-    link: "/hub/track-order",
     title: "Developer",
-    subItems: [],
+    link: "https://developer.access89.com",
   },
 ];
 
