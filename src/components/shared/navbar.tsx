@@ -97,7 +97,7 @@ export default function NavbarComponent() {
             ) : (
               <NavbarItem key={index}>
                 <Link
-                  target="_blank"
+                  target={item?.external ? "_blank" : "_self"}
                   to={item?.link as string}
                   className={cn(
                     "w-full text-xs text-[#808080]",
@@ -199,7 +199,6 @@ const menuItems = [
   {
     link: "/use-cases",
     title: "Use Cases",
-    subItems: [],
   },
   {
     link: "/hub/track-order",
@@ -209,6 +208,7 @@ const menuItems = [
   {
     title: "Developer",
     link: "https://developer.access89.com",
+    external: true,
   },
 ];
 
