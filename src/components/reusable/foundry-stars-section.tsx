@@ -7,6 +7,7 @@ import { useSwipeable } from "react-swipeable";
 
 const CARDS_TO_SHOW = {
   desktop: 4,
+  semidesktop: 3,
   tablet: 2,
   mobile: 1,
 };
@@ -165,7 +166,8 @@ const FoundrySection = () => {
 
   const getCardsToShow = () => {
     if (window.innerWidth < 640) return CARDS_TO_SHOW.mobile;
-    if (window.innerWidth < 1024) return CARDS_TO_SHOW.tablet;
+    if (window.innerWidth < 1020) return CARDS_TO_SHOW.tablet;
+    if (window.innerWidth < 1440) return CARDS_TO_SHOW.semidesktop;
     return CARDS_TO_SHOW.desktop;
   };
 
@@ -177,6 +179,15 @@ const FoundrySection = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // to move the carousel
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev < maxIndex - 3 ? prev + 1 : 0)); // Loop back to the first slide
+    }, 3000); // Change slides every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, [index, maxIndex]);
 
   const nextSlide = () => {
     setIndex((prev) => (prev < maxIndex - 3 ? prev + 1 : prev));
@@ -203,13 +214,17 @@ const FoundrySection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <motion.h1 className="text-2xl md:text-5xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full">
+      <motion.h1 className="text-2xl md:text-3xl lg:text-5xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full">
         Empowering Businesses for Growth
       </motion.h1>
       <motion.p className="text-[#B1B1B1] text-xs lg:text-base font-normal mb-6 lg:mb-10 text-center font-sans">
         Seamless solutions for lending, procurement, and logistics. Transform
         your operations with our integrated platform.
       </motion.p>
+
+      {/* <div className="lg:hidden flex">
+        <CarouselMobile />
+      </div> */}
 
       <div className=" w-full overflow-hidden md:ml-[8%] group">
         {/* Navigation Arrows */}
@@ -221,7 +236,7 @@ const FoundrySection = () => {
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-0 top-3/4 lg:top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full "
+          className="absolute hidden lg:flex right-0 top-3/4 lg:top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full "
         >
           <Icon icon="mdi:chevron-right" className="text-3xl text-gray-600" />
         </button>
@@ -230,7 +245,7 @@ const FoundrySection = () => {
         <motion.div
           {...handlers}
           ref={containerRef}
-          className="flex gap-1 cursor-grab active:cursor-grabbing"
+          className="flex gap-2 md:gap-4 cursor-grab active:cursor-grabbing"
           drag="x"
           dragConstraints={{ left: -maxIndex * 360, right: 0 }}
           animate={{ x: `-${(index / maxIndex) * 100}%` }}
