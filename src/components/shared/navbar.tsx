@@ -20,6 +20,7 @@ import { CustomButton } from "./shared_customs";
 import CustomModal from "./modal";
 import SignUp from "../../pages/sign_up";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -132,30 +133,17 @@ export default function NavbarComponent() {
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu className="bg-white">
+      <NavbarMenu className="bg-white p-5">
         {menuItems.map((item, index) =>
           item.subItems ? (
-            <Dropdown key={index}>
-              <DropdownTrigger>
-                <NavbarMenuItem className="cursor-pointer text-sm text-[#808080]">
-                  {item.title}
-                </NavbarMenuItem>
-              </DropdownTrigger>
-              <DropdownMenu>
-                {item.subItems.map((subItem: any, subIndex) => (
-                  <DropdownItem key={subIndex} as={Link}>
-                    <Link to={subItem.link as string}>{subItem.title}</Link>
-                  </DropdownItem>
-                ))}
-              </DropdownMenu>
-            </Dropdown>
+            <CustomDropdown key={index} item={item} />
           ) : (
             <NavbarMenuItem key={index}>
               <Link
                 to={item.link as string}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
-                  "w-full text-xs text-[#808080]",
+                  "w-full text-sm text-[#808080]",
                   pathname.includes(item?.link as string) && "text-[#1A1A1A]"
                 )}
               >
@@ -189,7 +177,8 @@ const menuItems = [
   {
     title: "Solutions",
     subItems: [
-      // { link: "/finance/morden-banking", title: "Modern Banking Platform" },
+      { link: "/finance/morden-banking", title: "Modern Banking Platform" },
+      { link: "/finance/morden-banking", title: "Modern Banking Platform" },
     ],
   },
   {
@@ -237,3 +226,49 @@ const menuItems = [
 //     link: "/pricing",
 //     title: "Pricing",
 //   },
+
+const CustomDropdown = ({ item }: { item: any }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="relative w-full">
+      {/* Dropdown Trigger */}
+      <div
+        className="flex justify-between items-center cursor-pointer text-sm text-[#808080] hover:text-[#1A1A1A]"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {item.title}
+        <Icon
+          icon="majesticons:chevron-down"
+          className={`transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </div>
+
+      {/* Dropdown Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            transition={{ duration: 0.2 }}
+            className="absolute left-0 mt-1 w-full max-w-xs bg-white shadow-lg rounded-md border border-gray-200 z-50"
+          >
+            {item.subItems.map((subItem: any, subIndex: number) => (
+              <Link
+                key={subIndex}
+                to={subItem.link as string}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                onClick={() => setIsOpen(false)}
+              >
+                {subItem.title}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
