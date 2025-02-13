@@ -3,17 +3,19 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import globalSlice from './features/global';
 import subscriberSlice from './features/subscriber';
+import hireSlice from './features/hire';
 
 const persistConfig = {
 	key: 'Foundry Web',
 	storage,
-	whitelist: [''],
+	whitelist: ['hire', 'subscriber'],
 	blacklist: [],
 };
 
 const combinedReducers = combineReducers({
 	global: globalSlice.reducer,
-	subscriber: subscriberSlice.reducer 
+	subscriber: subscriberSlice.reducer ,
+	hire: hireSlice.reducer 
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducers);
