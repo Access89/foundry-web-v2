@@ -1,25 +1,35 @@
+import { motion } from "framer-motion";
 import { InfoCard } from "./components/info_card";
 import { LoanCalculator } from "./components/loan-calculator";
 
 const Loan = () => {
   return (
     <div className="container py-5 md:py-10">
-      <h2 className="text-center text-2xl md:text-4xl font-semibold">
-        What type of loan are you looking for?
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-10 md:mt-16">
-        {loan_options.map((item, index) => (
-          <InfoCard key={index} {...item} />
-        ))}
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+      >
+        <h2 className="text-center text-2xl md:text-4xl font-semibold">
+          What type of loan are you looking for?
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-10 md:mt-16">
+          {loan_options.map((item, index) => (
+            <InfoCard key={index} {...item} />
+          ))}
+        </div>
+      </motion.div>
 
-      <div className="flex flex-col gap-5 md:gap-10 mt-10 md:mt-16">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="flex flex-col gap-5 md:gap-10 mt-10 md:mt-16"
+      >
         <h2 className="text-center text-2xl md:text-4xl font-semibold">
           Explore your options
         </h2>
 
         <LoanCalculator />
-      </div>
+      </motion.div>
     </div>
   );
 };

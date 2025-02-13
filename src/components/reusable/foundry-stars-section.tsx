@@ -117,8 +117,13 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
     });
   };
 
-  return (
-    <div className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card">
+  return external ? (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card"
+    >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
           {highlightText(title, boldedGreen, boldedBlack, breakAt)}
@@ -156,7 +161,50 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
           className="w-full h-full object-contain rounded-lg"
         />
       </div>
-    </div>
+    </a>
+  ) : (
+    <Link
+      to={link}
+      className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card"
+    >
+      <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
+        <h3 className="text-base leading-snug font-sans">
+          {highlightText(title, boldedGreen, boldedBlack, breakAt)}
+        </h3>
+        {external ? (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform"
+          >
+            <Icon
+              icon="prime:arrow-right"
+              className="text-[#4C7F64]"
+              fontSize={24}
+            />
+          </a>
+        ) : (
+          <Link
+            to={link}
+            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform"
+          >
+            <Icon
+              icon="prime:arrow-right"
+              className="text-[#4C7F64]"
+              fontSize={24}
+            />
+          </Link>
+        )}
+      </div>
+      <div className={`${imageSize} flex-shrink-0`}>
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-contain rounded-lg"
+        />
+      </div>
+    </Link>
   );
 };
 
