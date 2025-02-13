@@ -69,7 +69,6 @@ export const LoanCalculator = () => {
             <p className="font-medium">Loan Tenor (Months)</p>
             <Slider
               className="max-w-md"
-              color="foreground"
               minValue={12}
               maxValue={60}
               classNames={{
