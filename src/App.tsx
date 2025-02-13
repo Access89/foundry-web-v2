@@ -19,6 +19,8 @@ import PasswordSetting from "./pages/onboarding/_components/_tabs/password";
 const Home = lazy(() => import("./pages/home"));
 const BusinessAutomation = lazy(() => import("./pages/business_automation"));
 const Loan = lazy(() => import("./pages/loan"));
+const Hire = lazy(() => import("./pages/hire"));
+const HireDetail = lazy(() => import("./pages/hire/hire-detail"));
 const FinancialServices = lazy(() => import("./pages/financial_services"));
 const UseCases = lazy(() => import("./pages/use_cases"));
 const LogisticsAndSupply = lazy(() => import("./pages/logistics"));
@@ -40,6 +42,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="business-automation" element={<BusinessAutomation />} />
           <Route path="loan" element={<Loan />} />
+          <Route path="hire" element={<Hire />} />
+          <Route path="hire-detail" element={<HireDetail />} />
           <Route path="financial-services" element={<FinancialServices />} />
           <Route
             path="/financial-service/:service"
