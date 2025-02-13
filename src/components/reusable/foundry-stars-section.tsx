@@ -18,7 +18,7 @@ const foundry_stars = [
     boldedGreen: ["I want to", "money and"],
     breakAt: ["borrow"],
     boldedBlack: ["borrow", "pay in 30, 60 or 90 days"],
-    link: "",
+    link: "/loan",
     image: "/images/foundry_stars/foundry_stars_loan.png",
     imageSize: "w-[40%]",
   },
@@ -184,7 +184,7 @@ const FoundrySection = () => {
   React.useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev < maxIndex - 3 ? prev + 1 : 0)); // Loop back to the first slide
-    }, 3000); // Change slides every 5 seconds
+    }, 5000); // Change slides every 5 seconds
 
     return () => clearInterval(interval); // Cleanup on unmount
   }, [index, maxIndex]);
