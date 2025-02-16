@@ -7,10 +7,6 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
   cn,
   useDisclosure,
 } from "@nextui-org/react";
@@ -21,12 +17,90 @@ import CustomModal from "./modal";
 import SignUp from "../../pages/sign_up";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { motion, AnimatePresence } from "framer-motion";
+import Dropdown from "./custom-dropdown";
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isOpen, onOpenChange } = useDisclosure();
   const { pathname } = useLocation();
   const navigate = useNavigate();
+
+  // dropdown mobile
+  const CustomDropdown = ({ item }: { item: any }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <div className="relative w-full">
+        {/* Dropdown Trigger */}
+        <div
+          className="flex justify-between items-center cursor-pointer text-sm text-[#808080] hover:text-[#1A1A1A]"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {item.title}
+          <Icon
+            icon="majesticons:chevron-down"
+            className={`transition-transform duration-200 ${
+              isOpen ? "rotate-180" : ""
+            }`}
+          />
+        </div>
+
+        {/* Dropdown Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.2 }}
+              className="absolute left-0 mt-1 w-[90vw] p-3 bg-white shadow-lg rounded-md border border-gray-200 z-50"
+            >
+              {item.subItems.map((subItem: any, subIndex: number) => (
+                // <Link
+                //   key={subIndex}
+                //   to={subItem.link as string}
+                //   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                //   onClick={() => setIsOpen(false)}
+                // >
+                //   {subItem.title}
+                // </Link>
+                <div key={subIndex} className="">
+                  <p
+                    className={`font-bold ${
+                      subIndex && "pt-2 pb-1"
+                    } text-sm text-[#000000]`}
+                  >
+                    {subItem.heading}
+                  </p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {subItem.subs.map((linkItem: any, linkIndex: any) => (
+                      <Link
+                        key={linkIndex}
+                        to={linkItem.link}
+                        onClick={() => {
+                          setIsOpen(false);
+                          setIsMenuOpen(false);
+                        }}
+                        className="flex items-center "
+                      >
+                        <Icon
+                          className="text-[#4C7F64]/50"
+                          fontSize={20}
+                          icon={linkItem.icon}
+                        />
+                        <p className="text-xs font-medium text-[#000000] hover:text-gray-500">
+                          {linkItem.title}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  };
 
   return (
     <Navbar
@@ -75,26 +149,39 @@ export default function NavbarComponent() {
         <div className="flex w-[87%] gap-x-5 justify-center items-center">
           {menuItems.map((item, index) =>
             item.subItems ? (
-              <Dropdown key={index}>
-                <DropdownTrigger>
-                  <NavbarItem
-                    className={cn(
-                      "flex gap-1 items-center cursor-pointer text-xs text-[#808080] hover:text-[#1A1A1A]",
-                      pathname.includes(item.title.toLowerCase()) &&
-                        "text-[#1A1A1A]"
-                    )}
-                  >
-                    {item.title} <Icon icon="majesticons:chevron-down" />
-                  </NavbarItem>
-                </DropdownTrigger>
-                <DropdownMenu>
-                  {item.subItems.map((subItem: any, subIndex) => (
-                    <DropdownItem key={subIndex} as={Link}>
-                      <Link to={subItem.link as string}>{subItem.title}</Link>
-                    </DropdownItem>
-                  ))}
-                </DropdownMenu>
-              </Dropdown>
+              // <Dropdown key={index}>
+              //   <NavbarItem>
+              //     <DropdownTrigger>
+              //       <div className="flex gap-1 items-center cursor-pointer text-xs text-[#808080] hover:text-[#1A1A1A]">
+              //         {item.title} <Icon icon="majesticons:chevron-down" />
+              //       </div>
+              //     </DropdownTrigger>
+              //   </NavbarItem>
+              //   <DropdownMenu className="w-[500px] p-4">
+              //     {item.subItems.map((subItem, subIndex) => (
+              //       <DropdownSection
+              //         key={subIndex}
+              //         title={subItem.heading}
+              //         classNames={{
+              //           heading: ["font-bold", "text-lg", "text-[#000000]"],
+              //           base: ["grid grid-cols-2", "w-fit"],
+              //         }}
+              //       >
+              //         {subItem.subs.map((linkItem, linkIndex) => (
+              //           <DropdownItem
+              //             key={linkIndex}
+              //             as="a"
+              //             className="text-sm font-medium text-[#000000]"
+              //             href={linkItem.link}
+              //           >
+              //             {linkItem.title}
+              //           </DropdownItem>
+              //         ))}
+              //       </DropdownSection>
+              //     ))}
+              //   </DropdownMenu>
+              // </Dropdown>
+              <Dropdown key={index} item={item} />
             ) : (
               <NavbarItem key={index}>
                 <Link
@@ -177,8 +264,75 @@ const menuItems = [
   {
     title: "Solutions",
     subItems: [
-      { link: "/finance/morden-banking", title: "Modern Banking Platform" },
-      { link: "/finance/morden-banking", title: "Modern Banking Platform" },
+      {
+        heading: "Finance",
+        subs: [
+          {
+            link: "/finance/morden-banking",
+            title: "Morden Banking Platform",
+            icon: "oui:dot",
+          },
+          { link: "/finance/lending", title: "Lending", icon: "oui:dot" },
+          {
+            link: "/finance/banking-as-a-service",
+            title: "Banking as a Service",
+            icon: "oui:dot",
+          },
+          {
+            link: "/finance/credit-scoring",
+            title: "Credit Scoring",
+            icon: "oui:dot",
+          },
+          { link: "/finance/kyc", title: "KYC / AML ", icon: "oui:dot" },
+        ],
+      },
+      {
+        heading: "Business",
+        subs: [
+          { link: "/business/pos", title: "Point of Sale", icon: "oui:dot" },
+          {
+            link: "/business/supply-chain",
+            title: "Supply chain, manufacturing & procurement",
+            icon: "oui:dot",
+          },
+          {
+            link: "/business/foundry-terminal",
+            title: "Foundry Terminal",
+            icon: "oui:dot",
+          },
+          { link: "/business/payroll", title: "Payroll", icon: "oui:dot" },
+          {
+            link: "/business/advanced-tools",
+            title: "Advanced Accounting tools",
+            icon: "oui:dot",
+          },
+          {
+            link: "/business/advanced-analytics",
+            title: "Advanced Analytics",
+            icon: "oui:dot",
+          },
+        ],
+      },
+      {
+        heading: "Operations",
+        subs: [
+          {
+            link: "/operations/process-improvement",
+            title: "Process Improvement",
+            icon: "oui:dot",
+          },
+          {
+            link: "/operations/operating-model-design",
+            title: "Operating Model Design",
+            icon: "oui:dot",
+          },
+          {
+            link: "/operations/digital-transformation",
+            title: "Digital Transformation",
+            icon: "oui:dot",
+          },
+        ],
+      },
     ],
   },
   {
@@ -226,49 +380,3 @@ const menuItems = [
 //     link: "/pricing",
 //     title: "Pricing",
 //   },
-
-const CustomDropdown = ({ item }: { item: any }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="relative w-full">
-      {/* Dropdown Trigger */}
-      <div
-        className="flex justify-between items-center cursor-pointer text-sm text-[#808080] hover:text-[#1A1A1A]"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {item.title}
-        <Icon
-          icon="majesticons:chevron-down"
-          className={`transition-transform duration-200 ${
-            isOpen ? "rotate-180" : ""
-          }`}
-        />
-      </div>
-
-      {/* Dropdown Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -5 }}
-            transition={{ duration: 0.2 }}
-            className="absolute left-0 mt-1 w-full max-w-xs bg-white shadow-lg rounded-md border border-gray-200 z-50"
-          >
-            {item.subItems.map((subItem: any, subIndex: number) => (
-              <Link
-                key={subIndex}
-                to={subItem.link as string}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                onClick={() => setIsOpen(false)}
-              >
-                {subItem.title}
-              </Link>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
