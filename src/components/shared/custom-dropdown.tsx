@@ -18,7 +18,7 @@ interface DropdownProps {
   item: MenuItem;
 }
 
-const Dropdown = ({ item }: DropdownProps) => {
+const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -78,4 +78,4 @@ const Dropdown = ({ item }: DropdownProps) => {
   );
 };
 
-export default Dropdown;
+export default CustomeDropdownDesktop;

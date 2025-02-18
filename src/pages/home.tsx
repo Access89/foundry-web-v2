@@ -12,7 +12,7 @@ const Home = () => {
   // const navigate = useNavigate();
   return (
     <>
-      <div className="h-[100vh] w-[98vw] overflow-x-hidden">
+      <div className="h-[90vh] w-[98vw] overflow-x-hidden">
         <FoundrySection />
         <PartnersSection />
       </div>
