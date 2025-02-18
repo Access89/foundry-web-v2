@@ -17,7 +17,7 @@ import CustomModal from "./modal";
 import SignUp from "../../pages/sign_up";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { motion, AnimatePresence } from "framer-motion";
-import Dropdown from "./custom-dropdown";
+import CustomeDropdownDesktop from "./custom-dropdown";
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,7 +26,7 @@ export default function NavbarComponent() {
   const navigate = useNavigate();
 
   // dropdown mobile
-  const CustomDropdown = ({ item }: { item: any }) => {
+  const CustomMobileDropdown = ({ item }: { item: any }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
       <div className="relative w-full">
@@ -181,7 +181,7 @@ export default function NavbarComponent() {
               //     ))}
               //   </DropdownMenu>
               // </Dropdown>
-              <Dropdown key={index} item={item} />
+              <CustomeDropdownDesktop key={index} item={item} />
             ) : (
               <NavbarItem key={index}>
                 <Link
@@ -223,7 +223,7 @@ export default function NavbarComponent() {
       <NavbarMenu className="bg-white p-5">
         {menuItems.map((item, index) =>
           item.subItems ? (
-            <CustomDropdown key={index} item={item} />
+            <CustomMobileDropdown key={index} item={item} />
           ) : (
             <NavbarMenuItem key={index}>
               <Link

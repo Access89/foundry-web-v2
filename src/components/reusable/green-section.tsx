@@ -12,8 +12,11 @@ const GreenSection = () => {
     >
       <div className="container">
         <div>
-          <h2 className="font-medium text-xl lg:text-2xl mb-8 md:w-[65%]">
-            Security & support you can trust.
+          <h2 className="font-medium text-2xl lg:text-3xl mb-8 md:mb-24 text-center">
+            Our platform empowers key commercial enterprises across Africa with
+            real-time, AI-driven decision-making, transforming industries from
+            wholesale, supply chain and logistics, manufacturing, electric
+            charging stations, and financial services.{" "}
           </h2>
           <div className="grid md:grid-cols-2 gap-5 space-y-5 md:space-y-0">
             {[
