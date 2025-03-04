@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { CustomButton } from "../shared/shared_customs";
 import { motion } from "framer-motion";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 const GetStartedSection = () => {
   const navigate = useNavigate();
@@ -10,11 +11,11 @@ const GetStartedSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      className=" bg-white p-5 md:p-10 w-full text-primary-white mt-8 mb-10"
+      className=" bg-white p-5 md:p-10 w-full text-primary-white  mb-10"
     >
       <div className="container flex flex-col gap-5 items-center justify-center">
         <h2 className="text-[#1A1A1A] font-semibold text-2xl md:text-4xl">
-          Join Foundry Platform{" "}
+          <span className="text-[#ABABAB]">Join</span> Foundry Platform{" "}
         </h2>
 
         <p className="text-[#575757] text-sm  font-normal md:text-center">
@@ -35,13 +36,13 @@ const GetStartedSection = () => {
               onPress={() => {
                 navigate("/onboarding");
               }}
-              className="bg-[#4C7F64] text-white "
+              className="bg-[#619B7D] text-white flex items-center gap-1"
             >
-              Sign up
+              Become a Partner <Icon icon="mingcute:arrow-right-line" />
             </CustomButton>
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.4 }}
@@ -52,7 +53,7 @@ const GetStartedSection = () => {
             >
               Book Demo
             </CustomButton>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </motion.section>
