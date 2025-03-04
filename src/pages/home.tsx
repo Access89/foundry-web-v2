@@ -12,10 +12,10 @@ const Home = () => {
   // const navigate = useNavigate();
   return (
     <>
-      <div className="h-[90vh] w-[98vw] overflow-x-hidden">
+      <div className=" overflow-x-hidden">
         <FoundrySection />
-        <PartnersSection />
       </div>
+      <PartnersSection />
 
       <GreenSection />
       <GetStartedSection />

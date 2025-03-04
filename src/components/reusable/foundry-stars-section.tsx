@@ -9,26 +9,17 @@ const CARDS_TO_SHOW = {
   desktop: 4,
   semidesktop: 3,
   tablet: 2,
-  mobile: 1,
+  mobile: 1
 };
 
 const foundry_stars = [
-  {
-    title: "I want to borrow money and pay in 30, 60 or 90 days",
-    boldedGreen: ["I want to", "money and"],
-    breakAt: ["borrow"],
-    boldedBlack: ["borrow", "pay in 30, 60 or 90 days"],
-    link: "/loan",
-    image: "/images/foundry_stars/foundry_stars_loan.png",
-    imageSize: "w-[40%]",
-  },
   {
     title: "I want to manage my business",
     boldedGreen: ["I want to"],
     boldedBlack: ["manage my business"],
     link: "/business-automation",
     image: "/images/foundry_stars/foundry_stars_business.png",
-    imageSize: "w-[50%]",
+    imageSize: "w-[50%]"
   },
   {
     title: "I want to embed Finance into my platform with one API",
@@ -37,8 +28,18 @@ const foundry_stars = [
     link: "https://developer.access89.com/api-reference/origination",
     image: "/images/foundry_stars/finance.png",
     imageSize: "w-[40%]",
-    external: true,
+    external: true
   },
+  {
+    title: "I want to borrow money and pay in 30, 60 or 90 days",
+    boldedGreen: ["I want to", "money and"],
+    breakAt: ["borrow"],
+    boldedBlack: ["borrow", "pay in 30, 60 or 90 days"],
+    link: "/loan",
+    image: "/images/foundry_stars/foundry_stars_loan.png",
+    imageSize: "w-[40%]"
+  },
+
   {
     title: "I want to buy items at wholesale prices",
     boldedGreen: ["I want to"],
@@ -47,16 +48,16 @@ const foundry_stars = [
     link: "https://hub.foundry-platform.app/",
     image: "/images/foundry_stars/foundry_stars_hub.png",
     imageSize: "w-[50%]",
-    external: true,
-  },
-  {
-    title: "I want to hire a sales person",
-    boldedGreen: ["I want to"],
-    boldedBlack: ["hire"],
-    link: "/hire",
-    imageSize: "w-[20%]",
-    image: "/images/foundry_stars/foundry_stars_api.png",
-  },
+    external: true
+  }
+  // {
+  //   title: "I want to hire a sales person",
+  //   boldedGreen: ["I want to"],
+  //   boldedBlack: ["hire"],
+  //   link: "/hire",
+  //   imageSize: "w-[20%]",
+  //   image: "/images/foundry_stars/foundry_stars_api.png"
+  // }
 ];
 interface FoundryCardProps {
   title: string;
@@ -77,7 +78,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   link,
   image,
   imageSize = "w-[40%]",
-  external,
+  external
 }) => {
   const highlightText = (
     text: string,
@@ -122,7 +123,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card z-10"
+      className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card "
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
@@ -144,7 +145,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
         ) : (
           <Link
             to={link}
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform z-10"
+            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform "
           >
             <Icon
               icon="prime:arrow-right"
@@ -165,7 +166,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   ) : (
     <Link
       to={link}
-      className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card"
+      className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] "
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
@@ -252,30 +253,64 @@ const FoundrySection = () => {
     },
     onSwipedLeft: () => nextSlide(),
     onSwipedRight: () => prevSlide(),
-    trackMouse: true, // Enables swiping with a mouse
+    trackMouse: true // Enables swiping with a mouse
   });
 
   return (
     <motion.section
-      className="py-10 lg:mb-20 lg:mx-auto mx-5 flex flex-col overflow-hidden flex-1"
+      className="py-10 lg:mb-20 lg:mx-auto mx-5 flex flex-col overflow-visible flex-1 "
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <motion.h1 className="text-2xl md:text-3xl lg:text-5xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full">
-        Empowering Businesses for Growth
+      <motion.h1 className="text-2xl md:text-3xl lg:text-6xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full">
+        <span className="text-[#929292]">Empowering</span>{" "}
+        <span className="text-[#000000]">Businesses</span>{" "}
+        <p>
+          <span className="text-black">for</span>{" "}
+          <span className="text-[#619B7D]">Growth</span>
+        </p>
       </motion.h1>
-      <motion.p className="text-[#B1B1B1] text-xs lg:text-base font-normal mb-6 lg:mb-10 text-center font-sans">
+      {/* <motion.p className="text-[#B1B1B1] text-xs lg:text-base font-normal mb-6 lg:mb-10 text-center font-sans">
         Seamless solutions for lending, procurement, and logistics. Transform
         your operations with our integrated platform.
-      </motion.p>
+      </motion.p> */}
 
-      {/* <div className="lg:hidden flex">
-        <CarouselMobile />
-      </div> */}
+      <div className="relative flex items-center justify-center w-full  overflow-hidden mt-2 md:mt-5 lg:mt-8">
+        <img
+          className="md:w-[40%] w-[100%] h-auto"
+          src="/images/foundry_stars/main_hero.png"
+          alt="hero"
+        />
 
-      <div className=" w-full overflow-hidden md:ml-[8%] group">
-        {/* Navigation Arrows */}
+        {/* Scattered Cards */}
+        <div className="lg:flex hidden">
+          {foundry_stars.map((item, i) => {
+            const positions = [
+              "top-0 left-[3%]",
+              "top-0 right-[8%]",
+              "bottom-0 left-[9%]",
+              "bottom-0 right-[15%]"
+              // "top-1/3 left-0"
+            ];
+            return (
+              <motion.div
+                key={i}
+                className={`absolute ${
+                  positions[i % positions.length]
+                } lg:w-[20%] w-[15%]`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <FoundryCard {...item} />
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className=" w-full overflow-hidden md:ml-[8%] group lg:hidden">
         <button
           onClick={prevSlide}
           className="absolute left-0  hidden lg:flex lg:top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full "
@@ -289,7 +324,6 @@ const FoundrySection = () => {
           <Icon icon="mdi:chevron-right" className="text-3xl text-gray-600" />
         </button>
 
-        {/* Swipeable Carousel */}
         <motion.div
           {...handlers}
           ref={containerRef}

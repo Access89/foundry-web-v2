@@ -12,14 +12,14 @@ const PartnersSection = () => {
     { name: "Wema", logo: "/images/brands/wema-Logo-PNG (1) 1.png" },
     { name: "Ras Mawuli", logo: "/images/brands/Ras Ma (1) 1.png" },
     { name: "Fatum", logo: "/images/brands/Banking Partnership (2) 1.png" },
-    { name: "Cal bank", logo: "/images/brands/cal (1) 1.png" },
+    { name: "Cal bank", logo: "/images/brands/cal (1) 1.png" }
   ];
 
   // Duplicate logos for seamless scrolling
   const scrollingPartners = [...partners, ...partners];
 
   return (
-    <section className=" mt-5 mb-2 flex flex-col gap-6 overflow-hidden flex-1 max-w-[100vw]">
+    <section className=" mt-5 mb-3 md:mb-10 flex flex-col gap-6 overflow-hidden flex-1 max-w-[100vw]">
       {/* Title Section with Fade-In Animation */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -27,7 +27,7 @@ const PartnersSection = () => {
         transition={{ duration: 1, ease: "easeOut" }}
         className="text-center"
       >
-        <h2 className="lg:text-2xl md:text-xl text-lg font-semibold">
+        <h2 className="lg:text-xl  text-lg font-semibold">
           You are in good company
         </h2>
       </motion.div>
@@ -40,7 +40,7 @@ const PartnersSection = () => {
           transition={{
             repeat: Infinity,
             duration: 20, // Adjust speed of scrolling
-            ease: "linear",
+            ease: "linear"
           }}
         >
           {scrollingPartners.map((partner, index) => (

@@ -26,7 +26,7 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
   useOnClickOutside(dropdownRef, () => setIsOpen(false));
 
   return (
-    <div className="relative z-50" ref={dropdownRef}>
+    <div className="relative " ref={dropdownRef}>
       {/* Dropdown Trigger */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -43,7 +43,7 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg p-4 w-[800px] z-50"
+            className="absolute z-[9999]  left-0 mt-2 bg-white shadow-lg rounded-lg p-4 w-[800px] "
           >
             {item.subItems?.map((subItem, subIndex) => (
               <div key={subIndex} className="mb-4">

@@ -8,7 +8,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   cn,
-  useDisclosure,
+  useDisclosure
 } from "@nextui-org/react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -111,10 +111,10 @@ export default function NavbarComponent() {
       {...{
         ariaLabel: "Foundry Navbar",
         shouldHideOnScroll: false,
-        isInverted: true,
+        isInverted: true
       }}
       maxWidth="2xl"
-      className="bg-white w-full"
+      className="bg-white w-full relative"
     >
       <NavbarContent className="lg:hidden" justify="start">
         <NavbarMenuToggle
@@ -270,21 +270,21 @@ const menuItems = [
           {
             link: "/finance/morden-banking",
             title: "Morden Banking Platform",
-            icon: "oui:dot",
+            icon: "oui:dot"
           },
           { link: "/finance/lending", title: "Lending", icon: "oui:dot" },
           {
             link: "/finance/banking-as-a-service",
             title: "Banking as a Service",
-            icon: "oui:dot",
+            icon: "oui:dot"
           },
           {
             link: "/finance/credit-scoring",
             title: "Credit Scoring",
-            icon: "oui:dot",
+            icon: "oui:dot"
           },
-          { link: "/finance/kyc", title: "KYC / AML ", icon: "oui:dot" },
-        ],
+          { link: "/finance/kyc", title: "KYC / AML ", icon: "oui:dot" }
+        ]
       },
       {
         heading: "Business",
@@ -293,25 +293,25 @@ const menuItems = [
           {
             link: "/business/supply-chain",
             title: "Supply chain, manufacturing & procurement",
-            icon: "oui:dot",
+            icon: "oui:dot"
           },
           {
             link: "/business/foundry-terminal",
             title: "Foundry Terminal",
-            icon: "oui:dot",
+            icon: "oui:dot"
           },
           { link: "/business/payroll", title: "Payroll", icon: "oui:dot" },
           {
             link: "/business/advanced-tools",
             title: "Advanced Accounting tools",
-            icon: "oui:dot",
+            icon: "oui:dot"
           },
           {
             link: "/business/advanced-analytics",
             title: "Advanced Analytics",
-            icon: "oui:dot",
-          },
-        ],
+            icon: "oui:dot"
+          }
+        ]
       },
       {
         heading: "Operations",
@@ -319,40 +319,40 @@ const menuItems = [
           {
             link: "/operations/process-improvement",
             title: "Process Improvement",
-            icon: "oui:dot",
+            icon: "oui:dot"
           },
           {
             link: "/operations/operating-model-design",
             title: "Operating Model Design",
-            icon: "oui:dot",
+            icon: "oui:dot"
           },
           {
             link: "/operations/digital-transformation",
             title: "Digital Transformation",
-            icon: "oui:dot",
-          },
-        ],
-      },
-    ],
+            icon: "oui:dot"
+          }
+        ]
+      }
+    ]
   },
   {
     title: "Industry",
-    subItems: [],
+    subItems: []
   },
   {
     link: "/use-cases",
-    title: "Use Cases",
+    title: "Use Cases"
   },
   {
     link: "/hub/track-order",
     title: "Track My Order",
-    subItems: [],
+    subItems: []
   },
   {
     title: "Developer",
     link: "https://developer.access89.com",
-    external: true,
-  },
+    external: true
+  }
 ];
 
 // {
