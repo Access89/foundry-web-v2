@@ -19,7 +19,7 @@ const foundry_stars = [
     boldedBlack: ["manage my business"],
     link: "#greensection",
     image: "/images/foundry_stars/foundry_stars_business.png",
-    imageSize: "w-[50%]",
+    imageSize: "w-[38%]",
     onpagenav: true
   },
   {
@@ -28,8 +28,9 @@ const foundry_stars = [
     boldedBlack: ["Finance"],
     link: "https://developer.access89.com/api-reference/origination",
     image: "/images/foundry_stars/finance.png",
-    imageSize: "w-[40%]",
-    external: true
+    imageSize: "w-[30%]",
+    external: true,
+    widthHeight: "w-[360px] h-[150px]"
   },
   {
     title: "I want to borrow money and pay in 30, 60 or 90 days",
@@ -38,7 +39,7 @@ const foundry_stars = [
     boldedBlack: ["borrow", "pay in 30, 60 or 90 days"],
     link: "/loan",
     image: "/images/foundry_stars/foundry_stars_loan.png",
-    imageSize: "w-[40%]"
+    imageSize: "w-[38%]"
   },
 
   {
@@ -48,8 +49,9 @@ const foundry_stars = [
     boldedBlack: ["buy items at wholesale prices"],
     link: "https://hub.foundry-platform.app/",
     image: "/images/foundry_stars/foundry_stars_hub.png",
-    imageSize: "w-[50%]",
-    external: true
+    imageSize: "w-[40%]",
+    external: true,
+    widthHeight: "w-[260px] h-[150px]"
   }
   // {
   //   title: "I want to hire a sales person",
@@ -70,6 +72,7 @@ interface FoundryCardProps {
   imageSize: string;
   external?: boolean;
   onpagenav?: boolean;
+  widthHeight?: string;
 }
 
 const FoundryCard: React.FC<FoundryCardProps> = ({
@@ -79,9 +82,10 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   breakAt = [],
   link,
   image,
-  imageSize = "w-[40%]",
+  imageSize = "w-[30%]",
   external,
-  onpagenav
+  onpagenav,
+  widthHeight
 }) => {
   const highlightText = (
     text: string,
@@ -126,7 +130,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card hover/card:scale-110"
+      className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${widthHeight}`}
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
@@ -158,7 +162,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
       href={link}
       // target="_blank"
       rel="noopener noreferrer"
-      className="bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card hover/card:scale-110"
+      className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${widthHeight}`}
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
@@ -186,7 +190,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   ) : (
     <Link
       to={link}
-      className="bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] hover/card:scale-110"
+      className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${widthHeight}`}
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
@@ -281,9 +285,9 @@ const FoundrySection = () => {
         your operations with our integrated platform.
       </motion.p> */}
 
-      <div className="relative flex items-center justify-center w-full  overflow-hidden mt-2 md:mt-5 lg:mt-8">
+      <div className="relative flex items-center justify-center w-full  overflow-hidden mt-2 md:mt-5 lg:mt-8 lg:pb-5">
         <img
-          className="md:w-[40%] w-[100%] h-auto"
+          className="md:w-[35%] w-[100%] h-auto"
           src="/images/foundry_stars/main_hero.png"
           alt="hero"
         />
@@ -292,10 +296,10 @@ const FoundrySection = () => {
         <div className="lg:flex hidden">
           {foundry_stars.map((item, i) => {
             const positions = [
-              "top-0 left-[3%]",
-              "top-0 right-[8%]",
-              "bottom-0 left-[9%]",
-              "bottom-0 right-[15%]"
+              "top-0 left-[10%]",
+              "top-0 right-[10%]",
+              "bottom-[5%] left-[15%]",
+              "bottom-0 right-[18%]"
               // "top-1/3 left-0"
             ];
             return (
