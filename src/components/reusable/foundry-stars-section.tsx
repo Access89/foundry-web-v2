@@ -287,7 +287,7 @@ const FoundrySection = () => {
 
       <div className="relative flex items-center justify-center w-full  overflow-hidden mt-2 md:mt-5 lg:mt-8 lg:pb-5">
         <img
-          className="md:w-[35%] w-[100%] h-auto"
+          className="lg:w-[35%] md:w-[60%] w-[100%] h-auto"
           src="/images/foundry_stars/main_hero.png"
           alt="hero"
         />
@@ -310,7 +310,7 @@ const FoundrySection = () => {
                 } lg:w-[20%] w-[15%]`}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.4 }}
               >
                 <FoundryCard {...item} />
               </motion.div>

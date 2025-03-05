@@ -337,6 +337,7 @@ const menuItems = [
   },
   {
     title: "Industry",
+
     subItems: []
   },
   {
