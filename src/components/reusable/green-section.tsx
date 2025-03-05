@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 const GreenSection = () => {
   return (
     <motion.section
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      // initial={{ opacity: 0, y: 50 }}
+      // whileInView={{ opacity: 1, y: 0 }}
+      // transition={{ duration: 0.8, ease: "easeOut" }}
       className=" p-5 md:p-10  w-full text-primary-white mt-8 lg:mt-0"
     >
       <div className="container" id="greensection">
@@ -28,24 +28,26 @@ const GreenSection = () => {
           <div className="grid md:grid-cols-2 gap-5 space-y-5 md:space-y-0">
             {[
               {
-                description: `Strengthen your platform by integrating financial services like accounts and lending. Businesses embedded financial solutions designed for their core users, helping them attract more customers, generate additional revenue streams, and enhance the overall customer experience.`,
-                linkTitle: "Visit",
+                description: `Access a suite of financial services, including digital accounts, lending, and payment processing, all within our platform. Streamline transactions, manage finances efficiently, and grow your business with our integrated financial solutions.`,
+                linkTitle: "More About Finance",
                 link: "/financial-services",
-                title: "Launch Financial Services on your platform"
+                title: "Financial Services"
               },
               {
-                description: `Optimize your business operations with automated workflows and intelligent integrations. Streamline tasks, reduce manual effort, and improve efficiency with our tailored automation solutions designed to scale with your business.`,
-                linkTitle: "Visit",
+                description: `Optimize your operations with our comprehensive business automation tools. From inventory and warehouse management to POS systems and workflow automation, our platform helps you reduce manual work, improve efficiency, and scale with ease.`,
+                linkTitle: "More About Business Automation",
                 link: "/business-automation",
-                title: "Automate and streamline your Business operations"
+                title: "Business Automation"
               }
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-[#5F9779] p-6 rounded-xl  flex flex-col justify-between"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
+                className={`${
+                  index === 0 ? "bg-[#5F9779]" : "bg-[#929292]"
+                } p-6 rounded-xl  flex flex-col justify-between`}
+                // initial={{ opacity: 0, y: 20 }}
+                // whileInView={{ opacity: 1, y: 0 }}
+                // transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
               >
                 <h5 className="pb-4 font-medium text-lgs lg:text-2xl md:text-xl lg:h-[100px] text-[#E6E6E6] w-[90%]">
                   {item.title}
