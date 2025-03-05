@@ -17,9 +17,10 @@ const foundry_stars = [
     title: "I want to manage my business",
     boldedGreen: ["I want to"],
     boldedBlack: ["manage my business"],
-    link: "/business-automation",
+    link: "#greensection",
     image: "/images/foundry_stars/foundry_stars_business.png",
-    imageSize: "w-[50%]"
+    imageSize: "w-[50%]",
+    onpagenav: true
   },
   {
     title: "I want to embed Finance into my platform with one API",
@@ -68,6 +69,7 @@ interface FoundryCardProps {
   image: string;
   imageSize: string;
   external?: boolean;
+  onpagenav?: boolean;
 }
 
 const FoundryCard: React.FC<FoundryCardProps> = ({
@@ -78,7 +80,8 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   link,
   image,
   imageSize = "w-[40%]",
-  external
+  external,
+  onpagenav
 }) => {
   const highlightText = (
     text: string,
@@ -123,37 +126,54 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card "
+      className="bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card hover/card:scale-110"
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
           {highlightText(title, boldedGreen, boldedBlack, breakAt)}
         </h3>
-        {external ? (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform"
-          >
-            <Icon
-              icon="prime:arrow-right"
-              className="text-[#4C7F64]"
-              fontSize={24}
-            />
-          </a>
-        ) : (
-          <Link
-            to={link}
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform "
-          >
-            <Icon
-              icon="prime:arrow-right"
-              className="text-[#4C7F64]"
-              fontSize={24}
-            />
-          </Link>
-        )}
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 hover/card:scale-110 transition-transform"
+        >
+          <Icon
+            icon="prime:arrow-right"
+            className="text-[#4C7F64]"
+            fontSize={24}
+          />
+        </a>
+      </div>
+      <div className={`${imageSize} flex-shrink-0`}>
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-contain rounded-lg"
+        />
+      </div>
+    </a>
+  ) : onpagenav ? (
+    <a
+      href={link}
+      // target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card hover/card:scale-110"
+    >
+      <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
+        <h3 className="text-base leading-snug font-sans">
+          {highlightText(title, boldedGreen, boldedBlack, breakAt)}
+        </h3>
+        <Link
+          to={link}
+          className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2  transition-transform"
+        >
+          <Icon
+            icon="prime:arrow-right"
+            className="text-[#4C7F64]"
+            fontSize={24}
+          />
+        </Link>
       </div>
       <div className={`${imageSize} flex-shrink-0`}>
         <img
@@ -166,37 +186,22 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   ) : (
     <Link
       to={link}
-      className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] "
+      className="bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] hover/card:scale-110"
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
           {highlightText(title, boldedGreen, boldedBlack, breakAt)}
         </h3>
-        {external ? (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform"
-          >
-            <Icon
-              icon="prime:arrow-right"
-              className="text-[#4C7F64]"
-              fontSize={24}
-            />
-          </a>
-        ) : (
-          <Link
-            to={link}
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform"
-          >
-            <Icon
-              icon="prime:arrow-right"
-              className="text-[#4C7F64]"
-              fontSize={24}
-            />
-          </Link>
-        )}
+        <Link
+          to={link}
+          className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2  transition-transform"
+        >
+          <Icon
+            icon="prime:arrow-right"
+            className="text-[#4C7F64]"
+            fontSize={24}
+          />
+        </Link>
       </div>
       <div className={`${imageSize} flex-shrink-0`}>
         <img

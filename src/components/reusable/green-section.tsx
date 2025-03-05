@@ -10,7 +10,7 @@ const GreenSection = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className=" p-5 md:p-10  w-full text-primary-white mt-8 lg:mt-0"
     >
-      <div className="container">
+      <div className="container" id="greensection">
         <div>
           <p className="md:w-[40%] flex flex-col gap-4 pb-4">
             <h3 className="text-2xl md:text-3xl font-medium  w-full">
@@ -30,13 +30,13 @@ const GreenSection = () => {
               {
                 description: `Strengthen your platform by integrating financial services like accounts and lending. Businesses embedded financial solutions designed for their core users, helping them attract more customers, generate additional revenue streams, and enhance the overall customer experience.`,
                 linkTitle: "Visit Support",
-                link: "",
+                link: "/financial-services",
                 title: "Launch financial services on your platform"
               },
               {
                 description: `Connect with a diverse range of suppliers with third-party-verified credentials and capabilities. Look for the "Verified" logo to start sourcing from experienced suppliers your business can trust.`,
                 linkTitle: "Visit The Bottom Line",
-                link: "",
+                link: "/business-automation",
                 title:
                   "We can tailor the right mix of services and expertise to support any operations goal"
               }
