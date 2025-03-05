@@ -40,33 +40,35 @@ const GreenSection = () => {
                 title: "Business Automation"
               }
             ].map((item, index) => (
-              <motion.div
-                key={index}
-                className={`${
-                  index === 0 ? "bg-[#5F9779]" : "bg-[#929292]"
-                } p-6 rounded-xl  flex flex-col justify-between`}
-                // initial={{ opacity: 0, y: 20 }}
-                // whileInView={{ opacity: 1, y: 0 }}
-                // transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
-              >
-                <h5 className="pb-4 font-medium text-lgs lg:text-2xl md:text-xl lg:h-[100px] text-[#E6E6E6] w-[90%]">
-                  {item.title}
-                </h5>
-                <h5 className="pb-4 font-light text-sm text-[#E6E6E6]">
-                  {item.description}
-                </h5>
-                <Link
-                  to={item.link}
-                  className="text-sm font-light flex items-center gap-x-1 hover:opacity-80 group justify-between"
+              <Link to={item.link}>
+                <motion.div
+                  key={index}
+                  className={`${
+                    index === 0 ? "bg-[#5F9779]" : "bg-[#929292]"
+                  } p-6 rounded-xl  flex flex-col justify-between`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
                 >
-                  {item.linkTitle}
-                  <Icon
-                    icon="iconamoon:arrow-right-2-duotone"
-                    fontSize={20}
-                    className="group-hover:translate-x-1 transition-all"
-                  />
-                </Link>
-              </motion.div>
+                  <h5 className="pb-4 font-medium text-lgs lg:text-2xl md:text-xl lg:h-[100px] text-white w-[90%]">
+                    {item.title}
+                  </h5>
+                  <h5 className="pb-4 font-light text-sm text-white">
+                    {item.description}
+                  </h5>
+                  <Link
+                    to={item.link}
+                    className="text-sm text-white font-light flex items-center gap-x-1 hover:opacity-80 group justify-between"
+                  >
+                    {item.linkTitle}
+                    <Icon
+                      icon="iconamoon:arrow-right-2-duotone"
+                      fontSize={20}
+                      className="group-hover:translate-x-1 transition-all"
+                    />
+                  </Link>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>
