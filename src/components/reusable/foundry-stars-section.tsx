@@ -272,7 +272,7 @@ const FoundrySection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <motion.h1 className="text-2xl md:text-3xl lg:text-6xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full">
+      <motion.h1 className="text-3xl md:text-4xl lg:text-6xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full">
         <span className="text-[#929292]">Empowering</span>{" "}
         <span className="text-[#000000]">Businesses</span>{" "}
         <p>
