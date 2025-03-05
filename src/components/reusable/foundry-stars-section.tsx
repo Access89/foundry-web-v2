@@ -14,6 +14,26 @@ const CARDS_TO_SHOW = {
 
 const foundry_stars = [
   {
+    title: "I want to borrow money and pay in 30, 60 or 90 days",
+    boldedGreen: ["I want to", "money and"],
+    breakAt: ["borrow"],
+    boldedBlack: ["borrow", "pay in 30, 60 or 90 days"],
+    link: "/loan",
+    image: "/images/foundry_stars/foundry_stars_loan.png",
+    imageSize: "w-[38%]"
+  },
+  {
+    title: "I want to buy items at wholesale prices",
+    boldedGreen: ["I want to"],
+    breakAt: ["I want to"],
+    boldedBlack: ["buy items at wholesale prices"],
+    link: "https://hub.foundry-platform.app/",
+    image: "/images/foundry_stars/foundry_stars_hub.png",
+    imageSize: "w-[40%]",
+    external: true,
+    widthHeight: "w-[260px] h-[150px]"
+  },
+  {
     title: "I want to manage my business",
     boldedGreen: ["I want to"],
     boldedBlack: ["manage my business"],
@@ -31,28 +51,8 @@ const foundry_stars = [
     imageSize: "w-[30%]",
     external: true,
     widthHeight: "w-[360px] h-[150px]"
-  },
-  {
-    title: "I want to borrow money and pay in 30, 60 or 90 days",
-    boldedGreen: ["I want to", "money and"],
-    breakAt: ["borrow"],
-    boldedBlack: ["borrow", "pay in 30, 60 or 90 days"],
-    link: "/loan",
-    image: "/images/foundry_stars/foundry_stars_loan.png",
-    imageSize: "w-[38%]"
-  },
-
-  {
-    title: "I want to buy items at wholesale prices",
-    boldedGreen: ["I want to"],
-    breakAt: ["I want to"],
-    boldedBlack: ["buy items at wholesale prices"],
-    link: "https://hub.foundry-platform.app/",
-    image: "/images/foundry_stars/foundry_stars_hub.png",
-    imageSize: "w-[40%]",
-    external: true,
-    widthHeight: "w-[260px] h-[150px]"
   }
+
   // {
   //   title: "I want to hire a sales person",
   //   boldedGreen: ["I want to"],
@@ -296,12 +296,14 @@ const FoundrySection = () => {
         <div className="lg:flex hidden">
           {foundry_stars.map((item, i) => {
             const positions = [
-              "top-0 left-[10%]",
-              "top-0 right-[10%]",
               "bottom-[5%] left-[15%]",
-              "bottom-0 right-[18%]"
+              "bottom-0 right-[18%]",
+              "top-0 left-[10%]",
+              "top-0 right-[10%]"
               // "top-1/3 left-0"
             ];
+
+            const customOrder = [2, 3, 0, 1]; // Maps original index to its order
             return (
               <motion.div
                 key={i}
@@ -310,7 +312,10 @@ const FoundrySection = () => {
                 } lg:w-[20%] w-[15%]`}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: i * 0.4 }}
+                transition={{
+                  duration: 0.5,
+                  delay: customOrder[i] * 0.4 // Use custom order for delay
+                }}
               >
                 <FoundryCard {...item} />
               </motion.div>
@@ -339,7 +344,7 @@ const FoundrySection = () => {
           className="flex gap-2 md:gap-4 cursor-grab active:cursor-grabbing"
           drag="x"
           dragConstraints={{ left: -maxIndex * 360, right: 0 }}
-          animate={{ x: `-${(index / maxIndex) * 100}%` }}
+          animate={{ x: `-${(index / maxIndex) * 100 - 5}%` }}
           transition={{ type: "tween" }}
           style={{ width: `${(foundry_stars.length / cardsToShow) * 100}%` }}
         >
