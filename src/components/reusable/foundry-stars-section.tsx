@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
@@ -73,6 +73,7 @@ interface FoundryCardProps {
   external?: boolean;
   onpagenav?: boolean;
   widthHeight?: string;
+  full?: boolean;
 }
 
 const FoundryCard: React.FC<FoundryCardProps> = ({
@@ -85,7 +86,8 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   imageSize = "w-[30%]",
   external,
   onpagenav,
-  widthHeight
+  widthHeight,
+  full
 }) => {
   const highlightText = (
     text: string,
@@ -130,7 +132,9 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${widthHeight}`}
+      className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${
+        full ? "w-full" : widthHeight
+      } `}
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
@@ -162,7 +166,9 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
       href={link}
       // target="_blank"
       rel="noopener noreferrer"
-      className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${widthHeight}`}
+      className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${
+        full ? "w-full" : widthHeight
+      }`}
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
@@ -220,50 +226,81 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
 
 const FoundrySection = () => {
   const [index, setIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [cardsToShow, setCardsToShow] = useState(getCardsToShow());
 
-  const getCardsToShow = () => {
+  const updateCardsToShow = () => setCardsToShow(getCardsToShow());
+
+  useEffect(() => {
+    window.addEventListener("resize", updateCardsToShow);
+    return () => window.removeEventListener("resize", updateCardsToShow);
+  }, []);
+
+  function getCardsToShow() {
     if (window.innerWidth < 640) return CARDS_TO_SHOW.mobile;
     if (window.innerWidth < 1020) return CARDS_TO_SHOW.tablet;
     if (window.innerWidth < 1440) return CARDS_TO_SHOW.semidesktop;
     return CARDS_TO_SHOW.desktop;
-  };
-
-  const [cardsToShow, setCardsToShow] = useState(getCardsToShow());
-  const maxIndex = Math.max(0, foundry_stars.length);
-
-  React.useEffect(() => {
-    const handleResize = () => setCardsToShow(getCardsToShow());
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // to move the carousel
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev < maxIndex - 3 ? prev + 1 : 0)); // Loop back to the first slide
-    }, 5000); // Change slides every 5 seconds
-
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [index, maxIndex]);
-
-  const nextSlide = () => {
-    setIndex((prev) => (prev < maxIndex - 3 ? prev + 1 : prev));
-  };
-  const prevSlide = () => setIndex((prev) => Math.max(prev - 1, 0));
+  }
 
   const handlers = useSwipeable({
-    onSwiping: (event) => {
-      if (containerRef.current) {
-        containerRef.current.style.transform = `translateX(${
-          -index * 100 + event.deltaX
-        }px)`;
-      }
-    },
-    onSwipedLeft: () => nextSlide(),
-    onSwipedRight: () => prevSlide(),
-    trackMouse: true // Enables swiping with a mouse
+    onSwipedLeft: () =>
+      setIndex((prev) => Math.min(prev + 1, foundry_stars.length - 1)),
+    onSwipedRight: () => setIndex((prev) => Math.max(prev - 1, 0)),
+    trackMouse: true
   });
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % foundry_stars.length);
+    }, 3000); // Adjust this value (3000ms = 3s per move)
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // const [index, setIndex] = useState(0);
+  // const containerRef = useRef<HTMLDivElement>(null);
+
+  // const getCardsToShow = () => {
+  //   if (window.innerWidth < 640) return CARDS_TO_SHOW.mobile;
+  //   if (window.innerWidth < 1020) return CARDS_TO_SHOW.tablet;
+  //   if (window.innerWidth < 1440) return CARDS_TO_SHOW.semidesktop;
+  //   return CARDS_TO_SHOW.desktop;
+  // };
+
+  // const [cardsToShow, setCardsToShow] = useState(getCardsToShow());
+  // const maxIndex = Math.max(0, foundry_stars.length);
+
+  // React.useEffect(() => {
+  //   const handleResize = () => setCardsToShow(getCardsToShow());
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
+
+  // // to move the carousel
+  // React.useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setIndex((prev) => (prev < maxIndex - 3 ? prev + 1 : 0)); // Loop back to the first slide
+  //   }, 5000); // Change slides every 5 seconds
+
+  //   return () => clearInterval(interval); // Cleanup on unmount
+  // }, [index, maxIndex]);
+
+  // const nextSlide = () => {
+  //   setIndex((prev) => (prev < maxIndex - 3 ? prev + 1 : prev));
+  // };
+  // const prevSlide = () => setIndex((prev) => Math.max(prev - 1, 0));
+
+  // const handlers = useSwipeable({
+  //   onSwiping: (event) => {
+  //     if (containerRef.current) {
+  //       containerRef.current.style.transform = `translateX(${
+  //         -index * 100 + event.deltaX
+  //       }px)`;
+  //     }
+  //   },
+  //   onSwipedLeft: () => nextSlide(),
+  //   onSwipedRight: () => prevSlide(),
+  //   trackMouse: true // Enables swiping with a mouse
+  // });
 
   return (
     <motion.section
@@ -324,7 +361,7 @@ const FoundrySection = () => {
         </div>
       </div>
 
-      <div className=" w-full overflow-hidden md:ml-[8%] group lg:hidden">
+      {/* <div className=" w-full overflow-hidden md:ml-[8%] group lg:hidden">
         <button
           onClick={prevSlide}
           className="absolute left-0  hidden lg:flex lg:top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full "
@@ -352,6 +389,22 @@ const FoundrySection = () => {
             <motion.div key={i} className="lg:w-[20%] flex-shrink-0 px-2">
               <FoundryCard {...item} />
             </motion.div>
+          ))}
+        </motion.div>
+      </div> */}
+      <div className="overflow-hidden  lg:hidden relative w-full" {...handlers}>
+        <motion.div
+          className="flex gap-4"
+          animate={{ x: `-${index * (100 / cardsToShow)}%` }}
+          transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        >
+          {foundry_stars.map((card, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 w-full sm:w-full md:w-full lg:w-1/4 px-2"
+            >
+              <FoundryCard full={true} {...card} />
+            </div>
           ))}
         </motion.div>
       </div>
