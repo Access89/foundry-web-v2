@@ -344,7 +344,7 @@ const FoundrySection = () => {
           className="flex gap-2 md:gap-4 cursor-grab active:cursor-grabbing"
           drag="x"
           dragConstraints={{ left: -maxIndex * 360, right: 0 }}
-          animate={{ x: `-${(index / maxIndex) * 100 - 5}%` }}
+          animate={{ x: `-${(index / maxIndex) * 100 - 1}%` }}
           transition={{ type: "tween" }}
           style={{ width: `${(foundry_stars.length / cardsToShow) * 100}%` }}
         >
