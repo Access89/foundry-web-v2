@@ -37,10 +37,10 @@ const foundry_stars = [
     title: "I want to manage my business",
     boldedGreen: ["I want to"],
     boldedBlack: ["manage my business"],
-    link: "#greensection",
+    link: "/manage",
     image: "/images/foundry_stars/foundry_stars_business.png",
-    imageSize: "w-[38%]",
-    onpagenav: true
+    imageSize: "w-[38%]"
+    // onpagenav: true
   },
   {
     title: "I want to embed Finance into my platform with one API",

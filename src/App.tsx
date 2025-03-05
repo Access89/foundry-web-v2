@@ -16,6 +16,7 @@ import Pricing from "./pages/pricing";
 import CustomPlan from "./pages/custom-plan";
 import ContactPage from "./pages/contact";
 import PasswordSetting from "./pages/onboarding/_components/_tabs/password";
+import Manage from "./pages/manage business";
 const Home = lazy(() => import("./pages/home"));
 const BusinessAutomation = lazy(() => import("./pages/business_automation"));
 const Loan = lazy(() => import("./pages/loan"));
@@ -41,6 +42,7 @@ function App() {
           <Route path="" element={<Home />} />
           <Route path="*" element={<NotFound />} />
           <Route path="business-automation" element={<BusinessAutomation />} />
+          <Route path="manage" element={<Manage />} />
           <Route path="loan" element={<Loan />} />
           <Route path="hire" element={<Hire />} />
           <Route path="hire-detail" element={<HireDetail />} />
