@@ -14,32 +14,14 @@ const CARDS_TO_SHOW = {
 
 const foundry_stars = [
   {
-    title: "I want to manage my business",
-    boldedGreen: ["I want to"],
-    boldedBlack: ["manage my business"],
-    link: "/business-automation",
-    image: "/images/foundry_stars/foundry_stars_business.png",
-    imageSize: "w-[50%]"
-  },
-  {
-    title: "I want to embed Finance into my platform with one API",
-    boldedGreen: ["I want to embed"],
-    boldedBlack: ["Finance"],
-    link: "https://developer.access89.com/api-reference/origination",
-    image: "/images/foundry_stars/finance.png",
-    imageSize: "w-[40%]",
-    external: true
-  },
-  {
     title: "I want to borrow money and pay in 30, 60 or 90 days",
     boldedGreen: ["I want to", "money and"],
     breakAt: ["borrow"],
     boldedBlack: ["borrow", "pay in 30, 60 or 90 days"],
     link: "/loan",
     image: "/images/foundry_stars/foundry_stars_loan.png",
-    imageSize: "w-[40%]"
+    imageSize: "w-[38%]"
   },
-
   {
     title: "I want to buy items at wholesale prices",
     boldedGreen: ["I want to"],
@@ -47,9 +29,30 @@ const foundry_stars = [
     boldedBlack: ["buy items at wholesale prices"],
     link: "https://hub.foundry-platform.app/",
     image: "/images/foundry_stars/foundry_stars_hub.png",
-    imageSize: "w-[50%]",
-    external: true
+    imageSize: "w-[40%]",
+    external: true,
+    widthHeight: "w-[260px] h-[150px]"
+  },
+  {
+    title: "I want to manage my business",
+    boldedGreen: ["I want to"],
+    boldedBlack: ["manage my business"],
+    link: "#greensection",
+    image: "/images/foundry_stars/foundry_stars_business.png",
+    imageSize: "w-[38%]",
+    onpagenav: true
+  },
+  {
+    title: "I want to embed Finance into my platform with one API",
+    boldedGreen: ["I want to embed"],
+    boldedBlack: ["Finance"],
+    link: "https://developer.access89.com/api-reference/origination",
+    image: "/images/foundry_stars/finance.png",
+    imageSize: "w-[30%]",
+    external: true,
+    widthHeight: "w-[360px] h-[150px]"
   }
+
   // {
   //   title: "I want to hire a sales person",
   //   boldedGreen: ["I want to"],
@@ -68,6 +71,8 @@ interface FoundryCardProps {
   image: string;
   imageSize: string;
   external?: boolean;
+  onpagenav?: boolean;
+  widthHeight?: string;
 }
 
 const FoundryCard: React.FC<FoundryCardProps> = ({
@@ -77,8 +82,10 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   breakAt = [],
   link,
   image,
-  imageSize = "w-[40%]",
-  external
+  imageSize = "w-[30%]",
+  external,
+  onpagenav,
+  widthHeight
 }) => {
   const highlightText = (
     text: string,
@@ -123,37 +130,54 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] group/card "
+      className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${widthHeight}`}
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
           {highlightText(title, boldedGreen, boldedBlack, breakAt)}
         </h3>
-        {external ? (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform"
-          >
-            <Icon
-              icon="prime:arrow-right"
-              className="text-[#4C7F64]"
-              fontSize={24}
-            />
-          </a>
-        ) : (
-          <Link
-            to={link}
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform "
-          >
-            <Icon
-              icon="prime:arrow-right"
-              className="text-[#4C7F64]"
-              fontSize={24}
-            />
-          </Link>
-        )}
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 hover/card:scale-110 transition-transform"
+        >
+          <Icon
+            icon="prime:arrow-right"
+            className="text-[#4C7F64]"
+            fontSize={24}
+          />
+        </a>
+      </div>
+      <div className={`${imageSize} flex-shrink-0`}>
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-contain rounded-lg"
+        />
+      </div>
+    </a>
+  ) : onpagenav ? (
+    <a
+      href={link}
+      // target="_blank"
+      rel="noopener noreferrer"
+      className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${widthHeight}`}
+    >
+      <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
+        <h3 className="text-base leading-snug font-sans">
+          {highlightText(title, boldedGreen, boldedBlack, breakAt)}
+        </h3>
+        <Link
+          to={link}
+          className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2  transition-transform"
+        >
+          <Icon
+            icon="prime:arrow-right"
+            className="text-[#4C7F64]"
+            fontSize={24}
+          />
+        </Link>
       </div>
       <div className={`${imageSize} flex-shrink-0`}>
         <img
@@ -166,37 +190,22 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   ) : (
     <Link
       to={link}
-      className="bg-white rounded-lg my-5  shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[360px] h-[180px] "
+      className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${widthHeight}`}
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
           {highlightText(title, boldedGreen, boldedBlack, breakAt)}
         </h3>
-        {external ? (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform"
-          >
-            <Icon
-              icon="prime:arrow-right"
-              className="text-[#4C7F64]"
-              fontSize={24}
-            />
-          </a>
-        ) : (
-          <Link
-            to={link}
-            className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 group/card-hover:scale-125 transition-transform"
-          >
-            <Icon
-              icon="prime:arrow-right"
-              className="text-[#4C7F64]"
-              fontSize={24}
-            />
-          </Link>
-        )}
+        <Link
+          to={link}
+          className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2  transition-transform"
+        >
+          <Icon
+            icon="prime:arrow-right"
+            className="text-[#4C7F64]"
+            fontSize={24}
+          />
+        </Link>
       </div>
       <div className={`${imageSize} flex-shrink-0`}>
         <img
@@ -276,9 +285,9 @@ const FoundrySection = () => {
         your operations with our integrated platform.
       </motion.p> */}
 
-      <div className="relative flex items-center justify-center w-full  overflow-hidden mt-2 md:mt-5 lg:mt-8">
+      <div className="relative flex items-center justify-center w-full  overflow-hidden mt-2 md:mt-5 lg:mt-8 lg:pb-5">
         <img
-          className="md:w-[40%] w-[100%] h-auto"
+          className="lg:w-[35%] md:w-[60%] w-[100%] h-auto"
           src="/images/foundry_stars/main_hero.png"
           alt="hero"
         />
@@ -287,12 +296,14 @@ const FoundrySection = () => {
         <div className="lg:flex hidden">
           {foundry_stars.map((item, i) => {
             const positions = [
-              "top-0 left-[3%]",
-              "top-0 right-[8%]",
-              "bottom-0 left-[9%]",
-              "bottom-0 right-[15%]"
+              "bottom-[5%] left-[15%]",
+              "bottom-0 right-[18%]",
+              "top-0 left-[10%]",
+              "top-0 right-[10%]"
               // "top-1/3 left-0"
             ];
+
+            const customOrder = [2, 3, 0, 1]; // Maps original index to its order
             return (
               <motion.div
                 key={i}
@@ -301,7 +312,10 @@ const FoundrySection = () => {
                 } lg:w-[20%] w-[15%]`}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: customOrder[i] * 0.4 // Use custom order for delay
+                }}
               >
                 <FoundryCard {...item} />
               </motion.div>
@@ -330,7 +344,7 @@ const FoundrySection = () => {
           className="flex gap-2 md:gap-4 cursor-grab active:cursor-grabbing"
           drag="x"
           dragConstraints={{ left: -maxIndex * 360, right: 0 }}
-          animate={{ x: `-${(index / maxIndex) * 100}%` }}
+          animate={{ x: `-${(index / maxIndex) * 100 - 5}%` }}
           transition={{ type: "tween" }}
           style={{ width: `${(foundry_stars.length / cardsToShow) * 100}%` }}
         >
