@@ -55,14 +55,6 @@ export default function NavbarComponent() {
               className="absolute left-0 mt-1 w-[90vw] p-3 bg-white shadow-lg rounded-md border border-gray-200 z-50"
             >
               {item.subItems.map((subItem: any, subIndex: number) => (
-                // <Link
-                //   key={subIndex}
-                //   to={subItem.link as string}
-                //   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                //   onClick={() => setIsOpen(false)}
-                // >
-                //   {subItem.title}
-                // </Link>
                 <div key={subIndex} className="">
                   <p
                     className={`font-bold ${
@@ -146,41 +138,9 @@ export default function NavbarComponent() {
           <p className="font-bold text-inherit uppercase">foundry</p>
         </NavbarBrand>
 
-        <div className="flex w-[87%] gap-x-5 justify-center items-center">
+        <div className="flex w-[87%] gap-x-8 items-center ">
           {menuItems.map((item, index) =>
             item.subItems ? (
-              // <Dropdown key={index}>
-              //   <NavbarItem>
-              //     <DropdownTrigger>
-              //       <div className="flex gap-1 items-center cursor-pointer text-xs text-[#808080] hover:text-[#1A1A1A]">
-              //         {item.title} <Icon icon="majesticons:chevron-down" />
-              //       </div>
-              //     </DropdownTrigger>
-              //   </NavbarItem>
-              //   <DropdownMenu className="w-[500px] p-4">
-              //     {item.subItems.map((subItem, subIndex) => (
-              //       <DropdownSection
-              //         key={subIndex}
-              //         title={subItem.heading}
-              //         classNames={{
-              //           heading: ["font-bold", "text-lg", "text-[#000000]"],
-              //           base: ["grid grid-cols-2", "w-fit"],
-              //         }}
-              //       >
-              //         {subItem.subs.map((linkItem, linkIndex) => (
-              //           <DropdownItem
-              //             key={linkIndex}
-              //             as="a"
-              //             className="text-sm font-medium text-[#000000]"
-              //             href={linkItem.link}
-              //           >
-              //             {linkItem.title}
-              //           </DropdownItem>
-              //         ))}
-              //       </DropdownSection>
-              //     ))}
-              //   </DropdownMenu>
-              // </Dropdown>
               <CustomeDropdownDesktop key={index} item={item} />
             ) : (
               <NavbarItem key={index}>
@@ -188,7 +148,7 @@ export default function NavbarComponent() {
                   target={item?.external ? "_blank" : "_self"}
                   to={item?.link as string}
                   className={cn(
-                    "w-full text-xs text-[#808080]",
+                    "flex gap-1 items-center cursor-pointer text-xs text-[#808080] hover:text-[#1A1A1A]",
                     pathname.includes(item?.link as string) && "text-[#1A1A1A]"
                   )}
                 >
@@ -268,28 +228,40 @@ const menuItems = [
         heading: "Finance",
         subs: [
           {
-            link: "/finance/morden-banking",
+            link: "/financial-services",
             title: "Morden Banking Platform",
             icon: "oui:dot"
           },
-          { link: "/finance/lending", title: "Lending", icon: "oui:dot" },
           {
-            link: "/finance/banking-as-a-service",
+            link: "/financial-service/loan-origination",
+            title: "Lending",
+            icon: "oui:dot"
+          },
+          {
+            link: "/financial-service/agency",
             title: "Banking as a Service",
             icon: "oui:dot"
           },
           {
-            link: "/finance/credit-scoring",
+            link: "/financial-service/credit-scoring",
             title: "Credit Scoring",
             icon: "oui:dot"
           },
-          { link: "/finance/kyc", title: "KYC / AML ", icon: "oui:dot" }
+          {
+            link: "/financial-service/sentinel",
+            title: "KYC / AML ",
+            icon: "oui:dot"
+          }
         ]
       },
       {
         heading: "Business",
         subs: [
-          { link: "/business/pos", title: "Point of Sale", icon: "oui:dot" },
+          {
+            link: "/business/pos",
+            title: "Point of Sale",
+            icon: "oui:dot"
+          },
           {
             link: "/business/supply-chain",
             title: "Supply chain, manufacturing & procurement",
@@ -355,29 +327,3 @@ const menuItems = [
     external: true
   }
 ];
-
-// {
-//     link: "/business-automation",
-//     title: "Business Automation",
-//   },
-//   {
-//     link: "/financial-services",
-//     title: "Financial Services",
-//   },
-//   {
-//     link: "/logistics-supply-chain",
-//     title: "Logistics & Supply Chain",
-//   },
-//   {
-//     // link: '/products',
-//     title: "Marketplace",
-//     link: "https://hub.foundry-platform.app",
-//   },
-//   {
-//     link: "/use-cases",
-//     title: "Use Cases",
-//   },
-//   {
-//     link: "/pricing",
-//     title: "Pricing",
-//   },

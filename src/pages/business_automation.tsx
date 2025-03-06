@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const BusinessAutomation = () => {
   const navigate = useNavigate();
   return (
-    <main className="container">
+    <main className="container ">
       <section className="text-center pb-10">
         <p className="text-sm text-secondary font-medium uppercase mb-5">
           Welcome to Business Automation
@@ -39,20 +39,20 @@ const BusinessAutomation = () => {
           {[
             {
               title: "Manage Cashflow",
-              description: "Efficiently control and monitor finances",
+              description: "Efficiently control and monitor finances"
             },
             {
               title: "Reach Clients",
-              description: "Easily connect and engage customers",
+              description: "Easily connect and engage customers"
             },
             {
               title: "Advanced Reporting",
-              description: "Detailed insights and performance analysis",
+              description: "Detailed insights and performance analysis"
             },
             {
               title: "Grow your business",
-              description: "Fast and easy access to loans for expansion",
-            },
+              description: "Fast and easy access to loans for expansion"
+            }
           ].map((item, index) => (
             <div key={index}>
               <h2>{item.title}</h2>
@@ -75,13 +75,13 @@ const BusinessAutomation = () => {
           {
             title: "Inventory",
             description:
-              "Receive inventory, manage stock, and create purchase orders from a single platform.",
+              "Receive inventory, manage stock, and create purchase orders from a single platform."
           },
           {
             title: "Business Insights",
             description:
-              "Streamline the allocation of resources and time slots, optimizing bookings to maximize business insights and efficiency",
-          },
+              "Streamline the allocation of resources and time slots, optimizing bookings to maximize business insights and efficiency"
+          }
         ].map((item, index) => (
           <InfoCard
             key={index}
@@ -119,31 +119,31 @@ const moreConstant = [
   {
     title: "HR & Payroll",
     description:
-      "Simplify your  business operations by combining HR tasks into one system. This module manages employee records, payroll, benefits, and attendance, ensuring accurate calculations and compliance",
+      "Simplify your  business operations by combining HR tasks into one system. This module manages employee records, payroll, benefits, and attendance, ensuring accurate calculations and compliance"
   },
   {
     title: "Wholesale & Retail",
     description:
-      "Access an integrated business management solution with financial tracking, operational control, pricing management, inventory oversight, and cash flow monitoring. Enhance efficiency, financial health, and focus on business growth.",
+      "Access an integrated business management solution with financial tracking, operational control, pricing management, inventory oversight, and cash flow monitoring. Enhance efficiency, financial health, and focus on business growth."
   },
   {
     title: "Manufacturing",
     description:
-      "Enhance your manufacturing operations with a unified manufacturing management solution covering production control, inventory management, quality assurance, and supply chain oversight, optimizing efficiency and supporting business expansion",
+      "Enhance your manufacturing operations with a unified manufacturing management solution covering production control, inventory management, quality assurance, and supply chain oversight, optimizing efficiency and supporting business expansion"
   },
   {
     title: "Accounting",
     description:
-      "Improve your financial oversight with this advanced tool providing real-time insights into budgeting, expense management, revenue tracking, and transaction reconciliation for informed decision-making.",
+      "Improve your financial oversight with this advanced tool providing real-time insights into budgeting, expense management, revenue tracking, and transaction reconciliation for informed decision-making."
   },
   {
     title: "CRM",
     description:
-      "Organize and manage customer interactions and data, optimizing customer service, sales, and marketing efforts to enhance relationships and drive business growth.",
+      "Organize and manage customer interactions and data, optimizing customer service, sales, and marketing efforts to enhance relationships and drive business growth."
   },
   {
     title: "Hospitality",
     description:
-      "Manage your hospitality business with our comprehensive solution that integrates guest information, administrative tasks, financial management, and a special guest portal into one easy system.",
-  },
+      "Manage your hospitality business with our comprehensive solution that integrates guest information, administrative tasks, financial management, and a special guest portal into one easy system."
+  }
 ];

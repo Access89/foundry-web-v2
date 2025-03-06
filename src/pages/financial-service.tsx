@@ -1,365 +1,366 @@
-import { CustomButton } from '@/components/shared/shared_customs';
-import { Icon } from '@iconify/react/dist/iconify.js';
-import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { CustomButton } from "@/components/shared/shared_customs";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const FinancialServiceExpansion = () => {
   const nav = useNavigate();
   const data: Record<string, any> = {
-    'digital-onboarding': {
-      title: 'Digital Onboarding Solutions',
+    "digital-onboarding": {
+      title: "Digital Onboarding Solutions",
       description:
-        'Transform your customer onboarding experience with our state-of-the-art digital solutions.',
-      'video-link': 'https://youtube.com',
-      'features-description':
-        'Discover how our digital onboarding solution can transform your business',
-      'core-features': [
+        "Transform your customer onboarding experience with our state-of-the-art digital solutions.",
+      "video-link": "https://youtube.com",
+      "features-description":
+        "Discover how our digital onboarding solution can transform your business",
+      "core-features": [
         {
-          icon: 'lucide:user-round',
-          title: 'Digital Account Opening',
+          icon: "lucide:user-round",
+          title: "Digital Account Opening",
           description:
-            'Streamlined account creation process with instant verification and approval.',
+            "Streamlined account creation process with instant verification and approval."
         },
         {
-          icon: 'mage:id-card',
-          title: 'Ghana Card Integration',
+          icon: "mage:id-card",
+          title: "Ghana Card Integration",
           description:
-            'Seamless integration with Ghana Card for instant identity verification.',
+            "Seamless integration with Ghana Card for instant identity verification."
         },
         {
-          icon: 'bx:user-check',
-          title: 'KYC Management',
+          icon: "bx:user-check",
+          title: "KYC Management",
           description:
-            'Comprehensive KYC process with automated verification and compliance checks.',
+            "Comprehensive KYC process with automated verification and compliance checks."
         },
         {
-          icon: 'ant-design:rise-outlined',
-          title: 'Risk Rating',
+          icon: "ant-design:rise-outlined",
+          title: "Risk Rating",
           description:
-            'Advanced risk assessment algorithms for accurate customer profiling.',
+            "Advanced risk assessment algorithms for accurate customer profiling."
         },
         {
-          icon: 'la:pen-nib',
-          title: 'E-Signature',
+          icon: "la:pen-nib",
+          title: "E-Signature",
           description:
-            'Secure digital signature capabilities for document authentication.',
+            "Secure digital signature capabilities for document authentication."
         },
         {
-          icon: 'mynaui:upload',
-          title: 'Document Uploading',
+          icon: "mynaui:upload",
+          title: "Document Uploading",
           description:
-            'Easy document upload system with automatic validation and processing.',
-        },
-      ],
+            "Easy document upload system with automatic validation and processing."
+        }
+      ]
     },
-    'loan-origination': {
-      title: 'Loan Origination Solutions',
+    "loan-origination": {
+      title: "Loan Origination Solutions",
       description:
-        'Transform your loan processing with our comprehensive, automated loan origination system.',
-      'video-link': 'https://youtube.com',
-      'features-description':
-        'Discover how our loan origination solution can transform your lending business',
-      'core-features': [
+        "Transform your loan processing with our comprehensive, automated loan origination system.",
+      "video-link": "https://youtube.com",
+      "features-description":
+        "Discover how our loan origination solution can transform your lending business",
+      "core-features": [
         {
-          icon: 'solar:document-outline',
-          title: 'Digital Loan Application',
+          icon: "solar:document-outline",
+          title: "Digital Loan Application",
           description:
-            'Streamlined digital loan application process with real-time validation and status tracking.',
+            "Streamlined digital loan application process with real-time validation and status tracking."
         },
         {
-          icon: 'mage:id-card',
-          title: 'Ghana Card Integration',
+          icon: "mage:id-card",
+          title: "Ghana Card Integration",
           description:
-            'Seamless integration with Ghana Card for instant identity verification.',
+            "Seamless integration with Ghana Card for instant identity verification."
         },
         {
-          icon: 'tabler:building',
-          title: 'Credit Bureau Integration',
+          icon: "tabler:building",
+          title: "Credit Bureau Integration",
           description:
-            'Real-time credit checks and scoring through multiple bureau integrations.',
+            "Real-time credit checks and scoring through multiple bureau integrations."
         },
         {
-          icon: 'mingcute:safe-shield-2-line',
-          title: 'Decision Module',
+          icon: "mingcute:safe-shield-2-line",
+          title: "Decision Module",
           description:
-            'Automated loan decisioning with configurable rules and risk assessment.',
+            "Automated loan decisioning with configurable rules and risk assessment."
         },
         {
-          icon: 'mdi-light:settings',
-          title: 'Fees Configuration',
+          icon: "mdi-light:settings",
+          title: "Fees Configuration",
           description:
-            'Flexible fee structure setup with automated calculations and charges.',
+            "Flexible fee structure setup with automated calculations and charges."
         },
 
         {
-          icon: 'la:pen-nib',
-          title: 'E-Signature',
+          icon: "la:pen-nib",
+          title: "E-Signature",
           description:
-            'Secure digital signature capabilities for loan documentation.',
+            "Secure digital signature capabilities for loan documentation."
         },
         {
-          icon: 'mynaui:users',
-          title: 'Workflow Management',
+          icon: "mynaui:users",
+          title: "Workflow Management",
           description:
-            'Customizable workflow engine for loan processing and approvals.',
+            "Customizable workflow engine for loan processing and approvals."
         },
 
         {
-          icon: 'solar:wallet-linear',
-          title: 'Disbursement Management',
+          icon: "solar:wallet-linear",
+          title: "Disbursement Management",
           description:
-            'Automated loan disbursement with multiple payment channel support.',
+            "Automated loan disbursement with multiple payment channel support."
         },
         {
-          icon: 'solar:document-linear',
-          title: 'Document Generation',
+          icon: "solar:document-linear",
+          title: "Document Generation",
           description:
-            'Automated generation of loan offers and agreement documents.',
+            "Automated generation of loan offers and agreement documents."
         },
         {
-          icon: 'ant-design:rise-outlined',
-          title: 'Credit Scoring',
+          icon: "ant-design:rise-outlined",
+          title: "Credit Scoring",
           description:
-            'Advanced credit scoring models with customizable parameters.',
+            "Advanced credit scoring models with customizable parameters."
         },
 
         {
-          icon: 'solar:calculator-broken',
-          title: 'Loan Calculator',
+          icon: "solar:calculator-broken",
+          title: "Loan Calculator",
           description:
-            'Interactive loan calculator with multiple repayment scenarios.',
+            "Interactive loan calculator with multiple repayment scenarios."
         },
         {
-          icon: 'iconoir:attachment',
-          title: 'Document Uploading',
+          icon: "iconoir:attachment",
+          title: "Document Uploading",
           description:
-            'Secure document upload system with automated validation.',
-        },
-      ],
+            "Secure document upload system with automated validation."
+        }
+      ]
     },
-    'credit-scoring': {
-      title: 'Credit Scoring Solutions',
+    "credit-scoring": {
+      title: "Credit Scoring Solutions",
       description:
-        'Transform your credit risk assessment with our advanced, AI-powered credit scoring system.',
-      'video-link': 'https://youtube.com',
-      'features-description':
-        'Discover how our credit scoring solution can transform your risk assessment process',
-      'core-features': [
+        "Transform your credit risk assessment with our advanced, AI-powered credit scoring system.",
+      "video-link": "https://youtube.com",
+      "features-description":
+        "Discover how our credit scoring solution can transform your risk assessment process",
+      "core-features": [
         {
-          icon: 'lucide:user-round',
-          title: 'Automated Risk Assessment',
+          icon: "lucide:user-round",
+          title: "Automated Risk Assessment",
           description:
-            'Advanced algorithms for comprehensive risk evaluation with real-time processing.',
+            "Advanced algorithms for comprehensive risk evaluation with real-time processing."
         },
         {
-          icon: 'mage:id-card',
-          title: 'Real-Time Credit Scoring',
+          icon: "mage:id-card",
+          title: "Real-Time Credit Scoring",
           description:
-            'Instant credit score generation using multiple data points and advanced analytics.',
+            "Instant credit score generation using multiple data points and advanced analytics."
         },
         {
-          icon: 'bx:user-check',
-          title: 'Predictive Analytics',
+          icon: "bx:user-check",
+          title: "Predictive Analytics",
           description:
-            'AI-powered predictive models to forecast credit behavior and risk patterns.',
+            "AI-powered predictive models to forecast credit behavior and risk patterns."
         },
         {
-          icon: 'ant-design:rise-outlined',
-          title: 'Decision Engine',
+          icon: "ant-design:rise-outlined",
+          title: "Decision Engine",
           description:
-            'Automated credit decisions based on configurable rules and risk policies.',
+            "Automated credit decisions based on configurable rules and risk policies."
         },
         {
-          icon: 'la:pen-nib',
-          title: 'Customizable Scorecards',
+          icon: "la:pen-nib",
+          title: "Customizable Scorecards",
           description:
-            'Flexible scorecard creation with adjustable parameters and weightings.',
+            "Flexible scorecard creation with adjustable parameters and weightings."
         },
         {
-          icon: 'mynaui:upload',
-          title: 'Credit Bureau Integration',
+          icon: "mynaui:upload",
+          title: "Credit Bureau Integration",
           description:
-            'Seamless connection with multiple credit bureaus for comprehensive checks.',
+            "Seamless connection with multiple credit bureaus for comprehensive checks."
         },
         {
-          icon: 'bx:user-check',
-          title: 'Data Aggregation',
+          icon: "bx:user-check",
+          title: "Data Aggregation",
           description:
-            'Unified data collection from multiple sources for enhanced accuracy.',
+            "Unified data collection from multiple sources for enhanced accuracy."
         },
         {
-          icon: 'ant-design:rise-outlined',
-          title: 'Risk Rating',
+          icon: "ant-design:rise-outlined",
+          title: "Risk Rating",
           description:
-            'Sophisticated risk classification system with detailed rating explanations.',
+            "Sophisticated risk classification system with detailed rating explanations."
         },
         {
-          icon: 'la:pen-nib',
-          title: 'Portfolio Monitoring',
+          icon: "la:pen-nib",
+          title: "Portfolio Monitoring",
           description:
-            'Real-time monitoring of credit portfolio performance and trends.',
+            "Real-time monitoring of credit portfolio performance and trends."
         },
         {
-          icon: 'mynaui:upload',
-          title: 'Compliance Tracking',
+          icon: "mynaui:upload",
+          title: "Compliance Tracking",
           description:
-            'Automated compliance monitoring and reporting for regulatory requirements.',
-        },
-      ],
+            "Automated compliance monitoring and reporting for regulatory requirements."
+        }
+      ]
     },
-    'mobile-banking': {
-      title: 'Digital Onboarding Solutions',
+    "mobile-banking": {
+      title: "Digital Onboarding Solutions",
       description:
-        'Transform your customer onboarding experience with our state-of-the-art digital solutions.',
-      'video-link': 'https://youtube.com',
-      'features-description':
-        'Discover how our digital onboarding solution can transform your business',
-      'core-features': [
+        "Transform your customer onboarding experience with our state-of-the-art digital solutions.",
+      "video-link": "https://youtube.com",
+      "features-description":
+        "Discover how our digital onboarding solution can transform your business",
+      "core-features": [
         {
-          icon: 'lucide:user-round',
-          title: 'Digital Account Opening',
+          icon: "lucide:user-round",
+          title: "Digital Account Opening",
           description:
-            'Streamlined account creation process with instant verification and approval.',
+            "Streamlined account creation process with instant verification and approval."
         },
         {
-          icon: 'mage:id-card',
-          title: 'Ghana Card Integration',
+          icon: "mage:id-card",
+          title: "Ghana Card Integration",
           description:
-            'Seamless integration with Ghana Card for instant identity verification.',
+            "Seamless integration with Ghana Card for instant identity verification."
         },
         {
-          icon: 'bx:user-check',
-          title: 'KYC Management',
+          icon: "bx:user-check",
+          title: "KYC Management",
           description:
-            'Comprehensive KYC process with automated verification and compliance checks.',
+            "Comprehensive KYC process with automated verification and compliance checks."
         },
         {
-          icon: 'ant-design:rise-outlined',
-          title: 'Risk Rating',
+          icon: "ant-design:rise-outlined",
+          title: "Risk Rating",
           description:
-            'Advanced risk assessment algorithms for accurate customer profiling.',
+            "Advanced risk assessment algorithms for accurate customer profiling."
         },
         {
-          icon: 'la:pen-nib',
-          title: 'E-Signature',
+          icon: "la:pen-nib",
+          title: "E-Signature",
           description:
-            'Secure digital signature capabilities for document authentication.',
+            "Secure digital signature capabilities for document authentication."
         },
         {
-          icon: 'mynaui:upload',
-          title: 'Document Uploading',
+          icon: "mynaui:upload",
+          title: "Document Uploading",
           description:
-            'Easy document upload system with automatic validation and processing.',
-        },
-      ],
+            "Easy document upload system with automatic validation and processing."
+        }
+      ]
     },
     sentinel: {
-      title: 'Sentinel Security Solutions',
+      title: "Sentinel Security Solutions",
       description:
-        'Protect your financial operations with our advanced security and compliance system.',
-      'video-link': 'https://youtube.com',
-      'features-description':
-        'Discover how our security solution can protect your financial operations',
-      'core-features': [
+        "Protect your financial operations with our advanced security and compliance system.",
+      "video-link": "https://youtube.com",
+      "features-description":
+        "Discover how our security solution can protect your financial operations",
+      "core-features": [
         {
-          icon: 'lucide:user-round',
-          title: 'Anti-Money Laundering (AML)',
+          icon: "lucide:user-round",
+          title: "Anti-Money Laundering (AML)",
           description:
-            'Advanced AML monitoring system with real-time transaction screening and automated alerts.',
+            "Advanced AML monitoring system with real-time transaction screening and automated alerts."
         },
         {
-          icon: 'mage:id-card',
-          title: 'Fraud Detection',
+          icon: "mage:id-card",
+          title: "Fraud Detection",
           description:
-            'AI-powered fraud detection system that identifies suspicious patterns and anomalies.',
+            "AI-powered fraud detection system that identifies suspicious patterns and anomalies."
         },
         {
-          icon: 'bx:user-check',
-          title: 'Sanctions Screening',
+          icon: "bx:user-check",
+          title: "Sanctions Screening",
           description:
-            'Comprehensive sanctions screening against global watchlists and regulatory databases.',
+            "Comprehensive sanctions screening against global watchlists and regulatory databases."
         },
         {
-          icon: 'ant-design:rise-outlined',
-          title: 'Risk Rating',
+          icon: "ant-design:rise-outlined",
+          title: "Risk Rating",
           description:
-            'Dynamic risk assessment system with configurable risk scoring models.',
+            "Dynamic risk assessment system with configurable risk scoring models."
         },
         {
-          icon: 'la:pen-nib',
-          title: 'Report Generation',
+          icon: "la:pen-nib",
+          title: "Report Generation",
           description:
-            'Automated generation of compliance reports and regulatory filings.',
-        },
-      ],
+            "Automated generation of compliance reports and regulatory filings."
+        }
+      ]
     },
     agency: {
-      title: 'Agency Banking Solutions',
+      title: "Agency Banking Solutions",
       description:
-        'Extend your financial services reach through our comprehensive agency banking platform, bringing banking services closer to communities.',
-      'video-link': 'https://youtube.com',
-      'features-description':
-        'Comprehensive tools and services for successful agency banking operations',
-      'core-features': [
+        "Extend your financial services reach through our comprehensive agency banking platform, bringing banking services closer to communities.",
+      "video-link": "https://youtube.com",
+      "features-description":
+        "Comprehensive tools and services for successful agency banking operations",
+      "core-features": [
         {
-          icon: 'lucide:user-round',
-          title: 'Agent Onboarding',
+          icon: "lucide:user-round",
+          title: "Agent Onboarding",
           description:
-            'Streamlined process for registering and onboarding new banking agents',
+            "Streamlined process for registering and onboarding new banking agents"
         },
         {
-          icon: 'mage:id-card',
-          title: 'Transaction Services',
-          description: 'Comprehensive suite of financial transaction services',
+          icon: "mage:id-card",
+          title: "Transaction Services",
+          description: "Comprehensive suite of financial transaction services"
         },
         {
-          icon: 'bx:user-check',
-          title: 'Payment Solutions',
-          description: 'Various payment and transfer options for customers',
+          icon: "bx:user-check",
+          title: "Payment Solutions",
+          description: "Various payment and transfer options for customers"
         },
         {
-          icon: 'ant-design:rise-outlined',
-          title: 'Transaction Monitoring',
+          icon: "ant-design:rise-outlined",
+          title: "Transaction Monitoring",
           description:
-            'Real-time monitoring of all agent transactions for security and compliance',
+            "Real-time monitoring of all agent transactions for security and compliance"
         },
         {
-          icon: 'la:pen-nib',
-          title: 'Agent Dashboard',
+          icon: "la:pen-nib",
+          title: "Agent Dashboard",
           description:
-            'Comprehensive dashboard for managing agent operations and performance',
+            "Comprehensive dashboard for managing agent operations and performance"
         },
         {
-          icon: 'mynaui:upload',
-          title: 'Real-Time Reporting',
-          description: 'Detailed analytics and reporting for business insights',
+          icon: "mynaui:upload",
+          title: "Real-Time Reporting",
+          description: "Detailed analytics and reporting for business insights"
         },
         {
-          icon: 'ant-design:rise-outlined',
-          title: 'Security Protocols',
+          icon: "ant-design:rise-outlined",
+          title: "Security Protocols",
           description:
-            'Advanced security measures to protect transactions and data',
+            "Advanced security measures to protect transactions and data"
         },
         {
-          icon: 'la:pen-nib',
-          title: 'Account Management',
-          description: 'Tools for managing customer accounts and services',
+          icon: "la:pen-nib",
+          title: "Account Management",
+          description: "Tools for managing customer accounts and services"
         },
         {
-          icon: 'mynaui:upload',
-          title: 'Service Monitoring',
-          description: 'Track and optimize service delivery and performance',
-        },
-      ],
-    },
+          icon: "mynaui:upload",
+          title: "Service Monitoring",
+          description: "Track and optimize service delivery and performance"
+        }
+      ]
+    }
   };
   const { pathname } = useLocation();
-  const module: string = pathname.split('/')[2];
+  const module: string = pathname.split("/")[2];
   const current = data?.[module];
 
   useEffect(() => {
     if (!Object.keys(data).includes(module)) {
-      return nav('/financial-services');
+      return nav("/financial-services");
     }
   }, []);
   return (
@@ -376,13 +377,13 @@ const FinancialServiceExpansion = () => {
             {current?.description}
           </p>
         </div>
-        {current?.['video-link'] && (
+        {current?.["video-link"] && (
           <CustomButton
             className="bg-primary text-white font-medium px-5 "
             onClick={() => {
               window.open(
-                'https://www.youtube.com/watch?v=PpPci8gGRoE',
-                '_blank'
+                "https://www.youtube.com/watch?v=PpPci8gGRoE",
+                "_blank"
               );
             }}
           >
@@ -396,11 +397,11 @@ const FinancialServiceExpansion = () => {
         <div className="text-center">
           <h2 className="font-medium text-3xl md:text-4xl ">Core Services</h2>
           <p className="text-primary lg:text-[1.2rem]  my-5">
-            {current?.['features-description']}
+            {current?.["features-description"]}
           </p>
         </div>
         <div className="md:grid md:grid-cols-auto-fill-300 gap-5 space-y-5 md:space-y-0 mt-10">
-          {current?.['core-features']?.map((e: any) => {
+          {current?.["core-features"]?.map((e: any) => {
             return (
               <InfoCard
                 title={e.title}
@@ -419,7 +420,7 @@ const FinancialServiceExpansion = () => {
 const InfoCard = ({
   icon,
   title,
-  description,
+  description
 }: {
   icon: string;
   title: string;
