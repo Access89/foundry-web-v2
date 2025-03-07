@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import InfoSectionWithGoals from "@/components/reusable/info_section_with_goals";
+import InfoSectionWithVideo from "@/components/reusable/info_section_with_videos";
 import SuccessStories, {
   SuccessStoriesProps
 } from "@/components/reusable/success-stories-section";
@@ -488,74 +489,84 @@ const FinancialServiceExpansion = () => {
     }
   }, []);
   return (
-    <main className="container">
-      <section className="flex items-center  flex-col justify-between gap-10 py-20   rounded-xl bg-primary/10   ">
-        {/* <p className="text-sm text-foundry-secondary font-medium uppercase mb-5">
+    <main>
+      <section className="container">
+        <section className="flex items-center  flex-col justify-between gap-10 py-20   rounded-xl bg-primary/10   ">
+          {/* <p className="text-sm text-foundry-secondary font-medium uppercase mb-5">
           {current?.title}
         </p> */}
-        <div className="px-6 ">
-          <h1 className="font-medium text-center text-3xl  md:text-4xl lg:text-5xl md:pr-0 mb-10 md:mb-0">
-            {current?.title}
-          </h1>
-          <p className="text-primary lg:text-[1.2rem] text-center  my-5 lg:w-[70%] mx-auto">
-            {current?.description}
-          </p>
-        </div>
-        {current?.["video-link"] && (
-          <CustomButton
-            className="bg-primary text-white font-medium px-5 "
-            onClick={() => {
-              window.open(
-                "https://www.youtube.com/watch?v=PpPci8gGRoE",
-                "_blank"
-              );
-            }}
-          >
-            <Icon icon="si:video-line" fontSize={20} />
-            Watch Video
-          </CustomButton>
-        )}
-      </section>
-
-      <section className="py-10 pt-28 lg:pt-20">
-        <div className="text-center">
-          <h2 className="font-medium text-3xl md:text-4xl ">Core Services</h2>
-          <p className="text-primary lg:text-[1.2rem]  my-5">
-            {current?.["features-description"]}
-          </p>
-        </div>
-        <div className="md:grid md:grid-cols-auto-fill-300 gap-5 space-y-5 md:space-y-0 mt-10">
-          {current?.["core-features"]?.map((e: any) => {
-            return (
-              <InfoCard
-                title={e.title}
-                icon={e.icon}
-                description={e.description}
-                key={e.title}
-              />
-            );
-          })}
-        </div>
-      </section>
-
-      <section className=" lg:mt-8 lg:pt-5  ">
-        <InfoSectionWithGoals
-          sectionTitle={current?.title}
-          sectionDescription={current?.description}
-          goalsTitle="Your Business Goals"
-          solutionTitle="How to Solve It with Foundry"
-          goals={current?.goals?.map(
-            (item: { title: string; description: string }) => ({
-              title: item.title,
-              desc: [item.description]
-            })
+          <div className="px-6 ">
+            <h1 className="font-medium text-center text-3xl  md:text-4xl lg:text-5xl md:pr-0 mb-10 md:mb-0">
+              {current?.title}
+            </h1>
+            <p className="text-primary lg:text-[1.2rem] text-center  my-5 lg:w-[70%] mx-auto">
+              {current?.description}
+            </p>
+          </div>
+          {current?.["video-link"] && (
+            <CustomButton
+              className="bg-primary text-white font-medium px-5 "
+              onClick={() => {
+                window.open(
+                  "https://www.youtube.com/watch?v=PpPci8gGRoE",
+                  "_blank"
+                );
+              }}
+            >
+              <Icon icon="si:video-line" fontSize={20} />
+              Watch Video
+            </CustomButton>
           )}
-        />
+        </section>
+
+        <section className="py-10 pt-28 lg:pt-20">
+          <div className="text-center">
+            <h2 className="font-medium text-3xl md:text-4xl ">Core Services</h2>
+            <p className="text-primary lg:text-[1.2rem]  my-5">
+              {current?.["features-description"]}
+            </p>
+          </div>
+          <div className="md:grid md:grid-cols-auto-fill-300 gap-5 space-y-5 md:space-y-0 mt-10">
+            {current?.["core-features"]?.map((e: any) => {
+              return (
+                <InfoCard
+                  title={e.title}
+                  icon={e.icon}
+                  description={e.description}
+                  key={e.title}
+                />
+              );
+            })}
+          </div>
+        </section>
+
+        <section className=" lg:mt-8 lg:pt-5  ">
+          <InfoSectionWithGoals
+            sectionTitle={current?.title}
+            sectionDescription={current?.description}
+            goalsTitle="Your Business Goals"
+            solutionTitle="How to Solve It with Foundry"
+            goals={current?.goals?.map(
+              (item: { title: string; description: string }) => ({
+                title: item.title,
+                desc: [item.description]
+              })
+            )}
+          />
+        </section>
+
+        <section className=" lg:mt-8 lg:pt-5 ">
+          <SuccessStories {...exampleData} />
+        </section>
       </section>
 
-      <section className=" lg:mt-8 lg:pt-5 ">
-        <SuccessStories {...exampleData} />
-      </section>
+      <InfoSectionWithVideo
+        videoElement={
+          <div className="bg-[#D9D9D9]/30 flex justify-center items-center h-[25rem]">
+            <img src="/icons/camera.svg" alt="camera" className="w-[5rem]" />
+          </div>
+        }
+      />
     </main>
   );
 };
