@@ -60,21 +60,21 @@ const FinancialServiceExpansion = () => {
       goals: [
         {
           icon: "uil:user",
-          title: "Seamless Onboarding and Loan Origination",
+          title: "Lorem Ipsum Dolor",
           description:
-            "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
         },
         {
           icon: "lucide:gauge",
-          title: "Efficient, Scalable Operations",
+          title: "Vestibulum Ante Ipsum",
           description:
-            "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
+            "Suspendisse potenti. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo."
         },
         {
           icon: "mdi:protected-outline",
-          title: "Enhanced Security and Global Accessibility",
+          title: "Curabitur Ligula Sapien",
           description:
-            "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
+            "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
         }
       ]
     },
@@ -165,21 +165,21 @@ const FinancialServiceExpansion = () => {
       goals: [
         {
           icon: "uil:user",
-          title: "Seamless Onboarding and Loan Origination",
+          title: "Lorem Ipsum Dolor",
           description:
-            "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
         },
         {
           icon: "lucide:gauge",
-          title: "Efficient, Scalable Operations",
+          title: "Vestibulum Ante Ipsum",
           description:
-            "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
+            "Suspendisse potenti. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo."
         },
         {
           icon: "mdi:protected-outline",
-          title: "Enhanced Security and Global Accessibility",
+          title: "Curabitur Ligula Sapien",
           description:
-            "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
+            "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
         }
       ]
     },
@@ -255,21 +255,21 @@ const FinancialServiceExpansion = () => {
       goals: [
         {
           icon: "uil:user",
-          title: "Seamless Onboarding and Loan Origination",
+          title: "Lorem Ipsum Dolor",
           description:
-            "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
         },
         {
           icon: "lucide:gauge",
-          title: "Efficient, Scalable Operations",
+          title: "Vestibulum Ante Ipsum",
           description:
-            "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
+            "Suspendisse potenti. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo."
         },
         {
           icon: "mdi:protected-outline",
-          title: "Enhanced Security and Global Accessibility",
+          title: "Curabitur Ligula Sapien",
           description:
-            "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
+            "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
         }
       ]
     },
@@ -321,21 +321,21 @@ const FinancialServiceExpansion = () => {
       goals: [
         {
           icon: "uil:user",
-          title: "Seamless Onboarding and Loan Origination",
+          title: "Lorem Ipsum Dolor",
           description:
-            "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
         },
         {
           icon: "lucide:gauge",
-          title: "Efficient, Scalable Operations",
+          title: "Vestibulum Ante Ipsum",
           description:
-            "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
+            "Suspendisse potenti. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo."
         },
         {
           icon: "mdi:protected-outline",
-          title: "Enhanced Security and Global Accessibility",
+          title: "Curabitur Ligula Sapien",
           description:
-            "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
+            "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
         }
       ]
     },
@@ -381,21 +381,21 @@ const FinancialServiceExpansion = () => {
       goals: [
         {
           icon: "uil:user",
-          title: "Seamless Onboarding and Loan Origination",
+          title: "Lorem Ipsum Dolor",
           description:
-            "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
         },
         {
           icon: "lucide:gauge",
-          title: "Efficient, Scalable Operations",
+          title: "Vestibulum Ante Ipsum",
           description:
-            "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
+            "Suspendisse potenti. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo."
         },
         {
           icon: "mdi:protected-outline",
-          title: "Enhanced Security and Global Accessibility",
+          title: "Curabitur Ligula Sapien",
           description:
-            "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
+            "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
         }
       ]
     },
@@ -460,21 +460,211 @@ const FinancialServiceExpansion = () => {
       goals: [
         {
           icon: "uil:user",
-          title: "Seamless Onboarding and Loan Origination",
+          title: "Lorem Ipsum Dolor",
           description:
-            "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
         },
         {
           icon: "lucide:gauge",
-          title: "Efficient, Scalable Operations",
+          title: "Vestibulum Ante Ipsum",
           description:
-            "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
+            "Suspendisse potenti. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo."
         },
         {
           icon: "mdi:protected-outline",
-          title: "Enhanced Security and Global Accessibility",
+          title: "Curabitur Ligula Sapien",
           description:
-            "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
+            "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        }
+      ]
+    },
+    "foundry-e-channels": {
+      title: "Foundry E-channels",
+      description:
+        "Our digital banking solutions, including internet banking, mobile banking, and USSD platforms, designed to provide customers with seamless and secure access to financial services anytime, anywhere.",
+      "video-link": "https://youtube.com",
+      "features-description":
+        "Comprehensive tools and services for Foundry E-channels",
+      "core-features": [
+        {
+          icon: "lucide:user-round",
+          title: "Internet Banking",
+          description:
+            "Secure online banking platform accessible from any web browser",
+          checklist: [
+            "24/7 Account Access",
+            "Real-Time Transactions",
+            "Bill Payments",
+            "Funds Transfer"
+          ]
+        },
+        {
+          icon: "mage:id-card",
+          title: "Mobile Banking",
+          description: "Feature-rich mobile app for banking on the go",
+          checklist: [
+            "Biometric Authentication",
+            "Quick Balance Check",
+            "Mobile Check Deposit",
+            "Push Notifications"
+          ]
+        },
+        {
+          icon: "bx:user-check",
+          title: "USSD Banking",
+          description: "Banking services accessible via basic mobile phones",
+          checklist: [
+            "No Internet Required",
+            "Balance Enquiry",
+            "Mini Statements",
+            "Airtime Purchase"
+          ]
+        }
+      ],
+      goals: [
+        {
+          icon: "uil:user",
+          title: "Lorem Ipsum Dolor",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
+        },
+        {
+          icon: "lucide:gauge",
+          title: "Vestibulum Ante Ipsum",
+          description:
+            "Suspendisse potenti. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo."
+        },
+        {
+          icon: "mdi:protected-outline",
+          title: "Curabitur Ligula Sapien",
+          description:
+            "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        }
+      ]
+    },
+    "foundry-back-office": {
+      title: "Foundry Back Office",
+      description:
+        "Complete digital banking solution with web and mobile interfaces for employees enable rapid customer service and case resolution, reducing reliance on branches",
+      "video-link": "https://youtube.com",
+      "features-description":
+        "Comprehensive tools and services for Foundry back office system",
+      "core-features": [
+        {
+          icon: "lucide:user-round",
+          title: "Request Management",
+          description:
+            "Efficiently handle and track customer requests with automated workflows and real-time status updates."
+          // checklist: [
+          //   "Request Management",
+          //   "Real-Time Transactions",
+          //   "Bill Payments",
+          //   "Funds Transfer"
+          // ]
+        },
+        {
+          icon: "mage:id-card",
+          title: "Customer Management",
+          description:
+            "Comprehensive customer profiles with complete transaction history and interaction tracking."
+          // checklist: [
+          //   "Biometric Authentication",
+          //   "Quick Balance Check",
+          //   "Mobile Check Deposit",
+          //   "Push Notifications"
+          // ]
+        },
+        {
+          icon: "bx:user-check",
+          title: "Complaint Management",
+          description:
+            "Streamlined complaint resolution with automated routing and escalation procedures."
+        },
+        {
+          icon: "bx:user-check",
+          title: "Workflow Management",
+          description:
+            "Customizable workflows to automate and optimize back office processes."
+        },
+        {
+          icon: "bx:user-check",
+          title: "Disbursement/Repayment Management",
+          description:
+            "Automated processing of disbursements and repayments with real-time tracking."
+        },
+        {
+          icon: "bx:user-check",
+          title: "Report Management",
+          description:
+            "Generate comprehensive reports with customizable templates and automated scheduling."
+        }
+      ],
+      goals: [
+        {
+          icon: "uil:user",
+          title: "Lorem Ipsum Dolor",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
+        },
+        {
+          icon: "lucide:gauge",
+          title: "Vestibulum Ante Ipsum",
+          description:
+            "Suspendisse potenti. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo."
+        },
+        {
+          icon: "mdi:protected-outline",
+          title: "Curabitur Ligula Sapien",
+          description:
+            "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        }
+      ]
+    },
+    "customized-platform": {
+      title: "Customized Platform",
+      description:
+        "Tailored financial technology solutions for your specific needs.",
+      "video-link": "https://youtube.com",
+      "features-description":
+        "Comprehensive tools and services for Foundry back office system",
+      "core-features": [
+        {
+          icon: "lucide:user-round",
+          title: "Lorem Ipsum",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
+        },
+        {
+          icon: "mage:id-card",
+          title: "Dolor Sit Amet",
+          description:
+            "Suspendisse potenti. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo."
+        },
+        {
+          icon: "bx:user-check",
+          title: "Consectetur Adipiscing",
+          description:
+            "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        }
+      ],
+      goals: [
+        {
+          icon: "uil:user",
+          title: "Lorem Ipsum Dolor",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
+        },
+        {
+          icon: "lucide:gauge",
+          title: "Vestibulum Ante Ipsum",
+          description:
+            "Suspendisse potenti. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo."
+        },
+        {
+          icon: "mdi:protected-outline",
+          title: "Curabitur Ligula Sapien",
+          description:
+            "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
         }
       ]
     }
@@ -534,6 +724,7 @@ const FinancialServiceExpansion = () => {
                   icon={e.icon}
                   description={e.description}
                   key={e.title}
+                  checklist={e.checklist}
                 />
               );
             })}
@@ -608,14 +799,16 @@ const exampleData: SuccessStoriesProps = {
 const InfoCard = ({
   icon,
   title,
-  description
+  description,
+  checklist
 }: {
   icon: string;
   title: string;
   description: string;
+  checklist: string[];
 }) => {
   return (
-    <div className="bg-secondary-light rounded-2xl p-4 lg:px-6 lg:py-6 w-full flex flex-col justify-between gap-6 hover:scale-[1.02] duration-700 hover:shadow-lg cursor-pointer">
+    <div className="bg-secondary-light rounded-2xl p-4 lg:px-6 lg:py-6 w-full flex flex-col justify-between gap-6 ">
       <div className="flex flex-col gap-y-3 bg-primary/80 w-fit p-2 rounded-md">
         <Icon icon={icon} fontSize={24} className="text-white" />
       </div>
@@ -626,6 +819,19 @@ const InfoCard = ({
           {description}
         </p>
       </div>
+      {checklist && (
+        <div>
+          {checklist?.map((item, index) => (
+            <p key={index} className="flex items-center gap-1 text-sm">
+              <Icon
+                icon="material-symbols:shield-outline"
+                className="text-primary"
+              />
+              <span>{item}</span>
+            </p>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
