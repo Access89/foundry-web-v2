@@ -251,6 +251,21 @@ const menuItems = [
             link: "/financial-service/sentinel",
             title: "KYC / AML ",
             icon: "oui:dot"
+          },
+          {
+            link: "/financial-service/foundry-e-channels",
+            title: "Foundry E-channels ",
+            icon: "oui:dot"
+          },
+          {
+            link: "/financial-service/foundry-back-office",
+            title: "Foundry Back Office",
+            icon: "oui:dot"
+          },
+          {
+            link: "/financial-service/customized-platform",
+            title: "Customized Platform",
+            icon: "oui:dot"
           }
         ]
       },
