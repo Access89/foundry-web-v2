@@ -1,4 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import InfoSectionWithGoals from "@/components/reusable/info_section_with_goals";
+import SuccessStories, {
+  SuccessStoriesProps
+} from "@/components/reusable/success-stories-section";
 import { CustomButton } from "@/components/shared/shared_customs";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useEffect } from "react";
@@ -50,6 +54,26 @@ const FinancialServiceExpansion = () => {
           title: "Document Uploading",
           description:
             "Easy document upload system with automatic validation and processing."
+        }
+      ],
+      goals: [
+        {
+          icon: "uil:user",
+          title: "Seamless Onboarding and Loan Origination",
+          description:
+            "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
+        },
+        {
+          icon: "lucide:gauge",
+          title: "Efficient, Scalable Operations",
+          description:
+            "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
+        },
+        {
+          icon: "mdi:protected-outline",
+          title: "Enhanced Security and Global Accessibility",
+          description:
+            "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
         }
       ]
     },
@@ -136,6 +160,26 @@ const FinancialServiceExpansion = () => {
           description:
             "Secure document upload system with automated validation."
         }
+      ],
+      goals: [
+        {
+          icon: "uil:user",
+          title: "Seamless Onboarding and Loan Origination",
+          description:
+            "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
+        },
+        {
+          icon: "lucide:gauge",
+          title: "Efficient, Scalable Operations",
+          description:
+            "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
+        },
+        {
+          icon: "mdi:protected-outline",
+          title: "Enhanced Security and Global Accessibility",
+          description:
+            "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
+        }
       ]
     },
     "credit-scoring": {
@@ -206,6 +250,26 @@ const FinancialServiceExpansion = () => {
           description:
             "Automated compliance monitoring and reporting for regulatory requirements."
         }
+      ],
+      goals: [
+        {
+          icon: "uil:user",
+          title: "Seamless Onboarding and Loan Origination",
+          description:
+            "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
+        },
+        {
+          icon: "lucide:gauge",
+          title: "Efficient, Scalable Operations",
+          description:
+            "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
+        },
+        {
+          icon: "mdi:protected-outline",
+          title: "Enhanced Security and Global Accessibility",
+          description:
+            "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
+        }
       ]
     },
     "mobile-banking": {
@@ -252,6 +316,26 @@ const FinancialServiceExpansion = () => {
           description:
             "Easy document upload system with automatic validation and processing."
         }
+      ],
+      goals: [
+        {
+          icon: "uil:user",
+          title: "Seamless Onboarding and Loan Origination",
+          description:
+            "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
+        },
+        {
+          icon: "lucide:gauge",
+          title: "Efficient, Scalable Operations",
+          description:
+            "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
+        },
+        {
+          icon: "mdi:protected-outline",
+          title: "Enhanced Security and Global Accessibility",
+          description:
+            "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
+        }
       ]
     },
     sentinel: {
@@ -291,6 +375,26 @@ const FinancialServiceExpansion = () => {
           title: "Report Generation",
           description:
             "Automated generation of compliance reports and regulatory filings."
+        }
+      ],
+      goals: [
+        {
+          icon: "uil:user",
+          title: "Seamless Onboarding and Loan Origination",
+          description:
+            "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
+        },
+        {
+          icon: "lucide:gauge",
+          title: "Efficient, Scalable Operations",
+          description:
+            "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
+        },
+        {
+          icon: "mdi:protected-outline",
+          title: "Enhanced Security and Global Accessibility",
+          description:
+            "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
         }
       ]
     },
@@ -350,6 +454,26 @@ const FinancialServiceExpansion = () => {
           icon: "mynaui:upload",
           title: "Service Monitoring",
           description: "Track and optimize service delivery and performance"
+        }
+      ],
+      goals: [
+        {
+          icon: "uil:user",
+          title: "Seamless Onboarding and Loan Origination",
+          description:
+            "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
+        },
+        {
+          icon: "lucide:gauge",
+          title: "Efficient, Scalable Operations",
+          description:
+            "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
+        },
+        {
+          icon: "mdi:protected-outline",
+          title: "Enhanced Security and Global Accessibility",
+          description:
+            "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
         }
       ]
     }
@@ -413,8 +537,61 @@ const FinancialServiceExpansion = () => {
           })}
         </div>
       </section>
+
+      <section className=" lg:mt-8 lg:pt-5  ">
+        <InfoSectionWithGoals
+          sectionTitle={current?.title}
+          sectionDescription={current?.description}
+          goalsTitle="Your Business Goals"
+          solutionTitle="How to Solve It with Foundry"
+          goals={current?.goals?.map(
+            (item: { title: string; description: string }) => ({
+              title: item.title,
+              desc: [item.description]
+            })
+          )}
+        />
+      </section>
+
+      <section className=" lg:mt-8 lg:pt-5 ">
+        <SuccessStories {...exampleData} />
+      </section>
     </main>
   );
+};
+
+// Example usage
+const exampleData: SuccessStoriesProps = {
+  title: "Finance Success Stories",
+  links: [
+    { title: "Read Foundry Reviews", link: "/foundry-reviews" },
+    { title: "View all Testimonials", link: "/testimonials" }
+  ],
+  cards: [
+    {
+      type: "text",
+      content:
+        '"Stock loss has reduced and sales are booming. Foundry has grown and helped us implement all these different parts."',
+      author: "Cecilia Dekyi, Cepodek",
+      buttonText: "Read the case study"
+    },
+    {
+      type: "image",
+      imageSrc: "/images/LS_4.webp", // Update to the correct image URL
+      imageAlt: "Afro woman in beauty store",
+      overlayText: "The importance of data to WeNaturals",
+      overlayIcon: "/icons/play.svg"
+    },
+    {
+      type: "stats",
+      title: "SHIELD Microfinance",
+      stats: [
+        { value: "47%", label: "revenue increase year over year" },
+        { value: "30,000", label: "transactions per month" }
+      ],
+      buttonText: "See their Foundry Setup"
+    }
+  ]
 };
 
 const InfoCard = ({
