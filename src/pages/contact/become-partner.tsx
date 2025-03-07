@@ -2,7 +2,7 @@
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { variables } from "@/utils/helper";
+// import { variables } from "@/utils/helper";
 import { Input, Select, SelectItem } from "@nextui-org/react";
 import { CustomButton } from "@/components/shared/shared_customs";
 import { Icon } from "@iconify/react";
@@ -45,7 +45,8 @@ const BecomePartner = () => {
     useMutation(
       (newData: z.infer<typeof becomePartnerSchema>) =>
         mutateFn({
-          url: `${variables.base_url}/create/partner`,
+          url: `https://foundry-middle-api-dev.azurewebsites.net/api/create/partner`,
+          // url: `${variables.base_url}/create/partner`,
           data: newData
         }),
       {
