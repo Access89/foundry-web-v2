@@ -34,7 +34,7 @@ const GetStartedSection = () => {
           >
             <CustomButton
               onPress={() => {
-                navigate("/onboarding");
+                navigate("/become-partner");
               }}
               className="bg-[#619B7D] text-white flex items-center gap-1"
             >

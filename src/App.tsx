@@ -19,6 +19,7 @@ import Manage from "./pages/manage business";
 import BusinessExpansion from "./pages/business-expansion";
 import OperationsExpansion from "./pages/operations-expansion";
 import FinancialServiceExpansion from "./pages/financial-service-expansion";
+import BecomePartner from "./pages/contact/become-partner";
 const Home = lazy(() => import("./pages/home"));
 const BusinessAutomation = lazy(() => import("./pages/business_automation"));
 const Loan = lazy(() => import("./pages/loan"));
@@ -83,6 +84,7 @@ function App() {
           />
         </Route>
         <Route path="book-a-demo" element={<BookADemo />} />
+        <Route path="become-partner" element={<BecomePartner />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="custom-plan" element={<CustomPlan />} />
         <Route path="onboarding/">
