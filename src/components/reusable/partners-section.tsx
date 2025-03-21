@@ -34,6 +34,11 @@ const PartnersSection = () => {
 
       {/* Scrolling Animation */}
       <div className="relative w-full overflow-hidden">
+        {/* Left Fade Effect */}
+        <div className="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
+
+        {/* Right Fade Effect */}
+        <div className="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
         <motion.div
           className="flex items-center gap-10 whitespace-nowrap"
           animate={{ x: ["0%", "-100%"] }} // Move from right to left
@@ -43,7 +48,7 @@ const PartnersSection = () => {
             ease: "linear"
           }}
         >
-          {scrollingPartners.map((partner, index) => (
+          {scrollingPartners.map((partner, index) =>
             <div
               key={index}
               className="lg:w-[6rem] lg:h-[3rem] w-[4rem] h-[2rem] flex-shrink-0"
@@ -54,7 +59,7 @@ const PartnersSection = () => {
                 className="w-full h-full object-contain"
               />
             </div>
-          ))}
+          )}
         </motion.div>
       </div>
     </section>
