@@ -6,7 +6,6 @@ import NotFound from "./components/shared/not_found";
 import ScrollToTop from "./components/shared/scroll_to_top";
 import MainLayout from "./layout/main_layout";
 import BookADemo from "./pages/book-a-demo";
-import FinancialServiceExpansion from "./pages/financial-service";
 import BookingManagement from "./pages/logistics/booking_management";
 import OrderManagement from "./pages/logistics/order_management";
 import Trucking from "./pages/logistics/trucking";
@@ -16,8 +15,16 @@ import Pricing from "./pages/pricing";
 import CustomPlan from "./pages/custom-plan";
 import ContactPage from "./pages/contact";
 import PasswordSetting from "./pages/onboarding/_components/_tabs/password";
+import Manage from "./pages/manage business";
+import BusinessExpansion from "./pages/business-expansion";
+import OperationsExpansion from "./pages/operations-expansion";
+import FinancialServiceExpansion from "./pages/financial-service-expansion";
+import BecomePartner from "./pages/contact/become-partner";
 const Home = lazy(() => import("./pages/home"));
 const BusinessAutomation = lazy(() => import("./pages/business_automation"));
+const Loan = lazy(() => import("./pages/loan"));
+const Hire = lazy(() => import("./pages/hire"));
+const HireDetail = lazy(() => import("./pages/hire/hire-detail"));
 const FinancialServices = lazy(() => import("./pages/financial_services"));
 const UseCases = lazy(() => import("./pages/use_cases"));
 const LogisticsAndSupply = lazy(() => import("./pages/logistics"));
@@ -38,11 +45,24 @@ function App() {
           <Route path="" element={<Home />} />
           <Route path="*" element={<NotFound />} />
           <Route path="business-automation" element={<BusinessAutomation />} />
+          <Route path="manage" element={<Manage />} />
+          <Route path="loan" element={<Loan />} />
+          <Route path="hire" element={<Hire />} />
+          <Route path="hire-detail" element={<HireDetail />} />
           <Route path="financial-services" element={<FinancialServices />} />
+
           <Route
             path="/financial-service/:service"
             element={<FinancialServiceExpansion />}
           />
+
+          <Route path="/business/:service" element={<BusinessExpansion />} />
+
+          <Route
+            path="/operations/:service"
+            element={<OperationsExpansion />}
+          />
+
           <Route path="use-cases" element={<UseCases />} />
 
           <Route path="pricing" element={<Pricing />} />
@@ -64,6 +84,7 @@ function App() {
           />
         </Route>
         <Route path="book-a-demo" element={<BookADemo />} />
+        <Route path="become-partner" element={<BecomePartner />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="custom-plan" element={<CustomPlan />} />
         <Route path="onboarding/">

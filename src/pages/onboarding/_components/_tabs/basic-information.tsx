@@ -11,32 +11,38 @@ const BasicInformation = () => {
   const dispatch = useDispatch();
   const { email, mobile } = useSelector((state: RootState) => state.subscriber);
 
-  useEffect(() => {
-    if (email !== "" && mobile !== "") {
-      dispatch(
-        updateSubscriberState({
-          safe: true,
-        })
-      );
-    }
-  }, [dispatch, email, mobile]);
+  useEffect(
+    () => {
+      if (email !== "" && mobile !== "") {
+        dispatch(
+          updateSubscriberState({
+            safe: true
+          })
+        );
+      }
+    },
+    [dispatch, email, mobile]
+  );
 
-  useEffect(() => {
-    if (email !== "" && mobile !== "") {
-      dispatch(
-        updateSubscriberState({
-          safe: true,
-        })
-      );
-    }
-  }, [dispatch, email, mobile]);
+  useEffect(
+    () => {
+      if (email !== "" && mobile !== "") {
+        dispatch(
+          updateSubscriberState({
+            safe: true
+          })
+        );
+      }
+    },
+    [dispatch, email, mobile]
+  );
 
   const form = useFormik({
     initialValues: {
-      email: "",
-      phone: "",
+      email: email || "",
+      phone: mobile || ""
     },
-    onSubmit: () => {},
+    onSubmit: () => {}
   });
 
   return (

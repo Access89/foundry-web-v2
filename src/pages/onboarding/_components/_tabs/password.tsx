@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   resetSubscriber,
   SubscriberStateType,
-  updateSubscriberState,
+  updateSubscriberState
 } from "@/store/features/subscriber";
 import { RootState } from "@/store/store";
 import { useEffect } from "react";
@@ -19,10 +19,6 @@ import { cn } from "@nextui-org/react";
 const PasswordSetting = () => {
   const dispatch = useDispatch();
 
-  const thiss = useSelector((state: RootState) => state.subscriber);
-
-  console.log(thiss);
-
   const {
     customer_name,
     country,
@@ -33,7 +29,7 @@ const PasswordSetting = () => {
     nature_of_business,
     password,
     country_code,
-    business_owner,
+    business_owner
   } = useSelector((state: RootState) => state.subscriber);
 
   // State to track which plan's button is loading
@@ -42,7 +38,7 @@ const PasswordSetting = () => {
     (newData: SubscriberStateType) =>
       mutateFn({
         url: `${variables.base_url}/create/subscriber`,
-        data: newData,
+        data: newData
       }),
     {
       onSuccess: () => {
@@ -55,7 +51,7 @@ const PasswordSetting = () => {
       onError: (error: any) => {
         console.error("Error creating subscriber:", error);
         toast.error("Details were not submitted, please try again");
-      },
+      }
     }
   );
 
@@ -73,27 +69,30 @@ const PasswordSetting = () => {
       business_location,
       business_type,
       nature_of_business,
-      password,
+      password
     });
   };
 
   const { ...form } = useFormik({
     initialValues: {
       password: "",
-      confirm_password: "",
+      confirm_password: ""
     },
-    onSubmit: () => {},
+    onSubmit: () => {}
   });
 
-  useEffect(() => {
-    if (form.values.confirm_password === password) {
-      dispatch(
-        updateSubscriberState({
-          safe: true,
-        })
-      );
-    }
-  }, [form.values.confirm_password, dispatch, password]);
+  useEffect(
+    () => {
+      if (form.values.confirm_password === password) {
+        dispatch(
+          updateSubscriberState({
+            safe: true
+          })
+        );
+      }
+    },
+    [form.values.confirm_password, dispatch, password]
+  );
 
   return (
     <div className="lg:w-[700px] w-full h-full lg:pt-12 lg:px-6 mx-auto font-sans flex flex-col justify-between lg:pb-12 px-6 py-6">

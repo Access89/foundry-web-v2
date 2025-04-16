@@ -9,37 +9,49 @@ import { RootState } from "@/store/store";
 
 const BasicInformation = () => {
   const dispatch = useDispatch();
-  const { customer_name, business_location, business_type, business_owner } =
-    useSelector((state: RootState) => state.subscriber);
-
-  useEffect(() => {
-    if (
-      customer_name !== "" &&
-      business_location !== "" &&
-      business_type !== "" &&
-      business_owner !== ""
-    ) {
-      dispatch(
-        updateSubscriberState({
-          safe: true,
-        })
-      );
-    }
-  }, [
-    business_location,
+  const {
     customer_name,
+    business_location,
     business_type,
     business_owner,
-    dispatch,
-  ]);
+    nature_of_business
+  } = useSelector((state: RootState) => state.subscriber);
 
-  const { ...form } = useFormik({
-    initialValues: {
-      business_name: "",
-      location: "",
-      business_type: "",
+  useEffect(
+    () => {
+      if (
+        customer_name !== "" &&
+        business_location !== "" &&
+        business_type !== "" &&
+        business_owner !== "" &&
+        nature_of_business !== ""
+      ) {
+        dispatch(
+          updateSubscriberState({
+            safe: true
+          })
+        );
+      }
     },
-    onSubmit: () => {},
+    [
+      business_location,
+      customer_name,
+      business_type,
+      business_owner,
+      nature_of_business,
+      dispatch
+    ]
+  );
+
+  const form = useFormik({
+    initialValues: {
+      business_name: customer_name || "",
+      location: business_location || "",
+      business_type: business_type || "",
+      business_owner: business_owner || "",
+      nature_of_business: nature_of_business || ""
+    },
+    onSubmit: () => {}
   });
 
   return (
@@ -58,9 +70,10 @@ const BasicInformation = () => {
           type={"text"}
           label={"Business name"}
           placeholder={"e.g. Cepodek"}
-          id={"email"}
+          id={"business_name"}
           {...form}
           handleChange={(e: any) => {
+            form.handleChange(e);
             dispatch(updateSubscriberState({ customer_name: e.target.value }));
           }}
         />
@@ -68,9 +81,10 @@ const BasicInformation = () => {
           type={"text"}
           label={"Your name"}
           placeholder={"e.g. Jane Doe"}
-          id={"email"}
+          id={"business_owner"}
           {...form}
           handleChange={(e: any) => {
+            form.handleChange(e);
             dispatch(updateSubscriberState({ business_owner: e.target.value }));
           }}
         />
@@ -78,9 +92,10 @@ const BasicInformation = () => {
           type={"text"}
           label={"Location"}
           placeholder={"e.g. Oyarifa - Teiman"}
-          id={"email"}
+          id={"location"}
           {...form}
           handleChange={(e: any) => {
+            form.handleChange(e);
             dispatch(
               updateSubscriberState({ business_location: e.target.value })
             );
@@ -90,13 +105,13 @@ const BasicInformation = () => {
           items={[
             {
               label: "Limited Liability Company",
-              value: "Limited Liability Company",
+              value: "Limited Liability Company"
             },
-            { label: "Sole Proprietorship", value: "Sole Proprietorship" },
+            { label: "Sole Proprietorship", value: "Sole Proprietorship" }
           ]}
           label={"Nature of Business"}
           placeholder={"e.g. Limited Liability Company"}
-          id={"email"}
+          id={"nature_of_business"}
           {...form}
           handleChange={(e: any) => {
             dispatch(
@@ -114,11 +129,11 @@ const BasicInformation = () => {
             { label: "Micro Credit", value: "Micro Credit" },
             { label: "Restaurant", value: "Restaurant" },
             { label: "Savings and Loans", value: "Savings and Loans" },
-            { label: "Fund Management", value: "Fund Management" },
+            { label: "Fund Management", value: "Fund Management" }
           ]}
           label={"Business Type"}
           placeholder={"e.g. Retail"}
-          id={"email"}
+          id={"business_type"}
           {...form}
           handleChange={(e: any) => {
             dispatch(updateSubscriberState({ business_type: e.target.value }));

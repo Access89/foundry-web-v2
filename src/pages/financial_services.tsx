@@ -1,10 +1,10 @@
-import InfoSectionWithGoals from '@/components/reusable/info_section_with_goals';
-import InfoCard from '@/components/shared/info_card';
-import { CustomButton } from '@/components/shared/shared_customs';
-import useScrollToSection from '@/hooks/useScrollToSection';
-import { Icon } from '@iconify/react/dist/iconify.js';
-import { Image } from '@nextui-org/react';
-import { useNavigate } from 'react-router-dom';
+import InfoSectionWithGoals from "@/components/reusable/info_section_with_goals";
+import InfoCard from "@/components/shared/info_card";
+import { CustomButton } from "@/components/shared/shared_customs";
+import useScrollToSection from "@/hooks/useScrollToSection";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { Image } from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
 
 const FinancialServices = () => {
   const navigate = useNavigate();
@@ -15,15 +15,15 @@ const FinancialServices = () => {
         <div className="absolute -bottom-24 lg:-bottom-10 left-1/2 transform -translate-x-1/2 w-[60%] md:w-[42%] mx-auto bg-white rounded-3xl p-4 grid grid-cols-auto-fill-200 gap-3">
           {[
             {
-              title: 'Digital Banking',
+              title: "Digital Banking",
               description:
-                'A digital banking platform is an online or mobile application that allows customers to access banking services remotely',
+                "A digital banking platform is an online or mobile application that allows customers to access banking services remotely"
             },
             {
-              title: 'Embedded Finance',
+              title: "Embedded Finance",
               description:
-                'Embedded finance integrates financial services into non-financial platforms and products',
-            },
+                "Embedded finance integrates financial services into non-financial platforms and products"
+            }
           ].map((item, index) => (
             <div key={index}>
               <h2>{item.title}</h2>
@@ -42,7 +42,7 @@ const FinancialServices = () => {
             <CustomButton
               className="bg-primary text-white font-medium px-5 lg:w-fit "
               onClick={() => {
-                navigate('#explore');
+                navigate("#explore");
               }}
             >
               Explore <Icon icon="solar:arrow-right-outline" fontSize={20} />
@@ -51,10 +51,10 @@ const FinancialServices = () => {
               className="bg-transparent border-primary border-2 text-primary font-medium px-5 lg:w-fit "
               onPress={() => {
                 // bookDemoModal.onOpen();
-                navigate('/book-a-demo');
+                navigate("/book-a-demo");
               }}
             >
-              Book a Demo{' '}
+              Book a Demo{" "}
               <Icon icon="solar:arrow-right-outline" fontSize={20} />
             </CustomButton>
           </div>
@@ -65,7 +65,7 @@ const FinancialServices = () => {
           height={500}
           alt="mobile device"
           classNames={{
-            wrapper: 'hidden md:block absolute -right-3 -top-16',
+            wrapper: "hidden md:block absolute -right-3 -top-16"
           }}
         />
         <Image
@@ -74,7 +74,7 @@ const FinancialServices = () => {
           height={400}
           alt="mobile device"
           classNames={{
-            wrapper: 'md:hidden mx-auto mb-5',
+            wrapper: "md:hidden mx-auto mb-5"
           }}
         />
       </section>
@@ -127,7 +127,7 @@ const FinancialServices = () => {
           solutionTitle="How to Solve It with Foundry"
           goals={modern_financial_services?.map((item) => ({
             title: item.title,
-            desc: [item.description],
+            desc: [item.description]
           }))}
         />
       </section>
@@ -149,8 +149,8 @@ const FinancialServices = () => {
                 navigate(
                   `/financial-service/${item.title
                     .toLocaleLowerCase()
-                    .split(' ')
-                    .join('-')}`
+                    .split(" ")
+                    .join("-")}`
                 );
               }}
             />
@@ -165,60 +165,77 @@ export default FinancialServices;
 
 const moreConstant = [
   {
-    title: 'Digital Onboarding',
+    title: "Digital Onboarding",
     description:
-      'Simplify and enhance onboarding for businesses and customers with our intuitive, user-friendly digital platform. ',
+      "Simplify and enhance onboarding for businesses and customers with our intuitive, user-friendly digital platform. "
   },
   {
-    title: 'Loan Origination',
+    title: "Loan Origination",
     description:
-      'Empower your business with our digital lending solution, providing your customers with quick and convenient access to the financing they need',
+      "Empower your business with our digital lending solution, providing your customers with quick and convenient access to the financing they need"
   },
   {
-    title: 'Credit Scoring',
+    title: "Credit Scoring",
     description:
-      'Transform your credit analysis with our Decision Module, providing fast and accurate loan assessments for quicker approvals and enhanced customer satisfaction.',
+      "Transform your credit analysis with our Decision Module, providing fast and accurate loan assessments for quicker approvals and enhanced customer satisfaction."
+  },
+
+  {
+    title: "Foundry E-channels",
+    description:
+      "Our digital banking solutions, including internet banking, mobile banking, and USSD platforms, designed to provide customers with seamless and secure access to financial services anytime, anywhere."
+  },
+
+  {
+    title: "Mobile Banking",
+    description:
+      "Enhance your banking experience with our user-friendly mobile application, bringing convenience to your fingertip"
   },
   {
-    title: 'Mobile Banking',
+    title: "Sentinel",
     description:
-      'Enhance your banking experience with our user-friendly mobile application, bringing convenience to your fingertip',
+      "Safeguard your businesses with robust regulatory compliance and fraud detection measures"
   },
   {
-    title: 'Sentinel',
+    title: "Agency",
     description:
-      'Safeguard your businesses with robust regulatory compliance and fraud detection measures',
+      "Expand banking access with our agent network platform, connecting underserved areas to essential financial services through local intermediaries"
   },
   {
-    title: 'Agency',
+    title: "Foundry Back Office",
     description:
-      'Expand banking access with our agent network platform, connecting underserved areas to essential financial services through local intermediaries',
+      "Complete digital banking solution with web and mobile interfaces for employees enable rapid customer service and case resolution, reducing reliance on branches"
   },
+  {
+    title: "Customized Platform",
+    description:
+      "Tailored financial technology solutions for your specific needs."
+  }
 ];
 
 const modern_financial_services = [
   {
-    icon: 'uil:user',
-    title: 'Seamless Onboarding and Loan Origination',
+    icon: "uil:user",
+    title: "Seamless Onboarding and Loan Origination",
     description:
-      'Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience.',
+      "Enable fast account openings and smooth loan applications with document upload functionality for a quick, paperless experience."
   },
   {
-    icon: 'lucide:gauge',
-    title: 'Efficient, Scalable Operations',
+    icon: "lucide:gauge",
+    title: "Efficient, Scalable Operations",
     description:
-      'Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth.',
+      "Achieve real-time transaction processing, automated compliance checks, and a scalable infrastructure designed for flexible growth."
   },
   {
-    icon: 'mdi:protected-outline',
-    title: 'Enhanced Security and Global Accessibility',
+    icon: "mdi:protected-outline",
+    title: "Enhanced Security and Global Accessibility",
     description:
-      'Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations.',
+      "Leverage advanced fraud detection, multi-currency support, and secure global transactions to support international operations."
   },
   {
-    icon: 'hugeicons:connect',
-    title: 'Comprehensive Workflow Management',
+    icon: "hugeicons:connect",
+    title: "Comprehensive Workflow Management",
     description:
-      'Streamline investment processing, digital workflows, quick approvals, and back-office operations for efficient service delivery.',
-  },
+      "Streamline investment processing, digital workflows, quick approvals, and back-office operations for efficient service delivery."
+  }
 ];
