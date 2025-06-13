@@ -1,6 +1,6 @@
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Icon } from '@iconify/react/dist/iconify.js';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const GreenSection = () => {
   return (
@@ -11,10 +11,10 @@ const GreenSection = () => {
       className=" p-5 md:p-10  w-full text-primary-white mt-8 lg:mt-0"
     >
       <div className="container" id="greensection">
-        <div>
+        {/* <div>
           <p className="lg:w-[40%] flex flex-col gap-4 pb-4">
             <h3 className="text-2xl md:text-3xl font-medium  w-full">
-              <span className="text-black">Foundry </span>{" "}
+              <span className="text-black">Foundry </span>{' '}
               <p className="text-[#929292] hidden lg:flex">for Business</p>
               <span className="text-[#929292] lg:hidden ">for Business</span>
             </h3>
@@ -22,29 +22,29 @@ const GreenSection = () => {
               Our platform empowers key commercial enterprises across Africa
               with real-time, AI-driven decision-making, transforming industries
               from wholesale, supply chain and logistics, manufacturing,
-              electric charging stations, and financial services.{" "}
+              electric charging stations, and financial services.{' '}
             </h3>
           </p>
           <div className="grid md:grid-cols-2 gap-5 space-y-5 md:space-y-0">
             {[
               {
                 description: `Access a suite of financial services, including digital accounts, lending, and payment processing, all within our platform. Streamline transactions, manage finances efficiently, and grow your business with our integrated financial solutions.`,
-                linkTitle: "More About Finance",
-                link: "/financial-services",
-                title: "Financial Services"
+                linkTitle: 'More About Finance',
+                link: '/financial-services',
+                title: 'Financial Services',
               },
               {
                 description: `Optimize your operations with our comprehensive business automation tools. From inventory and warehouse management to POS systems and workflow automation, our platform helps you reduce manual work, improve efficiency, and scale with ease.`,
-                linkTitle: "More About Business Automation",
-                link: "/business-automation",
-                title: "Business Automation"
-              }
+                linkTitle: 'More About Business Automation',
+                link: '/business-automation',
+                title: 'Business Automation',
+              },
             ].map((item, index) => (
               <Link to={item.link}>
                 <motion.div
                   key={index}
                   className={`${
-                    index === 0 ? "bg-[#5F9779]" : "bg-[#929292]"
+                    index === 0 ? 'bg-[#5F9779]' : 'bg-[#929292]'
                   } p-6 rounded-xl  flex flex-col justify-between`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -71,6 +71,75 @@ const GreenSection = () => {
               </Link>
             ))}
           </div>
+        </div> */}
+
+        <div
+          className="mt-10 mb-40 "
+          // initial={{ opacity: 0, y: 50 }}
+          // whileInView={{ opacity: 1, y: 0 }}
+          // transition={{ duration: 0.5 }}
+        >
+          <div className="mb-8 text-sm flex flex-col w-full items-center justify-center">
+            <h5 className="font-semibold text-2xl lg:text-4xl mb-5 md:w-[68%] text-[#010101] text-center">
+              <span className="text-[#ABABAB]">Collaborate</span> Within{' '}
+              <p>The Ecosystem</p>
+            </h5>
+          </div>
+          <div className="grid grid-cols-auto-fill-300 gap-5 space-y-5 md:space-y-0">
+            {[
+              {
+                title: 'Manage',
+                description:
+                  'Optimize operations with tools for inventory, payroll, and analytics to run your business.',
+                icon: 'https://placehold.co/400',
+                linkTitle: 'Learn More',
+                link: 'business-automation',
+              },
+              {
+                title: 'Finance',
+                description:
+                  'Access credit, manage disbursements, and embed financial services.',
+                icon: '/images/homepage/finance.png',
+                linkTitle: 'Learn More',
+                link: 'financial-services',
+              },
+              {
+                title: 'Trade',
+                description:
+                  'Streamline procurement, logistics, and B2B transactions end-to-end.',
+                icon: '/images/homepage/trade.png',
+                linkTitle: 'Learn More',
+                link: 'logistics-supply-chain',
+              },
+            ].map((item, index) => (
+              <div key={index} className=" p-6  flex flex-col group ">
+                <div className=" h-[60%]">
+                  <img
+                    src={item.icon}
+                    alt="support"
+                    width="100%"
+                    height="100%"
+                    className="group-hover:translate-y-[-1rem] group-hover:drop-shadow-[0_8px_6px_#a0a0a088] transition-all w-full h-full"
+                  />
+                </div>
+                <p className="mt-2 text-xl text-black flex flex-col gap-1">
+                  <h5 className="text-medium font-medium">{item.title}</h5>
+                  <p className="text-xs ">{item.description}</p>
+                  <Link
+                    to={item.link}
+                    className="text-sm flex items-center gap-x-1 hover:opacity-80 group-hover:underline"
+                  >
+                    {item.linkTitle}
+                    <Icon
+                      icon="iconamoon:arrow-right-2-duotone"
+                      fontSize={20}
+                      className=" group-hover:translate-x-[0.1rem] transition-all"
+                    />
+                  </Link>
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <motion.div
@@ -81,7 +150,7 @@ const GreenSection = () => {
         >
           <div className="lg:w-[60%]">
             <h5 className="font-semibold text-2xl lg:text-4xl mb-10 lg:w-[70%] text-[#010101]">
-              Full Stack B2B ecosystem, all in{" "}
+              Full Stack B2B ecosystem, all in{' '}
               <span className="text-[#619B7D]">one platform.</span>
             </h5>
 
@@ -125,71 +194,6 @@ const GreenSection = () => {
             </div>
           </div>
         </motion.div>
-
-        <motion.div
-          className="mt-20 mb-10"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="mb-8 text-sm flex flex-col w-full items-center justify-center">
-            <h5 className="font-semibold text-2xl lg:text-4xl mb-5 md:w-[68%] text-[#010101] text-center">
-              <span className="text-[#ABABAB]">Collaborate</span> Within{" "}
-              <p>The Ecosystem</p>
-            </h5>
-            {/* <p className="font-light text-base lg:text-lg text-[#F5F5F5]">
-              Connect with industry peers, exchange ideas, and build strategic
-              partnerships to drive innovation and growth
-            </p> */}
-          </div>
-          <div className="grid grid-cols-auto-fill-300 gap-5 space-y-5 md:space-y-0">
-            {[
-              {
-                description: "For around the clock product support.",
-                icon: "/icons/support.svg",
-                linkTitle: "Visit Support",
-                link: ""
-              },
-              {
-                description:
-                  "For exclusive insights from Foundry business experts.",
-                icon: "/icons/trend.svg",
-                linkTitle: "Visit The Bottom Line",
-                link: ""
-              },
-              {
-                description: "To connect with other business owners.",
-                icon: "/icons/chat.svg",
-                linkTitle: "Learn More",
-                link: ""
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                className="bg-[#5F9779] p-6 rounded-xl h-[300px] flex flex-col"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
-              >
-                <img src={item.icon} alt="support" className="w-[2rem]" />
-                <div className="mt-auto text-xl max-w-[15rem]">
-                  <h5 className="pb-4">{item.description}</h5>
-                  <Link
-                    to={item.link}
-                    className="text-sm flex items-center gap-x-1 hover:opacity-80 group"
-                  >
-                    {item.linkTitle}
-                    <Icon
-                      icon="iconamoon:arrow-right-2-duotone"
-                      fontSize={20}
-                      className="group-hover:translate-x-1 transition-all"
-                    />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </motion.section>
   );
@@ -197,25 +201,25 @@ const GreenSection = () => {
 
 const goalsConst = [
   {
-    title: "connect with verified players",
-    desc: "Partner with reliable suppliers, service providers, and industry leaders to strengthen your business network"
+    title: 'connect with verified players',
+    desc: 'Partner with reliable suppliers, service providers, and industry leaders to strengthen your business network',
   },
   {
-    title: "Scale Your Business with capital",
-    desc: "Expand your reach, increase efficiency, and drive sustainable growth with the right strategies and capital."
+    title: 'Scale Your Business with capital',
+    desc: 'Expand your reach, increase efficiency, and drive sustainable growth with the right strategies and capital.',
   },
   {
-    title: "Gain Operational Insights",
-    desc: "Leverage data-driven insights to monitor performance, streamline processes, and make informed decisions"
+    title: 'Gain Operational Insights',
+    desc: 'Leverage data-driven insights to monitor performance, streamline processes, and make informed decisions',
   },
   {
-    title: "Optimize & Eliminate Waste",
-    desc: "Improve efficiency, reduce costs, and enhance productivity by eliminating inefficiencies."
+    title: 'Optimize & Eliminate Waste',
+    desc: 'Improve efficiency, reduce costs, and enhance productivity by eliminating inefficiencies.',
   },
   {
-    title: "Enhance Customer Experience",
-    desc: "Build lasting relationships by delivering exceptional service and personalized experiences."
-  }
+    title: 'Enhance Customer Experience',
+    desc: 'Build lasting relationships by delivering exceptional service and personalized experiences.',
+  },
 ];
 
 export default GreenSection;

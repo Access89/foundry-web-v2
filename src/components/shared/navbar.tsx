@@ -8,16 +8,16 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   cn,
-  useDisclosure
-} from "@nextui-org/react";
-import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { CustomButton } from "./shared_customs";
-import CustomModal from "./modal";
-import SignUp from "../../pages/sign_up";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { motion, AnimatePresence } from "framer-motion";
-import CustomeDropdownDesktop from "./custom-dropdown";
+  useDisclosure,
+} from '@nextui-org/react';
+import { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { CustomButton } from './shared_customs';
+import CustomModal from './modal';
+import SignUp from '../../pages/sign_up';
+import { Icon } from '@iconify/react/dist/iconify.js';
+import { motion, AnimatePresence } from 'framer-motion';
+import CustomeDropdownDesktop from './custom-dropdown';
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,14 +32,14 @@ export default function NavbarComponent() {
       <div className="relative w-full">
         {/* Dropdown Trigger */}
         <div
-          className="flex justify-between items-center cursor-pointer text-sm text-[#808080] hover:text-[#1A1A1A]"
+          className="flex justify-between items-center cursor-pointer text-sm  hover:text-[#1A1A1A]"
           onClick={() => setIsOpen(!isOpen)}
         >
           {item.title}
           <Icon
             icon="majesticons:chevron-down"
             className={`transition-transform duration-200 ${
-              isOpen ? "rotate-180" : ""
+              isOpen ? 'rotate-180' : ''
             }`}
           />
         </div>
@@ -52,13 +52,13 @@ export default function NavbarComponent() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -5 }}
               transition={{ duration: 0.2 }}
-              className="absolute left-0 mt-1 w-[90vw] p-3 bg-white shadow-lg rounded-md border border-gray-200 z-50"
+              className="absolute left-0 right-0 top-full mt-4 p-6 bg-white shadow-xl border rounded-md grid grid-cols-3 gap-6 z-50"
             >
               {item.subItems.map((subItem: any, subIndex: number) => (
                 <div key={subIndex} className="">
                   <p
                     className={`font-bold ${
-                      subIndex && "pt-2 pb-1"
+                      subIndex && 'pt-2 pb-1'
                     } text-sm text-[#000000]`}
                   >
                     {subItem.heading}
@@ -79,7 +79,7 @@ export default function NavbarComponent() {
                           fontSize={20}
                           icon={linkItem.icon}
                         />
-                        <p className="text-xs font-medium text-[#000000] hover:text-gray-500">
+                        <p className="text-sm font-medium text-[#000000] hover:text-gray-500">
                           {linkItem.title}
                         </p>
                       </Link>
@@ -101,16 +101,16 @@ export default function NavbarComponent() {
       isBordered
       position="static"
       {...{
-        ariaLabel: "Foundry Navbar",
+        ariaLabel: 'Foundry Navbar',
         shouldHideOnScroll: false,
-        isInverted: true
+        isInverted: true,
       }}
-      maxWidth="2xl"
+      maxWidth="full"
       className="bg-white w-full relative"
     >
       <NavbarContent className="lg:hidden" justify="start">
         <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         />
       </NavbarContent>
 
@@ -130,40 +130,45 @@ export default function NavbarComponent() {
 
       {/* Desktop Navigation */}
       <NavbarContent
-        className="hidden lg:flex gap-4 justify-between w-full"
-        justify="center"
+        className="hidden lg:flex gap-4 justify-between w-full ml-[5vw]"
+        justify="start"
       >
         <NavbarBrand as={Link} to="/" className="flex gap-x-3">
           <img src="/icons/logo.svg" className="w-[1.3rem]" alt="logo" />
           <p className="font-bold text-inherit uppercase">foundry</p>
         </NavbarBrand>
+      </NavbarContent>
 
-        <div className="flex w-[87%] gap-x-8 items-center ">
+      <NavbarContent
+        className="hidden lg:flex gap-4 justify-between w-full "
+        justify="center"
+      >
+        <div className="flex mx-auto gap-x-8 items-center ">
           {menuItems.map((item, index) =>
             item.subItems ? (
               <CustomeDropdownDesktop key={index} item={item} />
             ) : (
               <NavbarItem key={index}>
                 <Link
-                  target={item?.external ? "_blank" : "_self"}
+                  target={item?.external ? '_blank' : '_self'}
                   to={item?.link as string}
                   className={cn(
-                    "flex gap-1 items-center cursor-pointer text-xs text-[#808080] hover:text-[#1A1A1A]",
-                    pathname.includes(item?.link as string) && "text-[#1A1A1A]"
+                    'flex gap-1 items-center cursor-pointer text-sm  hover:text-[#1A1A1A]',
+                    pathname.includes(item?.link as string) && 'text-[#1A1A1A]',
                   )}
                 >
                   {item.title}
                 </Link>
               </NavbarItem>
-            )
+            ),
           )}
         </div>
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem className="gap-x-3 hidden lg:flex">
+        <NavbarItem className="gap-x-3 hidden lg:flex mr-[5vw]">
           <CustomButton
-            onPress={() => navigate("/onboarding")}
+            onPress={() => navigate('/onboarding')}
             className="bg-primary text-white hidden md:flex"
           >
             Sign up
@@ -171,7 +176,7 @@ export default function NavbarComponent() {
           <CustomButton
             className="bg-[#EDF2EE] border-2 border-secondary text-primary"
             onPress={() =>
-              window.open("https://foundry-platform.com", "_blank")
+              window.open('https://foundry-platform.com', '_blank')
             }
           >
             Log In
@@ -190,18 +195,18 @@ export default function NavbarComponent() {
                 to={item.link as string}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
-                  "w-full text-sm text-[#808080]",
-                  pathname.includes(item?.link as string) && "text-[#1A1A1A]"
+                  'w-full text-sm ',
+                  pathname.includes(item?.link as string) && 'text-[#1A1A1A]',
                 )}
               >
                 {item.title}
               </Link>
             </NavbarMenuItem>
-          )
+          ),
         )}
         <div className="flex gap-x-4">
           <CustomButton
-            onPress={() => navigate("/onboarding")}
+            onPress={() => navigate('/onboarding')}
             className="bg-primary text-white"
           >
             Sign up
@@ -209,7 +214,7 @@ export default function NavbarComponent() {
           <CustomButton
             className="bg-[#EDF2EE] border-2 border-secondary text-primary"
             onPress={() =>
-              window.open("https://foundry-platform.com", "_blank")
+              window.open('https://foundry-platform.com', '_blank')
             }
           >
             Log In
@@ -221,124 +226,185 @@ export default function NavbarComponent() {
 }
 
 const menuItems = [
+  // {
+  //   title: 'Solutions',
+  //   subItems: [
+  //     {
+  //       heading: 'Finance',
+  //       subs: [
+  //         {
+  //           link: '/financial-services',
+  //           title: 'Morden Banking Platform',
+  //           icon: 'oui:dot',
+  //         },
+  //         {
+  //           link: '/financial-service/loan-origination',
+  //           title: 'Lending',
+  //           icon: 'oui:dot',
+  //         },
+  //         {
+  //           link: '/financial-service/agency',
+  //           title: 'Banking as a Service',
+  //           icon: 'oui:dot',
+  //         },
+  //         {
+  //           link: '/financial-service/credit-scoring',
+  //           title: 'Credit Scoring',
+  //           icon: 'oui:dot',
+  //         },
+  //         {
+  //           link: '/financial-service/sentinel',
+  //           title: 'KYC / AML ',
+  //           icon: 'oui:dot',
+  //         },
+  //         {
+  //           link: '/financial-service/foundry-e-channels',
+  //           title: 'Foundry E-channels ',
+  //           icon: 'oui:dot',
+  //         },
+  //         {
+  //           link: '/financial-service/foundry-back-office',
+  //           title: 'Foundry Back Office',
+  //           icon: 'oui:dot',
+  //         },
+  //         {
+  //           link: '/financial-service/customized-platform',
+  //           title: 'Customized Platform',
+  //           icon: 'oui:dot',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       heading: 'Business',
+  //       subs: [
+  //         {
+  //           link: '/business/pos',
+  //           title: 'Point of Sale',
+  //           icon: 'oui:dot',
+  //         },
+  //         {
+  //           link: '/business/supply-chain',
+  //           title: 'Supply chain, manufacturing & procurement',
+  //           icon: 'oui:dot',
+  //         },
+  //         {
+  //           link: '/business/foundry-terminal',
+  //           title: 'Foundry Terminal',
+  //           icon: 'oui:dot',
+  //         },
+  //         { link: '/business/payroll', title: 'Payroll', icon: 'oui:dot' },
+  //         {
+  //           link: '/business/advanced-tools',
+  //           title: 'Advanced Accounting tools',
+  //           icon: 'oui:dot',
+  //         },
+  //         {
+  //           link: '/business/advanced-analytics',
+  //           title: 'Advanced Analytics',
+  //           icon: 'oui:dot',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       heading: 'Operations',
+  //       subs: [
+  //         {
+  //           link: '/operations/process-improvement',
+  //           title: 'Process Improvement',
+  //           icon: 'oui:dot',
+  //         },
+  //         {
+  //           link: '/operations/operating-model-design',
+  //           title: 'Operating Model Design',
+  //           icon: 'oui:dot',
+  //         },
+  //         {
+  //           link: '/operations/digital-transformation',
+  //           title: 'Digital Transformation',
+  //           icon: 'oui:dot',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
   {
-    title: "Solutions",
+    title: 'Our Platforms',
+    link: '/our-platforms',
     subItems: [
       {
-        heading: "Finance",
-        subs: [
-          {
-            link: "/financial-services",
-            title: "Morden Banking Platform",
-            icon: "oui:dot"
-          },
-          {
-            link: "/financial-service/loan-origination",
-            title: "Lending",
-            icon: "oui:dot"
-          },
-          {
-            link: "/financial-service/agency",
-            title: "Banking as a Service",
-            icon: "oui:dot"
-          },
-          {
-            link: "/financial-service/credit-scoring",
-            title: "Credit Scoring",
-            icon: "oui:dot"
-          },
-          {
-            link: "/financial-service/sentinel",
-            title: "KYC / AML ",
-            icon: "oui:dot"
-          },
-          {
-            link: "/financial-service/foundry-e-channels",
-            title: "Foundry E-channels ",
-            icon: "oui:dot"
-          },
-          {
-            link: "/financial-service/foundry-back-office",
-            title: "Foundry Back Office",
-            icon: "oui:dot"
-          },
-          {
-            link: "/financial-service/customized-platform",
-            title: "Customized Platform",
-            icon: "oui:dot"
-          }
-        ]
+        link: '/our-platforms',
+        title: 'Manage',
+        icon: 'https://koronapos.com/wp-content/uploads/2022/07/Hardware-Group-with-KORONA-POS-Software8-1200x675.png.webp',
+        // icon: 'https://placehold.co/600x400',
       },
       {
-        heading: "Business",
-        subs: [
-          {
-            link: "/business/pos",
-            title: "Point of Sale",
-            icon: "oui:dot"
-          },
-          {
-            link: "/business/supply-chain",
-            title: "Supply chain, manufacturing & procurement",
-            icon: "oui:dot"
-          },
-          {
-            link: "/business/foundry-terminal",
-            title: "Foundry Terminal",
-            icon: "oui:dot"
-          },
-          { link: "/business/payroll", title: "Payroll", icon: "oui:dot" },
-          {
-            link: "/business/advanced-tools",
-            title: "Advanced Accounting tools",
-            icon: "oui:dot"
-          },
-          {
-            link: "/business/advanced-analytics",
-            title: "Advanced Analytics",
-            icon: "oui:dot"
-          }
-        ]
+        link: '/our-platforms',
+        title: 'Finance',
+        icon: '/images/homepage/finance.png',
       },
       {
-        heading: "Operations",
-        subs: [
-          {
-            link: "/operations/process-improvement",
-            title: "Process Improvement",
-            icon: "oui:dot"
-          },
-          {
-            link: "/operations/operating-model-design",
-            title: "Operating Model Design",
-            icon: "oui:dot"
-          },
-          {
-            link: "/operations/digital-transformation",
-            title: "Digital Transformation",
-            icon: "oui:dot"
-          }
-        ]
-      }
-    ]
+        link: '/our-platforms',
+        title: 'Trade',
+        icon: '/images/homepage/trade.png',
+      },
+    ],
   },
   {
-    title: "Industry",
+    link: '/use-cases',
+    title: 'Use Cases',
+    subItems: [
+      {
+        link: '/use-cases/retail',
+        title: 'Retail',
+        icon: 'https://www.shutterstock.com/image-photo/female-retail-worker-standing-store-600nw-2487354813.jpg',
+      },
+      {
+        link: '/use-cases/financial-services',
+        title: 'Financial services',
+        icon: 'https://st5.depositphotos.com/6338242/68514/i/450/depositphotos_685142928-stock-photo-financial-service-concept-businessman-using.jpg',
+      },
 
-    subItems: []
+      {
+        link: '/use-cases/ev-charging',
+        title: 'Electric Vehicle Charging Platform',
+        icon: 'https://www.powermag.com/wp-content/uploads/2020/03/fig-1-car-charging-electric-vehicle-ev-electrification.jpg',
+      },
+      {
+        link: '/use-cases/fund-management',
+        title: 'Fund Management',
+        icon: 'https://www.shutterstock.com/image-photo/real-estate-professionals-clients-discussing-600nw-2175050111.jpg',
+      },
+      {
+        link: '/use-cases/restaurant',
+        title: 'Restaurant',
+        icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREjXOIxAb4w_BSxoO-qwRhAbHxZqO5hLfo4g&s',
+      },
+      {
+        link: '/use-cases/logistics',
+        title: 'Logistics and Supply Chain',
+        icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3X-6CPkdk9U9ERuKoQFlVitTop64hRVwtx_-aWPkN32t69uLGh0rmFxm0of2AwNxImkg&usqp=CAU',
+      },
+
+      {
+        link: '/use-cases/manufacturing',
+        title: 'Manufacturing',
+        icon: 'https://freedesignfile.com/upload/2017/11/Cargo-transport-logistics-warehouse-Stock-Photo-10.jpg',
+      },
+      {
+        link: '/use-cases/fintech',
+        title: 'Fintech',
+        icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRvGHmylHthm7eKZ3bAvUmzvKCk8UFwsL2dw&s',
+      },
+    ],
   },
+  // {
+  //   link: '/hub/track-order',
+  //   title: 'Track My Order',
+  //   subItems: [],
+  // },
   {
-    link: "/use-cases",
-    title: "Use Cases"
+    title: 'Developer',
+    link: 'https://developer.access89.com',
+    external: true,
   },
-  {
-    link: "/hub/track-order",
-    title: "Track My Order",
-    subItems: []
-  },
-  {
-    title: "Developer",
-    link: "https://developer.access89.com",
-    external: true
-  }
 ];
