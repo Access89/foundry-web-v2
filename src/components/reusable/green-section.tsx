@@ -91,7 +91,7 @@ const GreenSection = () => {
                 title: 'Manage',
                 description:
                   'Optimize operations with tools for inventory, payroll, and analytics to run your business.',
-                icon: 'https://placehold.co/400',
+                icon: 'https://koronapos.com/wp-content/uploads/2022/07/Hardware-Group-with-KORONA-POS-Software8-1200x675.png.webp',
                 linkTitle: 'Learn More',
                 link: 'business-automation',
               },
