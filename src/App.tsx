@@ -1,33 +1,35 @@
-import { motion, useScroll } from "framer-motion";
-import { lazy } from "react";
-import { Toaster } from "react-hot-toast";
-import { Route, Routes } from "react-router-dom";
-import NotFound from "./components/shared/not_found";
-import ScrollToTop from "./components/shared/scroll_to_top";
-import MainLayout from "./layout/main_layout";
-import BookADemo from "./pages/book-a-demo";
-import BookingManagement from "./pages/logistics/booking_management";
-import OrderManagement from "./pages/logistics/order_management";
-import Trucking from "./pages/logistics/trucking";
-import Onboarding from "./pages/onboarding";
-import PricingPage from "./pages/onboarding/_pages/pricing";
-import Pricing from "./pages/pricing";
-import CustomPlan from "./pages/custom-plan";
-import ContactPage from "./pages/contact";
-import PasswordSetting from "./pages/onboarding/_components/_tabs/password";
-import Manage from "./pages/manage business";
-import BusinessExpansion from "./pages/business-expansion";
-import OperationsExpansion from "./pages/operations-expansion";
-import FinancialServiceExpansion from "./pages/financial-service-expansion";
-import BecomePartner from "./pages/contact/become-partner";
-const Home = lazy(() => import("./pages/home"));
-const BusinessAutomation = lazy(() => import("./pages/business_automation"));
-const Loan = lazy(() => import("./pages/loan"));
-const Hire = lazy(() => import("./pages/hire"));
-const HireDetail = lazy(() => import("./pages/hire/hire-detail"));
-const FinancialServices = lazy(() => import("./pages/financial_services"));
-const UseCases = lazy(() => import("./pages/use_cases"));
-const LogisticsAndSupply = lazy(() => import("./pages/logistics"));
+import { motion, useScroll } from 'framer-motion';
+import { lazy } from 'react';
+import { Toaster } from 'react-hot-toast';
+import { Route, Routes } from 'react-router-dom';
+import NotFound from './components/shared/not_found';
+import ScrollToTop from './components/shared/scroll_to_top';
+import MainLayout from './layout/main_layout';
+import BookADemo from './pages/book-a-demo';
+import BookingManagement from './pages/logistics/booking_management';
+import OrderManagement from './pages/logistics/order_management';
+import Trucking from './pages/logistics/trucking';
+import Onboarding from './pages/onboarding';
+import PricingPage from './pages/onboarding/_pages/pricing';
+import Pricing from './pages/pricing';
+import CustomPlan from './pages/custom-plan';
+import ContactPage from './pages/contact';
+import PasswordSetting from './pages/onboarding/_components/_tabs/password';
+import Manage from './pages/manage business';
+import BusinessExpansion from './pages/business-expansion';
+import OperationsExpansion from './pages/operations-expansion';
+import FinancialServiceExpansion from './pages/financial-service-expansion';
+import BecomePartner from './pages/contact/become-partner';
+import ViewUseCase from './pages/new-use-cases/view-use-cases';
+const Home = lazy(() => import('./pages/home'));
+const BusinessAutomation = lazy(() => import('./pages/business_automation'));
+const Loan = lazy(() => import('./pages/loan'));
+const Hire = lazy(() => import('./pages/hire'));
+const HireDetail = lazy(() => import('./pages/hire/hire-detail'));
+const FinancialServices = lazy(() => import('./pages/financial_services'));
+// const UseCases = lazy(() => import('./pages/use_cases'));
+const NewUseCases = lazy(() => import('./pages/new-use-cases'));
+const LogisticsAndSupply = lazy(() => import('./pages/logistics'));
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -63,7 +65,9 @@ function App() {
             element={<OperationsExpansion />}
           />
 
-          <Route path="use-cases" element={<UseCases />} />
+          <Route path="use-cases" element={<NewUseCases />} />
+          <Route path="use-cases/:name" element={<ViewUseCase />} />
+          {/* <Route path="use-cases" element={<UseCases />} /> */}
 
           <Route path="pricing" element={<Pricing />} />
           <Route
