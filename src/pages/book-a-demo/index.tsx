@@ -1,27 +1,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 // import axios from "axios";
-import { variables } from "@/utils/helper";
-import { Input, Select, SelectItem } from "@nextui-org/react";
-import { CustomButton } from "@/components/shared/shared_customs";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
-import { useMutation } from "react-query";
-import { mutateFn } from "@/services/mutation.api";
+import { variables } from '@/utils/helper';
+import { Input, Select, SelectItem } from '@nextui-org/react';
+import { CustomButton } from '@/components/shared/shared_customs';
+import { Icon } from '@iconify/react/dist/iconify.js';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { useMutation } from 'react-query';
+import { mutateFn } from '@/services/mutation.api';
 const bookAFormSchema = z.object({
-  business_name: z.string().min(1, { message: "Business name is required" }),
-  industry: z.string().min(1, { message: "Industry is required" }),
-  contact_person: z.string().min(1, { message: "Contact person is required" }),
+  business_name: z.string().min(1, { message: 'Business name is required' }),
+  industry: z.string().min(1, { message: 'Industry is required' }),
+  contact_person: z.string().min(1, { message: 'Contact person is required' }),
   email: z
     .string()
-    .email({ message: "Please enter a valid email address" })
-    .min(1, { message: "Email is required" }),
-  phone_number: z.string().min(1, { message: "Phone number is required" }),
-  country: z.string().min(1, { message: "Country is required" }),
-  services: z.string().min(1, { message: "Services is requrired" }),
+    .email({ message: 'Please enter a valid email address' })
+    .min(1, { message: 'Email is required' }),
+  phone_number: z.string().min(1, { message: 'Phone number is required' }),
+  country: z.string().min(1, { message: 'Country is required' }),
+  services: z.string().min(1, { message: 'Services is requrired' }),
   additional_information: z.string().optional(),
 });
 
@@ -47,14 +47,14 @@ const BookADemo = () => {
       }),
     {
       onSuccess: () => {
-        toast.success("Details submitted successfully, we will be in touch!");
+        toast.success('Details submitted successfully, we will be in touch!');
         reset();
       },
       onError: (error: any) => {
-        console.error("Error creating prospect:", error);
-        toast.error("Details were not submitted, please try again");
+        console.error('Error creating prospect:', error);
+        toast.error('Details were not submitted, please try again');
       },
-    }
+    },
   );
 
   const onSubmit = async (data: z.infer<typeof bookAFormSchema>) => {
@@ -80,10 +80,10 @@ const BookADemo = () => {
           className="flex items-center justify-start cursor-pointer lg:pb-4 pb-2"
           onClick={(event) => {
             event.preventDefault();
-            navigate("/financial-services");
+            navigate(-1);
           }}
         >
-          <Icon icon={"fluent:arrow-left-16-filled"} height={25} />
+          <Icon icon={'fluent:arrow-left-16-filled'} height={25} />
         </div>
         <h4 className="lg:text-[1.6rem] text-[1.2rem] font-semibold">
           Book a Demo
@@ -100,13 +100,13 @@ const BookADemo = () => {
         {data.map((item) => {
           const fieldName = item.name as keyof z.infer<typeof bookAFormSchema>;
           switch (item.type) {
-            case "text":
+            case 'text':
               return (
                 <div>
                   <Input
                     value={getValues()[fieldName]}
                     className="w-full"
-                    type={"text"}
+                    type={'text'}
                     label={item.label}
                     placeholder={item.placeHolder}
                     {...register(fieldName)}
@@ -117,7 +117,7 @@ const BookADemo = () => {
                 </div>
               );
 
-            case "select":
+            case 'select':
               return (
                 <div>
                   <Select
@@ -131,7 +131,7 @@ const BookADemo = () => {
                       })
                     }
                     {...register(fieldName)}
-                    selectionMode={item?.multiple ? "multiple" : "single"}
+                    selectionMode={item?.multiple ? 'multiple' : 'single'}
                   >
                     {(item) => (
                       <SelectItem key={item.value}>{item.label}</SelectItem>
@@ -161,79 +161,79 @@ const BookADemo = () => {
 
 const data = [
   {
-    label: "Business name",
-    name: "business_name",
-    type: "text",
-    placeHolder: "e.g. Cepodek",
+    label: 'Business name',
+    name: 'business_name',
+    type: 'text',
+    placeHolder: 'e.g. Cepodek',
   },
   {
-    placeHolder: "e.g. Banking",
-    label: "Industry",
-    name: "industry",
-    type: "select",
+    placeHolder: 'e.g. Banking',
+    label: 'Industry',
+    name: 'industry',
+    type: 'select',
     options: [
-      "Banking",
-      "Insurance",
-      "Microfinance",
-      "Credit Union",
-      "Investment Banking",
-      "Asset Management",
-      "Fund Management",
-      "Payment Services",
-      "Digital Banking",
-      "Fintech",
-      "Lending",
-      "Micro Credit",
-      "Savings and Loans",
-      "Other Financial Services",
+      'Banking',
+      'Insurance',
+      'Microfinance',
+      'Credit Union',
+      'Investment Banking',
+      'Asset Management',
+      'Fund Management',
+      'Payment Services',
+      'Digital Banking',
+      'Fintech',
+      'Lending',
+      'Micro Credit',
+      'Savings and Loans',
+      'Other Financial Services',
     ].map((e) => ({ label: e, value: e })),
   },
   {
-    label: "Contact Person",
-    name: "contact_person",
-    type: "text",
-    placeHolder: "e.g. Nana Gyamfi",
+    label: 'Contact Person',
+    name: 'contact_person',
+    type: 'text',
+    placeHolder: 'e.g. Nana Gyamfi',
   },
   {
-    label: "Email",
-    name: "email",
-    type: "text",
-    placeHolder: "e.g. papa@example.com",
+    label: 'Email',
+    name: 'email',
+    type: 'text',
+    placeHolder: 'e.g. papa@example.com',
   },
   {
-    label: "Phone Number",
-    name: "phone_number",
-    type: "text",
-    placeHolder: "e.g. 02039298437",
+    label: 'Phone Number',
+    name: 'phone_number',
+    type: 'text',
+    placeHolder: 'e.g. 02039298437',
   },
   {
-    label: "Country",
-    name: "country",
-    type: "select",
-    options: ["Ghana", "Nigeria", "Senegal", "Mali"].map((e) => ({
+    label: 'Country',
+    name: 'country',
+    type: 'select',
+    options: ['Ghana', 'Nigeria', 'Senegal', 'Mali'].map((e) => ({
       label: e,
       value: e,
     })),
-    placeHolder: "e.g. Ghana",
+    placeHolder: 'e.g. Ghana',
   },
   {
-    label: "Services",
-    name: "services",
-    type: "select",
+    label: 'Services',
+    name: 'services',
+    type: 'select',
     options: [
-      "Financial Services",
-      "Business Automation",
-      "Foundry Hub",
-      "Logistics & Supply Chain",
+      'Financial Services',
+      'Business Automation',
+      'Foundry Hub',
+      'Logistics & Supply Chain',
     ].map((e) => ({ label: e, value: e })),
     multiple: true,
-    placeHolder: "e.g. Financial Services",
+    placeHolder: 'e.g. Financial Services',
   },
   {
-    label: "Additional Information",
-    name: "additional_information",
-    type: "text",
-    placeHolder: "e.g. Can we schedule a meeting",
+    label: 'Additional Information',
+    name: 'additional_information',
+    type: 'text',
+    placeHolder: 'e.g. Can we schedule a meeting',
   },
 ];
 

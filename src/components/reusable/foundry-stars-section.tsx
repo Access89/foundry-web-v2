@@ -228,17 +228,17 @@ const FoundrySection = () => {
   const [index, setIndex] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(getCardsToShow());
 
-  const [showHandClick, setShowHandClick] = useState(false);
+  // const [showHandClick, setShowHandClick] = useState(false);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => setShowHandClick(true), 1500); // show for 2.5s
-    return () => clearTimeout(timeout);
-  }, []);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => setShowHandClick(true), 1500); // show for 2.5s
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => setShowHandClick(false), 5000); // show for 2.5s
-    return () => clearTimeout(timeout);
-  }, []);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => setShowHandClick(false), 5000); // show for 2.5s
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
   const updateCardsToShow = () => setCardsToShow(getCardsToShow());
 
@@ -293,7 +293,8 @@ const FoundrySection = () => {
 
         {/* Scattered Cards */}
         <div className="lg:flex hidden ">
-          {showHandClick && (
+          {/* hand point */}
+          {/* {showHandClick && (
             <motion.div
               initial={{ opacity: 0, x: 40, y: 40, scale: 0.8 }}
               animate={{ opacity: 1, x: -20, y: -20, scale: 1 }}
@@ -314,7 +315,7 @@ const FoundrySection = () => {
                 className="text-black"
               />
             </motion.div>
-          )}
+          )} */}
 
           {foundry_stars.map((item, i) => {
             const positions = [
@@ -346,37 +347,6 @@ const FoundrySection = () => {
         </div>
       </div>
 
-      {/* <div className=" w-full overflow-hidden md:ml-[8%] group lg:hidden">
-        <button
-          onClick={prevSlide}
-          className="absolute left-0  hidden lg:flex lg:top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full "
-        >
-          <Icon icon="mdi:chevron-left" className="text-3xl text-gray-600" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute hidden lg:flex right-0 top-3/4 lg:top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full "
-        >
-          <Icon icon="mdi:chevron-right" className="text-3xl text-gray-600" />
-        </button>
-
-        <motion.div
-          {...handlers}
-          ref={containerRef}
-          className="flex gap-2 md:gap-4 cursor-grab active:cursor-grabbing"
-          drag="x"
-          dragConstraints={{ left: -maxIndex * 360, right: 0 }}
-          animate={{ x: `-${(index / maxIndex) * 100 - 1}%` }}
-          transition={{ type: "tween" }}
-          style={{ width: `${(foundry_stars.length / cardsToShow) * 100}%` }}
-        >
-          {foundry_stars.map((item, i) => (
-            <motion.div key={i} className="lg:w-[20%] flex-shrink-0 px-2">
-              <FoundryCard {...item} />
-            </motion.div>
-          ))}
-        </motion.div>
-      </div> */}
       <div className="overflow-hidden  lg:hidden relative w-full" {...handlers}>
         <motion.div
           className="flex gap-4"
