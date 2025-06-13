@@ -15,9 +15,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { CustomButton } from './shared_customs';
 import CustomModal from './modal';
 import SignUp from '../../pages/sign_up';
-import { Icon } from '@iconify/react/dist/iconify.js';
-import { motion, AnimatePresence } from 'framer-motion';
 import CustomeDropdownDesktop from './custom-dropdown';
+import CustomMobileDropdown from './custom-dropdown-mobile';
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,73 +25,6 @@ export default function NavbarComponent() {
   const navigate = useNavigate();
 
   // dropdown mobile
-  const CustomMobileDropdown = ({ item }: { item: any }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    return (
-      <div className="relative w-full">
-        {/* Dropdown Trigger */}
-        <div
-          className="flex justify-between items-center cursor-pointer text-sm  hover:text-[#1A1A1A]"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {item.title}
-          <Icon
-            icon="majesticons:chevron-down"
-            className={`transition-transform duration-200 ${
-              isOpen ? 'rotate-180' : ''
-            }`}
-          />
-        </div>
-
-        {/* Dropdown Menu */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -5 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -5 }}
-              transition={{ duration: 0.2 }}
-              className="absolute left-0 right-0 top-full mt-4 p-6 bg-white shadow-xl border rounded-md grid grid-cols-3 gap-6 z-50"
-            >
-              {item.subItems.map((subItem: any, subIndex: number) => (
-                <div key={subIndex} className="">
-                  <p
-                    className={`font-bold ${
-                      subIndex && 'pt-2 pb-1'
-                    } text-sm text-[#000000]`}
-                  >
-                    {subItem.heading}
-                  </p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {subItem.subs.map((linkItem: any, linkIndex: any) => (
-                      <Link
-                        key={linkIndex}
-                        to={linkItem.link}
-                        onClick={() => {
-                          setIsOpen(false);
-                          setIsMenuOpen(false);
-                        }}
-                        className="flex items-center "
-                      >
-                        <Icon
-                          className="text-[#4C7F64]/50"
-                          fontSize={20}
-                          icon={linkItem.icon}
-                        />
-                        <p className="text-sm font-medium text-[#000000] hover:text-gray-500">
-                          {linkItem.title}
-                        </p>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    );
-  };
 
   return (
     <Navbar
@@ -188,7 +120,11 @@ export default function NavbarComponent() {
       <NavbarMenu className="bg-white p-5">
         {menuItems.map((item, index) =>
           item.subItems ? (
-            <CustomMobileDropdown key={index} item={item} />
+            <CustomMobileDropdown
+              closeMenu={() => setIsMenuOpen(false)}
+              key={index}
+              item={item}
+            />
           ) : (
             <NavbarMenuItem key={index}>
               <Link

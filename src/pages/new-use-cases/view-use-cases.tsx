@@ -27,14 +27,12 @@ const ViewUseCase = () => {
         <section className="container">
           <div className="bg-primary/10 rounded-xl relative overflow-hidden flex flex-col">
             <div className="lg:px-28 md:pt-16 md:pb-28 px-5 flex flex-col-reverse md:flex-col">
-              <div className="lg:max-w-lg md:max-w-xs">
-                <h1 className="font-medium text-3xl md:text-4xl">
-                  Enabling every aspect of your business operations.
+              <div className="lg:max-w-lg md:max-w-xs mt-20">
+                <h1 className="font-medium text-xl md:text-4xl w-[50vw]">
+                  {current?.['title']}
                 </h1>
-                <p className="text-secondary-black my-7">
-                  Work smarter, enhance efficiency through automation, and
-                  unlock new revenue streams with the software and hardware
-                  platform trusted by millions of businesses.
+                <p className="text-secondary-black text-sm md:text-xl my-7">
+                  {current?.['description']}
                 </p>
                 <div className="flex items-center gap-x-4">
                   {/* <CustomButton className="bg-transparent border-2 border-primary px-5 ">
@@ -48,25 +46,17 @@ const ViewUseCase = () => {
               <Image
                 src="/images/LS_3.webp"
                 alt="AI marketplace"
-                width={336}
-                height={458}
+                // width={336}
+                // height={458}
                 classNames={{
-                  wrapper: 'md:absolute right-10 rounded-none top-0',
+                  wrapper:
+                    'absolute right-10 rounded-none top-0 w-[5rem] h-[5rem] md:h-[20rem] md:w-[20rem]',
                   img: 'rounded-none',
                 }}
               />
             </div>
 
-            <div className="border-t p-4 mt-16 flex items-center flex-col md:flex-row gap-5">
-              {/* <p className="text-secondary flex items-center text-sm gap-x-3 text-nowrap">
-                Customise your experience by
-                <Icon
-                  icon="fluent-emoji-high-contrast:right-arrow"
-                  fontSize={16}
-                  className="text-secondary group-hover:translate-x-1  transition-all"
-                />
-              </p> */}
-            </div>
+            <div className="border-t md:border-0 p-4 mt-0 md:mt-16  flex items-center flex-col md:flex-row gap-5"></div>
           </div>
         </section>
 
