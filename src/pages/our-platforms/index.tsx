@@ -5,7 +5,7 @@ const tabs = [
   { label: 'All', img: '/images/our-platforms/new/all.webp' },
   { label: 'Business', img: '/images/our-platforms/new/business.webp' },
   { label: 'Finance', img: '/images/our-platforms/new/finance.webp' },
-  { label: 'Logistics', img: '/images/our-platforms/new/logistics.webp' },
+  { label: 'Trade', img: '/images/our-platforms/new/trade.webp' },
 ];
 
 const OurPlatforms = () => {

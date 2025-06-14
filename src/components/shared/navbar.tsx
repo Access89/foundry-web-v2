@@ -269,9 +269,9 @@ const menuItems = [
     subItems: [
       {
         link: '/our-platforms',
-        title: 'Manage',
-        icon: 'https://koronapos.com/wp-content/uploads/2022/07/Hardware-Group-with-KORONA-POS-Software8-1200x675.png.webp',
-        // icon: 'https://placehold.co/600x400',
+        title: 'Business',
+        // icon: 'https://koronapos.com/wp-content/uploads/2022/07/Hardware-Group-with-KORONA-POS-Software8-1200x675.png.webp',
+        icon: '/images/our-platforms/new/business-main.webp',
       },
       {
         link: '/our-platforms',
