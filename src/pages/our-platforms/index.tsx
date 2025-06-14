@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 
 const tabs = [
-  { label: 'All', img: '/images/our-platforms/new/all.png' },
-  { label: 'Business', img: '/images/our-platforms/new/business.png' },
-  { label: 'Finance', img: '/images/our-platforms/new/finance.png' },
-  { label: 'Logistics', img: '/images/our-platforms/new/logistics.png' },
+  { label: 'All', img: '/images/our-platforms/new/all.webp' },
+  { label: 'Business', img: '/images/our-platforms/new/business.webp' },
+  { label: 'Finance', img: '/images/our-platforms/new/finance.webp' },
+  { label: 'Logistics', img: '/images/our-platforms/new/logistics.webp' },
 ];
 
 const OurPlatforms = () => {
