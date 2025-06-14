@@ -73,19 +73,14 @@ const GreenSection = () => {
           </div>
         </div> */}
 
-        <div
-          className="mt-10 mb-40 "
-          // initial={{ opacity: 0, y: 50 }}
-          // whileInView={{ opacity: 1, y: 0 }}
-          // transition={{ duration: 0.5 }}
-        >
+        <div className="mt-10  ">
           <div className="mb-8 text-sm flex flex-col w-full items-center justify-center">
-            <h5 className="font-semibold text-2xl lg:text-4xl mb-5 md:w-[68%] text-[#010101] text-center">
+            <h5 className="font-semibold text-2xl lg:text-4xl  md:mb-5 md:w-[68%] text-[#010101] text-center">
               <span className="text-[#ABABAB]">Collaborate</span> Within{' '}
               <p>The Ecosystem</p>
             </h5>
           </div>
-          <div className="grid grid-cols-auto-fill-300 gap-5 space-y-5 md:space-y-0">
+          <div className="grid grid-cols-auto-fill-300 gap-1 md:gap-5  md:space-y-0">
             {[
               {
                 title: 'Manage',
@@ -119,7 +114,7 @@ const GreenSection = () => {
                     alt="support"
                     width="100%"
                     height="100%"
-                    className="group-hover:translate-y-[-1rem] group-hover:drop-shadow-[0_8px_6px_#a0a0a088] transition-all w-full h-full"
+                    className="group-hover:translate-y-[-0.5rem] group-hover:drop-shadow-[0_8px_6px_#a0a0a088] transition-all w-full h-full"
                   />
                 </div>
                 <p className="mt-2 text-xl text-black flex flex-col gap-1">
@@ -133,7 +128,7 @@ const GreenSection = () => {
                     <Icon
                       icon="iconamoon:arrow-right-2-duotone"
                       fontSize={20}
-                      className=" group-hover:translate-x-[0.1rem] transition-all"
+                      className=" group-hover:translate-x-[0.5rem] transition-all"
                     />
                   </Link>
                 </p>

@@ -4,13 +4,14 @@ import SuccessStories, {
 } from '@/components/reusable/success-stories-section';
 import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { UsecaseData } from './data';
 import { useMemo } from 'react';
 import { Image } from '@nextui-org/react';
 
 const ViewUseCase = () => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const module: string = pathname.split('/')[2];
   const current = UsecaseData?.[module];
 
@@ -24,21 +25,24 @@ const ViewUseCase = () => {
   return (
     <main className="">
       <section className="container">
-        <section className="container">
+        <section className="">
           <div className="bg-primary/10 rounded-xl relative overflow-hidden flex flex-col">
             <div className="lg:px-28 md:pt-16 md:pb-28 px-5 flex flex-col-reverse md:flex-col">
               <div className="lg:max-w-lg md:max-w-xs mt-20">
-                <h1 className="font-medium text-xl md:text-4xl w-[50vw]">
+                <h1 className="font-medium text-2xl md:text-4xl w-[50vw]">
                   {current?.['title']}
                 </h1>
-                <p className="text-secondary-black text-sm md:text-xl my-7">
+                <p className="text-secondary-black text-base md:text-xl my-7">
                   {current?.['description']}
                 </p>
                 <div className="flex items-center gap-x-4">
                   {/* <CustomButton className="bg-transparent border-2 border-primary px-5 ">
                     Book Demo
                   </CustomButton> */}
-                  <CustomButton className="bg-primary text-white font-medium px-5 ">
+                  <CustomButton
+                    onPress={() => navigate('/book-a-demo')}
+                    className="bg-primary text-white font-medium px-5 "
+                  >
                     Book Demo
                   </CustomButton>
                 </div>
@@ -92,11 +96,11 @@ const ViewUseCase = () => {
                     <h5 className="pb-4">{e.description}</h5>
                     <p className="text-sm flex items-center gap-x-1 hover:opacity-80 group">
                       {e.title}
-                      <Icon
+                      {/* <Icon
                         icon="iconamoon:arrow-right-2-duotone"
                         fontSize={20}
                         className="group-hover:translate-x-1 transition-all"
-                      />
+                      /> */}
                     </p>
                   </div>
                 </div>
