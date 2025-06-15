@@ -18,7 +18,7 @@ const InfoCard = ({
   onLearnMoreClick = () => {},
 }: IInfoCard) => {
   return (
-    <div className="bg-secondary-light rounded-2xl p-4 lg:px-6 w-full flex flex-col justify-between gap-y-2 hover:scale-[1.01] duration-700 cursor-pointer  hover:shadow-[#4C7F64]/30 hover:shadow-lg ">
+    <div className="bg-secondary-light rounded-2xl p-4 lg:px-6 w-full flex flex-col justify-between gap-y-2   ">
       <div className="flex flex-col gap-y-3">
         <Icon
           icon="eva:checkmark-square-fill"
@@ -29,7 +29,7 @@ const InfoCard = ({
         <p
           className={cn(
             'text-[#575757] text-sm leading-6 font-light',
-            descriptionClassName
+            descriptionClassName,
           )}
         >
           {description}
