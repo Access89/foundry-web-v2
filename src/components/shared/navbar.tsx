@@ -266,22 +266,31 @@ const menuItems = [
   {
     title: 'Our Platforms',
     link: '/our-platforms',
+    is_green_card: true,
     subItems: [
       {
         link: '/our-platforms',
         title: 'Business',
-        // icon: 'https://koronapos.com/wp-content/uploads/2022/07/Hardware-Group-with-KORONA-POS-Software8-1200x675.png.webp',
-        icon: '/images/our-platforms/new/business-main.webp',
+        // icon: '/images/our-platforms/new/business-main.webp',
+        icon: 'streamline-cyber:business-chart-4',
+        description:
+          'Optimize operations with tools for inventory, payroll, and analytics to run your business.',
       },
       {
         link: '/our-platforms',
         title: 'Finance',
-        icon: '/images/homepage/finance.png',
+        // icon: '/images/homepage/finance.png',
+        icon: 'material-symbols-light:money-bag-outline',
+        description:
+          'Access credit, manage disbursements, and embed financial services.',
       },
       {
         link: '/our-platforms',
         title: 'Trade',
-        icon: '/images/homepage/trade.png',
+        // icon: '/images/homepage/trade.png',
+        icon: 'mdi-light:truck',
+        description:
+          'Streamline procurement, logistics, and B2B transactions end-to-end.',
       },
     ],
   },

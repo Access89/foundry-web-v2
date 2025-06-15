@@ -83,10 +83,11 @@ const GreenSection = () => {
           <div className="grid grid-cols-auto-fill-300 gap-1 md:gap-5  md:space-y-0">
             {[
               {
-                title: 'Manage',
+                title: 'Business',
                 description:
                   'Optimize operations with tools for inventory, payroll, and analytics to run your business.',
-                icon: 'https://koronapos.com/wp-content/uploads/2022/07/Hardware-Group-with-KORONA-POS-Software8-1200x675.png.webp',
+                // icon: 'https://koronapos.com/wp-content/uploads/2022/07/Hardware-Group-with-KORONA-POS-Software8-1200x675.png.webp',
+                icon: 'streamline-cyber:business-chart-4',
                 linkTitle: 'Learn More',
                 link: 'business-automation',
               },
@@ -94,7 +95,8 @@ const GreenSection = () => {
                 title: 'Finance',
                 description:
                   'Access credit, manage disbursements, and embed financial services.',
-                icon: '/images/homepage/finance.png',
+                // icon: '/images/homepage/finance.png',
+                icon: 'material-symbols-light:money-bag-outline',
                 linkTitle: 'Learn More',
                 link: 'financial-services',
               },
@@ -102,37 +104,60 @@ const GreenSection = () => {
                 title: 'Trade',
                 description:
                   'Streamline procurement, logistics, and B2B transactions end-to-end.',
-                icon: '/images/homepage/trade.png',
+                // icon: '/images/homepage/trade.png',
+                icon: 'mdi-light:truck',
                 linkTitle: 'Learn More',
                 link: 'logistics-supply-chain',
               },
-            ].map((item, index) => (
-              <div key={index} className=" p-6  flex flex-col group ">
-                <div className=" h-[60%]">
-                  <img
-                    src={item.icon}
-                    alt="support"
-                    width="100%"
-                    height="100%"
-                    className="group-hover:translate-y-[-0.5rem] group-hover:drop-shadow-[0_8px_6px_#a0a0a088] transition-all w-full h-full"
-                  />
-                </div>
-                <p className="mt-2 text-xl text-black flex flex-col gap-1">
-                  <h5 className="text-medium font-medium">{item.title}</h5>
-                  <p className="text-xs ">{item.description}</p>
-                  <Link
-                    to={item.link}
-                    className="text-sm flex items-center gap-x-1 hover:opacity-80 group-hover:underline"
-                  >
-                    {item.linkTitle}
+            ].map((e, index) => (
+              // <div key={index} className=" p-6  flex flex-col group ">
+              //   <div className=" h-[60%]">
+              //     <img
+              //       src={item.icon}
+              //       alt="support"
+              //       width="100%"
+              //       height="100%"
+              //       className="group-hover:translate-y-[-0.5rem] group-hover:drop-shadow-[0_8px_6px_#a0a0a088] transition-all w-full h-full"
+              //     />
+              //   </div>
+              //   <p className="mt-2 text-xl text-black flex flex-col gap-1">
+              //     <h5 className="text-medium font-medium">{item.title}</h5>
+              //     <p className="text-xs ">{item.description}</p>
+              //     <Link
+              //       to={item.link}
+              //       className="text-sm flex items-center gap-x-1 hover:opacity-80 group-hover:underline"
+              //     >
+              //       {item.linkTitle}
+              //       <Icon
+              //         icon="iconamoon:arrow-right-2-duotone"
+              //         fontSize={20}
+              //         className=" group-hover:translate-x-[0.5rem] transition-all"
+              //       />
+              //     </Link>
+              //   </p>
+              // </div>
+              <Link
+                to={e.link}
+                key={index}
+                className="bg-[#5F9779] text-white p-6 rounded-xl h-[300px] flex flex-col"
+              >
+                <Icon
+                  icon={e.icon}
+                  fontSize={34}
+                  className="group-hover:translate-x-1 transition-all text-white w-[2rem]"
+                />
+                <div className="mt-auto text-xl max-w-[15rem]">
+                  <h5 className="pb-4">{e.description}</h5>
+                  <p className="text-sm flex items-center gap-x-1 hover:opacity-80 group">
+                    {e.title}
                     <Icon
                       icon="iconamoon:arrow-right-2-duotone"
                       fontSize={20}
-                      className=" group-hover:translate-x-[0.5rem] transition-all"
+                      className="group-hover:translate-x-1 transition-all"
                     />
-                  </Link>
-                </p>
-              </div>
+                  </p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,16 +1,16 @@
-import { Button } from "@nextui-org/react";
-import Country from "./_components/_tabs/Country";
-import { useState } from "react";
-import BasicInformation from "./_components/_tabs/basic-information";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import BusinessInformation from "./_components/_tabs/business-information";
+import { Button } from '@nextui-org/react';
+import Country from './_components/_tabs/Country';
+import { useState } from 'react';
+import BasicInformation from './_components/_tabs/basic-information';
+import { Icon } from '@iconify/react/dist/iconify.js';
+import BusinessInformation from './_components/_tabs/business-information';
 // import PasswordSetting from "./_components/_tabs/password";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/store/store";
-import { updateSubscriberState } from "@/store/features/subscriber";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
+import { updateSubscriberState } from '@/store/features/subscriber';
 
-type ITab = "country" | "basic-information" | "business-information";
+type ITab = 'country' | 'basic-information' | 'business-information';
 type TReturnValue = void | string;
 
 const Onboarding = () => {
@@ -19,7 +19,7 @@ const Onboarding = () => {
 
   const dispatch = useDispatch();
 
-  const [activeTab, setActiveTab] = useState<ITab>("country");
+  const [activeTab, setActiveTab] = useState<ITab>('country');
   const tabs: Record<
     string,
     {
@@ -30,29 +30,29 @@ const Onboarding = () => {
   > = {
     country: {
       prev: () => {
-        navigate("/");
+        navigate(-1);
       },
       next: () => {
-        return "basic-information";
+        return 'basic-information';
       },
       component: <Country />,
     },
-    "basic-information": {
+    'basic-information': {
       prev: () => {
-        return "country";
+        return 'country';
       },
       next: () => {
-        return "business-information";
+        return 'business-information';
       },
       component: <BasicInformation />,
     },
-    "business-information": {
+    'business-information': {
       prev: () => {
-        return "basic-information";
+        return 'basic-information';
       },
       next: () => {
         // return "password";
-        navigate("password");
+        navigate('password');
       },
       component: <BusinessInformation />,
     },
@@ -74,12 +74,12 @@ const Onboarding = () => {
           onClick={(event) => {
             event.preventDefault();
             const returnValue = tabs?.[activeTab]?.prev();
-            if (typeof returnValue == "string") {
+            if (typeof returnValue == 'string') {
               setActiveTab(returnValue as ITab);
             }
           }}
         >
-          <Icon icon={"fluent:arrow-left-16-filled"} height={25} />
+          <Icon icon={'fluent:arrow-left-16-filled'} height={25} />
         </div>
         {tabs?.[activeTab]?.component}
       </div>
@@ -88,18 +88,18 @@ const Onboarding = () => {
         className={`lg:w-[50%] w-[90%] py-4 lg:py-6 rounded-3xl mx-auto shadow-xl focus:outline-none
         ${
           safe
-            ? "bg-[#4C7F64] text-white shadow-[#4C7F64]/30"
-            : "bg-gray-300 text-gray-500 shadow-none cursor-not-allowed"
+            ? 'bg-[#4C7F64] text-white shadow-[#4C7F64]/30'
+            : 'bg-gray-300 text-gray-500 shadow-none cursor-not-allowed'
         }`}
         onClick={() => {
           const returnValue = tabs?.[activeTab]?.next();
-          if (typeof returnValue == "string") {
+          if (typeof returnValue == 'string') {
             setActiveTab(returnValue as ITab);
           }
           dispatch(
             updateSubscriberState({
               safe: false,
-            })
+            }),
           );
         }}
         disabled={!safe}
