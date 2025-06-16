@@ -37,8 +37,11 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
     >
       {/* Trigger as clickable Link */}
       <Link
-        to={item.link || '#'}
-        onClick={() => setIsOpen(false)}
+        to={item.link === '/our-platforms' ? '#' : item.link || '#'}
+        onClick={() => () => {
+          console.log(item.link);
+          setIsOpen(false);
+        }}
         target={item.external ? '_blank' : '_self'}
         className="flex gap-1 items-center text-sm text-[#808080] hover:text-[#1A1A1A]"
       >

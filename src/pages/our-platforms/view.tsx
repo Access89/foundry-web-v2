@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import SuccessStories, {
-  SuccessStoriesProps,
-} from '@/components/reusable/success-stories-section';
+
 import { CustomButton } from '@/components/shared/shared_customs';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Image } from '@nextui-org/react';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { useRef } from 'react';
 
-const OurPlatforms = () => {
+const ViewPlatforms = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const all = [
     {
@@ -95,13 +96,11 @@ const OurPlatforms = () => {
             <div className="lg:px-28 md:pt-16 md:pb-28 px-5 flex flex-col-reverse md:flex-col">
               <div className="lg:max-w-lg md:max-w-xs mt-20">
                 <h1 className="font-medium text-2xl md:text-4xl w-[50vw]">
-                  Lorem ipsum dolor sit amet
+                  {moduleData?.title || 'Our Platforms'}
                 </h1>
                 <p className="text-secondary-black text-base md:text-xl my-7">
-                  consectetur adipisicing elit. Quibusdam deserunt fuga
-                  excepturi sed delectus veniam maxime fugit, facere tempora,
-                  voluptatem accusantium repellendus aliquam magnam in magni
-                  modi. Ullam, itaque quis!{' '}
+                  {moduleData?.description ||
+                    'Explore the tools and services powering modern businesses.'}
                 </p>
                 <div className="flex items-center gap-x-4">
                   <CustomButton
@@ -115,8 +114,6 @@ const OurPlatforms = () => {
               <Image
                 src="/images/LS_3.webp"
                 alt="AI marketplace"
-                // width={336}
-                // height={458}
                 classNames={{
                   wrapper:
                     'absolute right-10 rounded-none top-0 w-[5rem] h-[5rem] md:h-[20rem] md:w-[20rem]',
@@ -125,74 +122,50 @@ const OurPlatforms = () => {
               />
             </div>
 
-            <div className="border-t md:border-0 p-4 mt-0 md:mt-16  flex items-center flex-col md:flex-row gap-5"></div>
+            <div className="border-t md:border-0 p-4 mt-0 md:mt-16 flex items-center flex-col md:flex-row gap-5"></div>
           </div>
         </section>
 
         <section className="py-10 pt-28 lg:pt-20">
-          {moduleData && (
-            <div className="mb-10">
-              <h2 className="text-2xl font-semibold text-primary mb-4">
-                {moduleData.title}
-              </h2>
-              <p className="text-neutral-700 dark:text-neutral-300 mb-6">
-                {moduleData.description}
-              </p>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
-                {moduleData.subitems.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-neutral-900 text-white p-4 rounded-lg shadow hover:shadow-lg transition"
-                  >
-                    <div className="text-sm font-medium">{item}</div>
+          <div className="overflow-hidden relative">
+            <div
+              className="flex gap-5 px-1 transition-transform duration-300 ease-in-out"
+              ref={scrollRef}
+              onScroll={() => {
+                const scrollLeft = scrollRef.current?.scrollLeft ?? 0;
+                const width = 250 + 20; // item width + gap
+                setCurrentIndex(Math.round(scrollLeft / width));
+              }}
+            >
+              {moduleData?.subitems.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="min-w-[250px] h-[20rem] bg-neutral-900 text-white p-4 rounded-2xl flex flex-col justify-between shadow hover:shadow-lg transition"
+                >
+                  <div className="text-xl font-semibold">{item}</div>
+                  <div className="text-sm text-neutral-400 mt-4">
+                    Feature detail
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-          )}
-        </section>
 
-        <section className=" lg:mt-8 lg:pt-5 ">
-          <SuccessStories {...exampleData} />
+            {/* Indicators */}
+            <div className="flex justify-center mt-6 gap-2">
+              {moduleData?.subitems.map((_, idx) => (
+                <div
+                  key={idx}
+                  className={`h-2 w-2 rounded-full ${
+                    idx === currentIndex ? 'bg-primary' : 'bg-gray-400'
+                  } transition-all duration-300`}
+                />
+              ))}
+            </div>
+          </div>
         </section>
       </section>
     </main>
   );
 };
 
-// Example usage
-const exampleData: SuccessStoriesProps = {
-  title: 'Customer Success Stories',
-  links: [
-    { title: 'Read Foundry Reviews', link: '/foundry-reviews' },
-    { title: 'View all Testimonials', link: '/testimonials' },
-  ],
-  cards: [
-    {
-      type: 'text',
-      content:
-        '"Stock loss has reduced and sales are booming. Foundry has grown and helped us implement all these different parts."',
-      author: 'Cecilia Dekyi, Cepodek',
-      buttonText: 'Read the case study',
-    },
-    {
-      type: 'image',
-      imageSrc: '/images/LS_4.webp', // Update to the correct image URL
-      imageAlt: 'Afro woman in beauty store',
-      overlayText: 'The importance of data to WeNaturals',
-      overlayIcon: '/icons/play.svg',
-    },
-    {
-      type: 'stats',
-      title: 'SHIELD Microfinance',
-      stats: [
-        { value: '47%', label: 'revenue increase year over year' },
-        { value: '30,000', label: 'transactions per month' },
-      ],
-      buttonText: 'See their Foundry Setup',
-    },
-  ],
-};
-
-export default OurPlatforms;
+export default ViewPlatforms;
