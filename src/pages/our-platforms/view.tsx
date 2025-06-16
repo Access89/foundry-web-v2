@@ -3,11 +3,14 @@
 import { CustomButton } from '@/components/shared/shared_customs';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Image } from '@nextui-org/react';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { useRef } from 'react';
 
 const ViewPlatforms = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const all = [
     {
@@ -124,27 +127,41 @@ const ViewPlatforms = () => {
         </section>
 
         <section className="py-10 pt-28 lg:pt-20">
-          {moduleData && (
-            <div className="mb-10">
-              <h2 className="text-2xl font-semibold text-primary mb-4">
-                {moduleData.title}
-              </h2>
-              <p className="text-neutral-700 dark:text-neutral-300 mb-6">
-                {moduleData.description}
-              </p>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
-                {moduleData.subitems.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-neutral-900 text-white p-4 rounded-lg shadow hover:shadow-lg transition"
-                  >
-                    <div className="text-sm font-medium">{item}</div>
+          <div className="overflow-hidden relative">
+            <div
+              className="flex gap-5 px-1 transition-transform duration-300 ease-in-out"
+              ref={scrollRef}
+              onScroll={() => {
+                const scrollLeft = scrollRef.current?.scrollLeft ?? 0;
+                const width = 250 + 20; // item width + gap
+                setCurrentIndex(Math.round(scrollLeft / width));
+              }}
+            >
+              {moduleData?.subitems.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="min-w-[250px] h-[20rem] bg-neutral-900 text-white p-4 rounded-2xl flex flex-col justify-between shadow hover:shadow-lg transition"
+                >
+                  <div className="text-xl font-semibold">{item}</div>
+                  <div className="text-sm text-neutral-400 mt-4">
+                    Feature detail
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-          )}
+
+            {/* Indicators */}
+            <div className="flex justify-center mt-6 gap-2">
+              {moduleData?.subitems.map((_, idx) => (
+                <div
+                  key={idx}
+                  className={`h-2 w-2 rounded-full ${
+                    idx === currentIndex ? 'bg-primary' : 'bg-gray-400'
+                  } transition-all duration-300`}
+                />
+              ))}
+            </div>
+          </div>
         </section>
       </section>
     </main>
