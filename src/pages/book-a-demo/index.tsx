@@ -11,6 +11,9 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useMutation } from 'react-query';
 import { mutateFn } from '@/services/mutation.api';
+import { useRef } from 'react';
+import { PopupButton } from 'react-calendly';
+
 const bookAFormSchema = z.object({
   business_name: z.string().min(1, { message: 'Business name is required' }),
   industry: z.string().min(1, { message: 'Industry is required' }),
@@ -27,6 +30,8 @@ const bookAFormSchema = z.object({
 
 const BookADemo = () => {
   const navigate = useNavigate();
+  const calendlyButtonRef = useRef<HTMLDivElement>(null);
+
   const {
     formState: { errors },
     handleSubmit,
@@ -49,6 +54,7 @@ const BookADemo = () => {
       onSuccess: () => {
         toast.success('Details submitted successfully, we will be in touch!');
         reset();
+        calendlyButtonRef.current?.querySelector('button')?.click();
       },
       onError: (error: any) => {
         console.error('Error creating prospect:', error);
@@ -144,6 +150,18 @@ const BookADemo = () => {
               );
           }
         })}
+
+        <p
+          className="hidden"
+          ref={calendlyButtonRef}
+          style={{ display: 'none' }}
+        >
+          <PopupButton
+            url="https://calendly.com/infoaugwelltech"
+            rootElement={document.getElementById('root')!}
+            text="Schedule a Meeting"
+          />
+        </p>
 
         <div className="w-full pt-6">
           <CustomButton
