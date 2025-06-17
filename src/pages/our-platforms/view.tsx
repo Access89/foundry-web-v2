@@ -3,7 +3,7 @@
 import { CustomButton } from '@/components/shared/shared_customs';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Image } from '@nextui-org/react';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useRef } from 'react';
 
 const ViewPlatforms = () => {
@@ -44,43 +44,91 @@ const ViewPlatforms = () => {
       return {
         ...all.find((a) => a.key === 'business'),
         subitems: [
-          'Expense Management',
-          'People',
-          'Recruitment',
-          'HR',
-          'Procurement',
-          'Analytics',
-          'Business APIs',
-          'Point of Sale',
-          'Foundry Terminal',
-          'Invoice Management',
-          'Reconcile Transactions',
-          'ERP',
+          {
+            title: 'Expense Management',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          { title: 'People', bg: '/images/our-platforms/view/globe-bg.png' },
+          {
+            title: 'Recruitment',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          { title: 'HR', bg: '/images/our-platforms/view/globe-bg.png' },
+          {
+            title: 'Procurement',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          { title: 'Analytics', bg: '/images/our-platforms/view/globe-bg.png' },
+          {
+            title: 'Business APIs',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          {
+            title: 'Point of Sale',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          {
+            title: 'Foundry Terminal',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          {
+            title: 'Invoice Management',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          {
+            title: 'Reconcile Transactions',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          { title: 'ERP', bg: '/images/our-platforms/view/globe-bg.png' },
         ],
       };
     } else if (pathname.includes('finance')) {
       return {
         ...all.find((a) => a.key === 'finance'),
         subitems: [
-          'KYC',
-          'Core Banking',
-          'Digital Banking',
-          'Banking as a Service',
-          'Lending',
+          { title: 'KYC', bg: '/images/our-platforms/view/globe-bg.png' },
+          {
+            title: 'Core Banking',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          {
+            title: 'Digital Banking',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          {
+            title: 'Banking as a Service',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          { title: 'Lending', bg: '/images/our-platforms/view/globe-bg.png' },
         ],
       };
     } else if (pathname.includes('trade')) {
       return {
         ...all.find((a) => a.key === 'trade'),
         subitems: [
-          'Logistics',
-          'Warehousing',
-          'Make Payments',
-          'Track Orders',
-          'Foundry Hub',
-          'Cornershop',
-          'FX',
-          'Treasury',
+          { title: 'Logistics', bg: '/images/our-platforms/view/globe-bg.png' },
+          {
+            title: 'Warehousing',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          {
+            title: 'Make Payments',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          {
+            title: 'Track Orders',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          {
+            title: 'Foundry Hub',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          {
+            title: 'Cornershop',
+            bg: '/images/our-platforms/view/globe-bg.png',
+          },
+          { title: 'FX', bg: '/images/our-platforms/view/globe-bg.png' },
+          { title: 'Treasury', bg: '/images/our-platforms/view/globe-bg.png' },
         ],
       };
     } else {
@@ -88,10 +136,33 @@ const ViewPlatforms = () => {
     }
   }, [pathname]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!scrollRef.current || !moduleData?.subitems?.length) return;
+
+      const container = scrollRef.current;
+      const cardWidth = 300; // fallback width
+      const gap = 20; // assumed gap
+      const scrollAmount = cardWidth + gap;
+
+      container.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth',
+      });
+
+      setCurrentIndex((prev) => {
+        const next = (prev + 1) % moduleData.subitems.length;
+        return next;
+      });
+    }, 2000); //
+
+    return () => clearInterval(interval);
+  }, [moduleData]);
+
   return (
     <main className="">
-      <section className="container">
-        <section className="">
+      <section className="">
+        <section className="container">
           <div className="bg-primary/10 rounded-xl relative overflow-hidden flex flex-col">
             <div className="lg:px-28 md:pt-16 md:pb-28 px-5 flex flex-col-reverse md:flex-col">
               <div className="lg:max-w-lg md:max-w-xs mt-20">
@@ -126,10 +197,10 @@ const ViewPlatforms = () => {
           </div>
         </section>
 
-        <section className="py-10 pt-28 lg:pt-20">
+        <section className="py-10 pt-28 lg:pt-20 flex items-center justify-center">
           <div className="overflow-hidden relative">
             <div
-              className="flex gap-5 px-1 transition-transform duration-300 ease-in-out"
+              className="flex gap-5 px-1 transition-transform duration-300 ease-in-out items-stretch justify-start overflow-x-auto scroll-smooth"
               ref={scrollRef}
               onScroll={() => {
                 const scrollLeft = scrollRef.current?.scrollLeft ?? 0;
@@ -140,11 +211,28 @@ const ViewPlatforms = () => {
               {moduleData?.subitems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="min-w-[250px] h-[20rem] bg-neutral-900 text-white p-4 rounded-2xl flex flex-col justify-between shadow hover:shadow-lg transition"
+                  className={`min-w-[80vw] sm:min-w-[40vw] lg:min-w-[18vw] min-h-[24rem] md:min-h-[28rem] lg:min-h-[30rem]
+                    bg-[#36413E] bg-cover text-white p-0 rounded-2xl flex flex-col justify-between
+                    shadow hover:shadow-lg transition-all duration-300 ease-in-out transform
+                    ${idx === currentIndex + 2 ? 'scale-100' : 'scale-95'}`} // style={{
+                  //   backgroundImage: `url(${item.bg})`,
+                  //   backgroundPosition: 'left 80%',
+                  //   backgroundRepeat: 'no-repeat',
+                  // }}
                 >
-                  <div className="text-xl font-semibold">{item}</div>
-                  <div className="text-sm text-neutral-400 mt-4">
-                    Feature detail
+                  {/* Title Block */}
+                  <div className="p-8">
+                    <div className="text-xl font-semibold">{item.title}</div>
+                  </div>
+
+                  {/* Glass Panel (mimicking the image card footer) */}
+                  <div className="absolute bottom-4 left-4 right-4 bg-white/10 backdrop-blur-md border border-white/10 rounded-xl p-4 flex justify-between items-center">
+                    <div className="text-sm text-white opacity-90">
+                      Savings Feature
+                    </div>
+                    <div className="text-white font-semibold text-sm">
+                      £100,000
+                    </div>
                   </div>
                 </div>
               ))}
@@ -155,8 +243,21 @@ const ViewPlatforms = () => {
               {moduleData?.subitems.map((_, idx) => (
                 <div
                   key={idx}
-                  className={`h-2 w-2 rounded-full ${
-                    idx === currentIndex ? 'bg-primary' : 'bg-gray-400'
+                  onClick={() => {
+                    if (!scrollRef.current) return;
+                    const container = scrollRef.current;
+                    const cardWidth = 300;
+                    const gap = 20;
+                    container.scrollTo({
+                      left: idx * (cardWidth + gap),
+                      behavior: 'smooth',
+                    });
+                    setCurrentIndex(idx);
+                  }}
+                  className={`h-2 w-2 rounded-full cursor-pointer ${
+                    idx === currentIndex
+                      ? 'bg-primary scale-110'
+                      : 'bg-gray-400'
                   } transition-all duration-300`}
                 />
               ))}

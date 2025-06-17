@@ -269,7 +269,7 @@ const menuItems = [
     is_green_card: true,
     subItems: [
       {
-        link: '/our-platforms',
+        link: '/our-platforms/business',
         title: 'Business',
         // icon: '/images/our-platforms/new/business-main.webp',
         icon: 'streamline-cyber:business-chart-4',
@@ -277,7 +277,7 @@ const menuItems = [
           'Optimize operations with tools for inventory, payroll, and analytics to run your business.',
       },
       {
-        link: '/our-platforms',
+        link: '/our-platforms/finance',
         title: 'Finance',
         // icon: '/images/homepage/finance.png',
         icon: 'material-symbols-light:money-bag-outline',
@@ -285,7 +285,7 @@ const menuItems = [
           'Access credit, manage disbursements, and embed financial services.',
       },
       {
-        link: '/our-platforms',
+        link: '/our-platforms/trade',
         title: 'Trade',
         // icon: '/images/homepage/trade.png',
         icon: 'mdi-light:truck',
