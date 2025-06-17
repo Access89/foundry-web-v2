@@ -46,89 +46,89 @@ const ViewPlatforms = () => {
         subitems: [
           {
             title: 'Expense Management',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
-          { title: 'People', bg: '/images/our-platforms/view/globe-bg.png' },
+          { title: 'People', bg: '/images/our-platforms/view/MExpense.png' },
           {
             title: 'Recruitment',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
-          { title: 'HR', bg: '/images/our-platforms/view/globe-bg.png' },
+          { title: 'HR', bg: '/images/our-platforms/view/MExpense.png' },
           {
             title: 'Procurement',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
-          { title: 'Analytics', bg: '/images/our-platforms/view/globe-bg.png' },
+          { title: 'Analytics', bg: '/images/our-platforms/view/MExpense.png' },
           {
             title: 'Business APIs',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
           {
             title: 'Point of Sale',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
           {
             title: 'Foundry Terminal',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/FTerminal.png',
           },
           {
             title: 'Invoice Management',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
           {
             title: 'Reconcile Transactions',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
-          { title: 'ERP', bg: '/images/our-platforms/view/globe-bg.png' },
+          { title: 'ERP', bg: '/images/our-platforms/view/MExpense.png' },
         ],
       };
     } else if (pathname.includes('finance')) {
       return {
         ...all.find((a) => a.key === 'finance'),
         subitems: [
-          { title: 'KYC', bg: '/images/our-platforms/view/globe-bg.png' },
+          { title: 'KYC', bg: '/images/our-platforms/view/MExpense.png' },
           {
             title: 'Core Banking',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
           {
             title: 'Digital Banking',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
           {
             title: 'Banking as a Service',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
-          { title: 'Lending', bg: '/images/our-platforms/view/globe-bg.png' },
+          { title: 'Lending', bg: '/images/our-platforms/view/MExpense.png' },
         ],
       };
     } else if (pathname.includes('trade')) {
       return {
         ...all.find((a) => a.key === 'trade'),
         subitems: [
-          { title: 'Logistics', bg: '/images/our-platforms/view/globe-bg.png' },
+          { title: 'Logistics', bg: '/images/our-platforms/view/MExpense.png' },
           {
             title: 'Warehousing',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
           {
             title: 'Make Payments',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
           {
             title: 'Track Orders',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
           {
             title: 'Foundry Hub',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
           {
             title: 'Cornershop',
-            bg: '/images/our-platforms/view/globe-bg.png',
+            bg: '/images/our-platforms/view/MExpense.png',
           },
-          { title: 'FX', bg: '/images/our-platforms/view/globe-bg.png' },
-          { title: 'Treasury', bg: '/images/our-platforms/view/globe-bg.png' },
+          { title: 'FX', bg: '/images/our-platforms/view/MExpense.png' },
+          { title: 'Treasury', bg: '/images/our-platforms/view/MExpense.png' },
         ],
       };
     } else {
@@ -214,25 +214,24 @@ const ViewPlatforms = () => {
                   className={`min-w-[80vw] sm:min-w-[40vw] lg:min-w-[18vw] min-h-[24rem] md:min-h-[28rem] lg:min-h-[30rem]
                     bg-[#36413E] bg-cover text-white p-0 rounded-2xl flex flex-col justify-between
                     shadow hover:shadow-lg transition-all duration-300 ease-in-out transform
-                    ${idx === currentIndex + 2 ? 'scale-100' : 'scale-95'}`} // style={{
-                  //   backgroundImage: `url(${item.bg})`,
-                  //   backgroundPosition: 'left 80%',
-                  //   backgroundRepeat: 'no-repeat',
-                  // }}
+                    ${idx === currentIndex + 2 ? 'scale-100' : 'scale-95'}`}
+                  style={{
+                    backgroundImage: `url(${item.bg})`,
+                    backgroundPosition: 'left 80%',
+                    backgroundRepeat: 'no-repeat',
+                  }}
                 >
                   {/* Title Block */}
                   <div className="p-8">
-                    <div className="text-xl font-semibold">{item.title}</div>
+                    <div className="text-xl text-center font-semibold text-[#272727]">
+                      {item.title}
+                    </div>
                   </div>
 
                   {/* Glass Panel (mimicking the image card footer) */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-white/10 backdrop-blur-md border border-white/10 rounded-xl p-4 flex justify-between items-center">
-                    <div className="text-sm text-white opacity-90">
-                      Savings Feature
-                    </div>
-                    <div className="text-white font-semibold text-sm">
-                      £100,000
-                    </div>
+                  <div className="absolute text-[#272727] bottom-4 left-4 right-4 bg-white/10 backdrop-blur-md border border-white/10 rounded-xl p-4 flex justify-between items-center">
+                    <div className="text-sm  opacity-90">Savings Feature</div>
+                    <div className=" font-semibold text-sm">£100,000</div>
                   </div>
                 </div>
               ))}
