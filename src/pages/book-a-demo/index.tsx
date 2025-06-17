@@ -21,6 +21,22 @@ const BookADemo = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const handleMessage = (e: MessageEvent) => {
+      if (e.origin === 'https://calendly.com') {
+        if (e.data.event === 'calendly.event_scheduled') {
+          console.log('Meeting scheduled!');
+          navigate('/'); // ✅ Navigate back
+        }
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
+  }, [navigate]);
+
   return (
     <div className="lg:py-10 p-6 lg:w-[700px] mx-auto">
       <div className="lg:pb-8 pb-4">
@@ -42,7 +58,9 @@ const BookADemo = () => {
         </p>
       </div>
 
-      {isloading && <Spinner size="sm" color="success" />}
+      <div className="flex flex-1 items-center justify-center">
+        {isloading && <Spinner size="md" color="success" />}
+      </div>
 
       <p className="hidden" ref={calendlyButtonRef} style={{ display: 'none' }}>
         <PopupButton
