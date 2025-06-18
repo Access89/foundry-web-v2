@@ -82,7 +82,6 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
   return (
     <div
       className=""
-      ref={dropdownRef}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
@@ -93,7 +92,7 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
           setIsOpen(false);
         }}
         target={item.external ? '_blank' : '_self'}
-        className=" h-full py-8 flex gap-1 transition-all items-center text-base font-medium  text-[#434343]"
+        className=" h-full py-6  flex gap-1 transition-all items-center text-base font-medium  text-[#434343]"
       >
         {item.title}
         {item.subItems && (
@@ -120,6 +119,8 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
               <div className="relative z-10">
                 {item?.is_green_card ? (
                   <div
+                    ref={dropdownRef}
+                    onMouseLeave={() => setIsOpen(false)}
                     className={`px-[5rem] bg-white   h-fit  overflow-y-scroll  shadow-xl border  p-6 flex items-center place-items-center  gap-4 
               }`}
                   >
@@ -156,7 +157,11 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                     ))}
                   </div>
                 ) : (
-                  <div className="px-[6vw] pt-10 pb-14 bg-white  h-fit overflow-y-scroll shadow-xl border transition-all   grid grid-cols-3 gap-10">
+                  <div
+                    ref={dropdownRef}
+                    onMouseLeave={() => setIsOpen(false)}
+                    className="px-[6vw] pt-10 pb-14 bg-white  h-fit overflow-y-scroll shadow-xl border transition-all   grid grid-cols-3 gap-10"
+                  >
                     {/* Left column – parent items */}
                     <div className="flex flex-col ">
                       {item?.subItems.map((subItem, index) => (
