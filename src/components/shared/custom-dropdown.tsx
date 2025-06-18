@@ -64,11 +64,15 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 top-full w-[100vw] bg-white   z-50"
+            className="absolute left-0 top-full w-[100vw] bg-white    z-50"
           >
             <div
-              className={`px-[5rem]  h-full max-h-[60vh]  overflow-y-scroll  shadow-xl border rounded-md p-6 grid items-center place-items-center grid-cols-5
-              } gap-4`}
+              className={`px-[5rem]  h-full max-h-[60vh]  overflow-y-scroll  shadow-xl border rounded-md p-6 grid  ${
+                item?.is_green_card
+                  ? 'grid-cols-5 items-center place-items-center  gap-4'
+                  : 'grid-cols-1 gap-1'
+              } 
+              }`}
             >
               {item.subItems.map((subItem, subIndex) =>
                 item?.is_green_card ? (
@@ -101,20 +105,20 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                     key={subIndex}
                     className=" p-6  flex flex-col group "
                   >
-                    <div className="max-w-[15rem] max-h-[10rem] flex items-center justify-center overflow-hidden">
-                      <img
+                    <div className="max-w-[15rem] max-h-[10rem] pb-2 flex items-center justify-center overflow-hidden">
+                      {/* <img
                         src={subItem.icon}
                         alt="support"
                         width="100%"
                         height="100%"
                         className="group-hover:scale-105 transition-all w-full h-full"
-                      />
+                      /> */}
                     </div>
-                    <p className="mt-2 text-xl text-black flex flex-col gap-1">
-                      <h5 className="text-medium font-medium whitespace-nowrap">
+                    <p className=" text-xl text-black flex flex-col gap-1">
+                      <h5 className="text-2xl font-medium whitespace-nowrap">
                         {subItem.title}
                       </h5>
-                      <p className="text-xs ">{subItem.description}</p>
+                      {/* <p className="text-xs ">{subItem.description}</p> */}
                     </p>
                   </Link>
                 ),

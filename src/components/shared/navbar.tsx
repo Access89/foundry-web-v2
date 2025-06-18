@@ -85,7 +85,7 @@ export default function NavbarComponent() {
                   target={item?.external ? '_blank' : '_self'}
                   to={item?.link as string}
                   className={cn(
-                    'flex gap-1 items-center cursor-pointer text-sm  hover:text-[#1A1A1A]',
+                    'flex gap-1 items-center cursor-pointer text-base  hover:text-[#1A1A1A]',
                     pathname.includes(item?.link as string) && 'text-[#1A1A1A]',
                   )}
                 >
@@ -131,7 +131,7 @@ export default function NavbarComponent() {
                 to={item.link as string}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
-                  'w-full text-sm ',
+                  'w-full text-base ',
                   pathname.includes(item?.link as string) && 'text-[#1A1A1A]',
                 )}
               >
@@ -302,11 +302,54 @@ const menuItems = [
         link: '/use-cases/retail',
         title: 'Retail',
         icon: 'https://www.shutterstock.com/image-photo/female-retail-worker-standing-store-600nw-2487354813.jpg',
+        'core-features': [
+          {
+            icon: 'mdi:warehouse',
+            title: 'Inventory Management',
+            description: 'Automate stock tracking and reorder workflows.',
+          },
+          {
+            icon: 'mdi:credit-card-outline',
+            title: 'Integrated POS',
+            description: 'Process orders and payments from any device.',
+          },
+          {
+            icon: 'mdi:chart-line',
+            title: 'Sales Analytics',
+            description:
+              'Understand performance metrics and customer behaviors in real-time.',
+          },
+          {
+            icon: 'mdi:chart-line',
+            title: 'AI Powered Business Insights',
+            description:
+              'Understand performance metrics and customer behaviors in real-time.',
+          },
+        ],
       },
       {
         link: '/use-cases/financial-services',
         title: 'Financial services',
         icon: 'https://st5.depositphotos.com/6338242/68514/i/450/depositphotos_685142928-stock-photo-financial-service-concept-businessman-using.jpg',
+        'core-features': [
+          {
+            icon: 'mdi:bank',
+            title: 'Core Banking Automation',
+            description: 'Streamline account management and loan processing.',
+          },
+          {
+            icon: 'mdi:file-certificate',
+            title: 'Regulatory Compliance',
+            description:
+              'Ensure alignment with financial regulations through automation.',
+          },
+          {
+            icon: 'mdi:shield-lock',
+            title: 'Fraud Detection',
+            description:
+              'Use AI to monitor and flag suspicious activity in real-time.',
+          },
+        ],
       },
 
       {
