@@ -32,10 +32,11 @@ const containerVariants = {
   initial: { opacity: 0, y: 10 },
   animate: {
     opacity: 1,
+    delay: 0.5,
     y: 0,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.15,
+      staggerChildren: 0.4,
+      delayChildren: 0.3,
     },
   },
   exit: { opacity: 0, y: -10 },
@@ -43,15 +44,26 @@ const containerVariants = {
 
 const itemVariants = {
   initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0 },
-  transition: {
-    type: 'spring', // Use a spring for a slightly bouncier feel
-    stiffness: 400, // Adjust stiffness for speed
-    damping: 30, // Adjust damping for bounce
-    mass: 1, // Adjust mass for inertia
-    // duration: 0.4, // Or use a regular duration if not using spring
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      // <-- MOVE 'transition' INSIDE 'animate'
+      // type: 'spring', // You can uncomment this if you prefer spring physics
+      stiffness: 400, // Adjust stiffness for speed
+      mass: 1, // Adjust mass for inertia
+      duration: 0.4, // Or use a regular duration if not using spring
+      // delay: 0.5, // This delay will be applied *after* stagger. Consider removing or reducing this if the stagger is already sufficient.
+      ease: 'easeInOut', // 'easeInOut' should be a string value for ease property
+    },
   },
-  exit: { opacity: 0, y: -10 },
+  exit: {
+    opacity: 0,
+    y: -10,
+    transition: {
+      duration: 0.2, // Add a transition for exit as well if desired
+    },
+  },
 };
 
 const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
@@ -60,10 +72,6 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
   const [activeParentIndex, setActiveParentIndex] = useState<number | null>(
     null,
   );
-
-  useEffect(() => {
-    console.log(activeParentIndex);
-  }, [activeParentIndex]);
 
   useEffect(() => {
     setActiveParentIndex(null);
@@ -85,7 +93,7 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
           setIsOpen(false);
         }}
         target={item.external ? '_blank' : '_self'}
-        className="flex gap-1 transition-all items-center text-base font-medium  text-[#434343]"
+        className=" h-full py-8 flex gap-1 transition-all items-center text-base font-medium  text-[#434343]"
       >
         {item.title}
         {item.subItems && (
@@ -117,6 +125,7 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                   >
                     {item.subItems.map((subItem, subIndex) => (
                       <Link
+                        onClick={() => setIsOpen(false)}
                         to={subItem.link}
                         key={subIndex}
                         className={`${

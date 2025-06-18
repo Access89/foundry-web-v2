@@ -163,10 +163,10 @@ const ViewPlatforms = () => {
     <main className="">
       <section className="">
         <section className="container">
-          <div className="bg-primary/10 rounded-xl relative overflow-hidden flex flex-col">
+          <div className=" rounded-xl relative overflow-hidden flex flex-col">
             <div className="lg:px-28 md:pt-16 md:pb-28 px-5 flex flex-col-reverse md:flex-col">
               <div className="lg:max-w-lg md:max-w-xs mt-20">
-                <h1 className="font-medium text-2xl md:text-4xl w-[50vw]">
+                <h1 className="font-medium text-[#434343] text-2xl md:text-6xl w-[50vw]">
                   {moduleData?.title || 'Our Platforms'}
                 </h1>
                 <p className="text-secondary-black text-base md:text-xl my-7">
