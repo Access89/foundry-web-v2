@@ -130,7 +130,7 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                 </div>
 
                 {/* Right column – core features of hovered parent */}
-                <div className="flex flex-col gap-8 min-w-[300px]">
+                <div className="flex flex-col gap-8 min-w-[300px] ">
                   {activeParentIndex !== null &&
                     item.subItems[activeParentIndex]?.core_features?.map(
                       (core, idx) => (
