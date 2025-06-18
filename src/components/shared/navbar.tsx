@@ -320,7 +320,7 @@ const menuItems = [
               'Understand performance metrics and customer behaviors in real-time.',
           },
           {
-            icon: 'mdi:chart-line',
+            icon: 'eos-icons:ai',
             title: 'AI Powered Business Insights',
             description:
               'Understand performance metrics and customer behaviors in real-time.',
