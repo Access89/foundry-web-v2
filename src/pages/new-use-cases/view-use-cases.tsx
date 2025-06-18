@@ -26,19 +26,16 @@ const ViewUseCase = () => {
     <main className="">
       <section className="container">
         <section className="">
-          <div className="bg-primary/10 rounded-xl relative overflow-hidden flex flex-col">
+          <div className=" rounded-xl relative overflow-hidden flex flex-col">
             <div className="lg:px-28 md:pt-16 md:pb-28 px-5 flex flex-col-reverse md:flex-col">
               <div className="lg:max-w-lg md:max-w-xs mt-20">
-                <h1 className="font-medium text-2xl md:text-4xl w-[50vw]">
+                <h1 className="font-medium text-[#434343] text-2xl md:text-6xl w-[50vw]">
                   {current?.['title']}
                 </h1>
                 <p className="text-secondary-black text-base md:text-xl my-7">
                   {current?.['description']}
                 </p>
                 <div className="flex items-center gap-x-4">
-                  {/* <CustomButton className="bg-transparent border-2 border-primary px-5 ">
-                    Book Demo
-                  </CustomButton> */}
                   <CustomButton
                     onPress={() => navigate('/book-a-demo')}
                     className="bg-primary text-white font-medium px-5 "

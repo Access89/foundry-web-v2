@@ -85,7 +85,7 @@ export default function NavbarComponent() {
                   target={item?.external ? '_blank' : '_self'}
                   to={item?.link as string}
                   className={cn(
-                    'flex gap-1 items-center cursor-pointer text-base  hover:text-[#1A1A1A]',
+                    'flex gap-1 items-center cursor-pointer   text-base font-medium  text-[#434343]',
                     pathname.includes(item?.link as string) && 'text-[#1A1A1A]',
                   )}
                 >
@@ -320,7 +320,7 @@ const menuItems = [
               'Understand performance metrics and customer behaviors in real-time.',
           },
           {
-            icon: 'mdi:chart-line',
+            icon: 'eos-icons:ai',
             title: 'AI Powered Business Insights',
             description:
               'Understand performance metrics and customer behaviors in real-time.',
@@ -356,32 +356,143 @@ const menuItems = [
         link: '/use-cases/ev-charging',
         title: 'Electric Vehicle Charging Platform',
         icon: 'https://www.powermag.com/wp-content/uploads/2020/03/fig-1-car-charging-electric-vehicle-ev-electrification.jpg',
+        core_features: [
+          {
+            icon: 'mdi:ev-station',
+            title: 'Charger Network Management',
+            description: 'Monitor and control station performance.',
+          },
+          {
+            icon: 'mdi:map-marker-radius',
+            title: 'Location Services',
+            description: 'Let users find available chargers nearby.',
+          },
+          {
+            icon: 'mdi:currency-usd',
+            title: 'Billing Integration',
+            description:
+              'Enable subscriptions, pay-per-use, and energy tariffs.',
+          },
+        ],
       },
       {
         link: '/use-cases/fund-management',
         title: 'Fund Management',
         icon: 'https://www.shutterstock.com/image-photo/real-estate-professionals-clients-discussing-600nw-2175050111.jpg',
+        core_features: [
+          {
+            icon: 'mdi:chart-pie',
+            title: 'Portfolio Dashboards',
+            description: 'Track fund and asset performance in real-time.',
+          },
+          {
+            icon: 'mdi:file-document-outline',
+            title: 'Investor Reporting',
+            description: 'Automate quarterly reports and statements.',
+          },
+          {
+            icon: 'mdi:shield-account',
+            title: 'Compliance Workflows',
+            description: 'Ensure regulatory alignment across jurisdictions.',
+          },
+        ],
       },
       {
         link: '/use-cases/restaurant',
         title: 'Restaurant',
         icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREjXOIxAb4w_BSxoO-qwRhAbHxZqO5hLfo4g&s',
+        core_features: [
+          {
+            icon: 'mdi:food',
+            title: 'Menu Management',
+            description: 'Update items and pricing in real-time.',
+          },
+          {
+            icon: 'mdi:table-chair',
+            title: 'Reservation System',
+            description: 'Allow customers to book and manage tables.',
+          },
+          {
+            icon: 'mdi:monitor-dashboard',
+            title: 'Kitchen Display System',
+            description:
+              'Streamline kitchen operations by displaying orders digitally in real-time.',
+          },
+          {
+            icon: 'mdi:credit-card-outline',
+            title: 'Integrated POS',
+            description: 'Process orders and payments from any device.',
+          },
+        ],
       },
       {
         link: '/use-cases/logistics',
         title: 'Logistics and Supply Chain',
         icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3X-6CPkdk9U9ERuKoQFlVitTop64hRVwtx_-aWPkN32t69uLGh0rmFxm0of2AwNxImkg&usqp=CAU',
+        core_features: [
+          {
+            icon: 'mdi:truck',
+            title: 'Fleet Management',
+            description: 'Track deliveries and driver routes in real-time.',
+          },
+          {
+            icon: 'mdi:package-variant-closed',
+            title: 'Inventory Sync',
+            description: 'Keep warehouse data in sync across systems.',
+          },
+          {
+            icon: 'mdi:map-clock',
+            title: 'Route Optimization',
+            description:
+              'Plan the fastest, most cost-efficient delivery routes.',
+          },
+        ],
       },
 
       {
         link: '/use-cases/manufacturing',
         title: 'Manufacturing',
         icon: 'https://freedesignfile.com/upload/2017/11/Cargo-transport-logistics-warehouse-Stock-Photo-10.jpg',
+        core_features: [
+          {
+            icon: 'mdi:robot-industrial',
+            title: 'Smart Factory Automation',
+            description: 'Integrate robotics and machine telemetry.',
+          },
+          {
+            icon: 'mdi:chart-areaspline',
+            title: 'Production Analytics',
+            description: 'Monitor KPIs and predict downtime.',
+          },
+          {
+            icon: 'mdi:truck-fast',
+            title: 'Supply Chain Visibility',
+            description: 'Track parts and products from order to delivery.',
+          },
+        ],
       },
       {
         link: '/use-cases/fintech',
         title: 'Fintech',
         icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRvGHmylHthm7eKZ3bAvUmzvKCk8UFwsL2dw&s',
+        core_features: [
+          {
+            icon: 'mdi:wallet',
+            title: 'Digital Wallets',
+            description: 'Enable peer-to-peer transfers and in-app payments.',
+          },
+          {
+            icon: 'mdi:credit-card-plus',
+            title: 'Loan Origination',
+            description: 'Automate scoring, approval, and disbursal.',
+          },
+          {
+            icon: 'mdi:api',
+            title: 'Open Banking APIs',
+            description:
+              'Integrate with partners and banks using secure standards.',
+          },
+        ],
       },
     ],
   },

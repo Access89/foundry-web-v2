@@ -10,7 +10,7 @@ export const UsecaseData: Record<string, any> = {
             { icon: 'mdi:warehouse', title: 'Inventory Management', description: 'Automate stock tracking and reorder workflows.' },
             { icon: 'mdi:credit-card-outline', title: 'Integrated POS', description: 'Process orders and payments from any device.' },
             { icon: 'mdi:chart-line', title: 'Sales Analytics', description: 'Understand performance metrics and customer behaviors in real-time.' },
-            { icon: 'mdi:chart-line', title: 'AI Powered Business Insights', description: 'Understand performance metrics and customer behaviors in real-time.' },
+            { icon: 'eos-icons:ai', title: 'AI Powered Business Insights', description: 'Understand performance metrics and customer behaviors in real-time.' },
           ],
           goals: [
             { icon: 'mdi:account-group', title: 'Customer Engagement', description: 'Offer loyalty programs and personalized promotions.' },
