@@ -34,8 +34,8 @@ const containerVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.05,
+      staggerChildren: 0.2,
+      delayChildren: 0.15,
     },
   },
   exit: { opacity: 0, y: -10 },
@@ -44,16 +44,29 @@ const containerVariants = {
 const itemVariants = {
   initial: { opacity: 0, y: 10 },
   animate: { opacity: 1, y: 0 },
+  transition: {
+    type: 'spring', // Use a spring for a slightly bouncier feel
+    stiffness: 400, // Adjust stiffness for speed
+    damping: 30, // Adjust damping for bounce
+    mass: 1, // Adjust mass for inertia
+    // duration: 0.4, // Or use a regular duration if not using spring
+  },
   exit: { opacity: 0, y: -10 },
 };
 
 const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const [activeParentIndex, setActiveParentIndex] = useState<number | null>(0);
+  const [activeParentIndex, setActiveParentIndex] = useState<number | null>(
+    null,
+  );
 
   useEffect(() => {
-    setActiveParentIndex(0);
+    console.log(activeParentIndex);
+  }, [activeParentIndex]);
+
+  useEffect(() => {
+    setActiveParentIndex(null);
   }, [isOpen]);
 
   useOnClickOutside(dropdownRef, () => setIsOpen(false));
@@ -68,19 +81,19 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
       {/* Trigger as clickable Link */}
       <Link
         to={item.link === '/our-platforms' ? '#' : item.link || '#'}
-        onClick={() => () => {
+        onClick={() => {
           setIsOpen(false);
         }}
         target={item.external ? '_blank' : '_self'}
-        className="flex gap-1 items-center text-sm text-[#808080] hover:text-[#1A1A1A]"
+        className="flex gap-1 transition-all items-center text-base font-medium  text-[#434343]"
       >
         {item.title}
         {item.subItems && (
           <Icon
-            className="transition-all"
-            icon={`${
-              isOpen ? 'majesticons:chevron-up' : 'majesticons:chevron-down'
+            className={`transition-transform duration-200 ${
+              isOpen ? 'rotate-180' : ''
             }`}
+            icon="majesticons:chevron-down" // Always use the 'down' icon
           />
         )}
       </Link>
@@ -99,7 +112,7 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
               <div className="relative z-10">
                 {item?.is_green_card ? (
                   <div
-                    className={`px-[5rem] bg-white   h-fit  overflow-y-scroll  shadow-xl border  p-6 grid grid-cols-5 items-center place-items-center  gap-4 
+                    className={`px-[5rem] bg-white   h-fit  overflow-y-scroll  shadow-xl border  p-6 flex items-center place-items-center  gap-4 
               }`}
                   >
                     {item.subItems.map((subItem, subIndex) => (
@@ -108,11 +121,11 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                         key={subIndex}
                         className={`${
                           subIndex === 0
-                            ? 'bg-[#929292]'
+                            ? 'bg-[#434343]'
                             : subIndex === 1
                             ? 'bg-[#000000]'
                             : 'bg-[#619B7D]'
-                        }  text-white p-6 rounded-xl h-[300px] w-[300px] flex flex-col`}
+                        }  text-white p-6 rounded-xl h-[300px] w-[300px] flex flex-col hover:scale-105 transition-all`}
                       >
                         <Icon
                           icon={subItem.icon}
@@ -134,50 +147,55 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                     ))}
                   </div>
                 ) : (
-                  <div className="px-[5rem] py-14 bg-white  h-fit overflow-y-scroll shadow-xl border   grid grid-cols-3 gap-10">
+                  <div className="px-[6vw] pt-10 pb-14 bg-white  h-fit overflow-y-scroll shadow-xl border transition-all   grid grid-cols-3 gap-10">
                     {/* Left column – parent items */}
-                    <div className="flex flex-col gap-0">
+                    <div className="flex flex-col ">
                       {item?.subItems.map((subItem, index) => (
                         <div
                           key={index}
-                          className="p-2 rounded-md cursor-pointer"
+                          className="py-1 cursor-pointer"
                           onMouseEnter={() => setActiveParentIndex(index)}
                           onMouseLeave={() => setActiveParentIndex(null)}
                         >
                           <Link
                             to={subItem.link}
                             onClick={() => setIsOpen(false)}
-                            className=""
+                            className={`text-[1.6rem] text-[#000000] ${
+                              activeParentIndex !== null &&
+                              activeParentIndex !== index
+                                ? 'text-[#939393]'
+                                : 'text-[#000000]'
+                            }  font-medium font-sans `}
                           >
-                            <span
-                              className={`text-[1.8rem] ${
-                                activeParentIndex === index
-                                  ? 'text-[#000000]'
-                                  : 'text-[#929292]'
-                              }  font-semibold font-sans `}
-                            >
-                              {subItem.title}
-                            </span>
+                            {subItem.title}
                           </Link>
                         </div>
                       ))}
+                      <Link
+                        onClick={() => setIsOpen(false)}
+                        to="use-cases"
+                        className="mt-4 text-[#000000] hover:text-gray-400 transition-all"
+                      >
+                        All Use cases
+                      </Link>
                     </div>
 
                     {/* Right column – core features of hovered parent */}
                     <motion.div
                       key={activeParentIndex}
                       variants={containerVariants}
+                      transition={{ duration: 0.2 }}
                       initial="initial"
                       animate="animate"
                       exit="exit"
-                      className="flex flex-col gap-8 min-w-[300px] h-full py-[5rem]"
+                      className="flex flex-col gap-8 min-w-[300px] h-full py-[1rem]"
                     >
                       {activeParentIndex !== null &&
                         item.subItems[activeParentIndex]?.core_features?.map(
                           (core, idx) => (
                             <motion.div key={idx} variants={itemVariants}>
-                              <Link
-                                to={core.link}
+                              <p
+                                // to={core.link}
                                 onClick={() => setIsOpen(false)}
                                 className="flex items-start gap-3 hover:text-primary transition-all"
                               >
@@ -186,11 +204,8 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                                   <p className="font-medium text-base">
                                     {core.title}
                                   </p>
-                                  {/* {core.description && (
-              <p className="text-xs text-gray-500">{core.description}</p>
-            )} */}
                                 </div>
-                              </Link>
+                              </p>
                             </motion.div>
                           ),
                         )}

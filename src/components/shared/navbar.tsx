@@ -85,7 +85,7 @@ export default function NavbarComponent() {
                   target={item?.external ? '_blank' : '_self'}
                   to={item?.link as string}
                   className={cn(
-                    'flex gap-1 items-center cursor-pointer text-base  hover:text-[#1A1A1A]',
+                    'flex gap-1 items-center cursor-pointer   text-base font-medium  text-[#434343]',
                     pathname.includes(item?.link as string) && 'text-[#1A1A1A]',
                   )}
                 >
