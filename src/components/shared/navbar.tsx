@@ -274,7 +274,7 @@ const menuItems = [
         // icon: '/images/our-platforms/new/business-main.webp',
         icon: 'streamline-cyber:business-chart-4',
         description:
-          'Optimize operations with tools for inventory, payroll, and analytics to run your business.',
+          'Optimize operations with tools for accounting, inventory, payroll, and analytics to run your business.',
       },
       {
         link: '/our-platforms/finance',

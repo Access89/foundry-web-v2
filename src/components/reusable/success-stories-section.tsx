@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Icon } from "@iconify/react";
+import { Icon } from '@iconify/react';
 
 type LinkItem = {
   title: string;
@@ -7,14 +6,14 @@ type LinkItem = {
 };
 
 type TextCard = {
-  type: "text";
+  type: 'text';
   content: string;
   author: string;
   buttonText: string;
 };
 
 type ImageCard = {
-  type: "image";
+  type: 'image';
   imageSrc: string;
   imageAlt: string;
   overlayText: string;
@@ -22,7 +21,7 @@ type ImageCard = {
 };
 
 type StatsCard = {
-  type: "stats";
+  type: 'stats';
   title: string;
   stats: { value: string; label: string }[];
   buttonText: string;
@@ -36,14 +35,16 @@ export type SuccessStoriesProps = {
   cards: CardItem[];
 };
 
-const SuccessStories = ({ title, links, cards }: SuccessStoriesProps) => {
+const SuccessStories = ({ cards }: SuccessStoriesProps) => {
   return (
     <section className="my-10">
       <div className="container">
         <div className="md:grid grid-cols-[0.4fr,1fr] gap-x-10 mb-5">
-          <h2 className="font-medium text-3xl lg:text-4xl">{title}</h2>
+          <h2 className="font-medium text-3xl lg:text-4xl">
+            Customer Success Stories
+          </h2>
         </div>
-        <div className="flex items-center gap-x-5">
+        {/* <div className="flex items-center gap-x-5">
           {links.map((item, index) => (
             <Link
               key={index}
@@ -58,19 +59,19 @@ const SuccessStories = ({ title, links, cards }: SuccessStoriesProps) => {
               />
             </Link>
           ))}
-        </div>
+        </div> */}
 
         <div className="md:grid md:grid-cols-auto-fill-300 gap-8 space-y-5 md:space-y-0 mt-5">
           {cards.map((card, index) => (
             <div
               key={index}
               className={`${
-                card.type === "text" || card.type === "stats"
-                  ? "bg-[#2D6145] text-white px-4 py-5 rounded-xl h-full flex flex-col"
-                  : "overflow-hidden rounded-xl relative"
+                card.type === 'text' || card.type === 'stats'
+                  ? 'bg-[#2D6145] text-white px-4 py-5 rounded-xl h-full flex flex-col'
+                  : 'overflow-hidden rounded-xl relative'
               }`}
             >
-              {card.type === "text" ? (
+              {card.type === 'text' ? (
                 <>
                   <p className="text-2xl md:max-w-[15rem]">{card.content}</p>
                   <div className="mt-auto">
@@ -84,7 +85,7 @@ const SuccessStories = ({ title, links, cards }: SuccessStoriesProps) => {
                     </button>
                   </div>
                 </>
-              ) : card.type === "image" ? (
+              ) : card.type === 'image' ? (
                 <>
                   <img
                     src={card.imageSrc}
@@ -92,7 +93,7 @@ const SuccessStories = ({ title, links, cards }: SuccessStoriesProps) => {
                     className="h-full"
                   />
                   <div className="absolute bottom-5 left-5 right-5 rounded-md bg-[#FAFAFA]/20 backdrop-blur-sm p-3">
-                    <p className="text-white font-medium flex items-end max-w-[10.5rem]">
+                    <p className="text-white font-medium flex justify-between items-end">
                       {card.overlayText}
                       {card.overlayIcon && (
                         <img
