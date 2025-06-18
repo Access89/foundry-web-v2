@@ -14,7 +14,12 @@ interface MenuItem {
     icon: string;
     link: string;
     description?: string;
-    // subs: { title: string; link: string; icon: string }[];
+    core_features: {
+      title: string;
+      icon: string;
+      link: string;
+      description?: string;
+    }[];
   }[];
 }
 
@@ -25,6 +30,9 @@ interface DropdownProps {
 const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const [activeParentIndex, setActiveParentIndex] = useState<number | null>(
+    null,
+  );
 
   useOnClickOutside(dropdownRef, () => setIsOpen(false));
 
@@ -66,16 +74,12 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
             transition={{ duration: 0.2 }}
             className="absolute left-0 top-full w-[100vw] bg-white    z-50"
           >
-            <div
-              className={`px-[5rem]  h-full max-h-[60vh]  overflow-y-scroll  shadow-xl border rounded-md p-6 grid  ${
-                item?.is_green_card
-                  ? 'grid-cols-5 items-center place-items-center  gap-4'
-                  : 'grid-cols-1 gap-1'
-              } 
+            {item?.is_green_card ? (
+              <div
+                className={`px-[5rem]  h-full max-h-[60vh]  overflow-y-scroll  shadow-xl border rounded-md p-6 grid grid-cols-5 items-center place-items-center  gap-4 
               }`}
-            >
-              {item.subItems.map((subItem, subIndex) =>
-                item?.is_green_card ? (
+              >
+                {item.subItems.map((subItem, subIndex) => (
                   <Link
                     to={subItem.link}
                     key={subIndex}
@@ -98,32 +102,59 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                       </p>
                     </div>
                   </Link>
-                ) : (
-                  <Link
-                    to={subItem.link}
-                    onClick={() => setIsOpen(false)}
-                    key={subIndex}
-                    className=" p-6  flex flex-col group "
-                  >
-                    <div className="max-w-[15rem] max-h-[10rem] pb-2 flex items-center justify-center overflow-hidden">
-                      {/* <img
-                        src={subItem.icon}
-                        alt="support"
-                        width="100%"
-                        height="100%"
-                        className="group-hover:scale-105 transition-all w-full h-full"
-                      /> */}
+                ))}
+              </div>
+            ) : (
+              <div className="px-[5rem] max-h-[60vh] overflow-y-scroll shadow-xl border rounded-md p-6 grid grid-cols-3 gap-10">
+                {/* Left column – parent items */}
+                <div className="flex flex-col gap-2">
+                  {item.subItems.map((subItem, index) => (
+                    <div
+                      key={index}
+                      className="p-4 hover:text-gray-500 rounded-md cursor-pointer"
+                      onMouseEnter={() => setActiveParentIndex(index)}
+                      onMouseLeave={() => setActiveParentIndex(null)}
+                    >
+                      <Link
+                        to={subItem.link}
+                        onClick={() => setIsOpen(false)}
+                        className="flex gap-3 items-center"
+                      >
+                        <Icon icon={subItem.icon} fontSize={20} />
+                        <span className="text-2xl font-medium">
+                          {subItem.title}
+                        </span>
+                      </Link>
                     </div>
-                    <p className=" text-xl text-black flex flex-col gap-1">
-                      <h5 className="text-2xl font-medium whitespace-nowrap">
-                        {subItem.title}
-                      </h5>
-                      {/* <p className="text-xs ">{subItem.description}</p> */}
-                    </p>
-                  </Link>
-                ),
-              )}
-            </div>
+                  ))}
+                </div>
+
+                {/* Right column – core features of hovered parent */}
+                <div className="flex flex-col gap-8 min-w-[300px]">
+                  {activeParentIndex !== null &&
+                    item.subItems[activeParentIndex]?.core_features?.map(
+                      (core, idx) => (
+                        <Link
+                          key={idx}
+                          to={core.link}
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-start gap-3 hover:text-primary transition-all"
+                        >
+                          <Icon icon={core.icon} fontSize={20} />
+                          <div>
+                            <p className="font-medium text-sm">{core.title}</p>
+                            {/* {core.description && (
+                              <p className="text-xs text-gray-500">
+                                {core.description}
+                              </p>
+                            )} */}
+                          </div>
+                        </Link>
+                      ),
+                    )}
+                </div>
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

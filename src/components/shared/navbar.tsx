@@ -78,7 +78,7 @@ export default function NavbarComponent() {
         <div className="flex mx-auto gap-x-8 items-center ">
           {menuItems.map((item, index) =>
             item.subItems ? (
-              <CustomeDropdownDesktop key={index} item={item} />
+              <CustomeDropdownDesktop key={index} item={item as any} />
             ) : (
               <NavbarItem key={index}>
                 <Link
@@ -302,7 +302,7 @@ const menuItems = [
         link: '/use-cases/retail',
         title: 'Retail',
         icon: 'https://www.shutterstock.com/image-photo/female-retail-worker-standing-store-600nw-2487354813.jpg',
-        'core-features': [
+        core_features: [
           {
             icon: 'mdi:warehouse',
             title: 'Inventory Management',
@@ -331,7 +331,7 @@ const menuItems = [
         link: '/use-cases/financial-services',
         title: 'Financial services',
         icon: 'https://st5.depositphotos.com/6338242/68514/i/450/depositphotos_685142928-stock-photo-financial-service-concept-businessman-using.jpg',
-        'core-features': [
+        core_features: [
           {
             icon: 'mdi:bank',
             title: 'Core Banking Automation',
