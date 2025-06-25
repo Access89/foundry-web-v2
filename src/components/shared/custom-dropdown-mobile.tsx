@@ -22,59 +22,96 @@ const CustomMobileDropdown = ({
   item: MenuItem;
   closeMenu: () => void;
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // Animation variants for the sidebar container (now just opacity)
+  const sidebarVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.25, // Quick fade for the sidebar itself
+        when: 'beforeChildren',
+        staggerChildren: 0.1, // Stagger children by 0.1 seconds
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.25 },
+    },
+  };
+
+  // Animation variants for individual subitems (opacity and subtle y-axis movement)
+  const subItemVariants = {
+    hidden: { opacity: 0, y: 10 }, // Start slightly below and invisible
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }, // Slide up and become visible
+  };
 
   return (
     <div className="w-full">
-      {/* Dropdown trigger */}
+      {/* Main item trigger */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          if (item.subItems) {
+            setIsSidebarOpen(true);
+          } else if (item.link) {
+            closeMenu();
+          }
+        }}
         className="w-full flex justify-between items-center py-3 text-sm font-medium text-[#1A1A1A]"
       >
         {item.title}
-        <Icon
-          icon="majesticons:chevron-down"
-          className={`transition-transform duration-200 ${
-            isOpen ? 'rotate-180' : ''
-          }`}
-        />
+        {item.subItems && (
+          <Icon
+            icon="mdi:chevron-right"
+            className="transition-transform duration-200"
+          />
+        )}
       </button>
 
-      {/* Dropdown menu */}
+      {/* Sub-items Sidebar */}
       <AnimatePresence>
-        {isOpen && item.subItems && (
+        {isSidebarOpen && item.subItems && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="overflow-hidden bg-white px-4 py-3 rounded-md border  space-y-3"
+            variants={sidebarVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            // Changed from absolute to fixed to ensure it covers the whole screen regardless of scroll
+            className="fixed top-0 right-0 h-screen w-full bg-white z-50 shadow-lg p-4 px-6"
           >
-            {item.subItems.map((subItem, idx) => (
-              <Link
-                key={idx}
-                to={subItem.link}
-                onClick={() => {
-                  setIsOpen(false);
-                  closeMenu();
-                }}
-                className="flex items-center justify-between gap-3"
-              >
-                <p>
-                  {/* <img
-                  src={subItem.icon}
-                  alt={subItem.title}
-                  className="w-6 h-6 object-contain"
-                /> */}
-                  <span className="text-sm font-medium text-black hover:text-gray-600">
-                    {subItem.title}
-                  </span>
-                </p>
-                <p>
-                  <Icon icon="mdi:chevron-right" />
-                </p>
-              </Link>
-            ))}
+            <div className="flex items-center justify-between pb-4 ">
+              <button onClick={() => setIsSidebarOpen(false)} className="mr-3">
+                <Icon icon="ic:baseline-arrow-back" className="w-6 h-6" />
+              </button>
+              <button onClick={() => closeMenu()} className="mr-3">
+                <Icon
+                  icon="material-symbols:close-rounded"
+                  className="w-6 h-6"
+                />
+              </button>
+            </div>
+            <div className="py-4 space-y-3">
+              <h2 className="text-xs font-normal">{item.title}</h2>
+              {item.subItems.map((subItem, idx) => (
+                <motion.div key={idx} variants={subItemVariants}>
+                  <Link
+                    to={subItem.link}
+                    onClick={() => {
+                      setIsSidebarOpen(false);
+                      closeMenu();
+                    }}
+                    className="flex items-center justify-between gap-3 py-2"
+                  >
+                    <p>
+                      <span className="text-lg font-semibold text-black hover:text-gray-600">
+                        {subItem.title}
+                      </span>
+                    </p>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
