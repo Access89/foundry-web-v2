@@ -61,7 +61,7 @@ const OurPlatforms = () => {
       return {
         ...all.find((a) => a.key === 'finance'),
         subitems: [
-          'KYC',
+          'Onboarding',
           'Core Banking',
           'Digital Banking',
           'Banking as a Service',

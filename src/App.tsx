@@ -31,6 +31,9 @@ const FinancialServices = lazy(() => import('./pages/financial_services'));
 const NewUseCases = lazy(() => import('./pages/new-use-cases'));
 const OurPlatforms = lazy(() => import('./pages/our-platforms'));
 const ViewPlatforms = lazy(() => import('./pages/our-platforms/view'));
+const ViewPlatformSpecific = lazy(
+  () => import('./pages/our-platforms/view[id]'),
+);
 const LogisticsAndSupply = lazy(() => import('./pages/logistics'));
 
 function App() {
@@ -72,6 +75,10 @@ function App() {
           {/* <Route path="use-cases" element={<UseCases />} /> */}
           <Route path="our-platforms" element={<OurPlatforms />} />
           <Route path="our-platforms/:name" element={<ViewPlatforms />} />
+          <Route
+            path="our-platforms/:name/:subname"
+            element={<ViewPlatformSpecific />}
+          />
 
           <Route path="pricing" element={<Pricing />} />
           <Route
