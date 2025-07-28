@@ -8,6 +8,7 @@ import { useRef } from 'react';
 import SuccessStories, {
   SuccessStoriesProps,
 } from '@/components/reusable/success-stories-section';
+import { main_platform_data } from './data/platform.data';
 
 const ViewPlatforms = () => {
   const navigate = useNavigate();
@@ -15,195 +16,9 @@ const ViewPlatforms = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const all = [
-    {
-      key: 'business',
-      link: '/our-platforms/business',
-      title: 'Accelerate Business Growth',
-      icon: 'streamline-cyber:business-chart-4',
-      description:
-        'Take full control of your enterprise with integrated tools for seamless accounting, intelligent inventory management, effortless payroll, and powerful real-time analytics.',
-      subitems: [],
-    },
-    {
-      key: 'finance',
-      link: '/our-platforms/finance',
-      title: 'Empower Financial Flow',
-      icon: 'material-symbols-light:money-bag-outline',
-      description:
-        'Secure essential working capital, automate and manage all your payments, and integrate advanced financial functionalities directly within your existing ecosystem.',
-      subitems: [],
-    },
-    {
-      key: 'trade',
-      link: '/our-platforms/trade',
-      title: 'Connected Commerce Network',
-      icon: 'mdi-light:truck',
-      description:
-        'Digitize and accelerate your procurement cycles, gain real-time visibility into logistics, and execute B2B transactions with unprecedented speed and confidence.',
-      subitems: [],
-    },
-  ];
+  const all = main_platform_data;
 
-  const moduleData = useMemo(() => {
-    if (pathname.includes('business')) {
-      return {
-        ...all.find((a) => a.key === 'business'),
-        subitems: [
-          {
-            title: 'Expense Management',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description: 'Automate and track business expenses with ease.',
-          },
-          {
-            title: 'HR',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Streamline employee data, benefits, and HR processes.',
-          },
-          {
-            title: 'Procurement',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Manage purchasing workflows and vendor interactions efficiently.',
-          },
-          {
-            title: 'Analytics',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Turn your data into actionable insights with powerful dashboards.',
-          },
-          {
-            title: 'Business APIs',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Easily integrate third-party tools and automate workflows.',
-          },
-          {
-            title: 'Point of Sale',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Sell smarter with real-time inventory and sales tracking.',
-          },
-          {
-            title: 'Foundry Terminal',
-            bg: '/images/our-platforms/view/FTerminal.png',
-            description:
-              'One terminal for managing all business operations centrally.',
-          },
-          {
-            title: 'Invoice Management',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description: 'Send, track, and reconcile invoices effortlessly.',
-          },
-          {
-            title: 'Reconcile Transactions',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Match transactions automatically and reduce reconciliation time.',
-          },
-          {
-            title: 'ERP',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'An integrated suite for finance, operations, and compliance.',
-          },
-        ],
-      };
-    } else if (pathname.includes('finance')) {
-      return {
-        ...all.find((a) => a.key === 'finance'),
-        subitems: [
-          {
-            title: 'KYC',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Automate customer identity verification and compliance checks.',
-          },
-          {
-            title: 'Core Banking',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Robust backend system to manage accounts, transactions, and ledgers.',
-          },
-          {
-            title: 'Digital Banking',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Deliver seamless mobile and online banking experiences.',
-          },
-          {
-            title: 'Banking as a Service',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Launch and scale banking products with ready-to-integrate APIs.',
-          },
-          {
-            title: 'Lending',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Simplify loan origination, approvals, and repayments.',
-          },
-        ],
-      };
-    } else if (pathname.includes('trade')) {
-      return {
-        ...all.find((a) => a.key === 'trade'),
-        subitems: [
-          {
-            title: 'Logistics',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Optimize delivery routes, fleet management, and shipment tracking.',
-          },
-          {
-            title: 'Warehousing',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Manage inventory levels, storage, and dispatch operations efficiently.',
-          },
-          {
-            title: 'Make Payments',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Enable secure, real-time business payments and disbursements.',
-          },
-          {
-            title: 'Track Orders',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Monitor order status and delivery in real-time across channels.',
-          },
-          {
-            title: 'Foundry Hub',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Centralized control tower for business workflows and integrations.',
-          },
-          {
-            title: 'Cornershop',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Launch and manage microstores for hyperlocal commerce.',
-          },
-          {
-            title: 'FX',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Access competitive foreign exchange rates and real-time currency conversions.',
-          },
-          {
-            title: 'Treasury',
-            bg: '/images/our-platforms/view/MExpense.png',
-            description:
-              'Oversee liquidity, investments, and enterprise cash flow management.',
-          },
-        ],
-      };
-    } else {
-      return null;
-    }
-  }, [pathname]);
+  const moduleData = all.find((item) => pathname.includes(item.key));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -324,8 +139,9 @@ const ViewPlatforms = () => {
             >
               {moduleData?.subitems.map((item, idx) => (
                 <div
+                  onClick={() => navigate(item.link)}
                   key={idx}
-                  className={`min-w-[80vw] sm:min-w-[40vw] lg:min-w-[18vw] min-h-[24rem] md:min-h-[28rem] lg:min-h-[30rem]
+                  className={`cursor-pointer min-w-[80vw] sm:min-w-[40vw] lg:min-w-[18vw] min-h-[24rem] md:min-h-[28rem] lg:min-h-[30rem]
                     bg-[#36413E] bg-cover text-white p-0 rounded-2xl flex flex-col justify-between
                     shadow hover:shadow-lg transition-all duration-300 ease-in-out transform
                     ${idx === currentIndex + 2 ? 'scale-100' : 'scale-95'}`}
