@@ -110,7 +110,9 @@ const ViewPlatformSpecific = () => {
             BENEFITS
           </p> */}
         </div>
-        <h3 className="text-5xl font-semibold my-2 ">Why Foundry stands out</h3>
+        <h3 className="text-5xl font-semibold my-2 text-center">
+          Why Foundry stands out
+        </h3>
 
         <div className="flex justify-between mt-4 gap-20">
           <p>
