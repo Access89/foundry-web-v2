@@ -118,24 +118,55 @@
                     title: "Digital Account Opening Form",
                     description:" Digital Account Opening Form. A clean, intuitive interface that enables new customers to begin the application seamlessly.",
                     icon: "heroicons-outline:document-text",
+                    learn_more: [
+                      {
+                        title: "",
+                        description: "Subscribe now to experience our Self Service and Assisted Service (Agent Portal)"
+                      }
+                    ]
 
                 },
                 {
                     title: "KYC/KYB & Risk Rating",
                     description:"Embedded Know Your Customer (and Business) checks plus automated risk scoring to ensure regulatory compliance and informed decisions.",
-                    icon: "lucide:user-check"
+                    icon: "lucide:user-check",
+                    learn_more: [
+                      {
+                        title: `Identity Verification & Validation`,
+                        description: `Automated identity checks powered by OCR-based document extraction and AI-driven facial recognition with passive and active liveness detection, ensuring rapid and secure verification of government-issued ID documents and biometric identity in real time`
+                      },
+                      {
+                        title: `KYB Business Checks`,
+                        description: `Comprehensive checks on businesses including registration verification, ownership structure, ultimate beneficial owner (UBO) screening, and global watchlist screening (e.g. sanctions, PEPs`
+                      }
+                    ]
 
                 },
                 {
                     title: "Document Collection",
                     description:"Effortlessly submit and defer essential documents (IDs, utility bills, financials) and securely store and track them within the system",
                     icon: "heroicons-outline:folder-open",
+                    learn_more: [
+                      {
+                        title: 'Document Upload',
+                        description: 'Easily submit required documents (e.g., IDs, utility bills, financial statements) via web or mobile. Each file is securely routed and stored in the appropriate customer folder.',
+                      },
+                      {
+                        title: "Document Tracker",
+                        description:" Real-time tracking of document status, automated reminders for pending submissions, and comprehensive version and audit history ensuring nothing gets missed and everything stays compliant and organized"
+                      },
+                      {
+                        title: "Document Request",
+                        description: "Seamlessly invite customers to submit necessary files, track their fulfilment status in real time, send automated reminders for overdue items, and manage periodic document reviews"
+                      }
+                    ]
 
                 },
                 {
                     title: "E-Signature",
                     description:"Secure, digital signing of loan agreements, no paperwork or in-person visits needed.",
                     icon: 'mdi:signature',
+                    learn_more: []
 
                 },
               ],

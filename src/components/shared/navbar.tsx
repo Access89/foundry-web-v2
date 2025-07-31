@@ -75,7 +75,7 @@ export default function NavbarComponent() {
         className="hidden lg:flex gap-4 justify-between w-full "
         justify="center"
       >
-        <div className="flex mx-auto gap-x-8 items-center ">
+        <div className="flex mx-auto gap-x-2  items-center ">
           {menuItems.map((item, index) =>
             item.subItems ? (
               <CustomeDropdownDesktop key={index} item={item as any} />
