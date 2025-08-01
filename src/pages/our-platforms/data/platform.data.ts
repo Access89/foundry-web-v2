@@ -12,16 +12,23 @@
                 bg: '/images/our-platforms/view/MExpense.png',
                 description: 'Automate and track business expenses with ease.',
                 link: '/our-platforms/business/expense-management',
-                detailedDescription: ``
-
+                detailedDescription: ``,
+                product_image: "",
+                sub_components_title: "",
+                sub_components: []
             },
             {
                 title: 'HR',
                 bg: '/images/our-platforms/view/MExpense.png',
+                product_image: "/images/our-platforms/new/hr.png",
+
+
                 description:
                 'Streamline employee data, benefits, and HR processes.',
                 link: '/our-platforms/business/hr',
-                detailedDescription: ``
+                detailedDescription: ``,
+                sub_components_title: "",
+                sub_components: []
 
             },
             {
@@ -30,7 +37,63 @@
                 description:
                 'Manage purchasing workflows and vendor interactions efficiently.',
                 link: '/our-platforms/business/procurement',
-                detailedDescription: ``
+                detailedDescription: `Foundry procuremnet eliminates waste and provides visibility. From requisitions to approvals, purchase nd distribution of inventory to desired sections of your business`,
+                product_image: "/images/our-platforms/new/procure.png",
+                sub_components_title: "Core Features",
+                sub_components: [
+                  {
+                    title: "Purchase",
+                    description: "Streamline requisition, approval, and ordering processes with a digital-first procurement experience.",
+                    icon: "tabler:shopping-cart-check", // Symbolizes purchasing and requisitions
+                    learn_more: [
+                      {
+                        title: "Smart Requisition Forms",
+                        description: "Pre-filled, role-aware forms that guide employees through item selection, quantity, justification, and urgency tagging."
+                      },
+                      {
+                        title: "Approval Routing",
+                        description: "Multi-level approval routing based on amount, category, or department with real-time status tracking."
+                      },
+                      {
+                        title: "Order & Delivery Tracking",
+                        description: "Monitor the lifecycle of each purchase from request to vendor confirmation, fulfillment, and delivery with integrated alerts."
+                      }
+                    ]
+                  },
+                  {
+                    title: "Spend",
+                    description: "Track, control, and optimize company spending across departments and vendors with real-time visibility and approval workflows.",
+                    icon: "ph:chart-bar", // Better represents analytics and spend tracking
+                    learn_more: [
+                      {
+                        title: "Spend Analytics",
+                        description: "Gain insight into spending patterns across teams, suppliers, and categories to make data-driven decisions and reduce waste."
+                      },
+                      {
+                        title: "Budget Controls",
+                        description: "Define spending limits, auto-flag overages, and route requests through customizable approval flows."
+                      }
+                    ]
+                  },
+                  {
+                    title: "Manage",
+                    description: "Maintain centralized control over vendors, contracts, and internal purchasing policies with intelligent automation.",
+                    icon: "mdi:account-cog", // Represents vendor/policy management well
+                    learn_more: [
+                      {
+                        title: "Vendor Management",
+                        description: "Onboard and rate vendors, track compliance and contract performance, and consolidate all vendor data in one place."
+                      },
+                      {
+                        title: "Policy Enforcement",
+                        description: "Enforce procurement rules through automated validations, approval chains, and role-based permissions."
+                      }
+                    ]
+                  }
+             
+                ]
+                
+
 
             },
             {
@@ -39,7 +102,9 @@
                 description:
                 'Turn your data into actionable insights with powerful dashboards.',
                 link: '/our-platforms/business/analytics',
-                detailedDescription: ``
+                detailedDescription: ``,
+                sub_components_title: "",
+                sub_components: []
 
             },
             {
@@ -48,7 +113,9 @@
                 description:
                 'Easily integrate third-party tools and automate workflows.',
                 link: '/our-platforms/business/business-apis',
-                detailedDescription: ``
+                detailedDescription: ``,
+                sub_components_title: "",
+                sub_components: []
 
             },
             {
@@ -57,7 +124,9 @@
                 description:
                 'Sell smarter with real-time inventory and sales tracking.',
                 link: '/our-platforms/business/point-of-sale',
-                detailedDescription: ``
+                detailedDescription: ``,
+                sub_components_title: "",
+                sub_components: []
 
             },
             {
@@ -66,7 +135,9 @@
                 description:
                 'One terminal for managing all business operations centrally.',
                 link: '/our-platforms/business/foundry-terminal',
-                detailedDescription: ``
+                detailedDescription: ``,
+                sub_components_title: "",
+                sub_components: []
 
             },
             {
@@ -74,7 +145,9 @@
                 bg: '/images/our-platforms/view/MExpense.png',
                 description: 'Send, track, and reconcile invoices effortlessly.',
                 link: '/our-platforms/business/invoice-management',
-                detailedDescription: ``
+                detailedDescription: ``,
+                sub_components_title: "",
+                sub_components: []
 
             },
             {
@@ -83,18 +156,21 @@
                 description:
                 'Match transactions automatically and reduce reconciliation time.',
                 link: '/our-platforms/business/reconcile-transactions',
-                detailedDescription: ``
+                detailedDescription: ``,
+                sub_components_title: "",
+                sub_components: []
 
             },
-            {
-                title: 'ERP',
-                bg: '/images/our-platforms/view/MExpense.png',
-                description:
-                'An integrated suite for finance, operations, and compliance.',
-                link: '/our-platforms/business/erp',
-                detailedDescription: ``
-
-            },
+            // {
+            //     title: 'ERP',
+            //     bg: '/images/our-platforms/view/MExpense.png',
+            //     description:
+            //     'An integrated suite for finance, operations, and compliance.',
+            //     link: '/our-platforms/business/erp',
+            //     detailedDescription: ``,
+            //     sub_components_title: "",
+            //     sub_components: []
+            // },
     ],
     },
     {
@@ -108,6 +184,7 @@
             {
               title: 'Onboarding',
               bg: '/images/our-platforms/view/MExpense.png',
+              product_image: '/images/our-platforms/view/MExpense.png',
               description:
                 'Automate customer identity verification and compliance checks.',
               link: '/our-platforms/finance/onboarding',
@@ -230,35 +307,46 @@
             {
               title: 'Core Banking',
               bg: '/images/our-platforms/view/MExpense.png',
+              product_image: '/images/our-platforms/view/MExpense.png',
               description:
                 'Robust backend system to manage accounts, transactions, and ledgers.',
               link: '/our-platforms/finance/core-banking',
-              detailedDescription: ``
+              detailedDescription: ``,
+              sub_components_title: "",
+              sub_components: []
             },
             {
               title: 'Digital Banking',
               bg: '/images/our-platforms/view/MExpense.png',
+              product_image: '/images/our-platforms/view/MExpense.png',
               description:
                 'Deliver seamless mobile and online banking experiences.',
               link: '/our-platforms/finance/digital-banking',
-              detailedDescription: ``
+              detailedDescription: ``,
+              sub_components_title: "",
+              sub_components: []
 
             },
             {
               title: 'Banking as a Service',
               bg: '/images/our-platforms/view/MExpense.png',
+              product_image: '/images/our-platforms/view/MExpense.png',
               description:
                 'Launch and scale banking products with ready-to-integrate APIs.',
               link: '/our-platforms/finance/banking-as-a-service',
-              detailedDescription: ``
+              detailedDescription: ``,  sub_components_title: "",
+              sub_components: []
             },
             {
               title: 'Lending',
               bg: '/images/our-platforms/view/MExpense.png',
+              product_image: '/images/our-platforms/view/MExpense.png',
               description:
                 'Simplify loan origination, approvals, and repayments.',
               link: '/our-platforms/finance/lending',
-              detailedDescription: ``
+              detailedDescription: ``,
+              sub_components_title: "",
+              sub_components: []
 
             },
       ]
@@ -274,55 +362,80 @@
             {
               title: 'Logistics',
               bg: '/images/our-platforms/view/MExpense.png',
+              product_image: '/images/our-platforms/view/MExpense.png',
               description:
                 'Optimize delivery routes, fleet management, and shipment tracking.',
               link: '/our-platforms/trade/logistics',
-              detailedDescription: ``
+              detailedDescription: ``,
+              sub_components_title: "",
+              sub_components: []
 
             },
             {
               title: 'Warehousing',
               bg: '/images/our-platforms/view/MExpense.png',
+              product_image: '/images/our-platforms/view/MExpense.png',
               description:
                 'Manage inventory levels, storage, and dispatch operations efficiently.',
               link: '/our-platforms/trade/warehousing',
-              detailedDescription: ``
+              detailedDescription: ``,
+              sub_components_title: "",
+              sub_components: []
+
 
             },
             {
               title: 'Make Payments',
               bg: '/images/our-platforms/view/MExpense.png',
+              product_image: '/images/our-platforms/view/MExpense.png',
               description:
                 'Enable secure, real-time business payments and disbursements.',
               link: '/our-platforms/trade/make-payments',
-              detailedDescription: ``
+              detailedDescription: ``,
+              sub_components_title: "",
+              sub_components: []
+
 
             },
             {
               title: 'Track Orders',
               bg: '/images/our-platforms/view/MExpense.png',
+              product_image: '/images/our-platforms/view/MExpense.png',
               description:
                 'Monitor order status and delivery in real-time across channels.',
               link: '/our-platforms/trade/track-orders',
-              detailedDescription: ``
+              detailedDescription: ``,
+              sub_components_title: "",
+              sub_components: []
+
 
             },
             {
               title: 'Foundry Hub',
               bg: '/images/our-platforms/view/MExpense.png',
+              product_image: '/images/our-platforms/view/MExpense.png',
               description:
                 'Centralized control tower for business workflows and integrations.',
               link: '/our-platforms/trade/foundry-hub',
-              detailedDescription: ``
+              detailedDescription: ``,
+              sub_components_title: "",
+              sub_components: []
+
 
             },
             {
               title: 'Cornershop',
               bg: '/images/our-platforms/view/MExpense.png',
+              product_image: '/images/our-platforms/view/MExpense.png',
               description:
                 'Launch and manage microstores for hyperlocal commerce.',
               link: '/our-platforms/trade/cornershop',
-              detailedDescription: ``
+              detailedDescription: ``,
+              sub_components_title: "",
+              sub_components: []
+
+
+            
 
             },
             // {
