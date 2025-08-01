@@ -1,14 +1,107 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { main_platform_data } from './data/platform.data';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { CustomButton } from '@/components/shared/shared_customs';
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+export interface LearnMoreItem {
+  title?: string;
+  description: string;
+}
+
+export interface SubComponentItem {
+  title: string;
+  description: string;
+  icon: string;
+  learn_more?: LearnMoreItem[];
+}
+
+export interface PlatformSubItem {
+  title: string;
+  description: string;
+  detailedDescription?: string;
+  link: string;
+  bg: string;
+  sub_components_title?: string;
+  sub_components?: SubComponentItem[];
+  why_foundry?: {
+    title: string;
+    description: string;
+  }[];
+  features?: {
+    title: string;
+    goal: string;
+    steps: string[];
+  }[];
+}
+
+const SubComponentsSection: React.FC<{ item: PlatformSubItem }> = ({
+  item,
+}) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleLearnMore = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <section className="my-20 bg-primary/10 mt-40 pb-20">
+      <div className="container flex flex-col gap-10 mx-auto py-20">
+        <h3 className="text-5xl font-semibold my-2">
+          {item.sub_components_title}
+        </h3>
+
+        <div className="grid grid-cols-2 gap-6 my-4">
+          {item.sub_components?.map((subItem, index) => (
+            <div
+              key={index}
+              className="flex flex-col gap-2 border p-6 rounded-xl bg-white shadow-sm"
+            >
+              <div className="flex gap-4 items-start">
+                <Icon icon={subItem.icon} className="text-4xl text-primary" />
+                <div>
+                  <h4 className="text-2xl font-semibold">{subItem.title}</h4>
+                  <p className="text-base text-gray-600">
+                    {subItem.description}
+                  </p>
+                </div>
+              </div>
+
+              {subItem?.learn_more && subItem?.learn_more?.length > 0 && (
+                <button
+                  onClick={() => toggleLearnMore(index)}
+                  className="text-primary mt-2 text-start pl-8 text-sm underline hover:text-primary/80 transition"
+                >
+                  {openIndex === index ? 'Hide Details' : 'Learn More'}
+                </button>
+              )}
+
+              {openIndex === index && (
+                <div className="mt-2 pl-8">
+                  {subItem?.learn_more &&
+                    subItem?.learn_more.map((learn, idx) => (
+                      <div key={idx} className="text-sm text-gray-700 mb-2">
+                        {learn.title && (
+                          <p className="font-semibold">{learn.title}</p>
+                        )}
+                        <p>{learn.description}</p>
+                      </div>
+                    ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const ViewPlatformSpecific = () => {
   const { name, subname } = useParams(); // e.g. 'business' + 'expense-management'
   const fullPath = `/our-platforms/${name}/${subname}`;
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -46,13 +139,6 @@ const ViewPlatformSpecific = () => {
 
   return (
     <div className=" py-12">
-      {/* <Link
-        to={`/our-platforms/${name}`}
-        className="text-primary hover:underline text-sm mb-1 inline-block"
-      >
-        ← Back to {item.parentTitle}
-      </Link> */}
-
       <section className="container mx-auto flex justify-between items-center mb-6">
         <p className="flex flex-col gap-4">
           <h1 className=" text-5xl font-bold mb-10">{item.title}</h1>
@@ -60,11 +146,11 @@ const ViewPlatformSpecific = () => {
           <p className="w-[30vw]">{item.detailedDescription}</p>
           <p>
             <CustomButton
-              className="bg-[#EDF2EE] border-2 border-secondary text-primary"
-              onPress={() => navigate('/book-a-demo')}
+              className=" border-2 bg-primary text-white"
+              // onPress={() => navigate('/book-a-demo')}
             >
-              Book Demo
-            </CustomButton>{' '}
+              Sign up
+            </CustomButton>
           </p>
         </p>
         <p className="flex items-center justify-center overflow-hidden rounded-md w-[20vw] h-[20vw] md:w-[30vw] md:h-[30vw]">
@@ -80,7 +166,7 @@ const ViewPlatformSpecific = () => {
 
       {/* <p className="py-4">{item.detailedDescription}</p> */}
 
-      <section className="my-20 bg-primary/10  mt-40 pb-20">
+      {/* <section className="my-20 bg-primary/10  mt-40 pb-20">
         <div className="container  flex flex-col gap-10 mx-auto py-20">
           <h3 className="text-5xl font-semibold my-2">
             {item.sub_components_title}
@@ -98,11 +184,14 @@ const ViewPlatformSpecific = () => {
                     {subItem.description}
                   </p>
                 </div>
+                learn more
+
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      <SubComponentsSection item={item} />
 
       <section className="my-20 container mt-32 flex flex-col gap-5">
         <div className="flex items-center justify-center">
