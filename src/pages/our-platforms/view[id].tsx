@@ -44,6 +44,20 @@ export interface PlatformItem {
   subitems: PlatformSubItem[];
 }
 
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
+
 const SubComponentsSection: React.FC<{ item: PlatformSubItem }> = ({
   item,
 }) => {
@@ -60,10 +74,17 @@ const SubComponentsSection: React.FC<{ item: PlatformSubItem }> = ({
           {item.sub_components_title}
         </h3>
 
-        <div className={`grid grid-cols-2 gap-6 my-4`}>
+        <motion.div
+          className="grid grid-cols-2 gap-6 my-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.3 }}
+        >
           {item.sub_components?.map((subItem, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={itemVariants}
               className="flex flex-col gap-2 border p-6 rounded-xl bg-white shadow-sm"
             >
               <div className="flex gap-4 items-start">
@@ -78,7 +99,7 @@ const SubComponentsSection: React.FC<{ item: PlatformSubItem }> = ({
                 </div>
               </div>
 
-              {subItem?.learn_more && subItem?.learn_more?.length > 0 && (
+              {subItem?.learn_more && subItem.learn_more.length > 0 && (
                 <button
                   onClick={() => toggleLearnMore(index)}
                   className="text-primary mt-2 text-start pl-8 text-sm underline hover:text-primary/80 transition"
@@ -89,20 +110,19 @@ const SubComponentsSection: React.FC<{ item: PlatformSubItem }> = ({
 
               {openIndex === index && (
                 <div className="mt-2 pl-8">
-                  {subItem?.learn_more &&
-                    subItem?.learn_more.map((learn, idx) => (
-                      <div key={idx} className="text-sm text-gray-700 mb-2">
-                        {learn.title && (
-                          <p className="font-semibold">{learn.title}</p>
-                        )}
-                        <p>{learn.description}</p>
-                      </div>
-                    ))}
+                  {subItem?.learn_more?.map((learn, idx) => (
+                    <div key={idx} className="text-sm text-gray-700 mb-2">
+                      {learn.title && (
+                        <p className="font-semibold">{learn.title}</p>
+                      )}
+                      <p>{learn.description}</p>
+                    </div>
+                  ))}
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -151,20 +171,30 @@ const ViewPlatformSpecific = () => {
   return (
     <div className=" py-12">
       <section className="container mx-auto flex justify-between items-center mb-6">
-        <p className="flex flex-col gap-4">
-          <h1 className=" text-5xl font-bold mb-10">{item.title}</h1>
+        <motion.div
+          className="flex flex-col gap-4"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h1 className="text-5xl font-bold mb-10">{item.title}</h1>
           <p className="text-xl font-medium w-[25vw]">{item.description}</p>
           <p className="w-[25vw]">{item.detailedDescription}</p>
           <p>
-            <CustomButton
-              className=" border-2 bg-primary text-white"
-              // onPress={() => navigate('/book-a-demo')}
-            >
+            <CustomButton className="border-2 bg-primary text-white">
               Sign up
             </CustomButton>
           </p>
-        </p>
-        <p className="flex items-center justify-center overflow-hidden rounded-md w-[20vw] h-[20vw] md:w-[40vw] md:h-[30vw] ">
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex items-center justify-center overflow-hidden rounded-md w-[20vw] h-[20vw] md:w-[40vw] md:h-[30vw]"
+        >
           <img
             src={item?.product_image}
             width="100%"
@@ -172,7 +202,7 @@ const ViewPlatformSpecific = () => {
             alt={item.title}
             className="border rounded-md"
           />
-        </p>
+        </motion.div>
       </section>
 
       <SubComponentsSection item={item} />
@@ -194,20 +224,25 @@ const ViewPlatformSpecific = () => {
             </p>
             <div className="flex flex-col gap-10 mt-16">
               {item?.why_foundry?.map((subItem, index) => (
-                <div key={index} className="flex gap-4 items-start">
-                  <p>
-                    <Icon
-                      icon={'mingcute:arrow-right-line'}
-                      className="text-xl text-primary"
-                    />
-                  </p>
-                  <div className="">
+                <motion.div
+                  key={index}
+                  className="flex gap-4 items-start"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                >
+                  <Icon
+                    icon="mingcute:arrow-right-line"
+                    className="text-xl text-primary"
+                  />
+                  <div>
                     <h4 className="text-xl font-semibold">{subItem.title}</h4>
                     <p className="text-sm text-gray-600">
                       {subItem.description}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -272,12 +307,15 @@ const ViewPlatformSpecific = () => {
               ];
 
               return (
-                <div
+                <motion.div
                   key={idx}
                   className={`absolute ${positions[idx] ?? ''} w-52 text-sm`}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: idx * 0.1, duration: 0.4 }}
                 >
                   {step}
-                </div>
+                </motion.div>
               );
             })}
           </motion.div>
