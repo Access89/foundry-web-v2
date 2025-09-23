@@ -14,13 +14,13 @@ const BookADemo = () => {
   const [isloading, setIsLoading] = useState(true);
 
   const {
-    customer_name,
-    business_location,
-    business_type,
+    // customer_name,
+    // business_location,
+    // business_type,
     business_owner,
-    nature_of_business,
+    // nature_of_business,
     email,
-    mobile,
+    // mobile,
   } = useSelector((state: RootState) => state.subscriber);
 
   useEffect(() => {
