@@ -1,57 +1,54 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useFormik } from "formik";
-import CustomInput from "../_form/Input";
-import SelectInput from "../_form/Select-Input";
-import { useDispatch, useSelector } from "react-redux";
-import { updateSubscriberState } from "@/store/features/subscriber";
-import { useEffect } from "react";
-import { RootState } from "@/store/store";
+import { useFormik } from 'formik';
+import CustomInput from '../_form/Input';
+// import SelectInput from '../_form/Select-Input';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateSubscriberState } from '@/store/features/subscriber';
+import { useEffect } from 'react';
+import { RootState } from '@/store/store';
 
 const BasicInformation = () => {
   const dispatch = useDispatch();
   const {
     customer_name,
     business_location,
-    business_type,
+    // business_type,
     business_owner,
-    nature_of_business
+    // nature_of_business,
   } = useSelector((state: RootState) => state.subscriber);
 
-  useEffect(
-    () => {
-      if (
-        customer_name !== "" &&
-        business_location !== "" &&
-        business_type !== "" &&
-        business_owner !== "" &&
-        nature_of_business !== ""
-      ) {
-        dispatch(
-          updateSubscriberState({
-            safe: true
-          })
-        );
-      }
-    },
-    [
-      business_location,
-      customer_name,
-      business_type,
-      business_owner,
-      nature_of_business,
-      dispatch
-    ]
-  );
+  useEffect(() => {
+    if (
+      customer_name !== '' &&
+      business_location !== '' &&
+      // business_type !== '' &&
+      business_owner !== ''
+      // nature_of_business !== ''
+    ) {
+      dispatch(
+        updateSubscriberState({
+          safe: true,
+        }),
+      );
+    }
+  }, [
+    business_location,
+    customer_name,
+    // business_type,
+    business_owner,
+    // nature_of_business,
+    dispatch,
+  ]);
 
   const form = useFormik({
     initialValues: {
-      business_name: customer_name || "",
-      location: business_location || "",
-      business_type: business_type || "",
-      business_owner: business_owner || "",
-      nature_of_business: nature_of_business || ""
+      business_name: customer_name || '',
+      location: business_location || '',
+      // business_type: business_type || '',
+      business_owner: business_owner || '',
+      // nature_of_business: nature_of_business || '',
     },
-    onSubmit: () => {}
+    onSubmit: () => {},
   });
 
   return (
@@ -67,10 +64,10 @@ const BasicInformation = () => {
 
       <div className="lg:pt-6 flex flex-col gap-4 pt-4">
         <CustomInput
-          type={"text"}
-          label={"Business name"}
-          placeholder={"e.g. Cepodek"}
-          id={"business_name"}
+          type={'text'}
+          label={'Business name'}
+          placeholder={'e.g. Jane Doe Business'}
+          id={'business_name'}
           {...form}
           handleChange={(e: any) => {
             form.handleChange(e);
@@ -78,10 +75,10 @@ const BasicInformation = () => {
           }}
         />
         <CustomInput
-          type={"text"}
-          label={"Your name"}
-          placeholder={"e.g. Jane Doe"}
-          id={"business_owner"}
+          type={'text'}
+          label={'Your name'}
+          placeholder={'e.g. Jane Doe Business'}
+          id={'business_owner'}
           {...form}
           handleChange={(e: any) => {
             form.handleChange(e);
@@ -89,56 +86,56 @@ const BasicInformation = () => {
           }}
         />
         <CustomInput
-          type={"text"}
-          label={"Location"}
-          placeholder={"e.g. Oyarifa - Teiman"}
-          id={"location"}
+          type={'text'}
+          label={'Location'}
+          placeholder={'e.g. Oyarifa - Teiman'}
+          id={'location'}
           {...form}
           handleChange={(e: any) => {
             form.handleChange(e);
             dispatch(
-              updateSubscriberState({ business_location: e.target.value })
+              updateSubscriberState({ business_location: e.target.value }),
             );
           }}
         />
-        <SelectInput
+        {/* <SelectInput
           items={[
             {
-              label: "Limited Liability Company",
-              value: "Limited Liability Company"
+              label: 'Limited Liability Company',
+              value: 'Limited Liability Company',
             },
-            { label: "Sole Proprietorship", value: "Sole Proprietorship" }
+            { label: 'Sole Proprietorship', value: 'Sole Proprietorship' },
           ]}
-          label={"Nature of Business"}
-          placeholder={"e.g. Limited Liability Company"}
-          id={"nature_of_business"}
+          label={'Nature of Business'}
+          placeholder={'e.g. Limited Liability Company'}
+          id={'nature_of_business'}
           {...form}
           handleChange={(e: any) => {
             dispatch(
-              updateSubscriberState({ nature_of_business: e.target.value })
+              updateSubscriberState({ nature_of_business: e.target.value }),
             );
           }}
-        />
-        <SelectInput
+        /> */}
+        {/* <SelectInput
           items={[
             // { label: 'Hospital', value: 'Hospital' },
-            { label: "Retail", value: "Retail" },
+            { label: 'Retail', value: 'Retail' },
             // { label: 'School', value: 'School' },
-            { label: "Wholesale", value: "Wholesale" },
-            { label: "Micro Finance", value: "Micro Finance" },
-            { label: "Micro Credit", value: "Micro Credit" },
-            { label: "Restaurant", value: "Restaurant" },
-            { label: "Savings and Loans", value: "Savings and Loans" },
-            { label: "Fund Management", value: "Fund Management" }
+            { label: 'Wholesale', value: 'Wholesale' },
+            { label: 'Micro Finance', value: 'Micro Finance' },
+            { label: 'Micro Credit', value: 'Micro Credit' },
+            { label: 'Restaurant', value: 'Restaurant' },
+            { label: 'Savings and Loans', value: 'Savings and Loans' },
+            { label: 'Fund Management', value: 'Fund Management' },
           ]}
-          label={"Business Type"}
-          placeholder={"e.g. Retail"}
-          id={"business_type"}
+          label={'Business Type'}
+          placeholder={'e.g. Retail'}
+          id={'business_type'}
           {...form}
           handleChange={(e: any) => {
             dispatch(updateSubscriberState({ business_type: e.target.value }));
           }}
-        />
+        /> */}
       </div>
     </div>
   );

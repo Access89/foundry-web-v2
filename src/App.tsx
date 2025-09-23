@@ -21,6 +21,7 @@ import OperationsExpansion from './pages/operations-expansion';
 import FinancialServiceExpansion from './pages/financial-service-expansion';
 import BecomePartner from './pages/contact/become-partner';
 import ViewUseCase from './pages/new-use-cases/view-use-cases';
+import DownloadAppsAndOtherOffers from './pages/onboarding/_components/_tabs/download-apps-and-other-offers';
 const Home = lazy(() => import('./pages/home'));
 const BusinessAutomation = lazy(() => import('./pages/business_automation'));
 const Loan = lazy(() => import('./pages/loan'));
@@ -81,6 +82,10 @@ function App() {
           />
 
           <Route path="pricing" element={<Pricing />} />
+          <Route
+            path="onboarding/download-apps-and-other-offers"
+            element={<DownloadAppsAndOtherOffers />}
+          />
           <Route
             path="logistics-supply-chain"
             element={<LogisticsAndSupply />}
