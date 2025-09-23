@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useFormik } from 'formik';
 import CustomInput from '../_form/Input';
-// import SelectInput from '../_form/Select-Input';
+import SelectInput from '../_form/Select-Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateSubscriberState } from '@/store/features/subscriber';
 import { useEffect } from 'react';
@@ -12,18 +12,18 @@ const BasicInformation = () => {
   const {
     customer_name,
     business_location,
-    // business_type,
+    business_type,
     business_owner,
-    // nature_of_business,
+    nature_of_business,
   } = useSelector((state: RootState) => state.subscriber);
 
   useEffect(() => {
     if (
       customer_name !== '' &&
       business_location !== '' &&
-      // business_type !== '' &&
-      business_owner !== ''
-      // nature_of_business !== ''
+      business_type !== '' &&
+      business_owner !== '' &&
+      nature_of_business !== ''
     ) {
       dispatch(
         updateSubscriberState({
@@ -34,9 +34,9 @@ const BasicInformation = () => {
   }, [
     business_location,
     customer_name,
-    // business_type,
+    business_type,
     business_owner,
-    // nature_of_business,
+    nature_of_business,
     dispatch,
   ]);
 
@@ -44,9 +44,9 @@ const BasicInformation = () => {
     initialValues: {
       business_name: customer_name || '',
       location: business_location || '',
-      // business_type: business_type || '',
+      business_type: business_type || '',
       business_owner: business_owner || '',
-      // nature_of_business: nature_of_business || '',
+      nature_of_business: nature_of_business || '',
     },
     onSubmit: () => {},
   });
@@ -98,13 +98,25 @@ const BasicInformation = () => {
             );
           }}
         />
-        {/* <SelectInput
+        <SelectInput
           items={[
             {
               label: 'Limited Liability Company',
               value: 'Limited Liability Company',
             },
             { label: 'Sole Proprietorship', value: 'Sole Proprietorship' },
+            {
+              label: 'Publicly Listed Company',
+              value: 'Publicly Listed Company',
+            },
+            {
+              label: 'Private Limited Company',
+              value: 'Private Limited Company',
+            },
+
+            { label: 'General Partnership', value: 'General Partnership' },
+            { label: 'Limited Partnership', value: 'Limited Partnership' },
+            { label: 'Other', value: 'Other' },
           ]}
           label={'Nature of Business'}
           placeholder={'e.g. Limited Liability Company'}
@@ -115,18 +127,25 @@ const BasicInformation = () => {
               updateSubscriberState({ nature_of_business: e.target.value }),
             );
           }}
-        /> */}
-        {/* <SelectInput
+        />
+        <SelectInput
           items={[
             // { label: 'Hospital', value: 'Hospital' },
             { label: 'Retail', value: 'Retail' },
-            // { label: 'School', value: 'School' },
-            { label: 'Wholesale', value: 'Wholesale' },
-            { label: 'Micro Finance', value: 'Micro Finance' },
-            { label: 'Micro Credit', value: 'Micro Credit' },
-            { label: 'Restaurant', value: 'Restaurant' },
-            { label: 'Savings and Loans', value: 'Savings and Loans' },
+            { label: 'Financial Services', value: 'Financial Services' },
+            {
+              label: 'Electric Vehicle Charging Station',
+              value: 'Electric Vehicle Charging Station',
+            },
             { label: 'Fund Management', value: 'Fund Management' },
+            { label: 'Restaurant', value: 'Restaurant' },
+            {
+              label: 'Logistics & Supply Chain',
+              value: 'Logistics & Supply Chain',
+            },
+            { label: 'Manufacturing', value: 'Manufacturing' },
+            { label: 'Fintech', value: 'Fintech' },
+            { label: 'Other', value: 'Other' },
           ]}
           label={'Business Type'}
           placeholder={'e.g. Retail'}
@@ -135,7 +154,7 @@ const BasicInformation = () => {
           handleChange={(e: any) => {
             dispatch(updateSubscriberState({ business_type: e.target.value }));
           }}
-        /> */}
+        />
       </div>
     </div>
   );
