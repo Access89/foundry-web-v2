@@ -5,11 +5,23 @@ import { Icon } from '@iconify/react/dist/iconify.js';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { PopupButton } from 'react-calendly';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 const BookADemo = () => {
   const navigate = useNavigate();
   const calendlyButtonRef = useRef<HTMLDivElement>(null);
   const [isloading, setIsLoading] = useState(true);
+
+  const {
+    customer_name,
+    business_location,
+    business_type,
+    business_owner,
+    nature_of_business,
+    email,
+    mobile,
+  } = useSelector((state: RootState) => state.subscriber);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -67,6 +79,17 @@ const BookADemo = () => {
           url="https://calendly.com/payments-noreply-access89/foundry-demo"
           rootElement={document.getElementById('root')!}
           text="Schedule a Meeting"
+          prefill={{
+            name: business_owner || '',
+            email: email || '',
+            // customAnswers: {
+            //   a1: customer_name || '',
+            //   a2: business_type || '',
+            //   a3: business_location || '',
+            //   a4: nature_of_business || '',
+            //   a5: mobile || '',
+            // },
+          }}
         />
       </p>
     </div>

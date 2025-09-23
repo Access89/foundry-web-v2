@@ -15,7 +15,9 @@ type TReturnValue = void | string;
 
 const Onboarding = () => {
   const navigate = useNavigate();
-  const { safe } = useSelector((state: RootState) => state.subscriber);
+  const { safe, business_type, nature_of_business } = useSelector(
+    (state: RootState) => state.subscriber,
+  );
 
   const dispatch = useDispatch();
 
@@ -33,29 +35,37 @@ const Onboarding = () => {
         navigate(-1);
       },
       next: () => {
-        return 'basic-information';
+        return 'business-information';
       },
       component: <Country />,
     },
-    'basic-information': {
+    'business-information': {
       prev: () => {
         return 'country';
       },
       next: () => {
-        return 'business-information';
-      },
-      component: <BasicInformation />,
-    },
-    'business-information': {
-      prev: () => {
-        return 'basic-information';
-      },
-      next: () => {
-        // return "password";
-        navigate('password');
+        if (
+          nature_of_business === 'Sole Proprietorship' &&
+          business_type === 'Retail'
+        ) {
+          return 'basic-information';
+        } else {
+          navigate('/book-a-demo');
+        }
       },
       component: <BusinessInformation />,
     },
+
+    'basic-information': {
+      prev: () => {
+        return 'business-information';
+      },
+      next: () => {
+        navigate('password');
+      },
+      component: <BasicInformation />,
+    },
+
     // password: {
     //   prev: () => {
     //     return "business-information";
@@ -91,7 +101,7 @@ const Onboarding = () => {
             ? 'bg-[#4C7F64] text-white shadow-[#4C7F64]/30'
             : 'bg-gray-300 text-gray-500 shadow-none cursor-not-allowed'
         }`}
-        onClick={() => {
+        onPress={() => {
           const returnValue = tabs?.[activeTab]?.next();
           if (typeof returnValue == 'string') {
             setActiveTab(returnValue as ITab);
