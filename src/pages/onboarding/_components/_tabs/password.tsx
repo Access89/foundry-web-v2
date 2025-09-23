@@ -10,7 +10,7 @@ import {
 import { RootState } from '@/store/store';
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
-import { variables } from '@/utils/helper';
+// import { variables } from '@/utils/helper';
 import { mutateFn } from '@/services/mutation.api';
 import { useMutation } from 'react-query';
 import { CustomButton } from '@/components/shared/shared_customs';

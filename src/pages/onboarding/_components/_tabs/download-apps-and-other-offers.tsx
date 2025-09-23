@@ -2,7 +2,7 @@ import { CustomButton } from '@/components/shared/shared_customs';
 import { allPlans } from '@/pages/pricing';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { cn } from '@nextui-org/react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const appList = [
   {
@@ -25,7 +25,7 @@ const appList = [
 ];
 
 const DownloadAppsAndOtherOffers = () => {
-  const navigate = useNavigate();
+  //   const navigate = useNavigate();
   return (
     <section className="flex flex-col gap-10">
       <div className="text-center mb-8">
@@ -34,8 +34,8 @@ const DownloadAppsAndOtherOffers = () => {
         </h2>
         <p className="text-gray-600 mb-6">
           You have successfully signed up and are on the{' '}
-          <span className="font-bold">FREE</span> plan. This gives you access to
-          this suite of apps:
+          <span className="font-bold">FREE TIER</span> plan. This gives you
+          access to this suite of apps:
         </p>
       </div>
 
