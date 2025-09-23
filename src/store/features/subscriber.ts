@@ -9,8 +9,8 @@ export type SubscriberStateType = {
 	mobile: string;
 	password: string,
 	business_location: string,
-	nature_of_business: string,
-	business_type: string,
+	// nature_of_business: string,
+	// business_type: string,
 	safe?: boolean
 	business_owner: string,
 };
@@ -25,8 +25,8 @@ const initialState: SubscriberStateType = {
 	mobile: "",
 	password: "",
 	business_location: "",
-	nature_of_business: "",
-	business_type: "",
+	// nature_of_business: "",
+	// business_type: "",
 	safe: true
 };
 
