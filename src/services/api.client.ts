@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { variables } from "@/utils/helper";
+// import { variables } from "@/utils/helper";
 import axios, { AxiosRequestConfig } from "axios";
 
 
