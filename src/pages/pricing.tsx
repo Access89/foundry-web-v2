@@ -45,26 +45,24 @@ const Pricing = () => {
     return grouped;
   }, [filteredPlans]);
 
-  console.log({ filteredPlans });
-
   // Scroll functions for category navigation
-  const scrollLeft = () => {
-    if (categoryScrollRef.current) {
-      categoryScrollRef.current.scrollBy({
-        left: -200,
-        behavior: 'smooth',
-      });
-    }
-  };
+  // const scrollLeft = () => {
+  //   if (categoryScrollRef.current) {
+  //     categoryScrollRef.current.scrollBy({
+  //       left: -200,
+  //       behavior: 'smooth',
+  //     });
+  //   }
+  // };
 
-  const scrollRight = () => {
-    if (categoryScrollRef.current) {
-      categoryScrollRef.current.scrollBy({
-        left: 200,
-        behavior: 'smooth',
-      });
-    }
-  };
+  // const scrollRight = () => {
+  //   if (categoryScrollRef.current) {
+  //     categoryScrollRef.current.scrollBy({
+  //       left: 200,
+  //       behavior: 'smooth',
+  //     });
+  //   }
+  // };
 
   React.useEffect(() => {
     const scrollActive = () => {
@@ -294,33 +292,47 @@ const Pricing = () => {
                               />
                             </button>
 
-                            <div
-                              className={`overflow-y-auto transition-all duration-300 ease-in-out ${
-                                collapsedFeatures[plan.id.toString()]
-                                  ? 'max-h-0 opacity-0'
-                                  : 'max-h-96 opacity-100'
-                              }`}
-                            >
-                              <ul className="space-y-1 text-[0.8rem] lg:text-[0.9rem]">
-                                {plan.features.feature_list
-                                  .map((feature) => feature.split(':')[1])
-                                  .filter(
-                                    (featureText) =>
-                                      featureText && featureText.trim(),
-                                  )
-                                  .map((featureText, i) => (
-                                    <li
-                                      key={i}
-                                      className="flex items-center gap-2"
-                                    >
-                                      <Icon
-                                        icon={'uil:check'}
-                                        className="text-primary"
-                                      />
-                                      <span>{featureText}</span>
-                                    </li>
-                                  ))}
-                              </ul>
+                            <div className="relative">
+                              <div
+                                className={`overflow-y-auto h-52 transition-all duration-300 ease-in-out scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 ${
+                                  collapsedFeatures[plan.id.toString()]
+                                    ? 'max-h-0 opacity-0'
+                                    : 'max-h-96 opacity-100'
+                                }`}
+                              >
+                                <ul className="space-y-1 text-[0.8rem] lg:text-[0.9rem] pr-2">
+                                  {plan.features.feature_list
+                                    .map((feature) => feature.split(':')[1])
+                                    .filter(
+                                      (featureText) =>
+                                        featureText && featureText.trim(),
+                                    )
+                                    .map((featureText, i) => (
+                                      <li
+                                        key={i}
+                                        className="flex items-start gap-2"
+                                      >
+                                        <p>
+                                          <Icon
+                                            icon={'uil:check'}
+                                            className="text-primary"
+                                          />
+                                        </p>
+                                        <span>{featureText}</span>
+                                      </li>
+                                    ))}
+                                </ul>
+                              </div>
+                              {/* Scroll hint */}
+                              {!collapsedFeatures[plan.id.toString()] && (
+                                <div className="absolute bottom-2 right-2 text-xs text-gray-400 flex items-center gap-1">
+                                  <Icon
+                                    icon="lucide:mouse-pointer-click"
+                                    className="w-3 h-3"
+                                  />
+                                  <span>scroll</span>
+                                </div>
+                              )}
                             </div>
                           </div>
                         </div>
