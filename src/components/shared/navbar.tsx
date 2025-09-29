@@ -106,7 +106,7 @@ export default function NavbarComponent() {
             Sign up
           </CustomButton>
           <CustomButton
-            className="bg-[#EDF2EE] border-2 border-secondary text-primary"
+            className="bg-[#EDF2EE] border-2 border-primary text-primary"
             onPress={() =>
               window.open('https://foundry-platform.com', '_blank')
             }
