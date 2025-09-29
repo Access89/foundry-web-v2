@@ -7,7 +7,8 @@ import { useSubscriptionPlans } from '@/utils/useSubscriptionPlans';
 import { useNavigate } from 'react-router-dom';
 import CustomModal from '@/components/shared/modal';
 import { apiClient } from '@/services/api.client';
-import { variables } from '@/utils/helper';
+import { parseCurrency, variables } from '@/utils/helper';
+import toast from 'react-hot-toast';
 
 const PricingPage = ({
   category,
@@ -53,11 +54,11 @@ const PricingPage = ({
 
       // Show success message or redirect
       // You can add a toast notification here
-      alert('Plan upgraded successfully!');
-    } catch (error) {
+      toast.success('Plan upgraded successfully!');
+    } catch (error: any) {
       console.error('Error upgrading plan:', error);
       // Show error message
-      alert('Failed to upgrade plan. Please try again.');
+      toast.error(`Failed to upgrade plan. ${error?.response?.data?.message}`);
     } finally {
       setIsUpgrading(false);
     }
@@ -224,9 +225,10 @@ const PricingPage = ({
                   </p>
                   <p>
                     <span className="font-medium">Price:</span>{' '}
-                    {selectedPlan?.bundles?.[0]?.currency?.String ||
-                      selectedPlan.currency ||
-                      '₵'}{' '}
+                    {parseCurrency(
+                      selectedPlan?.bundles?.[0]?.currency?.String ||
+                        selectedPlan.currency,
+                    ) || '₵'}{' '}
                     {selectedPlan?.bundles?.[0]?.price || '0'} /{' '}
                     {selectedPlan.billing_frequency}
                   </p>
@@ -246,6 +248,7 @@ const PricingPage = ({
                 Cancel
               </CustomButton>
               <CustomButton
+                isLoading={isUpgrading}
                 className="bg-primary text-white px-6 py-2"
                 disabled={isUpgrading || !customerId}
                 onPress={() => {
@@ -259,7 +262,7 @@ const PricingPage = ({
                   });
                 }}
               >
-                {isUpgrading ? 'Upgrading...' : 'Confirm Subscription'}
+                Confirm Subscription
               </CustomButton>
             </div>
           </div>
