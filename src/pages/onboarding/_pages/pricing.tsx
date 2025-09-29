@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { cn, Spinner } from '@nextui-org/react';
+import { cn } from '@nextui-org/react';
 import React from 'react';
 import { useSubscriptionPlans } from '@/utils/useSubscriptionPlans';
 import { useNavigate } from 'react-router-dom';
