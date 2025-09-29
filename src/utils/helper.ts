@@ -11,3 +11,11 @@ export const variables = {
   redirectUrl: environment.VITE_REDIRECT_URL,
   subscription_base_url: environment.VITE_SUBSCRIPTION_BASE_URL,
 };
+
+
+export const parseCurrency = (currency: string) => {
+  if (currency === 'USD') return '$';
+  if (currency === 'EUR') return '€';
+  if (currency === 'GBP') return '£';
+  return '₵';
+};
