@@ -129,7 +129,7 @@ const ContactPage = () => {
       </form>
       <div className="pt-10 text-center">
         <p className="font-light text-xs">You may also contact via</p>
-        <p className="font-light text-sm">Phone: +233 54 256 0336</p>
+        {/* <p className="font-light text-sm">Phone: +233 54 256 0336</p> */}
         <p className="font-light text-sm">Email: hello@access89.com</p>
       </div>
     </div>
