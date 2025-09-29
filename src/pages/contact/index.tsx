@@ -1,24 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "@nextui-org/react";
-import { CustomButton } from "@/components/shared/shared_customs";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
-import { useMutation } from "react-query";
-import { mutateFn } from "@/services/mutation.api";
-import { variables } from "@/utils/helper";
+import { z } from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Input } from '@nextui-org/react';
+import { CustomButton } from '@/components/shared/shared_customs';
+import { Icon } from '@iconify/react/dist/iconify.js';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { useMutation } from 'react-query';
+import { mutateFn } from '@/services/mutation.api';
+import { variables } from '@/utils/helper';
 
 const contactFormSchema = z.object({
-  name: z.string().min(1, { message: "Name is required" }),
+  name: z.string().min(1, { message: 'Name is required' }),
   email: z
     .string()
-    .email({ message: "Please enter a valid email address" })
-    .min(1, { message: "Email is required" }),
-  phone_number: z.string().min(1, { message: "Phone number is required" }),
-  message: z.string().min(1, { message: "Message is required" }),
+    .email({ message: 'Please enter a valid email address' })
+    .min(1, { message: 'Email is required' }),
+  phone_number: z.string().min(1, { message: 'Phone number is required' }),
+  message: z.string().min(1, { message: 'Message is required' }),
 });
 
 const ContactPage = () => {
@@ -44,10 +44,10 @@ const ContactPage = () => {
         reset();
       },
       onError: (error: any) => {
-        console.error("Error sending contact form:", error);
-        toast.error("Failed to send your message. Please try again.");
+        console.error('Error sending contact form:', error);
+        toast.error('Failed to send your message. Please try again.');
       },
-    }
+    },
   );
 
   const onSubmit = (data: z.infer<typeof contactFormSchema>) => {
@@ -59,7 +59,7 @@ const ContactPage = () => {
       <div className="lg:pb-8 pb-4">
         <div
           className="flex items-center justify-start cursor-pointer lg:pb-4 pb-2"
-          onClick={() => navigate("/")}
+          onClick={() => navigate(-1)}
         >
           <Icon icon="fluent:arrow-left-16-filled" height={25} />
         </div>
@@ -80,7 +80,7 @@ const ContactPage = () => {
             label="Name"
             placeholder="e.g., John Doe"
             className="w-full"
-            {...register("name")}
+            {...register('name')}
           />
           <span className="text-red-400 text-xs">{errors?.name?.message}</span>
         </div>
@@ -90,7 +90,7 @@ const ContactPage = () => {
             placeholder="e.g., john.doe@example.com"
             type="email"
             className="w-full"
-            {...register("email")}
+            {...register('email')}
           />
           <span className="text-red-400 text-xs">{errors?.email?.message}</span>
         </div>
@@ -100,7 +100,7 @@ const ContactPage = () => {
             placeholder="e.g., +1234567890"
             type="tel"
             className="w-full"
-            {...register("phone_number")}
+            {...register('phone_number')}
           />
           <span className="text-red-400 text-xs">
             {errors?.phone_number?.message}
@@ -111,7 +111,7 @@ const ContactPage = () => {
             label="Message"
             placeholder="Enter your message here"
             className="w-full"
-            {...register("message")}
+            {...register('message')}
           />
           <span className="text-red-400 text-xs">
             {errors?.message?.message}

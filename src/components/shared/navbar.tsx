@@ -75,7 +75,7 @@ export default function NavbarComponent() {
         className="hidden lg:flex gap-4 justify-between w-full "
         justify="center"
       >
-        <div className="flex mx-auto gap-x-2  items-center ">
+        <div className="flex mx-auto gap-x-4  items-center ">
           {menuItems.map((item, index) =>
             item.subItems ? (
               <CustomeDropdownDesktop key={index} item={item as any} />
@@ -263,6 +263,10 @@ const menuItems = [
   //     },
   //   ],
   // },
+  {
+    title: 'Home',
+    link: '/',
+  },
   {
     title: 'Our Platforms',
     link: '/our-platforms',
@@ -505,5 +509,9 @@ const menuItems = [
     title: 'Developer',
     link: 'https://developer.access89.com',
     external: true,
+  },
+  {
+    title: 'Pricing',
+    link: '/pricing',
   },
 ];

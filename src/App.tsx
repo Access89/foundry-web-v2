@@ -22,6 +22,7 @@ import FinancialServiceExpansion from './pages/financial-service-expansion';
 import BecomePartner from './pages/contact/become-partner';
 import ViewUseCase from './pages/new-use-cases/view-use-cases';
 import DownloadAppsAndOtherOffers from './pages/onboarding/_components/_tabs/download-apps-and-other-offers';
+import UpgradePlan from './pages/onboarding/_pages/upgrade-plan';
 const Home = lazy(() => import('./pages/home'));
 const BusinessAutomation = lazy(() => import('./pages/business_automation'));
 const Loan = lazy(() => import('./pages/loan'));
@@ -102,6 +103,7 @@ function App() {
             path="logistics-supply-chain/trucking"
             element={<Trucking />}
           />
+          <Route path="upgrade-plan/:category/:id" element={<UpgradePlan />} />
         </Route>
         <Route path="book-a-demo" element={<BookADemo />} />
         <Route path="become-partner" element={<BecomePartner />} />

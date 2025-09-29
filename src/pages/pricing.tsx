@@ -5,10 +5,61 @@ import ScrollIntoView from 'react-scroll-into-view';
 import { Link, useNavigate } from 'react-router-dom';
 import { Image, cn } from '@nextui-org/react';
 import CustomFAQs from '@/components/shared/custom-faq';
+import { useSubscriptionPlans } from '@/utils/useSubscriptionPlans';
 
 const Pricing = () => {
   const [, setActiveHash] = React.useState('');
   const [selectedToolOption, setSelectedToolOption] = React.useState('All');
+  const [selectedCategory, setSelectedCategory] = React.useState('All');
+  const categoryScrollRef = React.useRef<HTMLDivElement>(null);
+
+  // Fetch all plans
+  const { plans, isLoading, error } = useSubscriptionPlans();
+
+  // Get unique categories from plans
+  const categories = React.useMemo(() => {
+    const uniqueCategories = new Set(plans.map((plan) => plan.category_name));
+    return ['All', ...Array.from(uniqueCategories)];
+  }, [plans]);
+
+  // Filter plans by selected category
+  const filteredPlans = React.useMemo(() => {
+    if (selectedCategory === 'All') return plans;
+    return plans.filter((plan) => plan.category_name === selectedCategory);
+  }, [plans, selectedCategory]);
+
+  // Group plans by category
+  const plansByCategory = React.useMemo(() => {
+    const grouped: { [key: string]: typeof plans } = {};
+    filteredPlans.forEach((plan) => {
+      if (!grouped[plan.category_name]) {
+        grouped[plan.category_name] = [];
+      }
+      grouped[plan.category_name].push(plan);
+    });
+    return grouped;
+  }, [filteredPlans]);
+
+  console.log({ filteredPlans });
+
+  // Scroll functions for category navigation
+  const scrollLeft = () => {
+    if (categoryScrollRef.current) {
+      categoryScrollRef.current.scrollBy({
+        left: -200,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (categoryScrollRef.current) {
+      categoryScrollRef.current.scrollBy({
+        left: 200,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   React.useEffect(() => {
     const scrollActive = () => {
@@ -35,7 +86,7 @@ const Pricing = () => {
       {/* hero */}
       <section className="container">
         <div className=" bg-primary/10  rounded-xl  relative overflow-hidden flex flex-col">
-          <div className="lg:px-28 md:pt-16 md:pb-28 px-5 flex flex-col-reverse md:flex-col">
+          <div className="lg:px-28 md:pt-16 md:pb-36 px-5 flex flex-col-reverse md:flex-col">
             <div className="lg:max-w-lg md:max-w-xs">
               <h1 className="font-medium text-3xl md:text-4xl">
                 Enabling every aspect of your business operations.
@@ -46,11 +97,17 @@ const Pricing = () => {
                 trusted by millions of businesses.
               </p>
 
-              <div className="flex items-center gap-x-4">
-                <CustomButton className="bg-transparent border-2 border-primary px-5 ">
+              <div className="flex items-center gap-x-4 mb-10">
+                <CustomButton
+                  onClick={() => navigate('/onboarding')}
+                  className="bg-transparent border-2 border-primary px-5 "
+                >
                   Get Started
                 </CustomButton>
-                <CustomButton className="bg-primary text-white font-medium px-5 ">
+                <CustomButton
+                  onClick={() => navigate('/book-a-demo')}
+                  className="bg-primary text-white font-medium px-5 "
+                >
                   Contact Sales
                 </CustomButton>
               </div>
@@ -58,8 +115,8 @@ const Pricing = () => {
             <Image
               src="/images/LS_3.webp"
               alt="AI marketplace"
-              width={336}
-              height={458}
+              width={306}
+              height={408}
               classNames={{
                 wrapper: 'md:absolute right-10 rounded-none top-0',
                 img: 'rounded-none',
@@ -67,7 +124,7 @@ const Pricing = () => {
             />
           </div>
 
-          <div className="border-t p-4 mt-16 grid grid-cols-auto-fill-150 xl:grid-cols-auto-fill-200 gap-5">
+          <div className="border-t p-4 mt-16  grid-cols-auto-fill-150 xl:grid-cols-auto-fill-200 gap-5 hidden">
             {navLinks.map((subNav, index) => (
               <CustomButton
                 key={index}
@@ -88,58 +145,172 @@ const Pricing = () => {
       <section id="plans" className="py-16">
         <div className="container">
           <h2 className="font-medium text-3xl lg:text-4xl mb-5">
-            Plans for every stage
+            Plans for every need
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:pt-8 pt-4">
-            {allPlans.map((plan, index) => (
-              <div
-                key={index}
-                className="p-4 bg-[#619B7D]/10 rounded-lg cursor-pointer hover:scale-[1.01] duration-300 flex flex-col"
-              >
-                <div className="mb-2">
-                  <h3 className="text-[1.2rem] lg:text-[2rem] font-medium">
-                    {plan.title}
-                  </h3>
-                  <p className="lg:text-[0.9rem] text-[0.8rem] font-light text-secondary-black">
-                    {plan.description}
-                  </p>
-                </div>
-                <div className="flex-grow">
-                  <h6 className="font-semibold text-[1rem] mb-1">Features</h6>
-                  <ul className="space-y-1 text-[0.8rem] lg:text-[0.9rem]">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <Icon icon={'uil:check'} className="text-primary" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-4">
-                  <p>
-                    <span className="lg:text-[2.3rem] text-[1.5rem] font-medium">
-                      {plan.price}
-                    </span>
-                    {index !== 3 && <span className="text-sm">/mo</span>}
-                  </p>
+
+          {/* Category Filter */}
+          <div className="relative mb-10">
+            <div
+              ref={categoryScrollRef}
+              className="flex gap-5 overflow-x-auto scrollbar-hide pb-4 mx-10"
+            >
+              {categories.map((category) => (
+                <div key={category} className="flex-shrink-0">
                   <CustomButton
+                    disabled={selectedCategory === category}
+                    onPress={() => setSelectedCategory(category)}
                     className={cn(
-                      'bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]',
-                      index === 3 &&
-                        'border-2 border-primary bg-transparent text-primary',
+                      'whitespace-nowrap relative cursor-pointer rounded-md text-secondary bg-transparent border-2 border-secondary font-medium flex items-center gap-x-2 transition-all  px-4 py-2',
+                      selectedCategory === category &&
+                        'text-white bg-secondary disabled:cursor-not-allowed',
                     )}
-                    onClick={() =>
-                      index === 3
-                        ? navigate('/custom-plan')
-                        : navigate('/onboarding')
-                    }
                   >
-                    {index === 3 ? 'Contact Sales' : 'Get Started'}
+                    {category}
                   </CustomButton>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={scrollLeft}
+              className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 opacity-50 hover:opacity-100 transition-all duration-300 hover:bg-white shadow-lg rounded-full flex items-center justify-center z-10"
+            >
+              <Icon
+                icon="lucide:arrow-left"
+                className="text-secondary text-lg"
+              />
+            </button>
+            <button
+              onClick={scrollRight}
+              className="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 opacity-50 hover:opacity-100 transition-all duration-300 hover:bg-white shadow-lg rounded-full flex items-center justify-center z-10"
+            >
+              <Icon
+                icon="lucide:arrow-right"
+                className="text-secondary text-lg"
+              />
+            </button>
           </div>
+
+          {/* Loading State */}
+          {isLoading ? (
+            <div className="text-center py-8">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+              <p className="mt-4 text-secondary-black">Loading plans...</p>
+            </div>
+          ) : error ? (
+            <div className="text-center py-8">
+              <p className="text-red-500">
+                Error loading plans. Please try again.
+              </p>
+            </div>
+          ) : (
+            <>
+              {/* Plans by Category */}
+              {Object.keys(plansByCategory).map((categoryName) => (
+                <div key={categoryName} className="mb-12">
+                  <h3 className="font-medium text-2xl lg:text-3xl mb-6 text-center">
+                    {categoryName}
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2  gap-4">
+                    {plansByCategory[categoryName].map((plan) => (
+                      <div
+                        key={plan.id}
+                        className="p-4 bg-[#619B7D]/10 rounded-lg cursor-pointer flex flex-col"
+                      >
+                        <div className="mb-2">
+                          <h3 className="text-[1.2rem] lg:text-[2rem] font-medium">
+                            {plan.plan_name}
+                          </h3>
+                          <p className="lg:text-[0.9rem] text-[0.8rem] font-light text-secondary-black">
+                            {plan.description}
+                          </p>
+                        </div>
+                        <div className="flex-grow">
+                          <h6 className="font-semibold text-[1rem] mb-1">
+                            Features
+                          </h6>
+                          <ul className="space-y-1 text-[0.8rem] lg:text-[0.9rem]">
+                            {plan.features.feature_list.map((feature, i) => (
+                              <li key={i} className="flex items-center gap-2">
+                                <Icon
+                                  icon={'uil:check'}
+                                  className="text-primary"
+                                />
+                                <span>{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+
+                          {/* Bundles */}
+                          {/* {plan.bundles && plan.bundles.length > 0 && (
+                            <div className="mt-4">
+                              <h6 className="font-semibold text-[1rem] mb-1">
+                                Add-ons
+                              </h6>
+                              <ul className="space-y-1 text-[0.8rem] lg:text-[0.9rem]">
+                                {plan.bundles.map((bundle) => (
+                                  <li
+                                    key={bundle.id}
+                                    className="flex items-center gap-2"
+                                  >
+                                    <Icon
+                                      icon={'uil:plus'}
+                                      className="text-secondary"
+                                    />
+                                    <span>{bundle.bundle_name}</span>
+                                    {bundle.price && (
+                                      <span className="text-primary font-medium">
+                                        - {bundle.currency.String}{' '}
+                                        {bundle.price}
+                                      </span>
+                                    )}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )} */}
+                        </div>
+                        <div className="mt-4">
+                          {['Enterprise'].includes(plan.plan_name) ? (
+                            <p></p>
+                          ) : (
+                            <p>
+                              <span className="lg:text-[2.3rem] text-[1.5rem] font-medium">
+                                {plan?.bundles?.[0]?.currency?.String ||
+                                  plan.currency ||
+                                  '₵'}{' '}
+                                {plan?.bundles?.[0]?.price || '0'}
+                              </span>
+                              <span className="text-sm">
+                                /{plan.billing_frequency}
+                              </span>
+                            </p>
+                          )}
+
+                          {['Enterprise'].includes(plan.plan_name) ? (
+                            <CustomButton
+                              className="bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
+                              onPress={() => navigate('/contact')}
+                            >
+                              Contact Sales
+                            </CustomButton>
+                          ) : (
+                            <CustomButton
+                              className="bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
+                              onPress={() => navigate('/onboarding')}
+                            >
+                              Get Started
+                            </CustomButton>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
 
           <div className="hidden">
             <h2 className="font-medium text-3xl lg:text-4xl mb-5 mt-10">
@@ -165,7 +336,7 @@ const Pricing = () => {
       </section>
 
       {/* Tools to mix & match */}
-      <section id="explore-tools" className="py-16">
+      <section id="explore-tools" className="py-16 hidden">
         <div className="container">
           <h2 className="font-medium text-3xl lg:text-4xl mb-5">
             Tools to mix & match
@@ -207,7 +378,7 @@ const Pricing = () => {
       {/* Processing Fees */}
       <section
         id="processing-fees"
-        className=" bg-primary hidden p-5 md:p-10 my-10 md:py-16 w-full text-primary-white"
+        className=" bg-primary  p-5 md:p-10 my-10 md:py-16 w-full text-primary-white hidden"
       >
         <div className="container">
           <h2 className="font-medium text-3xl lg:text-4xl mb-5">
@@ -253,7 +424,7 @@ const Pricing = () => {
       </section>
 
       {/* Adaptable hardware solutions */}
-      <section id="shop-hardware" className="py-10">
+      <section id="shop-hardware" className="py-10 hidden">
         <div className="container">
           <h2 className="font-medium text-3xl lg:text-4xl">
             Adaptable hardware solutions
@@ -302,7 +473,7 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="container md:grid grid-cols-[0.2fr,1fr] py-10 pb-16">
+      <section className="container md:grid grid-cols-[0.2fr,1fr] py-10 pb-16 ">
         <h2 className="font-medium text-3xl md:text-4xl mb-5">FAQ</h2>
         <CustomFAQs options={faqQuestion} />
       </section>
@@ -525,27 +696,6 @@ const navLinks = [
   },
 ];
 
-// const allPlans = [
-// 	{
-// 		title: 'Free',
-// 		description:
-// 			'Optimize resources and time slots to optimise bookings to minimise gaps and maximise utilisation',
-// 		price: '₵0',
-// 	},
-// 	{
-// 		title: 'Plus',
-// 		description:
-// 			'Streamline the allocation of resources and time slots, optimising bookings to minimise gaps and maximise utilisation',
-// 		price: '₵3000+',
-// 	},
-// 	{
-// 		title: 'Premium',
-// 		description:
-// 			'Streamline the allocation of resources and time slots, optimising bookings to minimise gaps and maximise utilisation',
-// 		price: 'Custom',
-// 	},
-// ];
-
 const mix_and_match = [
   {
     title: 'Foundry POS ',
@@ -590,6 +740,7 @@ const mix_and_match = [
     tags: [],
   },
 ];
+
 export const allPlans = [
   {
     title: 'Free Tier',
