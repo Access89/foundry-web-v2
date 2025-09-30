@@ -3,12 +3,13 @@ import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { cn } from '@nextui-org/react';
 import React from 'react';
-import { useSubscriptionPlans } from '@/utils/useSubscriptionPlans';
 import { useNavigate } from 'react-router-dom';
 import CustomModal from '@/components/shared/modal';
 import { apiClient } from '@/services/api.client';
 import { parseCurrency, variables } from '@/utils/helper';
 import toast from 'react-hot-toast';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 const PricingPage = ({
   category,
@@ -23,12 +24,21 @@ const PricingPage = ({
   const [selectedPlan, setSelectedPlan] = React.useState<any>(null);
   const [isUpgrading, setIsUpgrading] = React.useState(false);
 
-  // Fetch plans filtered by category_id
-  const { plans, isLoading, error } = useSubscriptionPlans(
-    1,
-    1000,
-    category || '',
-  );
+  // Get plans from Redux store and filter by category
+  const {
+    plans: allPlans,
+    isLoading,
+    error,
+  } = useSelector((state: RootState) => state.plans);
+
+  // Filter plans by category if provided
+  const plans = React.useMemo(() => {
+    // if (!category) return allPlans;
+    // return allPlans.filter((plan) => plan.category_name === category);
+    return allPlans
+      .filter((plan) => !['Enterprise'].includes(plan.plan_name))
+      .reverse();
+  }, [allPlans, category]);
 
   const upgradePlan = async ({
     new_plan_id,
@@ -78,33 +88,6 @@ const PricingPage = ({
 
   return (
     <div className="lg:w-[80vw] lg:mx-auto lg:pt-12 p-6">
-      {/* <div>
-        <h4 className="font-semibold lg:text-[1.7rem] text-[1.2rem]">
-          Pricing Plan
-        </h4>
-        <p className="text-[#717173] font-light lg:text-[0.9rem] text-[0.8rem]">
-          Select a pricing plan that suits your organization.
-        </p>
-      </div> */}
-
-      {/* Category Filter */}
-      {/* <div className="flex gap-3 flex-wrap mt-6 mb-8">
-        {categories.map((category) => (
-          <CustomButton
-            key={category}
-            disabled={selectedCategory === category}
-            onPress={() => setSelectedCategory(category)}
-            className={cn(
-              'whitespace-nowrap relative cursor-pointer rounded-md text-secondary bg-transparent border-2 border-secondary font-medium flex items-center gap-x-2 transition-all px-4 py-2',
-              selectedCategory === category &&
-                'text-white bg-secondary disabled:cursor-not-allowed',
-            )}
-          >
-            {category}
-          </CustomButton>
-        ))}
-      </div> */}
-
       {/* Loading State */}
       {isLoading ? (
         <div className="text-center py-8">
@@ -123,7 +106,7 @@ const PricingPage = ({
               <h3 className="font-medium text-xl lg:text-2xl mb-4">
                 {categoryName}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {plansByCategory[categoryName].map((plan) => (
                   <div
                     key={plan.id}
@@ -191,8 +174,29 @@ const PricingPage = ({
               </div>
             </div>
           ))}
+
+          <section className="py-16">
+            <div className="container flex flex-col items-center justify-center">
+              <h2 className="font-medium text-3xl lg:text-4xl mb-5">
+                Looking for something extra?
+              </h2>
+              <p className="text-secondary-black mb-5">
+                Contact our sales team to explore our Enterprise plan and unlock
+                the full potential of Foundry.
+              </p>
+              <div>
+                <CustomButton
+                  className="bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
+                  onPress={() => navigate('/contact')}
+                >
+                  Contact Sales
+                </CustomButton>
+              </div>
+            </div>
+          </section>
         </>
       )}
+
       <CustomModal
         isOpen={openModal}
         onOpenChange={() => setOpenModal(!openModal)}
