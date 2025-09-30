@@ -5,8 +5,9 @@ import ScrollIntoView from 'react-scroll-into-view';
 import { Link, useNavigate } from 'react-router-dom';
 import { Image, cn } from '@nextui-org/react';
 import CustomFAQs from '@/components/shared/custom-faq';
-import { useSubscriptionPlans } from '@/utils/useSubscriptionPlans';
 import { parseCurrency } from '@/utils/helper';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 const Pricing = () => {
   const [, setActiveHash] = React.useState('');
@@ -16,8 +17,10 @@ const Pricing = () => {
   }>({});
   const categoryScrollRef = React.useRef<HTMLDivElement>(null);
 
-  // Fetch all plans
-  const { plans, isLoading, error } = useSubscriptionPlans();
+  // Get plans from Redux store
+  const { plans, isLoading, error } = useSelector(
+    (state: RootState) => state.plans,
+  );
 
   // Get unique categories from plans
   const categories = React.useMemo(() => {
@@ -25,7 +28,7 @@ const Pricing = () => {
     return [...Array.from(uniqueCategories)].reverse();
   }, [plans]);
 
-  const [selectedCategory, setSelectedCategory] = React.useState(categories[0]);
+  const [selectedCategory, setSelectedCategory] = React.useState('Foundry POS');
 
   // Filter plans by selected category
   const filteredPlans = React.useMemo(() => {
