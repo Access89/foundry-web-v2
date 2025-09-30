@@ -19,9 +19,7 @@ const MainLayout = () => {
       !lastFetched || Date.now() - lastFetched > 5 * 60 * 1000;
 
     if (shouldFetch && !isLoading) {
-      dispatch(
-        fetchSubscriptionPlans({ page: 1, limit: 10, category_id: '3' }) as any,
-      );
+      dispatch(fetchSubscriptionPlans({}) as any);
     }
   }, [dispatch, lastFetched, isLoading]);
 

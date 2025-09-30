@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { cn } from '@nextui-org/react';
+// import { cn } from '@nextui-org/react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CustomModal from '@/components/shared/modal';
 import { apiClient } from '@/services/api.client';
 import { parseCurrency, variables } from '@/utils/helper';
 import toast from 'react-hot-toast';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
+// import { useSelector } from 'react-redux';
+// import { RootState } from '@/store/store';
+import { useSubscriptionPlans } from '@/utils/useSubscriptionPlans';
 
 const PricingPage = ({
   category,
@@ -21,15 +22,32 @@ const PricingPage = ({
   const navigate = useNavigate();
 
   const [openModal, setOpenModal] = React.useState(false);
-  const [selectedPlan, setSelectedPlan] = React.useState<any>(null);
+  const [selectedPlan] = React.useState<any>(null);
   const [isUpgrading, setIsUpgrading] = React.useState(false);
 
+  const [collapsedFeatures, setCollapsedFeatures] = React.useState<{
+    [key: string]: boolean;
+  }>({});
+
+  const toggleFeatures = (planId: string) => {
+    setCollapsedFeatures((prev) => ({
+      ...prev,
+      [planId]: !prev[planId],
+    }));
+  };
+
   // Get plans from Redux store and filter by category
+  // const {
+  //   plans: allPlans,
+  //   isLoading,
+  //   error,
+  // } = useSelector((state: RootState) => state.plans);
+
   const {
     plans: allPlans,
     isLoading,
     error,
-  } = useSelector((state: RootState) => state.plans);
+  } = useSubscriptionPlans(1, 100, category || '');
 
   // Filter plans by category if provided
   const plans = React.useMemo(() => {
@@ -37,7 +55,8 @@ const PricingPage = ({
     // return allPlans.filter((plan) => plan.category_name === category);
     return allPlans
       .filter((plan) => !['Enterprise'].includes(plan.plan_name))
-      .reverse();
+      .reverse()
+      .filter((plan) => plan.category_id === Number(category));
   }, [allPlans, category]);
 
   const upgradePlan = async ({
@@ -90,9 +109,42 @@ const PricingPage = ({
     <div className="lg:w-[80vw] lg:mx-auto lg:pt-12 p-6">
       {/* Loading State */}
       {isLoading ? (
-        <div className="text-center py-8">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-          <p className="mt-4 text-secondary-black">Loading plans...</p>
+        <div className="space-y-8">
+          {/* Skeleton for category header */}
+          <div className="animate-pulse">
+            <div className="h-8 bg-gray-200 rounded w-48 mb-4"></div>
+          </div>
+
+          {/* Skeleton for plan cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[1, 2, 3].map((index) => (
+              <div
+                key={index}
+                className="p-4 bg-[#E4EEF0] rounded-lg animate-pulse"
+              >
+                {/* Plan name skeleton */}
+                <div className="h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
+
+                {/* Description skeleton */}
+                <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                <div className="h-4 bg-gray-200 rounded w-2/3 mb-4"></div>
+
+                {/* Features skeleton */}
+                <div className="space-y-2 mb-4">
+                  <div className="h-4 bg-gray-200 rounded w-full"></div>
+                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                  <div className="h-4 bg-gray-200 rounded w-4/5"></div>
+                  <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                </div>
+
+                {/* Price skeleton */}
+                <div className="h-8 bg-gray-200 rounded w-1/2 mb-4"></div>
+
+                {/* Button skeleton */}
+                <div className="h-10 bg-gray-200 rounded w-full"></div>
+              </div>
+            ))}
+          </div>
         </div>
       ) : error ? (
         <div className="text-center py-8">
@@ -102,98 +154,127 @@ const PricingPage = ({
         <>
           {/* Plans by Category */}
           {Object.keys(plansByCategory).map((categoryName) => (
-            <div key={categoryName} className="mb-8">
-              <h3 className="font-medium text-xl lg:text-2xl mb-4">
+            <div key={categoryName} className="mb-12 ">
+              <h3 className="font-medium text-2xl lg:text-3xl mb-6 text-center">
                 {categoryName}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {plansByCategory[categoryName].map((plan) => (
-                  <div
-                    key={plan.id}
-                    className="p-4 bg-[#E4EEF0] rounded-lg cursor-pointer  duration-300 flex flex-col"
-                  >
-                    <div className="mb-2">
-                      <h3 className="text-[1.2rem] lg:text-[2rem] font-medium">
-                        {plan.plan_name}
-                      </h3>
-                      <p className="lg:text-[0.9rem] text-[0.8rem] font-light text-secondary-black">
-                        {plan.description}
-                      </p>
-                    </div>
-                    <div className="flex-grow">
-                      <h6 className="font-semibold text-[1rem] mb-1">
-                        Features
-                      </h6>
-                      <ul className="space-y-1 text-[0.8rem] lg:text-[0.9rem]">
-                        {plan.features.feature_list.map((feature, i) => (
-                          <li key={i} className="flex items-center gap-2">
-                            <Icon icon={'uil:check'} className="text-primary" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="mt-4">
-                      {['Enterprise'].includes(plan.plan_name) ? (
-                        <p></p>
-                      ) : (
-                        <p>
-                          <span className="lg:text-[2.3rem] text-[1.5rem] font-medium">
-                            {plan?.bundles?.[0]?.currency?.String ||
-                              plan.currency ||
-                              '₵'}{' '}
-                            {plan?.bundles?.[0]?.price || '0'}
-                          </span>
-                          <span className="text-sm">
-                            /{plan.billing_frequency}
-                          </span>
+              <div className="grid grid-cols-1 md:grid-cols-3  gap-4">
+                {plansByCategory[categoryName]
+                  .filter((plan) => plan.plan_name !== 'Enterprise')
+                  .reverse()
+                  .map((plan) => (
+                    <div
+                      key={plan.id}
+                      className="p-6 bg-primary-light rounded-lg cursor-pointer flex flex-col"
+                    >
+                      <div className="mb-2">
+                        <h3 className="text-[1.2rem] lg:text-[1.8rem] font-medium capitalize">
+                          {plan.plan_name.toLocaleLowerCase()}
+                        </h3>
+                        <p className="lg:text-[0.9rem] h-16 text-[0.8rem] font-light text-secondary-black">
+                          {plan.description}
                         </p>
-                      )}
-                      <CustomButton
-                        className={cn(
-                          'bg-primary text-white font-medium w-full mt-2 py-2 lg:py-6 lg:text-[0.9rem]',
-                          ['Enterprise'].includes(plan.plan_name) &&
-                            'border-2 border-primary bg-transparent text-primary',
+                      </div>
+
+                      <div className="mt-20">
+                        {['Enterprise'].includes(plan.plan_name) ? (
+                          <p></p>
+                        ) : (
+                          <p>
+                            <span className="lg:text-[2.8rem] text-[1.5rem] font-medium">
+                              {parseCurrency(
+                                plan?.bundles?.[0]?.currency?.String ||
+                                  plan.currency,
+                              ) || '₵'}{' '}
+                              {plan?.bundles?.[0]?.price || '0'}
+                            </span>
+                            <span className="text-sm">
+                              /{plan.billing_frequency}
+                            </span>
+                          </p>
                         )}
-                        onPress={() => {
-                          if (['Enterprise'].includes(plan.plan_name)) {
-                            navigate('/contact');
-                          } else {
-                            setSelectedPlan(plan);
-                            setOpenModal(true);
-                          }
-                        }}
-                      >
-                        {['Enterprise'].includes(plan.plan_name)
-                          ? 'Contact Sales'
-                          : 'Subscribe'}
-                      </CustomButton>
+
+                        {['Enterprise'].includes(plan.plan_name) ? (
+                          <CustomButton
+                            className="bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
+                            onPress={() => navigate('/contact')}
+                          >
+                            Contact Sales
+                          </CustomButton>
+                        ) : (
+                          <CustomButton
+                            className="bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
+                            onPress={() => navigate('/onboarding')}
+                          >
+                            Get Started
+                          </CustomButton>
+                        )}
+                      </div>
+
+                      <div className="flex-grow mt-4">
+                        <button
+                          onClick={() => toggleFeatures(plan.id.toString())}
+                          className="flex items-center justify-between w-full font-semibold text-[1rem] mb-1 hover:text-primary transition-colors"
+                        >
+                          Features
+                          <Icon
+                            icon={
+                              collapsedFeatures[plan.id.toString()]
+                                ? 'lucide:chevron-down'
+                                : 'lucide:chevron-up'
+                            }
+                            className="text-primary transition-transform duration-200"
+                          />
+                        </button>
+
+                        <div className="relative">
+                          <div
+                            className={`overflow-y-auto h-52 transition-all duration-300 ease-in-out scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 ${
+                              collapsedFeatures[plan.id.toString()]
+                                ? 'max-h-0 opacity-0'
+                                : 'max-h-96 opacity-100'
+                            }`}
+                          >
+                            <ul className="space-y-1 text-[0.8rem] lg:text-[0.9rem] pr-2">
+                              {plan.features.feature_list
+                                .map((feature) => feature.split(':')[1])
+                                .filter(
+                                  (featureText) =>
+                                    featureText && featureText.trim(),
+                                )
+                                .map((featureText, i) => (
+                                  <li
+                                    key={i}
+                                    className="flex items-start gap-2"
+                                  >
+                                    <p>
+                                      <Icon
+                                        icon={'uil:check'}
+                                        className="text-primary"
+                                      />
+                                    </p>
+                                    <span>{featureText}</span>
+                                  </li>
+                                ))}
+                            </ul>
+                          </div>
+                          {/* Scroll hint */}
+                          {!collapsedFeatures[plan.id.toString()] && (
+                            <div className="absolute bottom-2 right-2 text-xs text-gray-400 flex items-center gap-1">
+                              <Icon
+                                icon="lucide:mouse-pointer-click"
+                                className="w-3 h-3"
+                              />
+                              <span>scroll</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
           ))}
-
-          <section className="py-16">
-            <div className="container flex flex-col items-center justify-center">
-              <h2 className="font-medium text-3xl lg:text-4xl mb-5">
-                Looking for something extra?
-              </h2>
-              <p className="text-secondary-black mb-5">
-                Contact our sales team to explore our Enterprise plan and unlock
-                the full potential of Foundry.
-              </p>
-              <div>
-                <CustomButton
-                  className="bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
-                  onPress={() => navigate('/contact')}
-                >
-                  Contact Sales
-                </CustomButton>
-              </div>
-            </div>
-          </section>
         </>
       )}
 

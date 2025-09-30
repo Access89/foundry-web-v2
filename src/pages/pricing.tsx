@@ -95,6 +95,13 @@ const Pricing = () => {
     }));
   };
 
+  // const newCategories = categories?.slice(0, 3).map((category) => {
+  //   return {
+
+  //     name: category === 'Foundry POS' ? 'Point of Sale' : category,
+  //   };
+  // }
+
   return (
     <main>
       {/* hero */}
@@ -157,7 +164,7 @@ const Pricing = () => {
 
       {/* Plans for every stage */}
       <section id="plans" className="py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl p-4">
           <h2 className="font-medium text-3xl lg:text-4xl mb-5">
             Plans for every need
           </h2>
@@ -179,38 +186,52 @@ const Pricing = () => {
                         'text-white bg-primary disabled:cursor-not-allowed',
                     )}
                   >
-                    {category}
+                    {category === 'Foundry POS' ? 'Point of Sale' : category}
                   </CustomButton>
                 </div>
               ))}
             </div>
-
-            {/* Navigation Arrows */}
-            {/* <button
-              onClick={scrollLeft}
-              className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 opacity-50 hover:opacity-100 transition-all duration-300 hover:bg-white shadow-lg rounded-full flex items-center justify-center z-10"
-            >
-              <Icon
-                icon="lucide:arrow-left"
-                className="text-secondary text-lg"
-              />
-            </button>
-            <button
-              onClick={scrollRight}
-              className="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 opacity-50 hover:opacity-100 transition-all duration-300 hover:bg-white shadow-lg rounded-full flex items-center justify-center z-10"
-            >
-              <Icon
-                icon="lucide:arrow-right"
-                className="text-secondary text-lg"
-              />
-            </button> */}
           </div>
 
           {/* Loading State */}
           {isLoading ? (
-            <div className="text-center py-8">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-              <p className="mt-4 text-secondary-black">Loading plans...</p>
+            <div className="space-y-12">
+              {/* Skeleton for category header */}
+              <div className="animate-pulse">
+                <div className="h-8 bg-gray-200 rounded w-48 mx-auto mb-6"></div>
+              </div>
+
+              {/* Skeleton for plan cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {[1, 2, 3].map((index) => (
+                  <div
+                    key={index}
+                    className="p-6 bg-primary-light rounded-lg animate-pulse"
+                  >
+                    {/* Plan name skeleton */}
+                    <div className="h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
+
+                    {/* Description skeleton */}
+                    <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                    <div className="h-4 bg-gray-200 rounded w-2/3 mb-20"></div>
+
+                    {/* Price skeleton */}
+                    <div className="h-12 bg-gray-200 rounded w-1/2 mb-4"></div>
+
+                    {/* Button skeleton */}
+                    <div className="h-10 bg-gray-200 rounded w-full mb-4"></div>
+
+                    {/* Features section skeleton */}
+                    <div className="space-y-2">
+                      <div className="h-4 bg-gray-200 rounded w-16 mb-2"></div>
+                      <div className="h-4 bg-gray-200 rounded w-full"></div>
+                      <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                      <div className="h-4 bg-gray-200 rounded w-4/5"></div>
+                      <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           ) : error ? (
             <div className="text-center py-8">
@@ -219,13 +240,13 @@ const Pricing = () => {
               </p>
             </div>
           ) : (
-            <>
+            <section className="">
               {/* Plans by Category */}
               {Object.keys(plansByCategory).map((categoryName) => (
                 <div key={categoryName} className="mb-12 ">
-                  <h3 className="font-medium text-2xl lg:text-3xl mb-6 text-center">
+                  {/* <h3 className="font-medium text-2xl lg:text-3xl mb-6 text-center">
                     {categoryName}
-                  </h3>
+                  </h3> */}
                   <div className="grid grid-cols-1 md:grid-cols-3  gap-4">
                     {plansByCategory[categoryName]
                       .filter((plan) => plan.plan_name !== 'Enterprise')
@@ -236,10 +257,10 @@ const Pricing = () => {
                           className="p-6 bg-primary-light rounded-lg cursor-pointer flex flex-col"
                         >
                           <div className="mb-2">
-                            <h3 className="text-[1.2rem] lg:text-[1.8rem] font-medium capitalize">
+                            <h3 className="text-[1.2rem] md:text-[2.5rem] font-medium capitalize">
                               {plan.plan_name.toLocaleLowerCase()}
                             </h3>
-                            <p className="lg:text-[0.9rem] h-16 text-[0.8rem] font-light text-secondary-black">
+                            <p className="md:text-[17px] h-16 text-[0.8rem] ">
                               {plan.description}
                             </p>
                           </div>
@@ -295,12 +316,12 @@ const Pricing = () => {
                               />
                             </button>
 
-                            <div className="relative">
+                            <div className="relative h-full">
                               <div
-                                className={`overflow-y-auto h-52 transition-all duration-300 ease-in-out scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 ${
+                                className={`h-full transition-all duration-300 ease-in-out scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 ${
                                   collapsedFeatures[plan.id.toString()]
-                                    ? 'max-h-0 opacity-0'
-                                    : 'max-h-96 opacity-100'
+                                    ? ' opacity-0'
+                                    : ' opacity-100'
                                 }`}
                               >
                                 <ul className="space-y-1 text-[0.8rem] lg:text-[0.9rem] pr-2">
@@ -327,7 +348,7 @@ const Pricing = () => {
                                 </ul>
                               </div>
                               {/* Scroll hint */}
-                              {!collapsedFeatures[plan.id.toString()] && (
+                              {/* {!collapsedFeatures[plan.id.toString()] && (
                                 <div className="absolute bottom-2 right-2 text-xs text-gray-400 flex items-center gap-1">
                                   <Icon
                                     icon="lucide:mouse-pointer-click"
@@ -335,7 +356,7 @@ const Pricing = () => {
                                   />
                                   <span>scroll</span>
                                 </div>
-                              )}
+                              )} */}
                             </div>
                           </div>
                         </div>
@@ -343,11 +364,11 @@ const Pricing = () => {
                   </div>
                 </div>
               ))}
-            </>
+            </section>
           )}
 
-          <section className="py-16">
-            <div className="container flex flex-col items-center justify-center">
+          <section className="md:py-16 py-5">
+            <div className=" flex flex-col items-center justify-center">
               <h2 className="font-medium text-3xl lg:text-4xl mb-5">
                 Looking for something extra?
               </h2>
@@ -527,7 +548,7 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="container md:grid grid-cols-[0.2fr,1fr] py-10 pb-16 ">
+      <section className="container md:grid grid-cols-[0.2fr,1fr] md:py-10 pb-16 ">
         <h2 className="font-medium text-3xl md:text-4xl mb-5">FAQ</h2>
         <CustomFAQs options={faqQuestion} />
       </section>

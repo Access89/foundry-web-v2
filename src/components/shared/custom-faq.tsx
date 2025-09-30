@@ -32,9 +32,7 @@ const CustomFAQs = (props: ICustomProps) => {
         return (
           <div
             key={index}
-            className={`${
-              active ? 'bg-secondary/20' : 'bg-transparent'
-            } w-full `}
+            className={`${active ? 'bg-white' : 'bg-transparent'} w-full `}
           >
             <div
               onClick={() => {
@@ -42,9 +40,9 @@ const CustomFAQs = (props: ICustomProps) => {
               }}
               className={`flex justify-between ${
                 active
-                  ? 'bg-secondary text-white'
+                  ? 'bg-primary-dark text-white px-3'
                   : 'bg-transparent hover:bg-gray-50/5 py-3'
-              } py-2 md:px-5 px-1 hover:cursor-pointer w-full`}
+              } py-6 md:px-5 px-1 hover:cursor-pointer w-full`}
             >
               <p className="text-[17px]">{a.header}</p>
               <button>
@@ -57,7 +55,7 @@ const CustomFAQs = (props: ICustomProps) => {
             </div>
             <AnimatePresence>
               {active && (
-                <motion.div className="py-3 text-[15px]  md:px-5 px-1 font-light overflow-hidden">
+                <motion.div className="py-8 text-[15px] leading-8  md:px-5 px-1 font-light overflow-hidden px-4">
                   {a.desc.map((b, index) => (
                     <motion.div
                       initial={{ height: 0 }}
