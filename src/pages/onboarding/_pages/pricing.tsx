@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { cn } from '@nextui-org/react';
+// import { cn } from '@nextui-org/react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CustomModal from '@/components/shared/modal';
 import { apiClient } from '@/services/api.client';
 import { parseCurrency, variables } from '@/utils/helper';
 import toast from 'react-hot-toast';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
+// import { useSelector } from 'react-redux';
+// import { RootState } from '@/store/store';
 import { useSubscriptionPlans } from '@/utils/useSubscriptionPlans';
 
 const PricingPage = ({
@@ -22,7 +22,7 @@ const PricingPage = ({
   const navigate = useNavigate();
 
   const [openModal, setOpenModal] = React.useState(false);
-  const [selectedPlan, setSelectedPlan] = React.useState<any>(null);
+  const [selectedPlan] = React.useState<any>(null);
   const [isUpgrading, setIsUpgrading] = React.useState(false);
 
   const [collapsedFeatures, setCollapsedFeatures] = React.useState<{
