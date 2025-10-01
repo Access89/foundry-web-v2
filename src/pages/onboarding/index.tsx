@@ -1,4 +1,3 @@
-import { Button } from '@nextui-org/react';
 import Country from './_components/_tabs/Country';
 import { useState } from 'react';
 import BasicInformation from './_components/_tabs/basic-information';
@@ -9,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { updateSubscriberState } from '@/store/features/subscriber';
+import { CustomButton } from '@/components/shared/shared_customs';
 
 type ITab = 'country' | 'basic-information' | 'business-information';
 type TReturnValue = void | string;
@@ -94,13 +94,14 @@ const Onboarding = () => {
         {tabs?.[activeTab]?.component}
       </div>
 
-      <Button
-        className={`lg:w-[50%] w-[90%] py-4 lg:py-6 rounded-3xl mx-auto shadow-xl focus:outline-none
-        ${
-          safe
-            ? 'bg-[#4C7F64] text-white shadow-[#4C7F64]/30'
-            : 'bg-gray-300 text-gray-500 shadow-none cursor-not-allowed'
-        }`}
+      <CustomButton
+        className="bg-primary text-white"
+        // className={`lg:w-[50%] w-[90%] py-4 lg:py-6 rounded-3xl mx-auto shadow-xl focus:outline-none
+        // ${
+        //   safe
+        //     ? 'bg-[#4C7F64] text-white shadow-[#4C7F64]/30'
+        //     : 'bg-gray-300 text-gray-500 shadow-none cursor-not-allowed'
+        // }`}
         onPress={() => {
           const returnValue = tabs?.[activeTab]?.next();
           if (typeof returnValue == 'string') {
@@ -115,7 +116,7 @@ const Onboarding = () => {
         disabled={!safe}
       >
         Continue
-      </Button>
+      </CustomButton>
     </div>
   );
 };
