@@ -17,7 +17,7 @@ import {
 const appList = [
   {
     name: 'Foundry POS',
-    plan_id: 13,
+    plan_id: 5,
     plan_category: 3,
     qr_code: 'https://www.avasam.com/wp-content/uploads/2019/10/qr-sample.png',
     image: '/icons/app_icons/icon.pos.png',
@@ -40,7 +40,7 @@ const appList = [
   },
   {
     name: 'Foundry Books',
-    plan_id: 4,
+    plan_id: 13,
     plan_category: 5,
     qr_code: 'https://www.avasam.com/wp-content/uploads/2019/10/qr-sample.png',
     image: '/icons/app_icons/icon.books.png',
@@ -288,11 +288,7 @@ const FreePlanSection = () => {
   const location = useLocation();
   const { payload_data } = location.state?.payload || {};
 
-  const {
-    plans: allPlansFromAPI,
-    isLoading,
-    error,
-  } = useSubscriptionPlans(
+  const { plans: allPlansFromAPI } = useSubscriptionPlans(
     1,
     100,
     getRecommendedApp(payload_data?.business_type)?.plan_category?.toString() ||
@@ -304,8 +300,6 @@ const FreePlanSection = () => {
     (plan) =>
       plan.id === getRecommendedApp(payload_data?.business_type)?.plan_id,
   );
-
-  console.log('foundPlan', foundPlan);
 
   // Extract features from the plan - handle different possible structures
   let freePlanFeatures: string[] = [];
@@ -360,7 +354,7 @@ const FreePlanSection = () => {
           <h3 className="text-xl font-semibold mb-2">Free Tier Benefits</h3>
           <ul className="text-left max-w-2xl mx-auto space-y-2 grid grid-cols-1 md:grid-cols-2 gap-2">
             {freePlanFeatures.map((feature, index) => (
-              <li key={index} className="flex items-center gap-2">
+              <li key={index} className="flex items-start gap-2">
                 <Icon icon="uil:check" className="text-primary" />
                 <span className="text-sm">{feature}</span>
               </li>
@@ -400,7 +394,7 @@ const DownloadAppsAndOtherOffers = () => {
         dispatch(resetSubscriber());
         toast.success('Account created successfully!');
       },
-      onError: (error: any) => {
+      onError: () => {
         // console.error('Error creating subscriber:', error);
         toast.error('Details were not submitted, please try again');
       },
