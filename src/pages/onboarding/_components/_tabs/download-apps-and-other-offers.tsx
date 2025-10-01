@@ -17,6 +17,7 @@ const appList = [
   {
     name: 'Foundry POS',
     plan_id: 5,
+    plan_type: 'FREE',
     plan_category: 3,
     qr_code: 'https://www.avasam.com/wp-content/uploads/2019/10/qr-sample.png',
     image: '/icons/app_icons/icon.pos.png',
@@ -40,6 +41,7 @@ const appList = [
   {
     name: 'Foundry Books',
     plan_id: 13,
+    plan_type: 'FREE',
     plan_category: 5,
     qr_code: 'https://www.avasam.com/wp-content/uploads/2019/10/qr-sample.png',
     image: '/icons/app_icons/icon.books.png',
@@ -402,10 +404,13 @@ const DownloadAppsAndOtherOffers = () => {
 
   // Fire API call when component mounts
   useEffect(() => {
+    const recommendedApp = getRecommendedApp(payload_data?.business_type);
     if (payload_data) {
       mutateSubscriber({
         ...payload_data,
-        plan_id: getRecommendedApp(payload_data?.business_type)?.plan_id,
+        plan_id: recommendedApp?.plan_id,
+        subscription: recommendedApp?.plan_type,
+        product: recommendedApp?.name,
       } as any);
     }
   }, [payload_data, mutateSubscriber]);
