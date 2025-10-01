@@ -123,6 +123,7 @@ const BasicInformation = () => {
           placeholder={'e.g. Limited Liability Company'}
           id={'nature_of_business'}
           {...form}
+          defaultSelected={'Sole Proprietorship'}
           handleChange={(e: any) => {
             dispatch(
               updateSubscriberState({ nature_of_business: e.target.value }),

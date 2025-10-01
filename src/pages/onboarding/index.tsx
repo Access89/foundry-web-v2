@@ -15,7 +15,7 @@ type TReturnValue = void | string;
 
 const Onboarding = () => {
   const navigate = useNavigate();
-  const { safe, business_type, nature_of_business } = useSelector(
+  const { safe, nature_of_business } = useSelector(
     (state: RootState) => state.subscriber,
   );
 
@@ -95,7 +95,7 @@ const Onboarding = () => {
       </div>
 
       <CustomButton
-        className="bg-primary text-white"
+        className="bg-primary text-white py-6"
         // className={`lg:w-[50%] w-[90%] py-4 lg:py-6 rounded-3xl mx-auto shadow-xl focus:outline-none
         // ${
         //   safe

@@ -2,11 +2,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import CustomModal from '@/components/shared/modal';
 import { updateSubscriberState } from '@/store/features/subscriber';
-import { RootState } from '@/store/store';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { cn, useDisclosure } from '@nextui-org/react';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { countries } from '../_utils/misc';
 
 const CountryPicker = () => {
