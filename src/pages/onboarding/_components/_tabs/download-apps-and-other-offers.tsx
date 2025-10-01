@@ -8,6 +8,8 @@ import { useLocation } from 'react-router-dom';
 const appList = [
   {
     name: 'Foundry POS',
+    plan_id: 13,
+    plan_category: 3,
     qr_code: 'https://www.avasam.com/wp-content/uploads/2019/10/qr-sample.png',
     image: '/icons/app_icons/icon.pos.png',
     description:
@@ -30,6 +32,8 @@ const appList = [
   },
   {
     name: 'Foundry Books',
+    plan_id: 4,
+    plan_category: 5,
     qr_code: 'https://www.avasam.com/wp-content/uploads/2019/10/qr-sample.png',
     image: '/icons/app_icons/icon.books.png',
     description: 'Manage your books and finances with ease.',
@@ -54,6 +58,10 @@ const appList = [
 const InfoSection = () => {
   const location = useLocation();
   const { business_owner } = location.state?.payload || {};
+
+  // const { plans, isLoading, error } = useSelector(
+  //   (state: RootState) => state.plans,
+  // );
 
   return (
     <div className="bg-primary/10 border-l-4 border-primary p-4 md:p-6 mb-8">
@@ -189,6 +197,17 @@ const RecommendedAppSection = () => {
 };
 
 const FreePlanSection = () => {
+  // Get the free plan features (assuming the first plan is free or we filter for free plans)
+  const freePlanFeatures = allPlans.find((plan) => plan.title === 'Free Tier')
+    ?.features || [
+    'Basic POS functionality',
+    'Essential bookkeeping features',
+    'Customer management',
+    'Basic reporting',
+    'Inventory tracking',
+    'Sales analytics',
+  ];
+
   return (
     <section className="mb-12">
       <div className="text-center mb-8">
@@ -208,23 +227,13 @@ const FreePlanSection = () => {
             className="text-primary text-4xl mx-auto mb-4"
           />
           <h3 className="text-xl font-semibold mb-2">Free Tier Benefits</h3>
-          <ul className="text-left max-w-md mx-auto space-y-2">
-            <li className="flex items-center gap-2">
-              <Icon icon="uil:check" className="text-primary" />
-              <span>Basic POS functionality</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Icon icon="uil:check" className="text-primary" />
-              <span>Essential bookkeeping features</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Icon icon="uil:check" className="text-primary" />
-              <span>Customer management</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Icon icon="uil:check" className="text-primary" />
-              <span>Basic reporting</span>
-            </li>
+          <ul className="text-left max-w-2xl mx-auto space-y-2 grid grid-cols-1 md:grid-cols-2 gap-2">
+            {freePlanFeatures.map((feature, index) => (
+              <li key={index} className="flex items-center gap-2">
+                <Icon icon="uil:check" className="text-primary" />
+                <span className="text-sm">{feature}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -246,57 +255,6 @@ const DownloadAppsAndOtherOffers = () => {
 
         {/* Free plan information */}
         <FreePlanSection />
-
-        {/* All available apps */}
-        <section className="mb-12">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              All Available Apps
-            </h2>
-            <p className="text-gray-600 mb-6">
-              Access our complete suite of business management tools
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {appList.map((app, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md p-6 border hover:shadow-lg transition-shadow"
-              >
-                <div className="text-center">
-                  <img
-                    src={app.image}
-                    alt={app.name}
-                    className="w-20 h-20 mx-auto mb-4 rounded-lg"
-                  />
-                  <h3 className="text-xl font-semibold mb-2">{app.name}</h3>
-                  <p className="text-gray-600 mb-4">{app.description}</p>
-
-                  <div className="flex gap-3 justify-center">
-                    <CustomButton
-                      className="bg-black text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-gray-800 transition-colors"
-                      onClick={() => window.open(app.appstore_link, '_blank')}
-                    >
-                      <Icon icon="simple-icons:apple" className="w-5 h-5" />
-                      App Store
-                    </CustomButton>
-                    <CustomButton
-                      className="bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-green-700 transition-colors"
-                      onClick={() => window.open(app.playstore_link, '_blank')}
-                    >
-                      <Icon
-                        icon="simple-icons:googleplay"
-                        className="w-5 h-5"
-                      />
-                      Play Store
-                    </CustomButton>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* Upgrade plans section */}
         <section id="plans" className="py-16">
@@ -373,6 +331,148 @@ const DownloadAppsAndOtherOffers = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* All available apps */}
+        <section className="my-14">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+              Complete App Suite
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Access our complete suite of business management tools designed to
+              streamline your operations
+            </p>
+          </div>
+
+          <div className="space-y-16 flex flex-col gap-16">
+            {appList.map((app, index) => (
+              <div
+                key={index}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${
+                  index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
+                }`}
+              >
+                {/* Content */}
+                <div
+                  className={`space-y-6 ${
+                    index % 2 === 1 ? 'lg:col-start-2' : ''
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center gap-4 mb-4">
+                      <img
+                        src={app.image}
+                        alt={app.name}
+                        className="w-16 h-16 rounded-xl"
+                      />
+                      <h3 className="text-2xl md:text-4xl font-bold text-gray-900">
+                        {app.name}
+                      </h3>
+                    </div>
+                    <p className="text-lg text-gray-600 mb-6">
+                      {app.description}
+                    </p>
+                  </div>
+
+                  {/* Use Cases */}
+                  <div className="bg-gray-50 rounded-2xl p-6">
+                    <h4 className="font-semibold text-gray-900 mb-3">
+                      Perfect for:
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {app.use_cases_list.map((useCase, i) => (
+                        <div key={i} className="flex items-start gap-2">
+                          <p>
+                            <Icon
+                              icon="mdi:check-circle"
+                              className="text-primary text-sm"
+                            />
+                          </p>
+                          <span className="text-sm text-gray-600">
+                            {useCase}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Download Options */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* App Store */}
+                    <div
+                      className="bg-gray-900 rounded-2xl p-6 cursor-pointer hover:bg-gray-800 transition-colors group"
+                      onClick={() => window.open(app.appstore_link, '_blank')}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-4">
+                          <p>
+                            <Icon
+                              icon="simple-icons:apple"
+                              className="text-white text-2xl"
+                            />
+                          </p>
+                          <div>
+                            <p className="text-white font-medium">
+                              Download on the
+                            </p>
+                            <p className="text-white text-lg font-bold">
+                              App Store
+                            </p>
+                          </div>
+                        </div>
+                        <Icon
+                          icon="material-symbols:arrow-outward"
+                          className="text-white text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Google Play */}
+                    <div
+                      className="bg-green-600 rounded-2xl p-6 cursor-pointer hover:bg-green-700 transition-colors group"
+                      onClick={() => window.open(app.playstore_link, '_blank')}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-4">
+                          <p>
+                            <Icon
+                              icon="simple-icons:googleplay"
+                              className="text-white text-2xl"
+                            />
+                          </p>
+                          <div>
+                            <p className="text-white font-medium">Get it on</p>
+                            <p className="text-white text-lg font-bold">
+                              Google Play
+                            </p>
+                          </div>
+                        </div>
+                        <Icon
+                          icon="material-symbols:arrow-outward"
+                          className="text-white text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Image */}
+                <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                  <div className="relative">
+                    <img
+                      src={app.displayImage}
+                      alt={app.name}
+                      className="w-full max-w-lg h-automx-auto"
+                    />
+                    {/* Decorative elements */}
+                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full opacity-60"></div>
+                    <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-primary/10 rounded-full opacity-40"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       </div>
