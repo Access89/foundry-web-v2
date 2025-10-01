@@ -19,13 +19,13 @@ const initialState: SubscriberStateType = {
 	customer_name: "",
 	// subscription_plan: "",
 	business_owner: "",
-	country: "Ghana",
-	country_code: "+233",
+	country: "",
+	country_code: "",
 	email: "",
 	mobile: "",
 	password: "",
 	business_location: "",
-	nature_of_business: "",
+	nature_of_business: "Sole Proprietorship",
 	business_type: "",
 	safe: true
 };

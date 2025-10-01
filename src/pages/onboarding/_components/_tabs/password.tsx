@@ -2,17 +2,9 @@
 import { useFormik } from 'formik';
 import CustomInput from '../_form/Input';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  resetSubscriber,
-  SubscriberStateType,
-  updateSubscriberState,
-} from '@/store/features/subscriber';
+import { updateSubscriberState } from '@/store/features/subscriber';
 import { RootState } from '@/store/store';
 import { useEffect } from 'react';
-import toast from 'react-hot-toast';
-// import { variables } from '@/utils/helper';
-import { mutateFn } from '@/services/mutation.api';
-import { useMutation } from 'react-query';
 import { CustomButton } from '@/components/shared/shared_customs';
 import { cn } from '@nextui-org/react';
 import { useNavigate } from 'react-router-dom';
@@ -27,8 +19,8 @@ const PasswordSetting = () => {
     email,
     mobile,
     business_location,
-    // business_type,
-    // nature_of_business,
+    business_type,
+    nature_of_business,
     password,
     country_code,
     business_owner,
@@ -36,36 +28,7 @@ const PasswordSetting = () => {
 
   // State to track which plan's button is loading
 
-  const pos_api_base_url = 'https://api.access89.com/pos-api/v1';
-  // const pos_api_base_url = variables.pos_api_base_url;
-
-  const { mutate: mutateSubscriber, isLoading } = useMutation(
-    (newData: SubscriberStateType) =>
-      mutateFn({
-        url: `${pos_api_base_url}/setup/create/setup`,
-        data: newData,
-      }),
-    {
-      onSuccess: () => {
-        console.log('Subscriber created successfully');
-        dispatch(resetSubscriber());
-        navigate('/onboarding/download-apps-and-other-offers');
-
-        // toast.success(
-        //   'Details submitted for verification! Redirecting to Foundry Platform...',
-        // );
-        // window.location.href = variables.redirectUrl;
-      },
-      onError: (error: any) => {
-        console.error('Error creating subscriber:', error);
-        toast.error('Details were not submitted, please try again');
-      },
-    },
-  );
-
   const onSubmit = async () => {
-    // dispatch(updateSubscriberState({ subscription_plan: plan }));
-
     const payload = {
       company_name: customer_name,
       email: email,
@@ -74,25 +37,17 @@ const PasswordSetting = () => {
       password: password,
       user_name: business_owner,
       business_location: business_location,
-      // business_type: business_type,
-      // nature_of_business: nature_of_business,
+      business_type: business_type,
+      nature_of_business: nature_of_business,
     };
 
-    mutateSubscriber(payload as any);
-
-    // mutateSubscriber({
-    //   customer_name,
-    //   country,
-    //   email,
-    //   mobile: country_code + mobile,
-    //   business_owner: business_owner,
-    //   // subscription_plan:
-    //   //   plan === "Free Tier" ? "free_tier" : plan.toLocaleLowerCase(),
-    //   business_location,
-    //   // business_type,
-    //   // nature_of_business,
-    //   password,
-    // });
+    navigate('/onboarding/download-apps-and-other-offers', {
+      state: {
+        payload: {
+          payload_data: payload,
+        },
+      },
+    });
   };
 
   const { ...form } = useFormik({
@@ -164,7 +119,6 @@ const PasswordSetting = () => {
         className={cn(
           'bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]',
         )}
-        isLoading={isLoading}
         onPress={() => onSubmit()}
       >
         Submit

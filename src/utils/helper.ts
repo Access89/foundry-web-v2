@@ -19,3 +19,22 @@ export const parseCurrency = (currency: string) => {
   if (currency === 'GBP') return '£';
   return '₵';
 };
+
+export const use_cases_list = [
+  'Fashion, electronics, grocery, convenience shops',
+  'Chain stores, local provision shops',
+  'Chemists, medical supply stores',
+  'Restaurants, fast food joints, cafes, bars, food trucks',
+  'Stockists, FMCG distributors',
+  'Hotels, motels, nightclubs, gyms',
+  'Auto parts stores, filling stations',
+  'MoMo agents, remittance shops, bill payment agents',
+  'Consultants, designers, tutors, artisans',
+  'Boutiques, cosmetics shops, corner shops, general stores',
+  'Hair salons, barber shops, spas, mechanics, cleaning services',
+  'Caterers, small restaurants, bakeries, food vendors',
+  'Wholesalers, distributors, suppliers',
+  'Law firms, audit firms, small clinics, private schools',
+  'E-commerce sellers, social media sellers (Instagram, WhatsApp shops)',
+  'Small lending operations, susu collectors, savings groups',
+]

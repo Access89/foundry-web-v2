@@ -155,23 +155,23 @@ const PricingPage = ({
           {/* Plans by Category */}
           {Object.keys(plansByCategory).map((categoryName) => (
             <div key={categoryName} className="mb-12 ">
-              <h3 className="font-medium text-2xl lg:text-3xl mb-6 text-center">
+              {/* <h3 className="font-medium text-2xl lg:text-3xl mb-6 text-center">
                 {categoryName}
-              </h3>
+              </h3> */}
               <div className="grid grid-cols-1 md:grid-cols-3  gap-4">
                 {plansByCategory[categoryName]
                   .filter((plan) => plan.plan_name !== 'Enterprise')
-                  .reverse()
+                  // .reverse()
                   .map((plan) => (
                     <div
                       key={plan.id}
                       className="p-6 bg-primary-light rounded-lg cursor-pointer flex flex-col"
                     >
                       <div className="mb-2">
-                        <h3 className="text-[1.2rem] lg:text-[1.8rem] font-medium capitalize">
+                        <h3 className="text-[1.2rem] md:text-[2.5rem] font-medium capitalize">
                           {plan.plan_name.toLocaleLowerCase()}
                         </h3>
-                        <p className="lg:text-[0.9rem] h-16 text-[0.8rem] font-light text-secondary-black">
+                        <p className="md:text-[17px] h-16 text-[0.8rem] ">
                           {plan.description}
                         </p>
                       </div>
@@ -227,12 +227,12 @@ const PricingPage = ({
                           />
                         </button>
 
-                        <div className="relative">
+                        <div className="relative h-full">
                           <div
-                            className={`overflow-y-auto h-52 transition-all duration-300 ease-in-out scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 ${
+                            className={`h-full transition-all duration-300 ease-in-out scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 ${
                               collapsedFeatures[plan.id.toString()]
-                                ? 'max-h-0 opacity-0'
-                                : 'max-h-96 opacity-100'
+                                ? ' opacity-0'
+                                : ' opacity-100'
                             }`}
                           >
                             <ul className="space-y-1 text-[0.8rem] lg:text-[0.9rem] pr-2">
@@ -258,16 +258,6 @@ const PricingPage = ({
                                 ))}
                             </ul>
                           </div>
-                          {/* Scroll hint */}
-                          {!collapsedFeatures[plan.id.toString()] && (
-                            <div className="absolute bottom-2 right-2 text-xs text-gray-400 flex items-center gap-1">
-                              <Icon
-                                icon="lucide:mouse-pointer-click"
-                                className="w-3 h-3"
-                              />
-                              <span>scroll</span>
-                            </div>
-                          )}
                         </div>
                       </div>
                     </div>
