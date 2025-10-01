@@ -403,7 +403,10 @@ const DownloadAppsAndOtherOffers = () => {
   // Fire API call when component mounts
   useEffect(() => {
     if (payload_data) {
-      mutateSubscriber(payload_data as any);
+      mutateSubscriber({
+        ...payload_data,
+        plan_id: getRecommendedApp(payload_data?.business_type)?.plan_id,
+      } as any);
     }
   }, [payload_data, mutateSubscriber]);
 
