@@ -26,7 +26,7 @@ const MainLayout = () => {
   return (
     <main className="bg-background">
       <NavbarComponent />
-      <div className="pt-7">
+      <div className="">
         <LazyPageWrapper component={<Outlet />} />
       </div>
       <Footer />

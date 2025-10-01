@@ -27,8 +27,8 @@ const PasswordSetting = () => {
     email,
     mobile,
     business_location,
-    // business_type,
-    // nature_of_business,
+    business_type,
+    nature_of_business,
     password,
     country_code,
     business_owner,
@@ -49,7 +49,14 @@ const PasswordSetting = () => {
       onSuccess: () => {
         console.log('Subscriber created successfully');
         dispatch(resetSubscriber());
-        navigate('/onboarding/download-apps-and-other-offers');
+        navigate('/onboarding/download-apps-and-other-offers', {
+          state: {
+            payload: {
+              business_type,
+              business_owner,
+            },
+          },
+        });
 
         // toast.success(
         //   'Details submitted for verification! Redirecting to Foundry Platform...',
@@ -74,11 +81,20 @@ const PasswordSetting = () => {
       password: password,
       user_name: business_owner,
       business_location: business_location,
-      // business_type: business_type,
-      // nature_of_business: nature_of_business,
+      business_type: business_type,
+      nature_of_business: nature_of_business,
     };
 
-    mutateSubscriber(payload as any);
+    navigate('/onboarding/download-apps-and-other-offers', {
+      state: {
+        payload: {
+          business_type,
+          business_owner,
+        },
+      },
+    });
+
+    // mutateSubscriber(payload as any);
 
     // mutateSubscriber({
     //   customer_name,

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateSubscriberState } from '@/store/features/subscriber';
 import { useEffect } from 'react';
 import { RootState } from '@/store/store';
+import { use_cases_list } from '@/utils/helper';
 
 const BasicInformation = () => {
   const dispatch = useDispatch();
@@ -128,33 +129,38 @@ const BasicInformation = () => {
             );
           }}
         />
-        <SelectInput
-          items={[
-            // { label: 'Hospital', value: 'Hospital' },
-            { label: 'Retail', value: 'Retail' },
-            { label: 'Financial Services', value: 'Financial Services' },
-            {
-              label: 'Electric Vehicle Charging Station',
-              value: 'Electric Vehicle Charging Station',
-            },
-            { label: 'Fund Management', value: 'Fund Management' },
-            { label: 'Restaurant', value: 'Restaurant' },
-            {
-              label: 'Logistics & Supply Chain',
-              value: 'Logistics & Supply Chain',
-            },
-            { label: 'Manufacturing', value: 'Manufacturing' },
-            { label: 'Fintech', value: 'Fintech' },
-            { label: 'Other', value: 'Other' },
-          ]}
-          label={'Business Type'}
-          placeholder={'e.g. Retail'}
-          id={'business_type'}
-          {...form}
-          handleChange={(e: any) => {
-            dispatch(updateSubscriberState({ business_type: e.target.value }));
-          }}
-        />
+        {nature_of_business === 'Sole Proprietorship' && (
+          <SelectInput
+            // items={[
+            //   // { label: 'Hospital', value: 'Hospital' },
+            //   { label: 'Retail', value: 'Retail' },
+            //   { label: 'Financial Services', value: 'Financial Services' },
+            //   {
+            //     label: 'Electric Vehicle Charging Station',
+            //     value: 'Electric Vehicle Charging Station',
+            //   },
+            //   { label: 'Fund Management', value: 'Fund Management' },
+            //   { label: 'Restaurant', value: 'Restaurant' },
+            //   {
+            //     label: 'Logistics & Supply Chain',
+            //     value: 'Logistics & Supply Chain',
+            //   },
+            //   { label: 'Manufacturing', value: 'Manufacturing' },
+            //   { label: 'Fintech', value: 'Fintech' },
+            //   { label: 'Other', value: 'Other' },
+            // ]}
+            items={use_cases_list.map((e) => ({ label: e, value: e }))}
+            label={'Business Type'}
+            placeholder={'e.g. Fashion'}
+            id={'business_type'}
+            {...form}
+            handleChange={(e: any) => {
+              dispatch(
+                updateSubscriberState({ business_type: e.target.value }),
+              );
+            }}
+          />
+        )}
       </div>
     </div>
   );

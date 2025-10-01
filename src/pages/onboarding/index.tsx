@@ -45,8 +45,8 @@ const Onboarding = () => {
       },
       next: () => {
         if (
-          nature_of_business === 'Sole Proprietorship' &&
-          business_type === 'Retail'
+          nature_of_business === 'Sole Proprietorship'
+          // business_type === 'Retail'
         ) {
           return 'basic-information';
         } else {
