@@ -1,6 +1,30 @@
-import CountryPicker from "../country-picker";
+import CountryPicker from '../country-picker';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateSubscriberState } from '@/store/features/subscriber';
+import { RootState } from '@/store/store';
 
 const Country = () => {
+  const dispatch = useDispatch();
+  const { country } = useSelector((state: RootState) => state.subscriber);
+
+  useEffect(() => {
+    // Only set safe to true when a country is actually selected
+    if (country !== '') {
+      dispatch(
+        updateSubscriberState({
+          safe: true,
+        }),
+      );
+    } else {
+      dispatch(
+        updateSubscriberState({
+          safe: false,
+        }),
+      );
+    }
+  }, [country, dispatch]);
+
   return (
     <div>
       <div>

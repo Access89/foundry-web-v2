@@ -26,7 +26,70 @@ const PasswordSetting = () => {
     business_owner,
   } = useSelector((state: RootState) => state.subscriber);
 
-  // State to track which plan's button is loading
+  const validate = (values: any) => {
+    const errors: any = {};
+
+    // Password validation
+    if (!values.password) {
+      errors.password = 'Password is required';
+    } else if (values.password.length < 8) {
+      errors.password = 'Password must be at least 8 characters';
+    } else if (!/[A-Z]/.test(values.password)) {
+      errors.password = 'Password must contain at least one uppercase letter';
+    } else if (!/[a-z]/.test(values.password)) {
+      errors.password = 'Password must contain at least one lowercase letter';
+    } else if (!/[0-9]/.test(values.password)) {
+      errors.password = 'Password must contain at least one number';
+    } else if (!/[^A-Za-z0-9]/.test(values.password)) {
+      errors.password = 'Password must contain at least one special character';
+    }
+
+    // Confirm password validation
+    if (!values.confirm_password) {
+      errors.confirm_password = 'Please confirm your password';
+    } else if (values.password !== values.confirm_password) {
+      errors.confirm_password = 'Passwords must match';
+    }
+
+    return errors;
+  };
+
+  const { ...form } = useFormik({
+    initialValues: {
+      password: password || '',
+      confirm_password: '',
+    },
+    validate,
+    validateOnChange: true,
+    validateOnBlur: true,
+    onSubmit: () => {},
+  });
+
+  useEffect(() => {
+    if (
+      form.values.password &&
+      form.values.confirm_password &&
+      !form.errors.password &&
+      !form.errors.confirm_password
+    ) {
+      dispatch(
+        updateSubscriberState({
+          safe: true,
+        }),
+      );
+    } else {
+      dispatch(
+        updateSubscriberState({
+          safe: false,
+        }),
+      );
+    }
+  }, [
+    form.values.password,
+    form.values.confirm_password,
+    form.errors,
+    dispatch,
+  ]);
 
   const onSubmit = async () => {
     const payload = {
@@ -50,32 +113,10 @@ const PasswordSetting = () => {
     });
   };
 
-  const { ...form } = useFormik({
-    initialValues: {
-      password: password || '',
-      confirm_password: '',
-    },
-    onSubmit: () => {},
-  });
-
-  useEffect(() => {
-    if (
-      form.values.confirm_password === form.values.password &&
-      form.values.password !== ''
-    ) {
-      dispatch(
-        updateSubscriberState({
-          safe: true,
-        }),
-      );
-    } else {
-      dispatch(
-        updateSubscriberState({
-          safe: false,
-        }),
-      );
-    }
-  }, [form.values.confirm_password, form.values.password, dispatch]);
+  const isDisabled =
+    !form.values.password ||
+    !form.values.confirm_password ||
+    form.values.password !== form.values.confirm_password;
 
   return (
     <div className="lg:w-[700px] w-full h-full lg:pt-12 lg:px-6 mx-auto font-sans flex flex-col justify-between lg:pb-12 px-6 py-6">
@@ -95,22 +136,27 @@ const PasswordSetting = () => {
             label={'Password'}
             placeholder={''}
             id={'password'}
-            {...form}
-            // value={form.values.password}
+            values={form.values}
+            errors={form.errors}
             handleChange={(e: any) => {
               form.setFieldValue('password', e.target.value);
               dispatch(updateSubscriberState({ password: e.target.value }));
+              form.setFieldTouched('password', true, false);
             }}
+            handleBlur={form.handleBlur}
           />
           <CustomInput
             type={'password'}
             label={'Confirm Password'}
             placeholder={''}
             id={'confirm_password'}
-            {...form}
+            values={form.values}
+            errors={form.errors}
             handleChange={(e: any) => {
-              form.setFieldValue('confirm_password', e.target.value); // Correct usage
+              form.setFieldValue('confirm_password', e.target.value);
+              form.setFieldTouched('confirm_password', true, false);
             }}
+            handleBlur={form.handleBlur}
           />
         </div>
       </div>
@@ -118,8 +164,17 @@ const PasswordSetting = () => {
       <CustomButton
         className={cn(
           'bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]',
+          isDisabled && 'opacity-50 cursor-not-allowed',
         )}
-        onPress={() => onSubmit()}
+        onPress={() => {
+          if (
+            !isDisabled &&
+            form.values.password === form.values.confirm_password
+          ) {
+            onSubmit();
+          }
+        }}
+        disabled={!!isDisabled}
       >
         Submit
       </CustomButton>
