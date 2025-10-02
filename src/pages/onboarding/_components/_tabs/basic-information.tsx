@@ -57,7 +57,7 @@ const BasicInformation = () => {
         },
         onError: () => {
           // console.error('Error creating subscriber:', error);
-          toast.error('Details were not submitted, please try again');
+          // toast.error('Details were not submitted, please try again');
         },
       },
     );
