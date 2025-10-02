@@ -27,7 +27,7 @@ const initialState: SubscriberStateType = {
 	business_location: "",
 	nature_of_business: "Sole Proprietorship",
 	business_type: "",
-	safe: true
+	safe: false
 };
 
 

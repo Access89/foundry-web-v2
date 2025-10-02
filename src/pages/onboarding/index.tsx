@@ -1,5 +1,5 @@
 import Country from './_components/_tabs/Country';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BasicInformation from './_components/_tabs/basic-information';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import BusinessInformation from './_components/_tabs/business-information';
@@ -22,6 +22,16 @@ const Onboarding = () => {
   const dispatch = useDispatch();
 
   const [activeTab, setActiveTab] = useState<ITab>('country');
+
+  // Reset validation state when switching tabs
+  useEffect(() => {
+    dispatch(
+      updateSubscriberState({
+        safe: false,
+      }),
+    );
+  }, [activeTab, dispatch]);
+
   const tabs: Record<
     string,
     {
@@ -95,23 +105,17 @@ const Onboarding = () => {
       </div>
 
       <CustomButton
-        className="bg-primary text-white py-6"
-        // className={`lg:w-[50%] w-[90%] py-4 lg:py-6 rounded-3xl mx-auto shadow-xl focus:outline-none
-        // ${
-        //   safe
-        //     ? 'bg-[#4C7F64] text-white shadow-[#4C7F64]/30'
-        //     : 'bg-gray-300 text-gray-500 shadow-none cursor-not-allowed'
-        // }`}
+        className={`py-6 transition-all duration-300 ${
+          safe
+            ? 'bg-primary text-white shadow-lg hover:shadow-xl'
+            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+        }`}
         onPress={() => {
           const returnValue = tabs?.[activeTab]?.next();
           if (typeof returnValue == 'string') {
             setActiveTab(returnValue as ITab);
           }
-          dispatch(
-            updateSubscriberState({
-              safe: false,
-            }),
-          );
+          // Don't reset safe state here - let each tab handle its own validation
         }}
         disabled={!safe}
       >

@@ -39,7 +39,6 @@ const CountryPicker = () => {
       updateSubscriberState({
         country: country.name,
         country_code: country.phoneCode,
-        safe: true,
       }),
     );
     setSelected(country.name);

@@ -1,48 +1,31 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useFormik } from "formik";
-import CustomInput from "../_form/Input";
-import PhoneInput from "../_form/phone-input";
-import { useDispatch, useSelector } from "react-redux";
-import { updateSubscriberState } from "@/store/features/subscriber";
-import { RootState } from "@/store/store";
-import { useEffect } from "react";
+import { useFormik } from 'formik';
+import CustomInput from '../_form/Input';
+import PhoneInput from '../_form/phone-input';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateSubscriberState } from '@/store/features/subscriber';
+import { RootState } from '@/store/store';
+import { useEffect } from 'react';
 
 const BasicInformation = () => {
   const dispatch = useDispatch();
   const { email, mobile } = useSelector((state: RootState) => state.subscriber);
 
-  useEffect(
-    () => {
-      if (email !== "" && mobile !== "") {
-        dispatch(
-          updateSubscriberState({
-            safe: true
-          })
-        );
-      }
-    },
-    [dispatch, email, mobile]
-  );
-
-  useEffect(
-    () => {
-      if (email !== "" && mobile !== "") {
-        dispatch(
-          updateSubscriberState({
-            safe: true
-          })
-        );
-      }
-    },
-    [dispatch, email, mobile]
-  );
+  useEffect(() => {
+    const isValidationPassed = email !== '' && mobile !== '';
+    dispatch(
+      updateSubscriberState({
+        safe: isValidationPassed,
+      }),
+    );
+  }, [dispatch, email, mobile]);
 
   const form = useFormik({
     initialValues: {
-      email: email || "",
-      phone: mobile || ""
+      email: email || '',
+      phone: mobile || '',
     },
-    onSubmit: () => {}
+    onSubmit: () => {},
   });
 
   return (

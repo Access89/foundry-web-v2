@@ -19,19 +19,20 @@ const BasicInformation = () => {
   } = useSelector((state: RootState) => state.subscriber);
 
   useEffect(() => {
-    if (
+    // Check if all required fields are filled
+    const isValidationPassed =
       customer_name !== '' &&
       business_location !== '' &&
-      business_type !== '' &&
       business_owner !== '' &&
-      nature_of_business !== ''
-    ) {
-      dispatch(
-        updateSubscriberState({
-          safe: true,
-        }),
-      );
-    }
+      nature_of_business !== '' &&
+      // Only require business_type if nature_of_business is 'Sole Proprietorship'
+      (nature_of_business !== 'Sole Proprietorship' || business_type !== '');
+
+    dispatch(
+      updateSubscriberState({
+        safe: isValidationPassed,
+      }),
+    );
   }, [
     business_location,
     customer_name,
