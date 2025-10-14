@@ -1,22 +1,22 @@
-import { Button, image, Image } from '@nextui-org/react'
-import React from 'react'
-import { CustomButton } from './shared/shared_customs'
-import { useNavigate } from 'react-router-dom';
+import {   Image } from '@nextui-org/react'
+// import React from 'react'
+// import { CustomButton } from './shared/shared_customs'
+// import { useNavigate } from 'react-router-dom';
 interface HeroProps {
   title: string;
     description?: string;
     buttonText?: string;
     image?: string;}
-const  Hero  = ({title,description,buttonText,image}  : HeroProps) => {
-    const navigate = useNavigate();
+const  Hero  = ({title,description,image}  : HeroProps) => {
+    // const navigate = useNavigate();
 
     const colors = ['text-[#929292]', 'text-[#000000]', 'text-[#619B7D]'];
 
   return (
     <div className='container'>
         <div className=" rounded-xl relative overflow-hidden flex flex-col">
-            <div className="lg:px-28 md:pt-16 md:pb-10 px-5 flex flex-col-reverse md:flex-col">
-              <div className="lg:max-w-lg md:max-w-xs mt-20">
+            <div className="lg:px-28 md:pt-16 md:pb-10 px-5 flex flex-col-reverse md:flex-row space-between">
+              <div className="lg:max-w-lg md:max-w-xs mt-10">
                 <h1 className="font-medium text-[#434343] text-xl sm:text-2xl md:text-[4rem] w-full max-w-full leading-snug sm:leading-tight break-words">
                   {/* First two words together */}
                   <span className="whitespace-nowrap">
@@ -51,12 +51,12 @@ const  Hero  = ({title,description,buttonText,image}  : HeroProps) => {
                     'Explore the tools and services powering modern businesses.'}
                 </p>
                 <div className="flex items-center gap-x-4">
-                  <CustomButton
+                  {/* <CustomButton
                     onPress={() => navigate('/book-a-demo')}
                     className="bg-primary text-white font-medium px-5 "
                   >
                     {buttonText || 'Book Demo'}
-                  </CustomButton>
+                  </CustomButton> */}
                 </div>
               </div>
               <Image
@@ -64,7 +64,7 @@ const  Hero  = ({title,description,buttonText,image}  : HeroProps) => {
                 alt="AI marketplace"
                 classNames={{
                   wrapper:
-                    'absolute right-10 mt-16 rounded-none top-0 w-[5rem] h-[5rem] md:h-[20rem] md:w-[20rem]',
+                    ' mt-16 ml-auto rounded-none top-0 w-[5rem] h-[5rem] md:h-[20rem] md:w-[20rem]',
                   img: 'rounded-none',
                 }}
               />

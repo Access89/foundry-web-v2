@@ -161,7 +161,15 @@ export default function NavbarComponent() {
   );
 }
 
-const menuItems = [
+type MenuItem = {
+  title: string;
+  link: string;
+  is_green_card?: boolean;
+  subItems?: any[];
+  external?: boolean;
+};
+
+const menuItems: MenuItem[] = [
   {
     title: 'Home',
     link: '/',
@@ -404,13 +412,17 @@ const menuItems = [
   //   title: 'Track My Order',
   //   subItems: [],
   // },
-  {
-    title: 'Developer',
-    link: 'https://developer.access89.com',
-    external: true,
-  },
+  // {
+  //   title: 'Developer',
+  //   link: 'https://developer.access89.com',
+  //   external: true,
+  // },
   {
     title: 'Pricing',
     link: '/pricing',
   },
+// {
+//     title: 'About us ',
+//     link: '/about', 
+// },
 ];

@@ -88,10 +88,10 @@ const OurPlatforms = () => {
   }, [pathname]);
 
   return (
-    <main className="">
+<main className="">
       <section className="container">
         <section className="">
-          <div className="bg-primary/10 rounded-xl relative overflow-hidden flex flex-col">
+              <div className="bg-primary/10 rounded-xl relative overflow-hidden flex flex-col">
             <div className="lg:px-28 md:pt-16 md:pb-28 px-5 flex flex-col-reverse md:flex-col">
               <div className="lg:max-w-lg md:max-w-xs mt-20">
                 <h1 className="font-medium text-2xl md:text-4xl w-[50vw]">

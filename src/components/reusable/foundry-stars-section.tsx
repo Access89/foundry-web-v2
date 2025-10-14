@@ -37,7 +37,7 @@ const foundry_stars = [
     title: 'I want to manage my business',
     boldedGreen: ['I want to'],
     boldedBlack: ['manage my business'],
-    link: '/manage',
+    link: '/business-automation',  
     image: '/images/foundry_stars/foundry_stars_business.png',
     imageSize: 'w-[38%]',
     // onpagenav: true

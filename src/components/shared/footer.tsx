@@ -167,7 +167,12 @@ const FOOTER_ITEMS = [
         title: 'Pricing',
         href: '/pricing',
       },
+      {
+        title: 'About Us',
+        href: '/about',
+      },
       // {
+
       //   title: "Faqs",
       //   href: "",
       // },
