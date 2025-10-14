@@ -211,7 +211,7 @@ const menuItems: MenuItem[] = [
     subItems: [
       {
         link: '/use-cases/retail',
-        title: 'Retail',
+        title: 'Retail & Wholesale',
         icon: 'https://www.shutterstock.com/image-photo/female-retail-worker-standing-store-600nw-2487354813.jpg',
         core_features: [
           {
@@ -265,7 +265,7 @@ const menuItems: MenuItem[] = [
 
       {
         link: '/use-cases/ev-charging',
-        title: 'Electric Vehicle Charging Platform',
+        title: 'KYC & Compliance',
         icon: 'https://www.powermag.com/wp-content/uploads/2020/03/fig-1-car-charging-electric-vehicle-ev-electrification.jpg',
         core_features: [
           {
@@ -338,7 +338,7 @@ const menuItems: MenuItem[] = [
       },
       {
         link: '/use-cases/logistics',
-        title: 'Logistics and Supply Chain',
+        title: 'Logistics & Supply Chain',
         icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3X-6CPkdk9U9ERuKoQFlVitTop64hRVwtx_-aWPkN32t69uLGh0rmFxm0of2AwNxImkg&usqp=CAU',
         core_features: [
           {

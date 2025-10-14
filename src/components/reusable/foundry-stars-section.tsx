@@ -17,30 +17,32 @@ const foundry_stars = [
     title: 'I want to borrow money and pay in 30, 60 or 90 days',
     boldedGreen: ['I want to', 'money and'],
     breakAt: ['borrow'],
-    boldedBlack: ['borrow', 'pay in 30, 60 or 90 days'],
+    boldedBlack: ['borrow', 'pay in 30, 60 or 90 days'], 
     link: '/loan',
     image: '/images/foundry_stars/foundry_stars_loan.png',
     imageSize: 'w-[38%]',
+    accentClass: 'text-[#075056]', 
   },
   {
-    title: 'I want to buy items at wholesale prices',
+    title: 'I want to trade internationally',
     boldedGreen: ['I want to'],
     breakAt: ['I want to'],
-    boldedBlack: ['buy items at wholesale prices'],
+    boldedBlack: ['trade internationally'],
     link: 'https://hub.foundry-platform.app/',
-    image: '/images/foundry_stars/foundry_stars_hub.png',
+    image: '/images/foundry_stars/TradeInter.png',
     imageSize: 'w-[40%]',
     external: true,
     widthHeight: 'w-[260px] h-[150px]',
+    accentClass: 'text-[#075056]', // Change to your desired color
   },
   {
     title: 'I want to manage my business',
     boldedGreen: ['I want to'],
     boldedBlack: ['manage my business'],
     link: '/business-automation',  
-    image: '/images/foundry_stars/foundry_stars_business.png',
+    image: '/images/foundry_stars/POSImage.png',
     imageSize: 'w-[38%]',
-    // onpagenav: true
+    accentClass: 'text-[#075056]', // Change to your desired color
   },
   {
     title: 'I want to embed Finance into my platform with one API',
@@ -51,8 +53,8 @@ const foundry_stars = [
     imageSize: 'w-[30%]',
     external: true,
     widthHeight: 'w-[360px] h-[150px]',
+    accentClass: 'text-[#075056]', // Change to your desired color
   },
-
   // {
   //   title: "I want to hire a sales person",
   //   boldedGreen: ["I want to"],
@@ -74,6 +76,7 @@ interface FoundryCardProps {
   onpagenav?: boolean;
   widthHeight?: string;
   full?: boolean;
+  accentClass?: string;
 }
 
 const FoundryCard: React.FC<FoundryCardProps> = ({
@@ -88,6 +91,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   onpagenav,
   widthHeight,
   full,
+  accentClass = 'text-[#075056]',
 }) => {
   const highlightText = (
     text: string,
@@ -103,7 +107,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
     return parts.map((part, i) => {
       if (greenHighlights.includes(part)) {
         return (
-          <span key={i} className="text-[#4C7F64] font-light">
+          <span key={i} className={`${accentClass} font-light`}>
             {part}
           </span>
         );
@@ -134,7 +138,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
       rel="noopener noreferrer"
       className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${
         full ? 'w-full' : widthHeight
-      } `}
+      }`}
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
@@ -144,11 +148,11 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2 hover/card:scale-110 transition-transform"
+      className={`mt-4 inline-block w-fit rounded-full border border-[#075056]/50 p-2 hover/card:scale-110 transition-transform`}
         >
           <Icon
             icon="prime:arrow-right"
-            className="text-[#4C7F64]"
+            className={accentClass}
             fontSize={24}
           />
         </a>
@@ -176,11 +180,11 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
         </h3>
         <Link
           to={link}
-          className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2  transition-transform"
+          className="mt-4 inline-block w-fit rounded-full border border-[#075056]/50 p-2  transition-transform"
         >
           <Icon
             icon="prime:arrow-right"
-            className="text-[#4C7F64]"
+            className={accentClass}
             fontSize={24}
           />
         </Link>
@@ -194,9 +198,10 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
       </div>
     </a>
   ) : (
-    <Link
+        <Link
       to={link}
       className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${widthHeight}`}
+      // pass accentClass through to nested usage via closure - keep prop for consistency
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
         <h3 className="text-base leading-snug font-sans">
@@ -204,11 +209,11 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
         </h3>
         <Link
           to={link}
-          className="mt-4 inline-block w-fit rounded-full border border-[#4C7F64]/50 p-2  transition-transform"
+          className="mt-4 inline-block w-fit rounded-full border border-[#075056] p-2  transition-transform"
         >
           <Icon
             icon="prime:arrow-right"
-            className="text-[#4C7F64]"
+            className={accentClass}
             fontSize={24}
           />
         </Link>
@@ -280,14 +285,14 @@ const FoundrySection = () => {
         <span className="text-[#000000]">Businesses</span>{' '}
         <p>
           <span className="text-black">for</span>{' '}
-          <span className="text-[#619B7D]">Growth</span>
+          <span className="text-[#075056]">Growth</span>
         </p>
       </motion.h1>
 
       <div className="relative flex items-center justify-center w-full  overflow-hidden mt-2 md:mt-5 lg:mt-8 lg:pb-5">
         <img
           className="lg:w-[35%] md:w-[60%] w-[100%] h-auto"
-          src="/images/foundry_stars/main_hero.png"
+          src="/images/foundry_stars/Main2.png"
           alt="hero"
         />
 

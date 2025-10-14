@@ -18,6 +18,7 @@ interface MenuItem {
       title: string;
       icon: string;
       link: string;
+      textColor?: string;
       description?: string;
     }[];
   }[];
@@ -85,25 +86,41 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      {/* Trigger as clickable Link */}
-      <Link
-        to={item.link === '/our-platforms' ? '#' : item.link || '#'}
-        onClick={() => {
-          setIsOpen(false);
-        }}
-        target={item.external ? '_blank' : '_self'}
-        className=" h-full py-6  flex gap-1 transition-all items-center text-base font-medium  text-[#434343] px-2"
-      >
-        {item.title}
-        {item.subItems && (
-          <Icon
-            className={`transition-transform duration-200 ${
-              isOpen ? 'rotate-180' : ''
-            }`}
-            icon="majesticons:chevron-down" // Always use the 'down' icon
-          />
-        )}
-      </Link>
+      {/* Trigger: render a non-navigating button when item has subItems so top label isn't clickable */}
+      {item.subItems ? (
+        <button
+          type="button"
+          aria-haspopup={true}
+          aria-expanded={isOpen}
+          onClick={(e) => {
+            e.preventDefault();
+            // toggle for keyboard users; mouseenter/mouseleave still work for hover
+            setIsOpen((s) => !s);
+          }}
+          className=" h-full py-6  flex gap-1 transition-all items-center text-base font-medium  text-[#434343] px-2"
+        >
+          {item.title}
+          {item.subItems && (
+            <Icon
+              className={`transition-transform duration-200 ${
+                isOpen ? 'rotate-180' : ''
+              }`}
+              icon="majesticons:chevron-down"
+            />
+          )}
+        </button>
+      ) : (
+        <Link
+          to={item.link === '/our-platforms' ? '#' : item.link || '#'}
+          onClick={() => {
+            setIsOpen(false);
+          }}
+          target={item.external ? '_blank' : '_self'}
+          className=" h-full py-6  flex gap-1 transition-all items-center text-base font-medium  text-[#434343] px-2"
+        >
+          {item.title}
+        </Link>
+      )}
 
       {/* Dropdown Menu */}
       <AnimatePresence>
@@ -131,28 +148,32 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                         key={subIndex}
                         className={`${
                           subIndex === 0
-                            ? 'bg-[#434343]'
+                            ? 'bg-[#16232A] text-white'
                             : subIndex === 1
-                            ? 'bg-[#000000]'
-                            : 'bg-[#619B7D]'
-                        }  text-white p-6 rounded-xl h-[300px] w-[300px] flex flex-col hover:scale-105 transition-all`}
+                            ? 'bg-[#E4EEF0] text-black'
+                            : 'bg-[#075056] text-white'
+                        } p-6 rounded-xl h-[300px] w-[300px] flex flex-col hover:scale-105 transition-all`}
                       >
-                        <Icon
+                        {/* <Icon
                           icon={subItem.icon}
                           fontSize={34}
-                          className="group-hover:translate-x-1 transition-all text-white w-[2rem]"
-                        />
-                        <div className="mt-auto text-xl max-w-[15rem]">
-                          <h5 className="pb-4">{subItem.description}</h5>
-                          <p className="text-sm flex items-center gap-x-1 hover:opacity-80 group">
-                            {subItem.title}
-                            <Icon
-                              icon="iconamoon:arrow-right-2-duotone"
-                              fontSize={20}
-                              className="group-hover:translate-x-1 transition-all"
-                            />
-                          </p>
-                        </div>
+                          className={`group-hover:translate-x-1 transition-all w-[2rem] ${
+                            subIndex === 1 ? 'text-black' : 'text-white'
+                          }`}
+                        /> */}
+                       <div className="mt-auto text-xl max-w-[15rem]">
+    <h5 className="pb-4 font-semibold">{subItem.description}</h5>
+    <p className="text-sm flex items-center gap-x-1 hover:opacity-80 group">
+      {subItem.title}
+      <Icon
+        icon="iconamoon:arrow-right-2-duotone"
+        fontSize={20}
+        className={`group-hover:translate-x-1 transition-all ${
+          subIndex === 1 ? 'text-black' : 'text-white'
+        }`}
+      />
+    </p>
+  </div>
                       </Link>
                     ))}
                   </div>

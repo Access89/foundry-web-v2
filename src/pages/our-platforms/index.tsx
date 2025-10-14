@@ -73,10 +73,10 @@ const OurPlatforms = () => {
         ...all.find((a) => a.key === 'trade'),
         subitems: [
           'Logistics',
-          'Warehousing',
+          'Trade Management',
           'Make Payments',
           'Track Orders',
-          'Foundry Hub',
+          'Compliance',
           'Cornershop',
           'FX',
           'Treasury',

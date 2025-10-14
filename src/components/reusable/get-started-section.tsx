@@ -36,7 +36,7 @@ const GetStartedSection = () => {
               onPress={() => {
                 navigate("/become-partner");
               }}
-              className="bg-[#619B7D] text-white flex items-center gap-1"
+              className="bg-[#075056]  text-white flex items-center gap-1"
             >
               Become a Partner <Icon icon="mingcute:arrow-right-line" />
             </CustomButton>

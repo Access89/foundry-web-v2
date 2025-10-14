@@ -3,6 +3,46 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const GreenSection = () => {
+  const colors = ['bg-[#16232A]', 'bg-[#E4EEF0]', 'bg-[#075056]'];
+  const items = [
+    {
+      title: 'Business',
+      description:
+        'Optimize operations with tools for inventory, payroll, and analytics to run your business.',
+      icon: 'streamline-cyber:business-chart-4',
+      linkTitle: 'Learn More',
+      link: 'our-platforms/business',
+      // per-card styling
+      textColor: 'text-white',
+      fontClass: 'font-sans',
+      titleClass: 'font-semibold text-xl',
+      descClass: 'text-sm text-white/90',
+    },
+    {
+      title: 'Finance',
+      description:
+        'Access credit, manage disbursements, and embed financial services.',
+      // icon: 'material-symbols-light:money-bag-outline',
+      linkTitle: 'Learn More',
+      link: 'financial-services',
+      textColor: 'text-black',
+      fontClass: 'font-serif',
+      titleClass: 'font-medium text-lg',
+      descClass: 'text-sm text-black/90',
+    },
+    {
+      title: 'Trade',
+      description:
+        'Streamline procurement, logistics, and B2B transactions end-to-end.',
+      // icon: 'mdi-light:truck',
+      linkTitle: 'Learn More',
+      link: 'logistics-supply-chain',
+      textColor: 'text-white',
+      fontClass: 'font-sans',
+      titleClass: 'font-semibold text-xl',
+      descClass: 'text-sm text-white/90',
+    },
+  ];
   return (
     <motion.section
       // initial={{ opacity: 0, y: 50 }}
@@ -11,67 +51,6 @@ const GreenSection = () => {
       className=" p-5 md:p-10  w-full text-primary-white mt-8 lg:mt-0"
     >
       <div className="container" id="greensection">
-        {/* <div>
-          <p className="lg:w-[40%] flex flex-col gap-4 pb-4">
-            <h3 className="text-2xl md:text-3xl font-medium  w-full">
-              <span className="text-black">Foundry </span>{' '}
-              <p className="text-[#929292] hidden lg:flex">for Business</p>
-              <span className="text-[#929292] lg:hidden ">for Business</span>
-            </h3>
-            <h3 className="font-normal text-sm  text-[#525866]">
-              Our platform empowers key commercial enterprises across Africa
-              with real-time, AI-driven decision-making, transforming industries
-              from wholesale, supply chain and logistics, manufacturing,
-              electric charging stations, and financial services.{' '}
-            </h3>
-          </p>
-          <div className="grid md:grid-cols-2 gap-5 space-y-5 md:space-y-0">
-            {[
-              {
-                description: `Access a suite of financial services, including digital accounts, lending, and payment processing, all within our platform. Streamline transactions, manage finances efficiently, and grow your business with our integrated financial solutions.`,
-                linkTitle: 'More About Finance',
-                link: '/financial-services',
-                title: 'Financial Services',
-              },
-              {
-                description: `Optimize your operations with our comprehensive business automation tools. From inventory and warehouse management to POS systems and workflow automation, our platform helps you reduce manual work, improve efficiency, and scale with ease.`,
-                linkTitle: 'More About Business Automation',
-                link: '/business-automation',
-                title: 'Business Automation',
-              },
-            ].map((item, index) => (
-              <Link to={item.link}>
-                <motion.div
-                  key={index}
-                  className={`${
-                    index === 0 ? 'bg-[#5F9779]' : 'bg-[#929292]'
-                  } p-6 rounded-xl  flex flex-col justify-between`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
-                >
-                  <h5 className="pb-4 font-medium text-lgs lg:text-2xl md:text-xl lg:h-[100px] text-white w-[90%]">
-                    {item.title}
-                  </h5>
-                  <h5 className="pb-4 font-light text-sm text-white">
-                    {item.description}
-                  </h5>
-                  <Link
-                    to={item.link}
-                    className="text-sm text-white font-light flex items-center gap-x-1 hover:opacity-80 group justify-between"
-                  >
-                    {item.linkTitle}
-                    <Icon
-                      icon="iconamoon:arrow-right-2-duotone"
-                      fontSize={20}
-                      className="group-hover:translate-x-1 transition-all"
-                    />
-                  </Link>
-                </motion.div>
-              </Link>
-            ))}
-          </div>
-        </div> */}
 
         <div className="mt-10  ">
           <div className="mb-8 text-sm flex flex-col w-full items-center justify-center">
@@ -81,83 +60,40 @@ const GreenSection = () => {
             </h5>
           </div>
           <div className="grid grid-cols-auto-fill-300 gap-1 md:gap-5  md:space-y-0">
-            {[
-              {
-                title: 'Business',
-                description:
-                  'Optimize operations with tools for inventory, payroll, and analytics to run your business.',
-                // icon: 'https://koronapos.com/wp-content/uploads/2022/07/Hardware-Group-with-KORONA-POS-Software8-1200x675.png.webp',
-                icon: 'streamline-cyber:business-chart-4',
-                linkTitle: 'Learn More',
-                link: 'business-automation',
-              },
-              {
-                title: 'Finance',
-                description:
-                  'Access credit, manage disbursements, and embed financial services.',
-                // icon: '/images/homepage/finance.png',
-                icon: 'material-symbols-light:money-bag-outline',
-                linkTitle: 'Learn More',
-                link: 'financial-services',
-              },
-              {
-                title: 'Trade',
-                description:
-                  'Streamline procurement, logistics, and B2B transactions end-to-end.',
-                // icon: '/images/homepage/trade.png',
-                icon: 'mdi-light:truck',
-                linkTitle: 'Learn More',
-                link: 'logistics-supply-chain',
-              },
-            ].map((e, index) => (
-              // <div key={index} className=" p-6  flex flex-col group ">
-              //   <div className=" h-[60%]">
-              //     <img
-              //       src={item.icon}
-              //       alt="support"
-              //       width="100%"
-              //       height="100%"
-              //       className="group-hover:translate-y-[-0.5rem] group-hover:drop-shadow-[0_8px_6px_#a0a0a088] transition-all w-full h-full"
-              //     />
-              //   </div>
-              //   <p className="mt-2 text-xl text-black flex flex-col gap-1">
-              //     <h5 className="text-medium font-medium">{item.title}</h5>
-              //     <p className="text-xs ">{item.description}</p>
-              //     <Link
-              //       to={item.link}
-              //       className="text-sm flex items-center gap-x-1 hover:opacity-80 group-hover:underline"
-              //     >
-              //       {item.linkTitle}
-              //       <Icon
-              //         icon="iconamoon:arrow-right-2-duotone"
-              //         fontSize={20}
-              //         className=" group-hover:translate-x-[0.5rem] transition-all"
-              //       />
-              //     </Link>
-              //   </p>
-              // </div>
-              <Link
-                to={e.link}
+            {items.map((e, index) => (
+              <motion.div
                 key={index}
-                className="bg-[#5F9779] text-white p-6 rounded-xl h-[300px] flex flex-col"
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.2,
+                  ease: "easeOut"
+                }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
+                viewport={{ once: true, amount: 0.3 }}
               >
-                <Icon
-                  icon={e.icon}
-                  fontSize={34}
-                  className="group-hover:translate-x-1 transition-all text-white w-[2rem]"
-                />
-                <div className="mt-auto text-xl max-w-[15rem]">
-                  <h5 className="pb-4">{e.description}</h5>
-                  <p className="text-sm flex items-center gap-x-1 hover:opacity-80 group">
-                    {e.title}
-                    <Icon
-                      icon="iconamoon:arrow-right-2-duotone"
-                      fontSize={20}
-                      className="group-hover:translate-x-1 transition-all"
-                    />
-                  </p>
-                </div>
-              </Link>
+                <Link
+                  to={e.link}
+                  className={`${colors[index % colors.length]} p-6 rounded-xl h-[300px] flex flex-col transition-all duration-300 hover:shadow-xl`}
+                >
+                  <div className="mt-auto text-xl max-w-[15rem]">
+                    <h5 className={`pb-4 ${e.titleClass} ${e.textColor}`}>{e.description}</h5>
+                    <p className={`text-sm flex items-center gap-x-1 hover:opacity-80 group ${e.descClass} ${e.textColor}`}>
+                      {e.title}
+                      <Icon
+                        icon="iconamoon:arrow-right-2-duotone"
+                        fontSize={20}
+                        className={`group-hover:translate-x-1 transition-all ${e.textColor}`}
+                      />
+                    </p>
+                  </div>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -171,7 +107,7 @@ const GreenSection = () => {
           <div className="lg:w-[60%]">
             <h5 className="font-semibold text-2xl lg:text-4xl mb-10 lg:w-[70%] text-[#010101]">
               Full Stack B2B ecosystem, all in{' '}
-              <span className="text-[#619B7D]">one platform.</span>
+              <span className="text-[#075056]">one platform.</span>
             </h5>
 
             {goalsConst.map((item, index) => (
@@ -183,7 +119,7 @@ const GreenSection = () => {
                 transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
               >
                 <div className="flex items-center gap-x-2 mb-1.5 md:mb-0 text-white">
-                  <span className="p-[0.1rem] px-[0.6rem] md:p-[0.2rem] md:px-[0.6rem] rounded-md border-1 bg-[#619B7D] font-semibold">
+                  <span className="p-[0.1rem] px-[0.6rem] md:p-[0.2rem] md:px-[0.6rem] rounded-md border-1 bg-[#075056] font-semibold">
                     {index + 1}
                   </span>
                   <p className="font-semibold md:text-lg uppercase text-[#010101]">

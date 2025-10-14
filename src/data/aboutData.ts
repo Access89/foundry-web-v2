@@ -89,22 +89,44 @@ export const aboutData = {
     {
       imageSrc: "/images/martin-gilbert.jpg",
       title: "CEO",
-      name: "Gibson Kofi Agyei"
+      name: "Gibson Annor Antwi"
     },
     {
       imageSrc: "/images/martin-gilbert.jpg",
-      title: "Chair",
-      name: "Martin Gilbert"
+      title: "VP Product",
+      name: "Nadia Modoc"
     },
     {
       imageSrc: "/images/martin-gilbert.jpg",
-      title: "CTO",
-      name: "Sarah Johnson"
+      title: "VP Engineering",
+      name: "Maltiti Suleman Osman"
     },
     {
       imageSrc: "/images/martin-gilbert.jpg",
-      title: "CFO",
-      name: "David Wilson"
-    }
+      title: "VP Design",
+      name: "Yaa Agyei-Ampomah-"
+    },
+  {
+    imageSrc: "/images/martin-gilbert.jpg",
+    title: "Site SRA Engineer/Information Security",
+    name: "Nana Kwame Antwi Gyamfi-"
+  
+  },
+  {
+    imageSrc: "/images/martin-gilbert.jpg",
+    title: "Data Scientist",
+    name: "George Aboagye Kwansa"  
+  },
+ {
+  imageSrc: "/images/martin-gilbert.jpg",
+  title: "Software Engineer",
+  name: "Akwasi Frimpong"
+ },
+ {
+  imageSrc: "/images/martin-gilbert.jpg",
+  title: "Software Engineer",
+  name: "Maxwell Appiah Gyimah"
+ }
+
   ] as TeamMember[]
 };

@@ -505,12 +505,16 @@ const BusinessExpansion = () => {
             </p>
           </div>
           <div className="md:grid md:grid-cols-auto-fill-300 gap-5 space-y-5 md:space-y-0 mt-10">
-            {current?.["core-features"]?.map((e: any) => {
+            {current?.["core-features"]?.map((e: any, index: number) => {
+              // Alternate between primary and secondary colors
+              const variant = index % 2 === 0 ? "primary" : "secondary";
+              
               return (
                 <InfoCard
                   title={e.title}
                   icon={e.icon}
                   description={e.description}
+                  variant={variant}
                   key={e.title}
                 />
               );
@@ -586,16 +590,37 @@ const exampleData: SuccessStoriesProps = {
 const InfoCard = ({
   icon,
   title,
-  description
+  description,
+  variant = "primary"
 }: {
   icon: string;
   title: string;
   description: string;
+  variant?: "primary" | "secondary";
 }) => {
+  // Define color schemes based on variant
+  const getColorScheme = (variant: string) => {
+    if (variant === "secondary") {
+      return {
+        containerBg: "bg-#075056",
+        iconBg: "bg-blue-500",
+        iconColor: "text-white"
+      };
+    } else {
+      return {
+        containerBg: "bg-#16232A",
+        iconBg: "bg-primary/80",
+        iconColor: "text-white"
+      };
+    }
+  };
+
+  const colors = getColorScheme(variant);
+
   return (
-    <div className="bg-secondary-light rounded-2xl p-4 lg:px-6 lg:py-6 w-full flex flex-col justify-between gap-6 hover:scale-[1.02] duration-700 hover:shadow-lg cursor-pointer">
-      <div className="flex flex-col gap-y-3 bg-primary/80 w-fit p-2 rounded-md">
-        <Icon icon={icon} fontSize={24} className="text-white" />
+    <div className={`${colors.containerBg} rounded-2xl p-4 lg:px-6 lg:py-6 w-full flex flex-col justify-between gap-6 hover:scale-[1.02] duration-700 hover:shadow-lg cursor-pointer`}>
+      <div className={`flex flex-col gap-y-3 ${colors.iconBg} w-fit p-2 rounded-md`}>
+        <Icon icon={icon} fontSize={24} className={colors.iconColor} />
       </div>
 
       <div>

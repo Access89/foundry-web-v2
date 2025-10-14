@@ -79,35 +79,42 @@ const ViewUseCase = () => {
           <div
             className={`grid grid-cols-1 md:grid-cols-${columnCount} gap-5 mt-10`}
           >
-            {current?.['core-features']?.map((e: any, index: string) => {
+            {current?.['core-features']?.map((e: any, idx: number) => {
+              const isOdd = idx % 2 === 1;
               return (
-                // <InfoCard
-                //   title={e.title}
-                //   icon={e.icon}
-                //   description={e.description}
-                //   key={e.title}
-                // />
                 <div
-                  key={index}
-                  className="bg-[#5F9779] text-white p-6 rounded-xl h-[300px] flex flex-col"
+                  key={idx}
+                  className={
+                    isOdd
+                      ? 'relative bg-[#E4EEF0] text-[#1A1A1A] p-6 rounded-xl h-[300px] flex flex-col border border-[#E6E6E6]'
+                      : 'relative bg-[#075056] text-white p-6 rounded-xl h-[300px] flex flex-col'
+                  }
                 >
-                  {/* <img src={e.icon} alt="support" className="w-[2rem]" /> */}
-                  <Icon
-                    icon={e.icon}
-                    fontSize={30}
-                    className="group-hover:translate-x-1 transition-all text-white w-[2rem]"
-                  />
+                  {/* icon first for even, icon last for odd to alternate layout visually */}
+                  {!isOdd && (
+                    <Icon
+                      icon={e.icon}
+                      fontSize={30}
+                      className="group-hover:translate-x-1 transition-all text-white w-[2rem]"
+                    />
+                  )}
+
                   <div className="mt-auto text-xl max-w-[15rem]">
                     <h5 className="pb-4">{e.description}</h5>
                     <p className="text-sm flex items-center gap-x-1 hover:opacity-80 group">
                       {e.title}
-                      {/* <Icon
-                        icon="iconamoon:arrow-right-2-duotone"
-                        fontSize={20}
-                        className="group-hover:translate-x-1 transition-all"
-                      /> */}
                     </p>
                   </div>
+
+                  {isOdd && (
+                    <div className="absolute top-6 right-6">
+                      <Icon
+                        icon={e.icon}
+                        fontSize={30}
+                        className="group-hover:translate-x-1 transition-all text-[#1A1A1A] w-[2rem]"
+                      />
+                    </div>
+                  )}
                 </div>
               );
             })}

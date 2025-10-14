@@ -525,7 +525,7 @@
 
             },
             {
-              title: 'Warehousing',
+              title: 'Trade Management',
               bg: '/images/our-platforms/view/MExpense.png',
               product_image: '/images/our-platforms/view/MExpense.png',
               description:
@@ -564,7 +564,7 @@
 
             },
             {
-              title: 'Foundry Hub',
+              title: 'Compliance',
               bg: '/images/our-platforms/view/MExpense.png',
               product_image: '/images/our-platforms/view/MExpense.png',
               description:

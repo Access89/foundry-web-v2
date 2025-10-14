@@ -55,7 +55,7 @@ const ViewPlatforms = () => {
     }
   }, [pathname]);
 
-  const colors = ['text-[#929292]', 'text-[#000000]', 'text-[#619B7D]'];
+  const colors = ['text-[#929292]', 'text-[#16232A]', 'text-[#075056]'];
 
   return (
     <main className="">
@@ -122,9 +122,9 @@ const ViewPlatforms = () => {
         </section>
 
         <h1 className="text-3xl md:text-4xl lg:text-6xl font-semibold md:mb-10 text-center font-roboto w-full">
-          <span className="text-[#929292]">Tailormade</span>{' '}
+          <span className="text-[#929292]">Made</span>{' '}
           <span className="text-[#000000]">for</span>{' '}
-          <span className="text-[#619B7D] capitalize">{moduleData?.key}</span>
+          <span className="text-[#075056] capitalize">{moduleData?.key}</span>
         </h1>
         <section className="py-10   flex items-center justify-center">
           <div className="overflow-hidden relative">

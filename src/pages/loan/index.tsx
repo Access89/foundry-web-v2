@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { InfoCard } from "./components/info_card";
 import { LoanCalculator } from "./components/loan-calculator";
+import { useState } from "react";
 
 const Loan = () => {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   return (
     <div className="container py-5 md:py-10">
       <motion.div
@@ -14,7 +16,14 @@ const Loan = () => {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-10 md:mt-16">
           {loan_options.map((item, index) => (
-            <InfoCard key={index} {...item} />
+            <InfoCard
+              key={index}
+              {...item}
+              selected={selectedIndex === index}
+              onClick={() =>
+                setSelectedIndex((prev) => (prev === index ? null : index))
+              }
+            />
           ))}
         </div>
       </motion.div>
