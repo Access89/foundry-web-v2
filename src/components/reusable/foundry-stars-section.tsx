@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
@@ -39,7 +39,7 @@ const foundry_stars = [
     title: 'I want to manage my business',
     boldedGreen: ['I want to'],
     boldedBlack: ['manage my business'],
-    link: '/business-automation',  
+    link: '/our-platforms/businesss',  
     image: '/images/foundry_stars/POSImage.png',
     imageSize: 'w-[38%]',
     accentClass: 'text-[#075056]', // Change to your desired color
@@ -245,12 +245,12 @@ const FoundrySection = () => {
   //   return () => clearTimeout(timeout);
   // }, []);
 
-  const updateCardsToShow = () => setCardsToShow(getCardsToShow());
+  const updateCardsToShow = useCallback(() => setCardsToShow(getCardsToShow()), []);
 
   useEffect(() => {
     window.addEventListener('resize', updateCardsToShow);
     return () => window.removeEventListener('resize', updateCardsToShow);
-  }, []);
+  }, [updateCardsToShow]);
 
   function getCardsToShow() {
     if (window.innerWidth < 640) return CARDS_TO_SHOW.mobile;
@@ -259,10 +259,17 @@ const FoundrySection = () => {
     return CARDS_TO_SHOW.desktop;
   }
 
+  const handleSwipeLeft = useCallback(() => {
+    setIndex((prev) => Math.min(prev + 1, foundry_stars.length - 1));
+  }, []);
+
+  const handleSwipeRight = useCallback(() => {
+    setIndex((prev) => Math.max(prev - 1, 0));
+  }, []);
+
   const handlers = useSwipeable({
-    onSwipedLeft: () =>
-      setIndex((prev) => Math.min(prev + 1, foundry_stars.length - 1)),
-    onSwipedRight: () => setIndex((prev) => Math.max(prev - 1, 0)),
+    onSwipedLeft: handleSwipeLeft,
+    onSwipedRight: handleSwipeRight,
     trackMouse: true,
   });
   useEffect(() => {

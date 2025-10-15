@@ -18,7 +18,7 @@ const GetStartedSection = () => {
           <span className="text-[#ABABAB]">Join</span> Foundry Platform{" "}
         </h2>
 
-        <p className="text-[#575757] text-sm  font-normal md:text-center">
+        <p className="text-[#575757] text-2xl font-normal md:text-center">
           We believe in the power of collaboration. Our Partner Program is
           designed for innovators and industry leaders ready to take the next
           step in growth. As a partner, you’ll gain exclusive access to our
@@ -36,7 +36,7 @@ const GetStartedSection = () => {
               onPress={() => {
                 navigate("/become-partner");
               }}
-              className="bg-[#075056]  text-white flex items-center gap-1"
+              className="bg-[#075056] text-xl text-white flex items-center gap-1"
             >
               Become a Partner <Icon icon="mingcute:arrow-right-line" />
             </CustomButton>

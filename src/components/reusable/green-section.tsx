@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SpotifyEpisodeList from './spotify-episode-list';
 
 const GreenSection = () => {
   const colors = ['bg-[#16232A]', 'bg-[#E4EEF0]', 'bg-[#075056]'];
@@ -60,7 +61,7 @@ const GreenSection = () => {
             </h5>
           </div>
           <div className="grid grid-cols-auto-fill-300 gap-1 md:gap-5  md:space-y-0">
-            {items.map((e, index) => (
+            {items.map((e: any, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -99,55 +100,68 @@ const GreenSection = () => {
         </div>
 
         <motion.div
-          className="lg:flex grid-cols-[0.4fr,1fr] gap-x-10 my-16 text-sm"
+          className="lg:flex grid-cols-[0.4fr,1fr] gap-x-10 lg:gap-x-16 my-16 text-sm"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="lg:w-[60%]">
-            <h5 className="font-semibold text-2xl lg:text-4xl mb-10 lg:w-[70%] text-[#010101]">
-              Full Stack B2B ecosystem, all in{' '}
-              <span className="text-[#075056]">one platform.</span>
+          <div className="lg:w-[60%] lg:order-1">
+            <h5 className="font-semibold text-2xl lg:text-4xl mb-10 mt-10 w-full text-[#010101] text-left whitespace-nowrap">
+              SME Voice by Foundry is the podcast where Africa's <wbr></wbr>small and medium enterprises{' '}
+              <span className="text-[#075056]">get heard.</span>
             </h5>
 
-            {goalsConst.map((item, index) => (
-              <motion.div
-                key={index}
-                className="flex flex-col gap-4 text-sm text-white border-b border-[#929292]/40 mt-3 pb-3"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
-              >
-                <div className="flex items-center gap-x-2 mb-1.5 md:mb-0 text-white">
-                  <span className="p-[0.1rem] px-[0.6rem] md:p-[0.2rem] md:px-[0.6rem] rounded-md border-1 bg-[#075056] font-semibold">
-                    {index + 1}
-                  </span>
-                  <p className="font-semibold md:text-lg uppercase text-[#010101]">
-                    {item.title}
-                  </p>
-                </div>
-                <p className="font-light text-xs md:text-sm text-[#929292]">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
+        {/* Spotify Section */}
+            <motion.div
+              className="flex flex-col gap-4 mt-3"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h6 className="font-semibold text-2xl  md:text-2xl lg:text-2xl text-[#010101]">Latest Episodes</h6>
+              <div className="w-full">
+                <SpotifyEpisodeList
+                  max={4}
+                  compact={true}
+                  episodeUrls={[
+                    'https://open.spotify.com/episode/2Lex8TchzmPPBCkkbxdNyO?si=550deccc6d0d4edc',
+                    'https://open.spotify.com/episode/4uEPKzMTk3DrY0UysWO21q?si=0770801ffdf044e0',
+                    'https://open.spotify.com/episode/0ImgWy9bErBARwJ9q1YR0H?si=44a344ca988d4000',
+                    'https://open.spotify.com/episode/1rVCmJghbeRgoLJfSn9jXJ?si=d39e98aae3d1407f',
+                  ]}
+                />
+              </div>
+            </motion.div>
           </div>
-          <div className="h-full lg:w-[40%] flex justify-center items-center mt-20">
+          <div className="h-full lg:w-[40%] lg:order-2 flex flex-col justify-center items-center mt-24 lg:mt-[11rem]">
             <div className="bg-[#D9D9D9] flex justify-center items-center w-full rounded-lg">
               {/* <img
               src="/icons/camera.svg"
               alt="camera"
               className="w-[5rem] h-[25rem]"
             /> */}
-              <iframe
-                src="https://www.youtube.com/embed/gL5JVyTBSXg?si=miYQF32DSLCEWaT_"
-                title="YouTube video player"
-                className="w-full h-[25rem] bg-[#D9D9D9] rounded-lg"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              <img
+                src="/images/foundry_stars/SMEVoice.jpeg"
+                alt="SME Voice"
+                title="SME Voice"
+                className="w-full h-[25rem] bg-[#D9D9D9] rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => window.open('https://open.spotify.com/show/36anmwQqvL43s64Kzcx987?si=c5d95c2d7a9a415f/', '_blank', 'noopener,noreferrer')}
+              
+              />
             </div>
+            <motion.button
+              className="mt-8 bg-white text-[#075056] px-8 py-3 rounded-lg font-semibold text-lg hover: transition-colors duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              onClick={() => window.open('https://open.spotify.com/show/36anmwQqvL43s64Kzcx987?si=c5d95c2d7a9a415f/', '_blank', 'noopener,noreferrer')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Listen More
+              <Icon
+                icon="mdi:spotify"
+                fontSize={24}
+                className="text-[#075056]"
+              />
+            </motion.button>
           </div>
         </motion.div>
       </div>
@@ -155,27 +169,27 @@ const GreenSection = () => {
   );
 };
 
-const goalsConst = [
-  {
-    title: 'connect with verified players',
-    desc: 'Partner with reliable suppliers, service providers, and industry leaders to strengthen your business network',
-  },
-  {
-    title: 'Scale Your Business with capital',
-    desc: 'Expand your reach, increase efficiency, and drive sustainable growth with the right strategies and capital.',
-  },
-  {
-    title: 'Gain Operational Insights',
-    desc: 'Leverage data-driven insights to monitor performance, streamline processes, and make informed decisions',
-  },
-  {
-    title: 'Optimize & Eliminate Waste',
-    desc: 'Improve efficiency, reduce costs, and enhance productivity by eliminating inefficiencies.',
-  },
-  {
-    title: 'Enhance Customer Experience',
-    desc: 'Build lasting relationships by delivering exceptional service and personalized experiences.',
-  },
-];
+// const goalsConst = [
+//   {
+//     title: 'connect with verified players',
+//     desc: 'Partner with reliable suppliers, service providers, and industry leaders to strengthen your business network',
+//   },
+//   {
+//     title: 'Scale Your Business with capital',
+//     desc: 'Expand your reach, increase efficiency, and drive sustainable growth with the right strategies and capital.',
+//   },
+//   {
+//     title: 'Gain Operational Insights',
+//     desc: 'Leverage data-driven insights to monitor performance, streamline processes, and make informed decisions',
+//   },
+//   {
+//     title: 'Optimize & Eliminate Waste',
+//     desc: 'Improve efficiency, reduce costs, and enhance productivity by eliminating inefficiencies.',
+//   },
+//   {
+//     title: 'Enhance Customer Experience',
+//     desc: 'Build lasting relationships by delivering exceptional service and personalized experiences.',
+//   },
+// ];
 
 export default GreenSection;

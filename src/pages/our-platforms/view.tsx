@@ -8,7 +8,7 @@ import { useRef } from 'react';
 import SuccessStories, {
   SuccessStoriesProps,
 } from '@/components/reusable/success-stories-section';
-import { main_platform_data } from './data/platform.data';
+import { loadPlatformData, PlatformKey } from './data/platform.loader';
 
 const ViewPlatforms = () => {
   const navigate = useNavigate();
@@ -16,9 +16,31 @@ const ViewPlatforms = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const all = main_platform_data;
+  const [moduleData, setModuleData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-  const moduleData = all.find((item) => pathname.includes(item.key));
+  useEffect(() => {
+    const loadData = async () => {
+      setLoading(true);
+      try {
+        let platformKey: PlatformKey | null = null;
+        if (pathname.includes('business')) platformKey = 'business';
+        else if (pathname.includes('finance')) platformKey = 'finance';
+        else if (pathname.includes('trade')) platformKey = 'trade';
+        
+        if (platformKey) {
+          const data = await loadPlatformData(platformKey);
+          setModuleData(data);
+        }
+      } catch (error) {
+        console.error('Error loading platform data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
+  }, [pathname]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -57,6 +79,23 @@ const ViewPlatforms = () => {
 
   const colors = ['text-[#929292]', 'text-[#16232A]', 'text-[#075056]'];
 
+  if (loading) {
+    return (
+      <main className="">
+        <section className="">
+          <section className="container">
+            <div className="flex items-center justify-center min-h-screen">
+              <div className="text-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+                <p className="text-gray-600">Loading platform data...</p>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="">
       <section className="">
@@ -81,7 +120,7 @@ const ViewPlatforms = () => {
                   {moduleData?.title
                     ?.split(' ')
                     .slice(2)
-                    .map((word, idx) => (
+                    .map((word: string, idx: number) => (
                       <span
                         key={idx + 2}
                         className={`${
@@ -137,7 +176,7 @@ const ViewPlatforms = () => {
                 setCurrentIndex(Math.round(scrollLeft / width));
               }}
             >
-              {moduleData?.subitems.map((item, idx) => (
+              {moduleData?.subitems.map((item: any, idx: number) => (
                 <div
                   onClick={() => navigate(item.link)}
                   key={idx}
@@ -170,7 +209,7 @@ const ViewPlatforms = () => {
 
             {/* Indicators */}
             <div className="flex justify-center mt-6 gap-2">
-              {moduleData?.subitems.map((_, idx) => (
+              {moduleData?.subitems.map((_: any, idx: number) => (
                 <div
                   key={idx}
                   onClick={() => {
