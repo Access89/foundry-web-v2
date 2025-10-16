@@ -19,8 +19,8 @@ const foundry_stars = [
     breakAt: ['borrow'],
     boldedBlack: ['borrow', 'pay in 30, 60 or 90 days'], 
     link: '/loan',
-    image: '/images/foundry_stars/foundry_stars_loan.png',
-    imageSize: 'w-[38%]',
+    image: '/images/foundry_stars/MobilePhone.png',
+    imageSize: 'w-[38%] h-[120px]',
     accentClass: 'text-[#075056]', 
   },
   {
@@ -287,7 +287,7 @@ const FoundrySection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
-      <motion.h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full px-4">
+      <motion.h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full px-4">
        <span className=" bg-gradient-to-r from-[#C65C3E] via-[#DFAF3E]  to-[#075056] bg-clip-text text-transparent"> Accelerating Growth</span><br/> <span className="bg-gradient-to-r from-[#C65C3E] via-[#DFAF3E]  to-[#075056] bg-clip-text text-transparent">for Everyday Businesses
        </span>
       </motion.h1>
