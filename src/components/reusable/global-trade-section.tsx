@@ -20,7 +20,7 @@ const GlobalTradeSection = () => {
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Supply : Flow by Foundry is a cross-border supply chain and trade facilitation platform that simplifies internation trade for businesses by providing tools to manage orders, payments, logistics, and compliance.
+            Supply:Flow by Foundry is a cross-border supply chain and trade facilitation platform that simplifies international trade for businesses by providing tools to manage orders, payments, logistics, and compliance.
           </motion.p>
       </div>
     </section>

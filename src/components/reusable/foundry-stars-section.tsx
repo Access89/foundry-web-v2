@@ -287,7 +287,7 @@ const FoundrySection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
-      <motion.h1 className="text-3xl md:text-4xl lg:text-6xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full">
+      <motion.h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full px-4">
         <span className="text-[#929292]">Empowering</span>{' '}
         <span className="text-[#000000]">Businesses</span>{' '}
         <p>
@@ -296,7 +296,7 @@ const FoundrySection = () => {
         </p>
       </motion.h1>
 
-      <div className="relative flex items-center justify-center w-full  overflow-hidden mt-2 md:mt-5 lg:mt-8 lg:pb-5">
+      <div className="relative flex items-center justify-center w-full overflow-visible mt-2 md:mt-5 lg:mt-8 lg:pb-5">
         <img
           className="lg:w-[35%] md:w-[60%] w-[100%] h-auto"
           src="/images/foundry_stars/Main2.png"
@@ -304,7 +304,7 @@ const FoundrySection = () => {
         />
 
         {/* Scattered Cards */}
-        <div className="lg:flex hidden ">
+        <div className="hidden lg:flex relative">
           {/* hand point */}
           {/* {showHandClick && (
             <motion.div
@@ -359,7 +359,7 @@ const FoundrySection = () => {
         </div>
       </div>
 
-      <div className="overflow-hidden  lg:hidden relative w-full" {...handlers}>
+      <div className="overflow-hidden lg:hidden relative w-full px-4" {...handlers}>
         <motion.div
           className="flex gap-4"
           animate={{ x: `-${index * (100 / cardsToShow)}%` }}
@@ -368,7 +368,7 @@ const FoundrySection = () => {
           {foundry_stars.map((card, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-full sm:w-full md:w-full lg:w-1/4 px-2"
+              className="flex-shrink-0 w-full px-2"
             >
               <FoundryCard full={true} {...card} />
             </div>

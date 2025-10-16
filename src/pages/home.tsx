@@ -3,6 +3,7 @@ import GetStartedSection from "@/components/reusable/get-started-section";
 import GlobalTradeSection from "@/components/reusable/global-trade-section";
 import GreenSection from "@/components/reusable/green-section";
 import PartnersSection from "@/components/reusable/partners-section";
+import WorldMapSection from "@/components/reusable/world-map-section";
 // import InfoCard from "@/components/shared/info_card";
 // import { CustomButton } from "@/components/shared/shared_customs";
 // import { Icon } from "@iconify/react";
@@ -20,6 +21,7 @@ const Home = () => {
       <GreenSection />
       <GetStartedSection />
       <GlobalTradeSection />
+      <WorldMapSection />
       {/* <main className="container">
         <section className="bg-[#F9FFF6] rounded-3xl overflow-hidden pt-16 relative">
         <div className="md:grid grid-cols-2 lg:px-24 px-16 z-50">
