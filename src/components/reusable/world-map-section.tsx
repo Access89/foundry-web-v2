@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const WorldMapSection = () => {
   return (
-    <section className="pt-8 md:pt-2 pb-10 -mt-20 md:-mt-20 bg-white">
+    <section className="pt-8 md:pt-2 pb-10 mt-0 md:-mt-20 bg-white">
       <div className="container mx-auto px-4">
          <motion.div
            className="text-center mb-4"

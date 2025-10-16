@@ -15,7 +15,7 @@ const GlobalTradeSection = () => {
 
       
           <motion.p 
-            className="text-[#575757] text-base sm:text-lg md:text-xl font-normal text-center max-w-[60ch] px-4 sm:px-0"
+            className="text-[#575757] text-2xl sm:text-lg md:text-xl font-normal text-center max-w-[60ch] px-4 sm:px-0"
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.3 }}

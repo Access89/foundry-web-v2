@@ -24,10 +24,10 @@ const foundry_stars = [
     accentClass: 'text-[#075056]', 
   },
   {
-    title: 'I want to trade internationally',
+    title: 'I want to trade ',
     boldedGreen: ['I want to'],
     breakAt: ['I want to'],
-    boldedBlack: ['trade internationally'],
+    boldedBlack: ['trade '],
     link: 'https://hub.foundry-platform.app/',
     image: '/images/foundry_stars/TradeInter.png',
     imageSize: 'w-[40%]',
@@ -200,7 +200,7 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
   ) : (
         <Link
       to={link}
-      className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${widthHeight}`}
+      className={`bg-white rounded-lg my-5 shadow-[0px_2px_11px_2px_rgba(0,0,0,0.09)] flex items-end gap-4 hover:shadow-[0px_4px_15px_3px_rgba(0,0,0,0.12)] transition-transform w-[300px] h-[150px] hover/card:scale-110 ${full ? 'w-full' : widthHeight}`}
       // pass accentClass through to nested usage via closure - keep prop for consistency
     >
       <div className="flex-1 pt-3 pb-5 lg:pb-8 pl-5 justify-between flex flex-col h-full">
@@ -304,7 +304,7 @@ const FoundrySection = () => {
         />
 
         {/* Scattered Cards */}
-        <div className="hidden lg:flex relative">
+        <div className="hidden lg:flex absolute inset-0 z-10">
           {/* hand point */}
           {/* {showHandClick && (
             <motion.div
@@ -359,16 +359,17 @@ const FoundrySection = () => {
         </div>
       </div>
 
-      <div className="overflow-hidden lg:hidden relative w-full px-4" {...handlers}>
+      <div className="overflow-hidden lg:hidden relative w-full px-2" {...handlers}>
         <motion.div
-          className="flex gap-4"
+          className="flex gap-2"
           animate={{ x: `-${index * (100 / cardsToShow)}%` }}
           transition={{ type: 'spring', stiffness: 100, damping: 20 }}
         >
           {foundry_stars.map((card, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-full px-2"
+              className="flex-shrink-0 px-1"
+              style={{ flex: `0 0 ${100 / cardsToShow}%` }}
             >
               <FoundryCard full={true} {...card} />
             </div>

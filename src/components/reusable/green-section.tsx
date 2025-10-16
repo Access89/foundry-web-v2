@@ -25,7 +25,7 @@ const GreenSection = () => {
         'Access credit, manage disbursements, and embed financial services.',
       // icon: 'material-symbols-light:money-bag-outline',
       linkTitle: 'Learn More',
-      link: 'financial-services',
+      link: 'our-platforms/finance',
       textColor: 'text-black',
       fontClass: 'font-serif',
       titleClass: 'font-medium text-lg',
