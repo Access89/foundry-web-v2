@@ -49,18 +49,18 @@ const GreenSection = () => {
       // initial={{ opacity: 0, y: 50 }}
       // whileInView={{ opacity: 1, y: 0 }}
       // transition={{ duration: 0.8, ease: "easeOut" }}
-      className=" p-5 md:p-10  w-full text-primary-white mt-8 lg:mt-0"
+      className=" p-5 md:p-10 w-full text-primary-white mt-6 lg:mt-0"
     >
       <div className="container" id="greensection">
 
         <div className="mt-10  ">
-          <div className="mb-8 text-sm flex flex-col w-full items-center justify-center">
-            <h5 className="font-semibold text-2xl lg:text-4xl  md:mb-5 md:w-[68%] text-[#010101] text-center">
-              <span className="text-[#ABABAB]">Collaborate</span> Within{' '}
-              <p>The Ecosystem</p>
+          <div className="mb-6 text-sm flex flex-col w-full items-center justify-center">
+            <h5 className="font-semibold text-xl sm:text-2xl lg:text-4xl md:mb-5 max-w-[90%] md:max-w-[68%] text-[#010101] text-center leading-snug">
+              <span className="text-[#ABABAB]">Collaborate</span> Within
+              <span className="block">The Ecosystem</span>
             </h5>
           </div>
-          <div className="grid grid-cols-auto-fill-300 gap-1 md:gap-5  md:space-y-0">
+          <div className="grid grid-cols-1 sm:grid-cols-auto-fill-300 gap-3 md:gap-5">
             {items.map((e: any, index: number) => (
               <motion.div
                 key={index}
@@ -80,10 +80,10 @@ const GreenSection = () => {
               >
                 <Link
                   to={e.link}
-                  className={`${colors[index % colors.length]} p-6 rounded-xl h-[300px] flex flex-col transition-all duration-300 hover:shadow-xl`}
+                  className={`${colors[index % colors.length]} p-5 sm:p-6 rounded-xl min-h-[220px] sm:h-[280px] md:h-[300px] flex flex-col transition-all duration-300 hover:shadow-xl`}
                 >
-                  <div className="mt-auto text-xl max-w-[15rem]">
-                    <h5 className={`pb-4 ${e.titleClass} ${e.textColor}`}>{e.description}</h5>
+                  <div className="mt-auto text-lg sm:text-xl max-w-[22rem]">
+                    <h5 className={`pb-3 sm:pb-4 ${e.titleClass} ${e.textColor}`}>{e.description}</h5>
                     <p className={`text-sm flex items-center gap-x-1 hover:opacity-80 group ${e.descClass} ${e.textColor}`}>
                       {e.title}
                       <Icon
@@ -100,14 +100,15 @@ const GreenSection = () => {
         </div>
 
         <motion.div
-          className="lg:flex grid-cols-[0.4fr,1fr] gap-x-10 lg:gap-x-16 my-16 text-sm"
+          className="grid lg:flex grid-cols-1 gap-y-10 lg:gap-y-0 lg:grid-cols-[0.4fr,1fr] gap-x-6 lg:gap-x-16 my-12 md:my-16 text-sm"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
         >
           <div className="lg:w-[60%] lg:order-1">
-            <h5 className="font-semibold text-2xl lg:text-4xl mb-10 mt-10 w-full text-[#010101] text-left whitespace-nowrap">
-              SME Voice by Foundry is the podcast where Africa's <wbr></wbr>small and medium enterprises{' '}
+            <h5 className="font-semibold text-xl sm:text-2xl lg:text-4xl mb-6 sm:mb-8 mt-4 sm:mt-8 w-full text-[#010101] text-left">
+              SME Voice by Foundry is the podcast where Africa's
+              <span className="block sm:inline"> small and medium enterprises </span>
               <span className="text-[#075056]">get heard.</span>
             </h5>
 
@@ -118,7 +119,7 @@ const GreenSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h6 className="font-semibold text-2xl  md:text-2xl lg:text-2xl text-[#010101]">Latest Episodes</h6>
+              <h6 className="font-semibold text-lg sm:text-xl md:text-2xl text-[#010101]">Latest Episodes</h6>
               <div className="w-full">
                 <SpotifyEpisodeList
                   max={4}
@@ -127,13 +128,13 @@ const GreenSection = () => {
                     'https://open.spotify.com/episode/2Lex8TchzmPPBCkkbxdNyO?si=550deccc6d0d4edc',
                     'https://open.spotify.com/episode/4uEPKzMTk3DrY0UysWO21q?si=0770801ffdf044e0',
                     'https://open.spotify.com/episode/0ImgWy9bErBARwJ9q1YR0H?si=44a344ca988d4000',
-                    'https://open.spotify.com/episode/1rVCmJghbeRgoLJfSn9jXJ?si=d39e98aae3d1407f',
+                    // 'https://open.spotify.com/episode/1rVCmJghbeRgoLJfSn9jXJ?si=d39e98aae3d1407f',
                   ]}
                 />
               </div>
             </motion.div>
           </div>
-          <div className="h-full lg:w-[40%] lg:order-2 flex flex-col justify-center items-center mt-24 lg:mt-[11rem]">
+          <div className="h-full lg:w-[40%] lg:order-2 flex flex-col justify-end items-center mt-6 sm:mt-24 lg:mt-[15rem]">
             <div className="bg-[#D9D9D9] flex justify-center items-center w-full rounded-lg">
               {/* <img
               src="/icons/camera.svg"
@@ -144,22 +145,63 @@ const GreenSection = () => {
                 src="/images/foundry_stars/SMEVoice.jpeg"
                 alt="SME Voice"
                 title="SME Voice"
-                className="w-full h-[25rem] bg-[#D9D9D9] rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                className="w-full h-auto max-h-[60rem] sm:max-h-[28rem] bg-[#D9D9D9] rounded-lg cursor-pointer hover:opacity-90 transition-opacity object-cover"
                 onClick={() => window.open('https://open.spotify.com/show/36anmwQqvL43s64Kzcx987?si=c5d95c2d7a9a415f/', '_blank', 'noopener,noreferrer')}
               
               />
             </div>
             <motion.button
-              className="mt-8 bg-white text-[#075056] px-8 py-3 rounded-lg font-semibold text-lg hover: transition-colors duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              className="mt-6 sm:mt-4 bg-white text-[#075056] px-6 sm:px-8 py-3 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl relative overflow-hidden"
               onClick={() => window.open('https://open.spotify.com/show/36anmwQqvL43s64Kzcx987?si=c5d95c2d7a9a415f/', '_blank', 'noopener,noreferrer')}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ 
+                scale: 1.05,
+                y: -2,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ 
+                scale: 0.95,
+                transition: { duration: 0.1 }
+              }}
+              animate={{
+                boxShadow: [
+                  "0 10px 25px rgba(0,0,0,0.1)",
+                  "0 15px 35px rgba(7, 80, 86, 0.2)",
+                  "0 10px 25px rgba(0,0,0,0.1)"
+                ]
+              }}
+           
+        
             >
-              Listen More
-              <Icon
-                icon="mdi:spotify"
-                fontSize={24}
-                className="text-[#075056]"
+              <motion.span
+                className="relative z-10"
+                whileHover={{ x: 2 }}
+                transition={{ duration: 0.2 }}
+              >
+                Listen More
+              </motion.span>
+              <motion.div
+                whileHover={{ 
+                  rotate: 360,
+                  scale: 1.1
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <Icon
+                  icon="mdi:spotify"
+                  fontSize={22}
+                  className="text-[#075056]"
+                />
+              </motion.div>
+              
+              {/* Animated background gradient */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-[#075056]/10 to-transparent"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.6 }}
               />
             </motion.button>
           </div>
