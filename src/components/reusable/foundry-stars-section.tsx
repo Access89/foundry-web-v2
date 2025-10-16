@@ -14,7 +14,7 @@ const CARDS_TO_SHOW = {
 
 const foundry_stars = [
   {
-    title: 'I want to borrow money and pay in 30, 60 or 90 days',
+    title: '   borrow money and pay in 30, 60 or 90 days',
     boldedGreen: ['I want to', 'money and'],
     breakAt: ['borrow'],
     boldedBlack: ['borrow', 'pay in 30, 60 or 90 days'], 
@@ -288,12 +288,8 @@ const FoundrySection = () => {
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       <motion.h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full px-4">
-        <span className="text-[#929292]">Empowering</span>{' '}
-        <span className="text-[#000000]">Businesses</span>{' '}
-        <p>
-          <span className="text-black">for</span>{' '}
-          <span className="text-[#075056]">Growth</span>
-        </p>
+       <span className=" bg-gradient-to-r from-[#C65C3E] via-[#DFAF3E]  to-[#075056] bg-clip-text text-transparent"> Accelerating Growth</span><br/> <span className="bg-gradient-to-r from-[#C65C3E] via-[#DFAF3E]  to-[#075056] bg-clip-text text-transparent">for Everyday Businesses
+       </span>
       </motion.h1>
 
       <div className="relative flex items-center justify-center w-full overflow-visible mt-2 md:mt-5 lg:mt-8 lg:pb-5">
