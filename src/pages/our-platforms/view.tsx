@@ -150,7 +150,7 @@ const ViewPlatforms = () => {
                 alt="AI marketplace"
                 classNames={{
                   wrapper:
-                    'absolute right-10 rounded-none top-0 w-[5rem] h-[5rem] md:h-[20rem] md:w-[20rem]',
+                    'absolute right-10 rounded-none top-0 w-[5rem] h-[5rem] md:h-[15rem] md:w-[15rem]',
                   img: 'rounded-none',
                 }}
               />
@@ -180,29 +180,31 @@ const ViewPlatforms = () => {
                 <div
                   onClick={() => navigate(item.link)}
                   key={idx}
-                  className={`cursor-pointer min-w-[80vw] sm:min-w-[40vw] lg:min-w-[18vw] min-h-[24rem] md:min-h-[28rem] lg:min-h-[30rem]
-                    bg-[#36413E] bg-cover text-white p-0 rounded-2xl flex flex-col justify-between
+                  className={`cursor-pointer min-w-[65vw] sm:min-w-[45vw] lg:min-w-[20vw] min-h-[20rem] md:min-h-[24rem] lg:min-h-[28rem]
+                    bg-[#36413E] bg-cover text-white p-0 rounded-3xl flex flex-col justify-between
                     shadow hover:shadow-lg transition-all duration-300 ease-in-out transform
                     ${idx === currentIndex + 2 ? 'scale-100' : 'scale-95'}`}
                   style={{
                     backgroundImage: `url(${item.bg})`,
-                    backgroundPosition: 'left 80%',
+                    backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
+                    backgroundSize:'cover',
                   }}
                 >
                   {/* Title Block */}
                   <div className="p-8">
-                    <div className="text-xl text-center font-semibold text-[#272727]">
-                      {item.title}
-                    </div>
-                  </div>
-
-                  {/* Glass Panel (mimicking the image card footer) */}
+                  <div className={`text-xl ${item.titlePosition || '-mt-4'} text-center font-semibold`}>
+  <span className={item.titleColor || 'text-[#272727]'}>
+    {item.title}
+  </span>
+</div>
+</div>
+                  {/* Glass Panel (mimicking the image card footer)
                   <div className="absolute text-[#272727] bottom-4 left-4 right-4 bg-white/10 backdrop-blur-md border border-white/10 rounded-xl p-4 flex justify-between items-center">
                     <div className="text-sm  opacity-90">
                       {item.description}
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>

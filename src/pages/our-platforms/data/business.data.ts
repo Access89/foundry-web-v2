@@ -8,13 +8,15 @@ export const businessPlatformData = {
   subitems: [
     {
       title: 'Expense Management',
-      bg: '/images/our-platforms/view/MExpense.png',
-      description: 'Automate and track business expenses with ease.',
+      titleColor: 'text-[#F9F9F9]',
+      bg: '/images/our-platforms/view/ExpenseM.png',
+      // description: 'Automate and track business expenses with ease.',
       link: '/our-platforms/business/expense-management',
       detailedDescription: ``,
       product_image: "",
       sub_components_title: "",
       sub_components: []
+      
     },
     {
       title: 'HR',
@@ -88,17 +90,17 @@ export const businessPlatformData = {
     },
     {
       title: 'Analytics',
-      bg: '/images/our-platforms/view/MExpense.png',
-      description: 'Turn your data into actionable insights with powerful dashboards.',
+      bg: '/images/our-platforms/view/Analytics.png',
+      // description: 'Turn your data into actionable insights with powerful dashboards.',
       link: '/our-platforms/business/analytics',
       detailedDescription: ``,
       sub_components_title: "",
-      sub_components: []
+      sub_components: [],
     },
     {
       title: 'Business APIs',
       bg: '/images/our-platforms/view/MExpense.png',
-      description: 'Easily integrate third-party tools and automate workflows.',
+      // description: 'Easily integrate third-party tools and automate workflows.',
       link: '/our-platforms/business/business-apis',
       detailedDescription: ``,
       sub_components_title: "",
@@ -106,8 +108,9 @@ export const businessPlatformData = {
     },
     {
       title: 'Point of Sale',
-      bg: '/images/our-platforms/view/MExpense.png',
-      description: 'Sell smarter with real-time inventory and sales tracking.',
+      titleColor: 'text-[#F9F9F9]',
+      bg: '/images/our-platforms/view/PointOfSale.png',
+      // description: 'Sell smarter with real-time inventory and sales tracking.',
       link: '/our-platforms/business/point-of-sale',
       detailedDescription: ``,
       sub_components_title: "",
@@ -115,16 +118,19 @@ export const businessPlatformData = {
     },
     {
       title: 'Foundry Terminal',
-      bg: '/images/our-platforms/view/FTerminal.png',
-      description: 'One terminal for managing all business operations centrally.',
+      bg: '/images/our-platforms/view/FoundryTerminal.png',
+      // description: 'One terminal for managing all business operations centrally.',
       link: '/our-platforms/business/foundry-terminal',
       detailedDescription: ``,
       sub_components_title: "",
-      sub_components: []
+      sub_components: [], 
+     
     },
     {
       title: 'Invoice Management',
-      bg: '/images/our-platforms/view/MExpense.png',
+      titleColor: 'text-[#F9F9F9]',
+      titlePosition: '-mt-4i md:mt- 4 lg:-mt-8',
+      bg: '/images/our-platforms/view/InvoiceManagement.png',
       description: 'Send, track, and reconcile invoices effortlessly.',
       link: '/our-platforms/business/invoice-management',
       detailedDescription: ``,

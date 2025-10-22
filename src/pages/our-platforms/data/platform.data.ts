@@ -120,7 +120,7 @@
             },
             {
                 title: 'Point of Sale',
-                bg: '/images/our-platforms/view/MExpense.png',
+                bg: '/images/our-platforms/view/PointOfSale.png',
                 description:
                 'Sell smarter with real-time inventory and sales tracking.',
                 link: '/our-platforms/business/point-of-sale',
