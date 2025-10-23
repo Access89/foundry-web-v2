@@ -99,11 +99,12 @@ const ViewPlatforms = () => {
   return (
     <main className="">
       <section className="">
-        <section className="container">
+        <section className="flex w-full justify-center items-center mx-auto max-w-[70rem]">
+          
           <div className=" rounded-xl relative overflow-hidden flex flex-col">
-            <div className="lg:px-28 md:pt-16 md:pb-10 px-5 flex flex-col-reverse md:flex-col">
-              <div className="lg:max-w-lg md:max-w-xs mt-20">
-                <h1 className="font-medium text-[#434343] text-xl sm:text-2xl md:text-[4rem] w-full max-w-full leading-snug sm:leading-tight break-words">
+            <div className="lg:px-28 md:pt-16 md:pb-10 px-5 flex items-start justify-between flex-col-reverse md:flex-col lg:flex-row gap-10 w-full">
+              <div className="w-full lg:w-1/2 mt-20">
+                <h1 className="font-medium text-[#434343] text-xl sm:text-2xl md:text-[4rem]  leading-snug sm:leading-tight break-words">
                   {/* First two words together */}
                   <span className="whitespace-nowrap">
                     <span className={`${colors[0]} mr-2 inline-block`}>
@@ -132,7 +133,7 @@ const ViewPlatforms = () => {
                     ))}
                 </h1>
 
-                <p className="text-secondary-black text-base md:text-xl my-7">
+                <p className="text-secondary-black text-base md:text-xl my-7  ">
                   {moduleData?.description ||
                     'Explore the tools and services powering modern businesses.'}
                 </p>
@@ -145,17 +146,24 @@ const ViewPlatforms = () => {
                   </CustomButton>
                 </div>
               </div>
-              <Image
-                src="/images/LS_3.webp"
-                alt="AI marketplace"
-                classNames={{
-                  wrapper:
-                    'absolute right-10 rounded-none top-0 w-[5rem] h-[5rem] md:h-[15rem] md:w-[15rem]',
-                  img: 'rounded-none',
-                }}
-              />
+              <div className="w-1/2 ml-10">
+                <img
+                  src={moduleData?.images}
+                  alt="AI marketplace"
+                  className="rounded-none mt-32 w-full h-full max-h-[30rem] hidden md:block max-w-lg ml-10"
+                  style={{
+                    objectFit: moduleData?.imageSize === 'contain' ? 'contain' : 'cover',
+                    transform: moduleData?.imageSize && 
+                      moduleData.imageSize !== 'cover' && 
+                      moduleData.imageSize !== 'contain' && 
+                      moduleData.imageSize.includes('%')
+                      ? `scale(${parseFloat(moduleData.imageSize) / 100})` 
+                      : 'none',
+                    transformOrigin: 'center'
+                  }}
+                />
+              </div>
             </div>
-
             <div className="border-t md:border-0 p-4 mt-0 md:mt-16 flex items-center flex-col md:flex-row gap-5"></div>
           </div>
         </section>
@@ -188,7 +196,8 @@ const ViewPlatforms = () => {
                     backgroundImage: `url(${item.bg})`,
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
-                    backgroundSize:'cover',
+                    backgroundSize: item.backgroundsize || 'cover',
+                    backgroundColor: item.backgroundcolor || '#36413E',
                   }}
                 >
                   {/* Title Block */}
