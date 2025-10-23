@@ -180,7 +180,7 @@ const ViewPlatforms = () => {
                 <div
                   onClick={() => navigate(item.link)}
                   key={idx}
-                  className={`cursor-pointer min-w-[60vw] sm:min-w-[45vw] lg:min-w-[18vw] min-h-[32rem] md:min-h-[18rem] lg:min-h-[28rem]
+                  className={`cursor-pointer min-w-[50vw] sm:min-w-[45vw] lg:min-w-[18vw] min-h-[32rem] md:min-h-[18rem] lg:min-h-[28rem]
                     bg-[#36413E] bg-cover text-white p-0 rounded-3xl flex flex-col justify-between
                     shadow hover:shadow-lg transition-all duration-300 ease-in-out transform
                     ${idx === currentIndex + 2 ? 'scale-100' : 'scale-95'}`}
