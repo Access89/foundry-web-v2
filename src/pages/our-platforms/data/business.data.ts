@@ -9,6 +9,7 @@ export const businessPlatformData = {
     {
       title: 'Expense Management',
       titleColor: 'text-[#F9F9F9]',
+      titlePosition: '-mt-4 md:mt-4 lg:-mt-6',
       bg: '/images/our-platforms/view/ExpenseM.png',
       // description: 'Automate and track business expenses with ease.',
       link: '/our-platforms/business/expense-management',
@@ -109,15 +110,19 @@ export const businessPlatformData = {
     {
       title: 'Point of Sale',
       titleColor: 'text-[#F9F9F9]',
+      titlePosition: '-mt-6 md:mt-4 lg:-mt-6',
       bg: '/images/our-platforms/view/PointOfSale.png',
       // description: 'Sell smarter with real-time inventory and sales tracking.',
       link: '/our-platforms/business/point-of-sale',
       detailedDescription: ``,
       sub_components_title: "",
       sub_components: []
+  
+      
     },
     {
       title: 'Foundry Terminal',
+      titleColor: 'text-[#F9F9F9]',
       bg: '/images/our-platforms/view/FoundryTerminal.png',
       // description: 'One terminal for managing all business operations centrally.',
       link: '/our-platforms/business/foundry-terminal',
@@ -129,7 +134,7 @@ export const businessPlatformData = {
     {
       title: 'Invoice Management',
       titleColor: 'text-[#F9F9F9]',
-      titlePosition: '-mt-4i md:mt- 4 lg:-mt-8',
+      titlePosition: '-mt-5 md:mt- 4 lg:-mt-6 md:whitespace-nowrap ',
       bg: '/images/our-platforms/view/InvoiceManagement.png',
       description: 'Send, track, and reconcile invoices effortlessly.',
       link: '/our-platforms/business/invoice-management',
