@@ -53,13 +53,13 @@ const ViewUseCase = () => {
                 </div>
               </div>
               <Image
-  src="/images/LS_3.webp"
+  src="/images/FinancialUseCase.png"
   alt="AI marketplace"
   // width={336}
   // height={458}
   classNames={{
     wrapper:
-      'absolute right-10 rounded-none top-0 w-[6rem] h-[10rem] md:h-auto md:auto lg:w-[12rem] lg:h-[16rem]',
+      'hidden md:block absolute right-10 mt-20 rounded-none w-[8rem] h-[10rem] md:h-auto lg:w-[25rem] lg:h-[35rem]',
     img: 'rounded-none',
   }}
 />
@@ -72,7 +72,7 @@ const ViewUseCase = () => {
         <section className="py-10 pt-28 lg:pt-20">
           <div className="text-center">
             <h2 className="font-medium text-3xl md:text-4xl ">Core Products</h2>
-            <p className="text-primary lg:text-[1.2rem]  my-5">
+            <p className="text-primary lg:text-[1.2rem]   my-5">
               {current?.['features-description']}
             </p>
           </div>
@@ -101,7 +101,7 @@ const ViewUseCase = () => {
 
                   <div className="mt-2 text-xl font-semibold  max-w-[15rem]">
                     <h5 className="pb-4">{e.description}</h5>
-                    <p className="text-sm flex items-center gap-x-1 hover:opacity-80 group">
+                    <p className="text-sm flex items-center gap-x-1 mt-10 hover:opacity-80 group">
                       {e.title}
                     </p>
                   </div>

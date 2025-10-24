@@ -245,7 +245,7 @@ const menuItems: MenuItem[] = [
         core_features: [
           {
             icon: 'mdi:bank',
-            title: 'Core Banking Automation',
+            title: 'Streamline account management and loan processing.',
             description: 'Streamline account management and loan processing.',
           },
           {
