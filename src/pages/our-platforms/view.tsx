@@ -2,7 +2,7 @@
 
 import { CustomButton } from '@/components/shared/shared_customs';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Image } from '@nextui-org/react';
+// import { Image } from '@nextui-org/react';
 import { useEffect, useMemo, useState } from 'react';
 import { useRef } from 'react';
 import SuccessStories, {
