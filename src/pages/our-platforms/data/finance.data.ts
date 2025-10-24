@@ -13,7 +13,7 @@ export const financePlatformData = {
       bg: '/images/our-platforms/view/MExpense.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Automate customer identity verification and compliance checks.',
-      link: '/our-platforms/finance/onboarding',
+      // link: '/our-platforms/finance/onboarding',
       detailedDescription: `When onboarding stalls, whether you're dealing with individuals, joint accounts, small businesses, or commercial clients, costs rise and customers leave. Disconnected systems and manual steps make it hard to deliver a fast, seamless experience for prospects. Foundry Onboarding changes the game by unifying all essential touchpoints into a streamlined end-to-end flow`,
       sub_components_title: "Harness the power of unified platform",
       sub_components: [
@@ -128,7 +128,7 @@ export const financePlatformData = {
       bg: '/images/our-platforms/view/MExpense.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Robust backend system to manage accounts, transactions, and ledgers.',
-      link: '/our-platforms/finance/core-banking',
+      // link: '/our-platforms/finance/core-banking',
       detailedDescription: `Take full control of your institution's core functions through a unified platform that brings together everything; from account opening, deposits, withdrawals, loans, and other customer transactions to key internal functions like accounting, HR, CRM, procurement, and workflows into one centralized platform. With real-time dashboards, operational analytics, and audit-ready logs, you gain full operational transparency, enhanced compliance, and the agility to run with efficiency and scale.`,
       sub_components_title: "",
       sub_components: [
@@ -175,7 +175,7 @@ export const financePlatformData = {
       bg: '/images/our-platforms/view/MExpense.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Deliver seamless mobile and online banking experiences.',
-      link: '/our-platforms/finance/digital-banking',
+      // link: '/our-platforms/finance/digital-banking',
       detailedDescription: `The Foundry Digital Platform makes banking a few taps away, putting your institution in the palm of your customers' hands. This all-in-one solution provides a seamless suite of services from fast digital loans and secure savings to investments and insurance, all accessible through a single, intuitive interface on their mobile phone, whether it's a smartphone or a basic feature phone. It's the strategic platform you need to drive growth, enhance customer loyalty, and lead the way in digital finance.`,
       sub_components_title: "",
       sub_components: [
@@ -210,7 +210,7 @@ export const financePlatformData = {
       bg: '/images/our-platforms/view/MExpense.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Launch and scale banking products with ready-to-integrate APIs.',
-      link: '/our-platforms/finance/banking-as-a-service',
+      // link: '/our-platforms/finance/banking-as-a-service',
       detailedDescription: `Tap into new revenue and innovation by offering your financial services—from payments and lending to digital wallets as a service to fintechs and businesses. Our API-first infrastructure allows partners to seamlessly embed your licensed banking capabilities into their own products, without them needing a banking charter. Foundry BaaS isn't just a service; it's your strategic launchpad into embedded finance, enabling you to monetize your banking stack and lead in the digital economy.`,
       sub_components_title: "",
       sub_components: []
@@ -220,7 +220,7 @@ export const financePlatformData = {
       bg: '/images/our-platforms/view/MExpense.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Simplify loan origination, approvals, and repayments.',
-      link: '/our-platforms/finance/lending',
+      // link: '/our-platforms/finance/lending',
       detailedDescription: `Foundry's fully digital, end-to-end platform empowers lending institutions, from personal to SME and commercial. Accelerate loan applications with high-speed lead capture and pre-populated intake. Our AI-driven hybrid underwriting and credit scoring, complete with full auditability, centralize document and e-signature workflows. Enjoy rapid ACH or Mobile Wallet disbursements, seamless repayment collections, configurable workflows, risk-based pricing, and automated borrower communications. Built on a scalable microservices architecture, Foundry drastically cuts turnaround times and reduces operational costs by up to 40%.`,
       sub_components_title: "",
       sub_components: [
@@ -267,7 +267,7 @@ export const financePlatformData = {
       bg: '/images/our-platforms/view/MExpense.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: '',
-      link: '/our-platforms/finance/sentinel',
+      // link: '/our-platforms/finance/sentinel',
       detailedDescription: `Fortify your institution with Foundry Sentinel, a holistic compliance and risk management platform that continuously analyzes transactions in real time to identify anomalies and protect you from fraud and financial crime. By reducing false positives by up to 95%, our intelligent platform turns noisy alerts into actionable intelligence, empowering your compliance team to focus on genuine threats and streamline their response efforts within a single, unified interface.`,
       sub_components_title: "",
       sub_components: [
