@@ -11,13 +11,18 @@ export const tradePlatformData = {
   subitems: [
     {
       title: 'Logistics',
-      bg: '/images/our-platforms/view/MExpense.png',
+      bg: '/images/LogisticsImage.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Optimize delivery routes, fleet management, and shipment tracking.',
       link: '/our-platforms/trade/logistics',
       detailedDescription: ``,
       sub_components_title: "",
-      sub_components: []
+      sub_components: [],
+          backgroundsize: 'contain',
+          backgroundcolor:'#D2D9DB',  
+            
+
+      
     },
     {
       title: 'Trade Management',
@@ -61,7 +66,7 @@ export const tradePlatformData = {
     },
     {
       title: 'Cornershop',
-      bg: '/images/our-platforms/view/MExpense.png',
+      bg: '/images/CornerShopImage.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Launch and manage microstores for hyperlocal commerce.',
       link: '/our-platforms/trade/cornershop',

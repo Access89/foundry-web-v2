@@ -99,7 +99,7 @@ const ViewPlatforms = () => {
   return (
     <main className="">
       <section className=" ">
-        <section className="flex w-full justify-center items-center mx-auto max-w-[90rem] ">
+        <section className="flex w-full justify-center items-center mx-auto max-w-[1200px] ">
           
           <div className=" rounded-xl relative overflow-hidden flex flex-col">
             <div className="lg:px-28 md:pt-16 md:pb-10 px-5 flex items-start justify-between flex-col-reverse md:flex-col lg:flex-row gap-10 w-full">
@@ -146,7 +146,7 @@ const ViewPlatforms = () => {
                   </CustomButton>
                 </div>
               </div>
-              <div className="w-1/2 ml-10">
+              <div className="w-1/2 ml-20">
                 <img
                   src={moduleData?.images}
                   alt="AI marketplace"

@@ -19,6 +19,8 @@ type ImageCard = {
   imageAlt: string;
   overlayText: string;
   overlayIcon?: string;
+  link?: string;
+  buttonText?: string;
 };
 
 type StatsCard = {
@@ -39,7 +41,7 @@ export type SuccessStoriesProps = {
 const SuccessStories = ({ cards }: SuccessStoriesProps) => {
   return (
     <section className="my-10">
-      <div className="container">
+      <div className="container max-w-7xl">
         <div className="md:grid grid-cols-[0.4fr,1fr] gap-x-10 mb-5">
           <motion.h2 
             className="font-medium text-3xl lg:text-4xl"
@@ -77,7 +79,7 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                   ? 'bg-primary text-white px-4 py-5 rounded-xl h-full flex flex-col'
                   : card.type === 'stats'
                   ? 'bg-[#16232A] text-white px-4 py-5 rounded-xl h-full flex flex-col'
-                  : 'overflow-hidden rounded-xl relative'
+                  : 'overflow-hidden rounded-xl relative object-cover'
               }`}
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -96,7 +98,7 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
               {card.type === 'text' ? (
                 <>
                   <p className="text-2xl md:max-w-[15rem]">{card.content}</p>
-                  <div className="mt-auto">
+                  <div className="mt-auto ">
                     <p className="text-xs mt-7 mb-10">{card.author}</p>
                     <motion.button 
                       className="flex items-center gap-x-2 group"
@@ -114,29 +116,82 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                 </>
               ) : card.type === 'image' ? (
                 <>
-                  <img
-                    src={card.imageSrc}
-                    alt={card.imageAlt}
-                    className="h-full"
-                  />
-                  <motion.div 
-                    className="absolute bottom-5 left-5 right-5 rounded-md bg-[#FAFAFA]/20 backdrop-blur-sm p-3"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    viewport={{ once: true }}
-                  >
-                    <p className="text-white font-medium flex justify-between items-end">
-                      {card.overlayText}
-                      {card.overlayIcon && (
+                  <div className="h-full w-full flex flex-col">
+                    {card.link ? (
+                      <a 
+                        href={card.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex-1 relative block"
+                      >
                         <img
-                          src={card.overlayIcon}
-                          alt=""
-                          className="w-[1rem] mb-1"
+                          src={card.imageSrc}
+                          alt={card.imageAlt}
+                          className="h-full w-full object-cover"
                         />
-                      )}
-                    </p>
-                  </motion.div>
+                        <motion.div 
+                          className="absolute bottom-5 left-5 right-5 rounded-md bg-[#FAFAFA]/20 backdrop-blur-sm p-3"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          viewport={{ once: true }}
+                        >
+                          <p className="text-white font-medium flex justify-between items-end">
+                            {card.overlayText}
+                            {card.overlayIcon && (
+                              <img
+                                src={card.overlayIcon}
+                                alt=""
+                                className="w-auto mb-1 h-fit"
+                              />
+                            )}
+                          </p>
+                        </motion.div>
+                      </a>
+                    ) : (
+                      <div className="flex-1 relative">
+                        <img
+                          src={card.imageSrc}
+                          alt={card.imageAlt}
+                          className="h-full w-full object-cover"
+                        />
+                        <motion.div 
+                          className="absolute bottom-5 left-5 right-5 rounded-md bg-[#FAFAFA]/20 backdrop-blur-sm p-3"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          viewport={{ once: true }}
+                        >
+                          <p className="text-white font-medium flex justify-between items-end">
+                            {card.overlayText}
+                            {card.overlayIcon && (
+                              <img
+                                src={card.overlayIcon}
+                                alt=""
+                                className="w-auto mb-1 h-fit"
+                              />
+                            )}
+                          </p>
+                        </motion.div>
+                      </div>
+                    )}
+                    {card.buttonText && (
+                      <div className="p-4 bg-white">
+                        <motion.button 
+                          className="flex items-center gap-x-2 group text-primary font-medium"
+                          whileHover={{ x: 5 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {card.buttonText}
+                          <Icon
+                            icon="fluent-emoji-high-contrast:right-arrow"
+                            fontSize={19}
+                            className="group-hover:translate-x-1 transition-transform duration-200"
+                          />
+                        </motion.button>
+                      </div>
+                    )}
+                  </div>
                 </>
               ) : (
                 // Stats card

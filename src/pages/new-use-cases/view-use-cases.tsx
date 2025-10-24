@@ -53,16 +53,16 @@ const ViewUseCase = () => {
                 </div>
               </div>
               <Image
-                src="/images/LS_3.webp"
-                alt="AI marketplace"
-                // width={336}
-                // height={458}
-                classNames={{
-                  wrapper:
-                    'absolute right-10 rounded-none top-0 w-[5rem] h-[5rem] md:h-auto  md:auto ',
-                  img: 'rounded-none',
-                }}
-              />
+  src="/images/LS_3.webp"
+  alt="AI marketplace"
+  // width={336}
+  // height={458}
+  classNames={{
+    wrapper:
+      'absolute right-10 rounded-none top-0 w-[6rem] h-[10rem] md:h-auto md:auto lg:w-[12rem] lg:h-[16rem]',
+    img: 'rounded-none',
+  }}
+/>
             </div>
 
             <div className="border-t md:border-0 p-4 mt-0 md:mt-16  flex items-center flex-col md:flex-row gap-5"></div>
@@ -241,10 +241,11 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
       },
       {
         type: 'image', // MIDDLE CARD
-        imageSrc: 'https://placehold.co/400',
+        imageSrc: '/images/FinancialServicesCard.png',
         imageAlt: 'Modern banking hall',
         overlayText: 'Automating Core Banking Operations',
         overlayIcon: '/icons/play.svg',
+        link: 'https://www.linkedin.com/posts/foundryplatform_foundryfinance-digitaltransformation-financialinclusion-activity-7363906405394792449-53Kj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEcncdoBWpdrGtVAkWtWfDHOasxwU-Arhf',
       },
       {
         type: 'stats',
@@ -439,10 +440,13 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
       },
       {
         type: 'image', // MIDDLE CARD
-        imageSrc: 'https://placehold.co/400',
+        imageSrc: '/images/FundManagement.png',
         imageAlt: 'Financial graphs and charts',
-        overlayText: 'Optimized Portfolio Oversight',
+        overlayText: 'View LinkedIn Post',
         overlayIcon: '/icons/play.svg',
+        link: 'https://www.linkedin.com/posts/foundryplatform_ugcPost-7382068419166154752-2e_t?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEcncdoBWpdrGtVAkWtWfDHOasxwU-Arhfc',
+        
+        // imageSize: '100%',
       },
       {
         type: 'stats',
@@ -472,10 +476,12 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
       },
       {
         type: 'image', // Default also has image in the middle
-        imageSrc: 'https://placehold.co/400',
+        imageSrc: '/images/FundManagement.png',
         imageAlt: 'Customer success',
-        overlayText: 'Innovating with Foundry',
+        overlayText: 'View LinkedIn Post',
         overlayIcon: '/icons/play.svg',
+        link: 'https://www.linkedin.com/posts/foundryplatform_ugcPost-7382068419166154752-2e_t?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEcncdoBWpdrGtVAkWtWfDHOasxwU-Arhfc',
+     
       },
       {
         type: 'stats',

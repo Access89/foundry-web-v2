@@ -5,6 +5,7 @@ export const businessPlatformData = {
   icon: 'streamline-cyber:business-chart-4',
   images: '/images/BusinessPage.png',
   imageSize: '100%',
+  
   description:
     'Take full control of your enterprise with integrated tools for seamless accounting, intelligent inventory management, effortless payroll, and powerful real-time analytics.',
   subitems: [
@@ -111,7 +112,7 @@ export const businessPlatformData = {
     },
     {
       title: 'Point of Sale',
-      titleColor: 'text-[#F9F9F9]',
+      titleColor: 'text-[black]',
       titlePosition: '-mt-6 md:mt-4 lg:-mt-6',
       bg: '/images/POS.png',
       // description: 'Sell smarter with real-time inventory and sales tracking.',
@@ -120,7 +121,7 @@ export const businessPlatformData = {
       sub_components_title: "",
       sub_components: [],
       backgroundsize: '140%',
-  backgroundcolor: '#638B99',
+  backgroundcolor: '#E4EEF0 ',
       
     },
     {

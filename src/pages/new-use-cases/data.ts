@@ -129,7 +129,7 @@ export const UsecaseData: Record<string, any> = {
           'features-description': 'Increase efficiency, transparency, and compliance in fund operations.',
           'core-features': [
             { icon: 'mdi:chart-pie', title: 'Portfolio Dashboards', description: 'Track fund and asset performance in real-time.' },
-            { icon: 'mdi:file-document-outline', title: 'Investor Reporting', description: 'Automate quarterly reports and statements.' },
+            { icon: 'mdi:file-document-outline', title: 'Investor Reporting', description: 'Automate quarterly reports and statementsm' },
             { icon: 'mdi:shield-account', title: 'Compliance Workflows', description: 'Ensure regulatory alignment across jurisdictions.' },
           ],
           goals: [
