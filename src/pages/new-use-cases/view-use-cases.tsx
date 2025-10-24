@@ -99,7 +99,7 @@ const ViewUseCase = () => {
                     />
                   )} */}
 
-                  <div className="mt-auto text-xl max-w-[15rem]">
+                  <div className="mt-2 text-xl font-semibold  max-w-[15rem]">
                     <h5 className="pb-4">{e.description}</h5>
                     <p className="text-sm flex items-center gap-x-1 hover:opacity-80 group">
                       {e.title}
@@ -243,8 +243,7 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         type: 'image', // MIDDLE CARD
         imageSrc: '/images/FinancialServicesCard.png',
         imageAlt: 'Modern banking hall',
-        overlayText: 'Automating Core Banking Operations',
-        overlayIcon: '/icons/play.svg',
+        overlayText: 'View LinkedIn Post',
         link: 'https://www.linkedin.com/posts/foundryplatform_foundryfinance-digitaltransformation-financialinclusion-activity-7363906405394792449-53Kj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEcncdoBWpdrGtVAkWtWfDHOasxwU-Arhf',
       },
       {
@@ -479,7 +478,7 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         imageSrc: '/images/FundManagement.png',
         imageAlt: 'Customer success',
         overlayText: 'View LinkedIn Post',
-        overlayIcon: '/icons/play.svg',
+        // overlayIcon: '/icons/play.svg',
         link: 'https://www.linkedin.com/posts/foundryplatform_ugcPost-7382068419166154752-2e_t?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEcncdoBWpdrGtVAkWtWfDHOasxwU-Arhfc',
      
       },

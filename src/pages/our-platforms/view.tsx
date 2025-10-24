@@ -190,7 +190,7 @@ const ViewPlatforms = () => {
                 <div
                   onClick={() => navigate(item.link)}
                   key={idx}
-                  className={`cursor-pointer min-w-[50vw] sm:min-w-[45vw] lg:min-w-[18vw] min-h-[32rem] md:min-h-[18rem] lg:min-h-[28rem]
+                  className={`cursor-pointer min-w-[60vw] sm:min-w-[45vw] lg:min-w-[18vw] min-h-[23rem] md:min-h-[18rem] lg:min-h-[28rem]
                     bg-[#36413E] bg-cover text-white p-0 rounded-3xl flex flex-col justify-between
                     shadow hover:shadow-lg transition-all duration-300 ease-in-out transform
                     ${idx === currentIndex + 2 ? 'scale-100' : 'scale-95'}`}
@@ -203,7 +203,7 @@ const ViewPlatforms = () => {
                   }}
                 >
                   {/* Title Block */}
-                  <div className="p-8">
+                  <div className="py-8 md:p-8">
                   <div className={`text-xl ${item.titlePosition || '-mt-4'} text-center font-semibold`}>
   <span className={item.titleColor || 'text-[#272727]'}>
     {item.title}

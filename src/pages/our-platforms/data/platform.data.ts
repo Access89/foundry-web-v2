@@ -537,19 +537,19 @@
 
 
             },
-            {
-              title: 'Make Payments',
-              bg: '/images/our-platforms/view/MExpense.png',
-              product_image: '/images/our-platforms/view/MExpense.png',
-              description:
-                'Enable secure, real-time business payments and disbursements.',
-              link: '/our-platforms/trade/make-payments',
-              detailedDescription: ``,
-              sub_components_title: "",
-              sub_components: []
+            // {
+            //   title: 'Make Payments',
+            //   bg: '/images/our-platforms/view/MExpense.png',
+            //   product_image: '/images/our-platforms/view/MExpense.png',
+            //   description:
+            //     'Enable secure, real-time business payments and disbursements.',
+            //   link: '/our-platforms/trade/make-payments',
+            //   detailedDescription: ``,
+            //   sub_components_title: "",
+            //   sub_components: []
 
 
-            },
+            // },
             {
               title: 'Track Orders',
               bg: '/images/our-platforms/view/MExpense.png',
