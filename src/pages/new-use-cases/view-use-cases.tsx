@@ -3,7 +3,7 @@ import SuccessStories, {
   SuccessStoriesProps,
 } from '@/components/reusable/success-stories-section';
 import { CustomButton } from '@/components/shared/shared_customs';
-import { Icon } from '@iconify/react/dist/iconify.js';
+// import { Icon } from '@iconify/react/dist/iconify.js';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { UsecaseData } from './data';
 import { useMemo } from 'react';
