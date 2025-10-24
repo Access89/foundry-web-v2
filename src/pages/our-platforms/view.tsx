@@ -99,7 +99,7 @@ const ViewPlatforms = () => {
   return (
     <main className="">
       <section className=" ">
-        <section className="flex w-full justify-center items-center mx-auto max-w-[1200px] ">
+        <section className="flex w-full justify-center items-center mx-auto max-w-[1350px] ">
           
           <div className=" rounded-xl relative overflow-hidden flex flex-col">
             <div className="lg:px-28 md:pt-16 md:pb-10 px-5 flex items-start justify-between flex-col-reverse md:flex-col lg:flex-row gap-10 w-full">
@@ -150,7 +150,7 @@ const ViewPlatforms = () => {
                 <img
                   src={moduleData?.images}
                   alt="AI marketplace"
-                  className="rounded-none mt-20 w-full h-full max-h-auto  hidden md:block max-w-lg ml-10"
+                  className="rounded-none mt-20 w-full h-full  hidden md:block max-w-lg ml-10"
                   style={{
                 
                     objectFit: moduleData?.imageSize === 'contain' ? 'contain' : 'cover',
