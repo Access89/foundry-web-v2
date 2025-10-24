@@ -98,23 +98,23 @@ const ViewPlatforms = () => {
 
   return (
     <main className="">
-      <section className="">
-        <section className="flex w-full justify-center items-center mx-auto max-w-[90rem]">
+      <section className=" ">
+        <section className="flex w-full justify-center items-center mx-auto max-w-[90rem] ">
           
           <div className=" rounded-xl relative overflow-hidden flex flex-col">
             <div className="lg:px-28 md:pt-16 md:pb-10 px-5 flex items-start justify-between flex-col-reverse md:flex-col lg:flex-row gap-10 w-full">
               <div className="w-full lg:w-1/2 mt-20">
-                <h1 className="font-medium text-[#434343] text-xl sm:text-2xl md:text-[4rem]  leading-snug sm:leading-tight break-words">
+                <h1 className="font-medium text-[#434343] text-xl sm:text-2xl md:text-[4rem]  leading-snug sm:leading-tight">
                   {/* First two words together */}
                   <span className="whitespace-nowrap">
-                    <span className={`${colors[0]} mr-2 inline-block`}>
+                    <span className={`${colors[0]} mr-2`}>
                       {moduleData?.title?.split(' ')[0]}
                     </span>
                     <span
                       className={`${colors[1]} font-bold mr-2 inline-block`}
                     >
                       {moduleData?.title?.split(' ')[1]}
-                    </span>
+                    </span>                    
                   </span>
 
                   {/* Remaining words */}
@@ -150,7 +150,7 @@ const ViewPlatforms = () => {
                 <img
                   src={moduleData?.images}
                   alt="AI marketplace"
-                  className="rounded-none mt-20 w-full h-full max-h-[30rem] hidden md:block max-w-lg ml-10"
+                  className="rounded-none mt-20 w-full h-full max-h-auto  hidden md:block max-w-lg ml-10"
                   style={{
                 
                     objectFit: moduleData?.imageSize === 'contain' ? 'contain' : 'cover',

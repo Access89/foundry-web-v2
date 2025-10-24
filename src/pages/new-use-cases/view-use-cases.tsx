@@ -90,14 +90,14 @@ const ViewUseCase = () => {
                       : 'relative bg-[#075056] text-white p-6 rounded-xl h-[300px] flex flex-col'
                   }
                 >
-                  {/* icon first for even, icon last for odd to alternate layout visually */}
+                  {/* icon first for even, icon last for odd to alternate layout visually
                   {!isOdd && (
                     <Icon
                       icon={e.icon}
                       fontSize={30}
                       className="group-hover:translate-x-1 transition-all text-white w-[2rem]"
                     />
-                  )}
+                  )} */}
 
                   <div className="mt-auto text-xl max-w-[15rem]">
                     <h5 className="pb-4">{e.description}</h5>
@@ -108,11 +108,11 @@ const ViewUseCase = () => {
 
                   {isOdd && (
                     <div className="absolute top-6 right-6">
-                      <Icon
+                      {/* <Icon
                         icon={e.icon}
                         fontSize={30}
                         className="group-hover:translate-x-1 transition-all text-[#1A1A1A] w-[2rem]"
-                      />
+                      /> */}
                     </div>
                   )}
                 </div>
