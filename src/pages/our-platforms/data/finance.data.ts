@@ -4,7 +4,8 @@ export const financePlatformData = {
   title: 'Empower Financial Flow',
   icon: 'material-symbols-light:money-bag-outline',
   images: '/images/FinanceBackground.png',
-  imageSize: '140%',
+  imageSize: '120%',
+  marginTop: '20rem',
   description:
     'Secure essential working capital, automate and manage all your payments, and integrate advanced financial functionalities directly within your existing ecosystem.',
   subitems: [

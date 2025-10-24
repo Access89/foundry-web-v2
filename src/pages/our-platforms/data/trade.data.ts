@@ -4,6 +4,8 @@ export const tradePlatformData = {
   title: 'Connected Commerce Network',
   icon: 'mdi-light:truck',
   images: '/images/TradeBackground.png',
+  imageSize: '110%',
+  
   description:
     'Digitize and accelerate your procurement cycles, gain real-time visibility into logistics, and execute B2B transactions with unprecedented speed and confidence.',
   subitems: [
