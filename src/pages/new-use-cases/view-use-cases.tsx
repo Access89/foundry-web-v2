@@ -59,7 +59,7 @@ const ViewUseCase = () => {
                 // height={458}
                 classNames={{
                   wrapper:
-                    'absolute right-10 rounded-none top-0 w-[5rem] h-[5rem] md:h-[20rem] md:w-[20rem]',
+                    'absolute right-10 rounded-none top-0 w-[5rem] h-[5rem] md:h-auto  md:auto ',
                   img: 'rounded-none',
                 }}
               />

@@ -4,7 +4,7 @@ export const businessPlatformData = {
   title: 'Accelerate Business Growth',
   icon: 'streamline-cyber:business-chart-4',
   images: '/images/BusinessPage.png',
-  imageSize: '80%',
+  imageSize: '100%',
   description:
     'Take full control of your enterprise with integrated tools for seamless accounting, intelligent inventory management, effortless payroll, and powerful real-time analytics.',
   subitems: [
