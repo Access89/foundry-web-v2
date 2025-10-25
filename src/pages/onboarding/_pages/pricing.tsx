@@ -2,7 +2,7 @@
 import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
 // import { cn } from '@nextui-org/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CustomModal from '@/components/shared/modal';
 import { apiClient } from '@/services/api.client';
@@ -22,8 +22,13 @@ const PricingPage = ({
   const navigate = useNavigate();
 
   const [openModal, setOpenModal] = React.useState(false);
-  const [selectedPlan] = React.useState<any>(null);
+  const [selectedPlan, setSelectedPlan] = React.useState<any>(null);
   const [isUpgrading, setIsUpgrading] = React.useState(false);
+  const [paystackRedirectDetails, setPaystackRedirectDetails] = React.useState({
+    ready: false,
+    url: '',
+    amount: 0,
+  });
 
   const [collapsedFeatures, setCollapsedFeatures] = React.useState<{
     [key: string]: boolean;
@@ -59,13 +64,25 @@ const PricingPage = ({
       .filter((plan) => plan.category_id === Number(category));
   }, [allPlans, category]);
 
+  useEffect(() => {
+    if (paystackRedirectDetails.ready) {
+      // console.log('Redirecting to payment gateway...');
+      console.log({ paystackRedirectDetails });
+    }
+  }, [paystackRedirectDetails]);
+
   const upgradePlan = async ({
     new_plan_id,
     subscription_id,
   }: {
     new_plan_id: number;
-    subscription_id: string;
+    subscription_id: number;
   }) => {
+    if (!new_plan_id) {
+      toast.error('Invalid plan selected.');
+      return;
+    }
+
     try {
       setIsUpgrading(true);
       console.log({ new_plan_id, subscription_id });
@@ -73,21 +90,39 @@ const PricingPage = ({
       const response = await apiClient({
         url: `${variables.subscription_base_url}/subscriptions/${subscription_id}/change-plan`,
         method: 'POST',
-        data: {
-          new_plan_id,
-        },
+        data: { new_plan_id },
       });
 
-      console.log('Plan upgraded successfully:', response.data);
-      setOpenModal(false);
+      const { data, message, responseInfo } = response.data;
+      console.log('Plan upgrade response:', response.data);
 
-      // Show success message or redirect
-      // You can add a toast notification here
-      toast.success('Plan upgraded successfully!');
+      if (responseInfo?.responseCode === '000' && data?.payment_url) {
+        toast.success('Payment required to complete your upgrade.');
+
+        // Save paystack details for manual trigger
+        setPaystackRedirectDetails({
+          ready: true,
+          url: data.payment_url,
+          amount: data.net_amount,
+        });
+
+        return;
+      }
+
+      if (responseInfo?.responseCode === '000' && !data?.payment_url) {
+        toast.success(message || 'Plan upgraded successfully!');
+        setOpenModal(false);
+        return;
+      }
+
+      toast.error(message || 'Something went wrong. Please try again.');
     } catch (error: any) {
       console.error('Error upgrading plan:', error);
-      // Show error message
-      toast.error(`Failed to upgrade plan. ${error?.response?.data?.message}`);
+      toast.error(
+        `Failed to upgrade plan. ${
+          error?.response?.data?.message || 'Try again later.'
+        }`,
+      );
     } finally {
       setIsUpgrading(false);
     }
@@ -204,7 +239,11 @@ const PricingPage = ({
                         ) : (
                           <CustomButton
                             className="bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
-                            onPress={() => navigate('/onboarding')}
+                            onPress={() => {
+                              setSelectedPlan(plan);
+
+                              setOpenModal(true);
+                            }} //
                           >
                             Get Started
                           </CustomButton>
@@ -263,6 +302,26 @@ const PricingPage = ({
                     </div>
                   ))}
               </div>
+
+              <section className="md:py-16 py-5">
+                <div className=" flex flex-col items-center justify-center">
+                  <h2 className="font-medium text-3xl lg:text-4xl mb-5">
+                    Looking for something extra?
+                  </h2>
+                  <p className="text-secondary-black mb-5">
+                    Contact our sales team to explore our Enterprise plan and
+                    unlock the full potential of Foundry.
+                  </p>
+                  <div>
+                    <CustomButton
+                      className="bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
+                      onPress={() => navigate('/contact')}
+                    >
+                      Contact Sales
+                    </CustomButton>
+                  </div>
+                </div>
+              </section>
             </div>
           ))}
         </>
@@ -286,7 +345,7 @@ const PricingPage = ({
               </p>
             </div>
 
-            {selectedPlan && (
+            {selectedPlan && !paystackRedirectDetails.ready && (
               <div className="bg-gray-50 p-4 rounded-lg mb-6">
                 <h4 className="font-medium mb-2">Plan Details:</h4>
                 <div className="space-y-1 text-sm">
@@ -315,31 +374,56 @@ const PricingPage = ({
               </div>
             )}
 
-            <div className="flex gap-3 justify-end">
-              <CustomButton
-                className="bg-gray-200 text-gray-800 px-6 py-2"
-                onPress={() => setOpenModal(false)}
-              >
-                Cancel
-              </CustomButton>
-              <CustomButton
-                isLoading={isUpgrading}
-                className="bg-primary text-white px-6 py-2"
-                disabled={isUpgrading || !customerId}
-                onPress={() => {
-                  if (!customerId) {
-                    alert('Customer ID is required');
-                    return;
-                  }
-                  upgradePlan({
-                    new_plan_id: selectedPlan?.id || 0,
-                    subscription_id: customerId,
-                  });
-                }}
-              >
-                Confirm Subscription
-              </CustomButton>
-            </div>
+            {paystackRedirectDetails.ready && (
+              <div className="bg-gray-50 p-4 px-6 rounded-lg mb-6 ">
+                <p className="text-sm">
+                  Subscription confirmed, payment is required
+                </p>
+              </div>
+            )}
+
+            {paystackRedirectDetails.ready ? (
+              <div className="flex gap-3 justify-end">
+                <CustomButton
+                  className="bg-primary text-white px-6 py-2"
+                  onPress={() => {
+                    window.open(paystackRedirectDetails.url);
+                  }}
+                >
+                  Pay
+                </CustomButton>
+              </div>
+            ) : (
+              <div className="flex gap-3 justify-end">
+                <CustomButton
+                  className="bg-gray-200 text-gray-800 px-6 py-2"
+                  onPress={() => setOpenModal(false)}
+                >
+                  Cancel
+                </CustomButton>
+                <CustomButton
+                  isLoading={isUpgrading}
+                  className="bg-primary text-white px-6 py-2"
+                  disabled={isUpgrading || !customerId}
+                  onPress={() => {
+                    console.log({ customerId });
+                    console.log({ selectedPlan });
+                    if (!customerId) {
+                      toast.error('Customer ID not found');
+                      return;
+                    }
+                    upgradePlan({
+                      new_plan_id: 6,
+                      subscription_id: 49,
+                      // new_plan_id: selectedPlan?.id || 0,
+                      // subscription_id: Number(customerId),
+                    });
+                  }}
+                >
+                  {isUpgrading ? 'Processing...' : 'Confirm Subscription'}
+                </CustomButton>
+              </div>
+            )}
           </div>
         }
       />
