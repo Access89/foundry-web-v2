@@ -93,7 +93,7 @@ export const businessPlatformData = {
       ]
     },
     {
-      title: 'Analytics',
+      title: '  Trust Score   ',
       bg: '/images/our-platforms/view/Analytics.png',
       // description: 'Turn your data into actionable insights with powerful dashboards.',
       // link: '/our-platforms/business/analytics',

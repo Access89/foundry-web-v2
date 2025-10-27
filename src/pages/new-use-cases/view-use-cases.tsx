@@ -53,7 +53,7 @@ const ViewUseCase = () => {
                 </div>
               </div>
               <Image
-  src="/images/FinancialUseCase.png"
+  src={current?.['images']}
   alt="AI marketplace"
   // width={336}
   // height={458}

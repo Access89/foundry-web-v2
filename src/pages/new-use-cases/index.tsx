@@ -6,6 +6,7 @@ const NewUseCases = () => {
     {
       link: '/use-cases/retail',
       title: 'Retail',
+      
       icon: 'https://www.shutterstock.com/image-photo/female-retail-worker-standing-store-600nw-2487354813.jpg',
       description:
         'Transform shopper experience and optimize inventory, promotions, delivery and demand forecasting with enterprise AI.',
@@ -17,13 +18,13 @@ const NewUseCases = () => {
       description:
         'Rapidly deploy AI for CRM, smart lending, cash management, AML and more; scale across banking, insurance and wealth.',
     },
-    {
-      link: '/use-cases/ev-charging',
-      title: 'Electric Vehicle Charging Platform',
-      icon: 'https://www.powermag.com/wp-content/uploads/2020/03/fig-1-car-charging-electric-vehicle-ev-electrification.jpg',
-      description:
-        'Optimize reliability, energy management, load forecasting, and operational asset uptime—leveraging AI at scale.',
-    },
+    // {
+    //   link: '/use-cases/ev-charging',
+    //   title: 'Electric Vehicle Charging Platform',
+    //   icon: 'https://www.powermag.com/wp-content/uploads/2020/03/fig-1-car-charging-electric-vehicle-ev-electrification.jpg',
+    //   description:
+    //     'Optimize reliability, energy management, load forecasting, and operational asset uptime—leveraging AI at scale.',
+    // },
     {
       link: '/use-cases/restaurant',
       title: 'Restaurant',

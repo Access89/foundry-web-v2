@@ -1,9 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+// import { image } from "@nextui-org/react";
+
 export const UsecaseData: Record<string, any> = {
     retail: {
           title: 'Retail',
           description: 'Transform the retail experience with digital storefronts, personalized customer engagement, and intelligent supply chains.',
+          images: 'image/retail.jpg',
+  
           'video-link': 'https://youtube.com',
           'features-description': 'From inventory optimization to omnichannel commerce, drive efficiency and engagement.',
           'core-features': [
@@ -108,6 +112,7 @@ export const UsecaseData: Record<string, any> = {
         logistics: {
           title: 'Logistics and Supply Chain',
           description: 'Streamline fulfillment, fleet, and inventory with unified logistics solutions.',
+          images:'/images/LogisticsPage.png',
           'video-link': 'https://youtube.com',
           'features-description': 'Get end-to-end visibility and automation across your supply chain.',
           'core-features': [
@@ -125,6 +130,8 @@ export const UsecaseData: Record<string, any> = {
         'fund-management': {
           title: 'Fund Management',
           description: 'Digitize portfolio, investor, and fund operations on one platform.',
+          images: '/images/FundManagementImage.png',
+          imageSize:'100%',
           'video-link': 'https://youtube.com',
           'features-description': 'Increase efficiency, transparency, and compliance in fund operations.',
           'core-features': [
