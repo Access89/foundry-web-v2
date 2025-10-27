@@ -370,11 +370,12 @@ const successStoriesData: Record<string, SuccessStoriesProps> = {
         buttonText: 'See their Trade Efficiency',
       },
       {
-        type: 'image',
-        imageSrc: 'https://placehold.co/400', // Placeholder
-        imageAlt: 'Warehouse automation system',
-        overlayText: 'Streamlining Warehouse Operations',
-        overlayIcon: '/icons/play.svg',
+        type: 'video',
+        videoSrc: 'https://www.youtube.com/embed/gL5JVyTBSXg?si=bPcYtAnbzaNOa_uF',
+        
+         
+        // VideoAlt: 'Warehouse automation system',
+    
       },
       {
         type: 'text',
