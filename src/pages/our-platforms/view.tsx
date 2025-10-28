@@ -9,12 +9,16 @@ import SuccessStories, {
   SuccessStoriesProps,
 } from '@/components/reusable/success-stories-section';
 import { loadPlatformData, PlatformKey } from './data/platform.loader';
+import CustomModal from '@/components/shared/modal';
 
 const ViewPlatforms = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
+  const [pdfUrl, setPdfUrl] = useState<string>('');
 
   const [moduleData, setModuleData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -188,7 +192,15 @@ const ViewPlatforms = () => {
             >
               {moduleData?.subitems.map((item: any, idx: number) => (
                 <div
-                  onClick={() => navigate(item.link)}
+                  onClick={() => {
+                    // Check if the item has a pdfLink and handle it differently
+                    if (item.pdfLink) {
+                      setPdfUrl(item.pdfLink);
+                      setIsPdfModalOpen(true);
+                    } else {
+                      navigate(item.link);
+                    }
+                  }}
                   key={idx}
                   className={`cursor-pointer min-w-[60vw] sm:min-w-[45vw] lg:min-w-[18vw] min-h-[23rem] md:min-h-[18rem] lg:min-h-[28rem]
                     bg-[#36413E] bg-cover text-white p-0 rounded-3xl flex flex-col justify-between
@@ -251,6 +263,23 @@ const ViewPlatforms = () => {
       <section className=" lg:mt-8 lg:pt-5 ">
         <SuccessStories {...currentSuccessStories} />
       </section>
+
+      <CustomModal
+        isOpen={isPdfModalOpen}
+        onOpenChange={() => setIsPdfModalOpen(false)}
+        size="full"
+        placement="center"
+        header={<div className="text-xl font-semibold">Document Viewer</div>}
+        body={
+          <div className="w-full h-[80vh]">
+            <iframe
+              src={pdfUrl}
+              className="w-full h-full border-none rounded-lg"
+              title="PDF Viewer"
+            />
+          </div>
+        }
+      />
     </main>
   );
 };

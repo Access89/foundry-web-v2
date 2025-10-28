@@ -25,7 +25,8 @@ export const UsecaseData: Record<string, any> = {
       
         'financial-services': {
           title: 'Financial Services',
-          description: 'Digitize customer experiences and modernize core banking processes.',
+          description: 'Digital customer experiences and modernize core banking processes.',
+          images: '/images/FinancialUseCase.png',
           'video-link': 'https://youtube.com',
           'features-description': 'Automate compliance, improve agility, and enhance security in finance.',
           'core-features': [
@@ -131,7 +132,7 @@ export const UsecaseData: Record<string, any> = {
           title: 'Fund Management',
           description: 'Digitize portfolio, investor, and fund operations on one platform.',
           images: '/images/FundManagementImage.png',
-          imageSize:'100%',
+          imageSize:'80',
           'video-link': 'https://youtube.com',
           'features-description': 'Increase efficiency, transparency, and compliance in fund operations.',
           'core-features': [

@@ -40,9 +40,10 @@ const ViewUseCase = () => {
                 <h1 className="font-medium text-[#434343] text-2xl md:text-6xl lg:-mr-10">
                   {current?.['title']}
                 </h1>
-                <p className="text-secondary-black text-base md:text-xl my-7">
-                  {current?.['description']}
-                </p>
+                <p
+                  className="text-secondary-black text-base md:text-xl my-7"
+                  dangerouslySetInnerHTML={{ __html: current?.['description'] || '' }}
+                />
                 <div className="flex items-center gap-x-4">
                   <CustomButton
                     onPress={() => navigate('/book-a-demo')}
@@ -59,9 +60,10 @@ const ViewUseCase = () => {
   // height={458}
   classNames={{
     wrapper:
-      'hidden md:block absolute right-10 mt-20 rounded-none w-[8rem] h-[10rem] md:h-auto lg:w-[25rem] lg:h-[35rem]',
+      `hidden md:block absolute right-10 mt-20 rounded-none ${ current?.['imageSize']? '' : 'w-[8rem] h-[10rem] md:h-auto lg:w-[25rem] lg:h-[35rem]'}`,
     img: 'rounded-none',
   }}
+  style={current?.['imageSize'] ? {width: current?.['imageSize'] }: undefined}
 />
             </div>
 

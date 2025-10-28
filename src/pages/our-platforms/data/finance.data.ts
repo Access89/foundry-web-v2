@@ -7,61 +7,29 @@ export const financePlatformData = {
   imageSize: '110%',
   marginTop: '20rem',
   description:
-    'Secure essential working capital, automate and manage all your payments, and integrate advanced financial functionalities directly within your existing ecosystem.',
+    'Foundry Financial Services empowers institutions to simplify operations, enhance compliance, and deliver world-class customer experiences. With integrated modules that connect front, middle, and back-office processes, Foundry eliminates silos and accelerates growth.',
+
   subitems: [
+
+         
     {
-      title: 'Onboarding',
+      title: "Onboarding",
       bg: '/images/our-platforms/view/MExpense.png',
       product_image: '/images/our-platforms/view/MExpense.png',
-      description: 'Automate customer identity verification and compliance checks.',
-      // link: '/our-platforms/finance/onboarding',
-      detailedDescription: `When onboarding stalls, whether you're dealing with individuals, joint accounts, small businesses, or commercial clients, costs rise and customers leave. Disconnected systems and manual steps make it hard to deliver a fast, seamless experience for prospects. Foundry Onboarding changes the game by unifying all essential touchpoints into a streamlined end-to-end flow`,
-      sub_components_title: "Harness the power of unified platform",
+      description: 'Transform the customer onboarding experience.',
+      pdfLink: '/Documents/Onboarding.pdf', // Add this line - replace with your actual PDF path
       sub_components: [
-        {
-          title: "Digital Account Opening Form",
-          description: " Digital Account Opening Form. A clean, intuitive interface that enables new customers to begin the application seamlessly.",
-          icon: "heroicons-outline:document-text",
-          learn_more: [
-            {
-              title: "",
-              description: "Subscribe now to experience our Self Service and Assisted Service (Agent Portal)"
-            }
-          ]
-        },
         {
           title: "KYC/KYB & Risk Rating",
           description: "Embedded Know Your Customer (and Business) checks plus automated risk scoring to ensure regulatory compliance and informed decisions.",
           icon: "lucide:user-check",
-          learn_more: [
-            {
-              title: `Identity Verification & Validation`,
-              description: `Automated identity checks powered by OCR-based document extraction and AI-driven facial recognition with passive and active liveness detection, ensuring rapid and secure verification of government-issued ID documents and biometric identity in real time`
-            },
-            {
-              title: `KYB Business Checks`,
-              description: `Comprehensive checks on businesses including registration verification, ownership structure, ultimate beneficial owner (UBO) screening, and global watchlist screening (e.g. sanctions, PEPs`
-            }
-          ]
+          learn_more: []
         },
         {
           title: "Document Collection",
           description: "Effortlessly submit and defer essential documents (IDs, utility bills, financials) and securely store and track them within the system",
           icon: "heroicons-outline:folder-open",
-          learn_more: [
-            {
-              title: 'Document Upload',
-              description: 'Easily submit required documents (e.g., IDs, utility bills, financial statements) via web or mobile. Each file is securely routed and stored in the appropriate customer folder.',
-            },
-            {
-              title: "Document Tracker",
-              description: " Real-time tracking of document status, automated reminders for pending submissions, and comprehensive version and audit history ensuring nothing gets missed and everything stays compliant and organized"
-            },
-            {
-              title: "Document Request",
-              description: "Seamlessly invite customers to submit necessary files, track their fulfilment status in real time, send automated reminders for overdue items, and manage periodic document reviews"
-            }
-          ]
+          learn_more: []
         },
         {
           title: "E-Signature",

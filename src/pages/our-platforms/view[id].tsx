@@ -179,8 +179,14 @@ const ViewPlatformSpecific = () => {
           viewport={{ once: true }}
         >
           <h1 className="text-5xl font-bold mb-10">{item.title}</h1>
-          <p className="text-xl font-medium w-full md:w-[25vw]">{item.description}</p>
-          <p className="w-full md:w-[25vw]">{item.detailedDescription}</p>
+          <p
+            className="text-xl font-medium w-full md:w-[25vw]"
+            dangerouslySetInnerHTML={{ __html: item.description || '' }}
+          />
+          <p
+            className="w-full md:w-[25vw]"
+            dangerouslySetInnerHTML={{ __html: item.detailedDescription || '' }}
+          />
           <p>
             <CustomButton className="border-2 bg-primary text-white">
               Sign up
