@@ -36,8 +36,15 @@ type VideoCard = {
   videoAlt?: string;
   buttonText?: string;
 };
+type LinkedInCard = {
+type: 'linkedin';
+embedUrl: string;
+height?: string;
+width?: string;
+buttonText?: string;
+};
 
-type CardItem = TextCard | ImageCard | StatsCard | VideoCard;
+type CardItem = TextCard | ImageCard | StatsCard | VideoCard | LinkedInCard;
 
 export type SuccessStoriesProps = {
   title: string;
@@ -61,7 +68,7 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
           </motion.h2>
         </div>
 
-        <div className="md:grid md:grid-cols-auto-fill-300 gap-8 space-y-5 md:space-y-0 mt-5">
+        <div className="md:grid md:grid-cols-auto-fill-300  gap-8 space-y-5 md:space-y-0 mt-5">
           {cards.map((card, index) => (
             <motion.div
               key={index}
@@ -153,6 +160,30 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                     </div> */}
                   </div>
 
+                  {card.buttonText && (
+                    <div className="p-4 bg-white">
+                      <motion.button className="flex items-center gap-x-2 group text-primary font-medium">
+                        {card.buttonText}
+                        <Icon icon="fluent-emoji-high-contrast:right-arrow" fontSize={19} />
+                      </motion.button>
+                    </div>
+                  )}
+                </>
+                
+              ) : card.type === 'linkedin' ? (
+                <>
+                  <div className=" flex-1 relative bg-green-500 w-full" style={{ minHeight: card.height || '400px' }}>
+                    <iframe
+                    
+                      src={card.embedUrl}
+                      height={card.height || '400'}
+                      width="100%"
+                      frameBorder="0"
+                      allowFullScreen
+                      title="LinkedIn embedded post"
+                      className="w-full rounded-t-xl"
+                    ></iframe>
+                  </div>
                   {card.buttonText && (
                     <div className="p-4 bg-white">
                       <motion.button className="flex items-center gap-x-2 group text-primary font-medium">

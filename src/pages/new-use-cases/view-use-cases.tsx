@@ -202,11 +202,11 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         buttonText: 'See their retail transformation',
       },
       {
-        type: 'image', // MIDDLE CARD
-        imageSrc: 'https://placehold.co/400',
-        imageAlt: 'Woman smiling in a retail store',
-        overlayText: 'Data-driven Customer Engagement',
-        overlayIcon: '/icons/play.svg',
+      type: 'linkedin',
+      embedUrl: 'https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7379483524543692800?compact=1',
+      height: '399',
+      width: '504',
+      buttonText: 'View LinkedIn Post',
       },
       {
         type: 'stats',
@@ -324,38 +324,38 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
       },
     ],
   },
-  'ev-charging': {
-    title: 'EV Charging Network Success',
-    links: [
-      { title: 'EV Charging Case Studies', link: '/case-studies/ev-charging' },
-      { title: 'All EV Client Stories', link: '/testimonials/ev-charging' },
-    ],
-    cards: [
-      {
-        type: 'text',
-        content:
-          '"Managing our growing EV charging network was complex until Foundry provided a centralized platform."',
-        author: 'Mark J., Operations Lead, GreenCharge',
-        buttonText: 'Read their infrastructure story',
-      },
-      {
-        type: 'image', // MIDDLE CARD
-        imageSrc: 'https://placehold.co/400',
-        imageAlt: 'Electric vehicle charging station',
-        overlayText: 'Optimizing Charging Infrastructure',
-        overlayIcon: '/icons/play.svg',
-      },
-      {
-        type: 'stats',
-        title: 'ChargeUp Networks',
-        stats: [
-          { value: '45%', label: 'increase in charger utilization' },
-          { value: '99%', label: 'network uptime' },
-        ],
-        buttonText: 'Explore their network growth',
-      },
-    ],
-  },
+  // 'ev-charging': {
+  //   title: 'EV Charging Network Success',
+  //   links: [
+  //     { title: 'EV Charging Case Studies', link: '/case-studies/ev-charging' },
+  //     { title: 'All EV Client Stories', link: '/testimonials/ev-charging' },
+  //   ],
+  //   cards: [
+  //     {
+  //       type: 'text',
+  //       content:
+  //         '"Managing our growing EV charging network was complex until Foundry provided a centralized platform."',
+  //       author: 'Mark J., Operations Lead, GreenCharge',
+  //       buttonText: 'Read their infrastructure story',
+  //     },
+  //     {
+  //       type: 'image', // MIDDLE CARD
+  //       imageSrc: 'https://placehold.co/400',
+  //       imageAlt: 'Electric vehicle charging station',
+  //       overlayText: 'Optimizing Charging Infrastructure',
+  //       overlayIcon: '/icons/play.svg',
+  //     },
+  //     {
+  //       type: 'stats',
+  //       title: 'ChargeUp Networks',
+  //       stats: [
+  //         { value: '45%', label: 'increase in charger utilization' },
+  //         { value: '99%', label: 'network uptime' },
+  //       ],
+  //       buttonText: 'Explore their network growth',
+  //     },
+  //   ],
+  // },
   restaurant: {
     title: 'Restaurant Excellence Stories',
     links: [
