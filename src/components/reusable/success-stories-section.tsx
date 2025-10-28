@@ -56,9 +56,9 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
   return (
     <section className="my-10">
       <div className="container max-w-7xl">
-        <div className="md:grid grid-cols-[0.4fr,1fr] gap-x-10 mb-5">
+        <div className="md:grid md:grid-cols-[0.4fr,1fr] gap-x-10 mb-5 px-4 md:px-0">
           <motion.h2
-            className="font-medium text-3xl lg:text-4xl"
+            className="font-medium text-2xl md:text-3xl lg:text-4xl"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -68,7 +68,7 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
           </motion.h2>
         </div>
 
-        <div className="md:grid md:grid-cols-auto-fill-300  gap-8 space-y-5 md:space-y-0 mt-5">
+        <div className="md:grid md:grid-cols-auto-fill-300 gap-8 space-y-5 md:space-y-0 mt-5 px-4 md:px-0">
           {cards.map((card, index) => (
             <motion.div
               key={index}
@@ -88,7 +88,7 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
               {/* ✅ TEXT CARD */}
               {card.type === 'text' ? (
                 <>
-                  <p className="text-2xl md:max-w-[15rem]">{card.content}</p>
+                  <p className="text-xl md:text-2xl md:max-w-[15rem]">{card.content}</p>
                   <div className="mt-auto">
                     <p className="text-xs mt-7 mb-10">{card.author}</p>
                     <motion.button
@@ -126,10 +126,10 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
               /* ✅ STATS CARD */
               ) : card.type === 'stats' ? (
                 <>
-                  <p className="text-3xl font-medium">{card.title}</p>
+                  <p className="text-2xl md:text-3xl font-medium">{card.title}</p>
                   {card.stats.map((stat, i) => (
                     <div key={i} className="mt-5">
-                      <p className="text-2xl">{stat.value}</p>
+                      <p className="text-xl md:text-2xl">{stat.value}</p>
                       <p className="text-sm">{stat.label}</p>
                     </div>
                   ))}
@@ -148,8 +148,9 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                     <iframe
                       src={card.videoSrc}
                       title={card.videoAlt }
-                      width="560" height="340"
-                      // className="absolute inset-0 w-full h-full"
+                      width="100%"
+                      height="100%"
+                      className="absolute inset-0 w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen
                     ></iframe>
@@ -172,16 +173,15 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                 
               ) : card.type === 'linkedin' ? (
                 <>
-                  <div className=" flex-1 relative bg-green-500 w-full" style={{ minHeight: card.height || '400px' }}>
+                  <div className="flex-1 relative w-full overflow-hidden" style={{ minHeight: card.height || '400px' }}>
                     <iframe
-                    
                       src={card.embedUrl}
-                      height={card.height || '400'}
+                      height="100%"
                       width="100%"
                       frameBorder="0"
                       allowFullScreen
                       title="LinkedIn embedded post"
-                      className="w-full rounded-t-xl"
+                      className="absolute inset-0 w-full h-full rounded-t-xl"
                     ></iframe>
                   </div>
                   {card.buttonText && (
