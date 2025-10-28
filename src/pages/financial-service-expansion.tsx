@@ -775,7 +775,7 @@ const exampleData: SuccessStoriesProps = {
       content:
         '"Stock loss has reduced and sales are booming. Foundry has grown and helped us implement all these different parts."',
       author: "Cecilia Dekyi, Cepodek",
-      buttonText: "Read the case study"
+      // buttonText: "Read the case study"
     },
     {
       type: "image",
