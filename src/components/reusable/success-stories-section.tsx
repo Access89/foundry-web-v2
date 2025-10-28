@@ -10,7 +10,9 @@ type TextCard = {
   type: 'text';
   content: string;
   author: string;
-  buttonText: string;
+  bgClass?: string;
+  textColor?: string;
+  // buttonText: string;
 };
 
 type ImageCard = {
@@ -69,23 +71,23 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
         </div>
 
         <div className="md:grid md:grid-cols-auto-fill-300 gap-8 space-y-5 md:space-y-0 mt-5 px-4 md:px-0">
-          {cards.map((card, index) => (
-            <motion.div
-              key={index}
-              className={`${
-                card.type === 'text'
-                  ? 'bg-primary text-white px-4 py-5 rounded-xl h-full flex flex-col'
-                  : card.type === 'stats'
-                  ? 'bg-[#16232A] text-white px-4 py-5 rounded-xl h-full flex flex-col'
-                  : 'overflow-hidden rounded-xl relative object-cover h-full flex flex-col'
-              }`}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
-              whileHover={{ scale: 1.05, y: -10 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              {/* ✅ TEXT CARD */}
+        {cards.map((card, index) => (
+          <motion.div
+            key={index}
+            className={`${
+              card.type === 'text'
+                ? `${card.bgClass ?? 'bg-primary'} ${card.textColor ?? 'text-white'} px-4 py-5 rounded-xl h-full flex flex-col`
+                : card.type === 'stats'
+                ? 'bg-[#16232A] text-white px-4 py-5 rounded-xl h-full flex flex-col'
+                : 'overflow-hidden rounded-xl relative object-cover h-full flex flex-col'
+            }`}
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+            whileHover={{ scale: 1.05, y: -10 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+              {/* TEXT CARD */}
               {card.type === 'text' ? (
                 <>
                   <p className="text-xl md:text-2xl md:max-w-[15rem]">{card.content}</p>
@@ -95,8 +97,8 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                       className="flex items-center gap-x-2 group"
                       whileHover={{ x: 5 }}
                     >
-                      {card.buttonText}
-                      <Icon icon="fluent-emoji-high-contrast:right-arrow" fontSize={19} />
+                      {/* {card.buttonText} */}
+                      {/* <Icon icon="fluent-emoji-high-contrast:right-arrow" fontSize={19} /> */}
                     </motion.button>
                   </div>
                 </>

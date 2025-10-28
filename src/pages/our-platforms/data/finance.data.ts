@@ -1,7 +1,7 @@
 export const financePlatformData = {
   key: 'finance',
   link: '/our-platforms/finance',
-  title: 'Empower Financial Flow',
+  title: 'The Digital Core for Mordern Financial Institutions',
   icon: 'material-symbols-light:money-bag-outline',
   images: '/images/FinanceBackground.png',
   imageSize: '110%',
@@ -189,6 +189,8 @@ export const financePlatformData = {
       bg: '/images/our-platforms/view/MExpense.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Simplify loan origination, approvals, and repayments.',
+
+      pdfLink: '/Documents/Lending.pdf',
       // link: '/our-platforms/finance/lending',
       detailedDescription: `Foundry's fully digital, end-to-end platform empowers lending institutions, from personal to SME and commercial. Accelerate loan applications with high-speed lead capture and pre-populated intake. Our AI-driven hybrid underwriting and credit scoring, complete with full auditability, centralize document and e-signature workflows. Enjoy rapid ACH or Mobile Wallet disbursements, seamless repayment collections, configurable workflows, risk-based pricing, and automated borrower communications. Built on a scalable microservices architecture, Foundry drastically cuts turnaround times and reduces operational costs by up to 40%.`,
       sub_components_title: "",

@@ -103,12 +103,12 @@ const ViewPlatforms = () => {
   return (
     <main className="">
       <section className=" ">
-        <section className="flex w-full justify-center items-center mx-auto max-w-[1350px] ">
+        <section className="flex w-full justify-center items-center mx-auto max-w-[1350px] 2xl:max-w-[1550px] ">
           
           <div className=" rounded-xl relative overflow-hidden flex flex-col">
             <div className="lg:px-28 md:pt-16 md:pb-10 px-5 flex items-start justify-between flex-col-reverse md:flex-col lg:flex-row gap-10 w-full">
               <div className="w-full lg:w-1/2 mt-20">
-                <h1 className="font-medium text-[#434343] text-xl sm:text-2xl md:text-[4rem]  leading-snug sm:leading-tight">
+                <h1 className="font-medium text-[#434343] text-xl sm:text-2xl md:text-[3rem]  2xl:text-[4rem]  leading-snug sm:leading-tight">
                   {/* First two words together */}
                   <span className="whitespace-nowrap">
                     <span className={`${colors[0]} mr-2`}>
@@ -330,7 +330,7 @@ const successStoriesData: Record<string, SuccessStoriesProps> = {
         content:
           '"Stock loss has reduced and sales are booming. Foundry has grown and helped us implement all these different parts."',
         author: 'Cecilia Dekyi, Cepodek',
-        buttonText: 'See their transformation',
+        // buttonText: 'See their transformation',
       },
       {
         type: 'image',
@@ -360,27 +360,27 @@ const successStoriesData: Record<string, SuccessStoriesProps> = {
       {
         type: 'text',
         content:
-          '"The embedded finance solutions allowed us to offer new services, boosting customer loyalty and revenue significantly."',
-        author: 'John doe., Negios Microfinance',
-        buttonText: 'Read the financial journey',
+          '"Our partnership with Foundry not only eliminated our manual errors but gave us the digital power to scale our customer base and dramatically increase revenue"',
+        author: 'Nana Agyemang Prempeh., CEO of Negios MicroCredit',
+        bgClass: 'bg-[#16232A]',
       },
       {
-        type: 'image',
-        imageSrc: 'https://placehold.co/400', // Placeholder
-        imageAlt: 'Digital banking interface',
-        overlayText: 'Launching a Neo-Bank in 3 Months',
-        overlayIcon: '/icons/play.svg',
+        type: 'text',
+        content: 
+        '“We grew our customer base by 300% in a year, thanks to Foundry\'s digital platform that made scaling possible”',
+        author: 'Reuben Cudjoe., CEO of Shield Microfinance',
+        bgClass: 'bg-[#E4EEF0]',
+        textColor: 'text-black',
+
       },
       {
-        type: 'stats',
-        title: 'SHIELD Microfinance',
-        stats: [
-          { value: '47%', label: 'revenue increase year over year' },
-          { value: '30,000', label: 'transactions per month' },
-        ],
-        buttonText: 'Explore their Lending Success',
+        type: 'text', 
+        content: '“Going fully digital with Foundry didn\'t just save us time, it slashed our operational costs by 50% and brought our paper costs down to zero.”',
+        author: 'Kwadwo Adjei., CEO of Ubuntu Microfinance',
+        
       },
     ],
+       
   },
   trade: {
     title: 'Customer Success Stories',
@@ -411,7 +411,7 @@ const successStoriesData: Record<string, SuccessStoriesProps> = {
         content:
           '"Foundry Hub gave us unparalleled visibility into our supply chain. We now make faster, more informed decisions."',
         author: 'Maria S., Operations Director, OmniGoods Logistics',
-        buttonText: 'Dive into their logistics story',
+        // buttonText: 'Dive into their logistics story',
       },
     ],
   },
@@ -428,7 +428,7 @@ const successStoriesData: Record<string, SuccessStoriesProps> = {
         content:
           '"Stock loss has reduced and sales are booming. Foundry has grown and helped us implement all these different parts."',
         author: 'Cecilia Dekyi, Cepodek',
-        buttonText: 'Read the case study',
+        // buttonText: 'Read the case study',
       },
       {
         type: 'image',

@@ -201,7 +201,7 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         content:
           '"Our sales jumped by 40% after implementing Foundry\'s POS and inventory system."',
         author: 'Alex K., Store Manager, Urban Boutique',
-        buttonText: 'See their retail transformation',
+        // buttonText: 'See their retail transformation',
       },
       {
       type: 'linkedin',
@@ -239,7 +239,7 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         content:
           '"Foundry\'s compliance automation saved us countless hours and reduced regulatory risks significantly."',
         author: 'Dr. Lena V., Head of Compliance, SecureWealth Bank',
-        buttonText: 'Read about their compliance journey',
+        // buttonText: 'Read about their compliance journey',
       },
       {
         type: 'image', // MIDDLE CARD
@@ -274,7 +274,7 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         content:
           '"Implementing Foundry\'s smart factory solutions led to a 20% increase in production."',
         author: 'Ben C., Plant Manager, Precision Parts Inc.',
-        buttonText: 'See their production gains',
+        // buttonText: 'See their production gains',
       },
       {
         type: 'image', // MIDDLE CARD
@@ -306,7 +306,7 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         content:
           '"Foundry\'s APIs were instrumental in launching our new digital wallet service, enabling seamless P2P transfers."',
         author: 'Chloe L., Product Lead, SwiftPay',
-        buttonText: 'Read their launch story',
+        // buttonText: 'Read their launch story',
       },
       {
         type: 'image', // MIDDLE CARD
@@ -370,7 +370,7 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         content:
           '"Our kitchen efficiency improved dramatically with Foundry\'s KDS."',
         author: 'Chef Leo P., Owner, The Gastronomy Hub',
-        buttonText: 'See their kitchen transformation',
+        // buttonText: 'See their kitchen transformation',
       },
       {
         type: 'image', // MIDDLE CARD
@@ -402,7 +402,7 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         content:
           '"Foundry gave us full visibility from warehouse to delivery."',
         author: 'Sam G., Logistics Manager, Global Connect',
-        buttonText: 'Read their visibility story',
+        // buttonText: 'Read their visibility story',
       },
       {
         type: 'image', // MIDDLE CARD
@@ -437,7 +437,7 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         content:
           '"Automating our investor reporting with Foundry saved us hundreds of hours each quarter. Transparency has never been easier."',
         author: 'Jessica H., Fund Administrator, Apex Funds',
-        buttonText: 'Discover their reporting efficiency',
+        // buttonText: 'Discover their reporting efficiency',
       },
       {
         type: 'image', // MIDDLE CARD
@@ -473,7 +473,7 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         content:
           '"Foundry transformed how we operate. Their solutions are intuitive and highly effective."',
         author: 'A Happy Customer, Global Inc.',
-        buttonText: 'Learn more',
+        // buttonText: 'Learn more',
       },
       {
         type: 'image', // Default also has image in the middle
