@@ -23,17 +23,19 @@ export const businessPlatformData = {
       
     },
     {
-      title: 'HR',
-      bg: '/images/our-platforms/view/MExpense.png',
+      title: 'Access Loans',
+      bg: '/images/AccessLoanCard.png',
       product_image: "/images/our-platforms/new/hr.png",
       description: 'Streamline employee data, benefits, and HR processes.',
       // link: '/our-platforms/business/hr',
       detailedDescription: ``,
       sub_components_title: "",
-      sub_components: []
+      sub_components: [],
+      backgroundsize: 'cover',
+      titleColor: 'text-white',
     },
     {
-      title: 'Procurement',
+      title: 'Manage Payroll',
       bg: '/images/our-platforms/view/MExpense.png',
       description: 'Manage purchasing workflows and vendor interactions efficiently.',
       // link: '/our-platforms/business/procurement',
