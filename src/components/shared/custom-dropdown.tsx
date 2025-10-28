@@ -138,7 +138,7 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                   <div
                     ref={dropdownRef}
                     onMouseLeave={() => setIsOpen(false)}
-                    className={`px-[5rem] bg-white   h-fit  overflow-y-scroll  shadow-xl border  p-6 flex items-center place-items-center  gap-4 
+                    className={`px-6 md:px-[5rem] bg-white   h-fit  overflow-y-auto  shadow-xl border  p-6 flex flex-col md:flex-row items-center place-items-center  gap-4 
               }`}
                   >
                     {item.subItems.map((subItem, subIndex) => (
@@ -152,7 +152,7 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                             : subIndex === 1
                             ? 'bg-[#E4EEF0] text-black'
                             : 'bg-[#075056] text-white'
-                        } p-6 rounded-xl h-[300px] w-[300px] flex flex-col hover:scale-105 transition-all`}
+                        } p-6 rounded-xl h-[300px] w-full md:w-[300px] flex flex-col hover:scale-105 transition-all`}
                       >
                         {/* <Icon
                           icon={subItem.icon}
@@ -181,7 +181,7 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                   <div
                     ref={dropdownRef}
                     onMouseLeave={() => setIsOpen(false)}
-                    className="px-[6vw] pt-10 pb-14 bg-white  h-fit overflow-y-scroll shadow-xl border transition-all   grid grid-cols-3 gap-10"
+                    className="px-6 md:px-[6vw] pt-10 pb-14 bg-white  h-fit overflow-y-auto shadow-xl border transition-all grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10"
                   >
                     {/* Left column – parent items */}
                     <div className="flex flex-col ">

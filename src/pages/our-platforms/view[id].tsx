@@ -75,7 +75,7 @@ const SubComponentsSection: React.FC<{ item: PlatformSubItem }> = ({
         </h3>
 
         <motion.div
-          className="grid grid-cols-2 gap-6 my-4"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 my-4"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -170,7 +170,7 @@ const ViewPlatformSpecific = () => {
 
   return (
     <div className=" py-12">
-      <section className="container mx-auto flex justify-between items-center mb-6">
+      <section className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0 mb-6">
         <motion.div
           className="flex flex-col gap-4"
           initial={{ opacity: 0, x: -30 }}
@@ -179,8 +179,8 @@ const ViewPlatformSpecific = () => {
           viewport={{ once: true }}
         >
           <h1 className="text-5xl font-bold mb-10">{item.title}</h1>
-          <p className="text-xl font-medium w-[25vw]">{item.description}</p>
-          <p className="w-[25vw]">{item.detailedDescription}</p>
+          <p className="text-xl font-medium w-full md:w-[25vw]">{item.description}</p>
+          <p className="w-full md:w-[25vw]">{item.detailedDescription}</p>
           <p>
             <CustomButton className="border-2 bg-primary text-white">
               Sign up
@@ -193,7 +193,7 @@ const ViewPlatformSpecific = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="flex items-center justify-center overflow-hidden rounded-md w-[20vw] h-[20vw] md:w-[40vw] md:h-[30vw]"
+          className="flex items-center justify-center overflow-hidden rounded-md w-full md:w-[40vw] md:h-[30vw]"
         >
           <img
             src={item?.product_image}

@@ -11,7 +11,7 @@ const Footer = () => {
         alt="clustered_logos"
         className="absolute right-0 top-0"
       />
-      <div className="container py-10 md:py-16 lg:grid grid-cols-[0.4fr,1fr,0.4fr] gap-x-5">
+      <div className="container py-10 md:py-16 lg:grid grid-cols-1 lg:grid-cols-[0.4fr,1fr,0.4fr] gap-x-5 px-4 md:px-0">
         <div className="space-y-3 flex flex-col items-center lg:items-start">
           <img
             src="/icons/logo_white.svg"
