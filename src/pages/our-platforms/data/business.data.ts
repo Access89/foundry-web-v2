@@ -23,7 +23,7 @@ export const businessPlatformData = {
       
     },
     {
-      title: 'Access Loans',
+      title: 'Business Loans',
       bg: '/images/AccessLoanCard.png',
       product_image: "/images/our-platforms/new/hr.png",
       description: 'Streamline employee data, benefits, and HR processes.',
@@ -105,7 +105,7 @@ export const businessPlatformData = {
     },
     {
       title: 'Business APIs',
-      bg: '/images/our-platforms/view/MExpense.png',
+      bg: '/images/BusinessAPI.png',
       // description: 'Easily integrate third-party tools and automate workflows.',
       // link: '/our-platforms/business/business-apis',
       detailedDescription: ``,

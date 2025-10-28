@@ -18,7 +18,7 @@ export const tradePlatformData = {
       detailedDescription: ``,
       sub_components_title: "",
       sub_components: [],
-          backgroundsize: 'auto   ',
+          backgroundsize: 'object-top-right',
           backgroundcolor:'#D2D9DB',  
             
 

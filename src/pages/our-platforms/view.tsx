@@ -108,7 +108,7 @@ const ViewPlatforms = () => {
           <div className=" rounded-xl relative overflow-hidden flex flex-col">
             <div className="lg:px-28 md:pt-16 md:pb-10 px-5 flex items-start justify-between flex-col-reverse md:flex-col lg:flex-row gap-10 w-full">
               <div className="w-full lg:w-1/2 lg:mt-20 md:mt-10 mb-5 lg:mb-0">
-                <h1 className="font-medium text-[#434343] text-3xl sm:text-2xl md:text-[3rem]  2xl:text-[4rem]  leading-snug sm:leading-tight">
+                <h1 className="font-semibold  lg:font-medium text-[#434343] text-3xl sm:text-2xl md:text-[3rem]  2xl:text-[4rem]  leading-snug sm:leading-tight">
                   {/* First two words together */}
                   <span className="whitespace-nowrap">
                     <span className={`${colors[0]} mr-2`}>
