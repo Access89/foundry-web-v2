@@ -10,7 +10,7 @@ export const tradePlatformData = {
     'Digitize and accelerate your procurement cycles, gain real-time visibility into logistics, and execute B2B transactions with unprecedented speed and confidence.',
   subitems: [
     {
-      title: 'Logistics',
+      title: 'Payment settlement',
       bg: '/images/LogisticsImage.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Optimize delivery routes, fleet management, and shipment tracking.',

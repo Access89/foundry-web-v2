@@ -24,6 +24,7 @@ import ViewUseCase from './pages/new-use-cases/view-use-cases';
 import DownloadAppsAndOtherOffers from './pages/onboarding/_components/_tabs/download-apps-and-other-offers';
 import UpgradePlan from './pages/onboarding/_pages/upgrade-plan';
 import AboutUs from './pages/AboutUs';
+import OnboardingPage from './pages/OnboardingPage';
 const Home = lazy(() => import('./pages/home'));
 const BusinessAutomation = lazy(() => import('./pages/business_automation'));
 const Loan = lazy(() => import('./pages/loan'));
@@ -111,6 +112,7 @@ function App() {
         <Route path="become-partner" element={<BecomePartner />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="custom-plan" element={<CustomPlan />} />
+        <Route path="onboarding-page" element={<OnboardingPage />} />
         <Route path="onboarding/">
           <Route path="" element={<Onboarding />} />
           <Route path="pricing" element={<PricingPage />} />

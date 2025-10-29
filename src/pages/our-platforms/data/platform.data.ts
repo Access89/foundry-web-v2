@@ -525,7 +525,7 @@
 
             },
             {
-              title: 'Trade Management',
+              title: 'FX access and conversion',
               bg: '/images/our-platforms/view/MExpense.png',
               product_image: '/images/our-platforms/view/MExpense.png',
               description:

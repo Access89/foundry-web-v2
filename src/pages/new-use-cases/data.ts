@@ -132,7 +132,7 @@ export const UsecaseData: Record<string, any> = {
           title: 'Fund Management',
           description: 'Digitize portfolio, investor, and fund operations on one platform.',
           images: '/images/FundManagementImage.png',
-          imageSize:'80',
+          // imageSize:'50%',
           'video-link': 'https://youtube.com',
           'features-description': 'Increase efficiency, transparency, and compliance in fund operations.',
           'core-features': [

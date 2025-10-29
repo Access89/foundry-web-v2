@@ -25,21 +25,22 @@ const OnboardingPage = () => {
   const handleNext = () => {
     if (activeStep < steps.length - 1) {
       setActiveStep(activeStep + 1);
-    } else {   // Complete onboarding
-        navigate('/dashboard');
-      }
-    };
+    } else {
+      // Complete onboarding
+      navigate('/dashboard');
+    }
+  };
   
-    const handleBack = () => {
-      if (activeStep > 0) {
-        setActiveStep(activeStep - 1);
-      } else {
-        navigate(-1);
-      }
-    };
+  const handleBack = () => {
+    if (activeStep > 0) {
+      setActiveStep(activeStep - 1);
+    } else {
+      navigate(-1);
+    }
+  };
   
-    return (
-      <div className="min-h-screen w-full flex items-center justify-center">
+  return (
+    <div className="min-h-screen w-full flex items-center justify-center">
         {/* Transparent container - no background */}
         <div className="w-full max-w-[700px] mx-auto px-6 py-12 flex flex-col justify-between min-h-screen">
           {/* Header */}

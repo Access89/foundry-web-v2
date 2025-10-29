@@ -23,17 +23,45 @@ export const businessPlatformData = {
       
     },
     {
-      title: 'Business Loans',
-      bg: '/images/AccessLoanCard.png',
-      product_image: "/images/our-platforms/new/hr.png",
-      description: 'Streamline employee data, benefits, and HR processes.',
-      // link: '/our-platforms/business/hr',
+      title: 'Point of Sale',
+      titleColor: 'text-[black]',
+      // titlePosition: '-mt-6 md:mt-4 lg:-mt-6',
+      bg: '/images/POS.png',
+      // description: 'Sell smarter with real-time inventory and sales tracking.',
+      // link: '/our-platforms/business/point-of-sale',
       detailedDescription: ``,
       sub_components_title: "",
       sub_components: [],
-      backgroundsize: 'cover',
-      titleColor: 'text-white',
+      backgroundsize: '120%',
+  backgroundcolor: '#E4EEF0 ',
+      
     },
+    {
+      title: 'Foundry Terminal',
+      titleColor: 'text-black',
+      titlePosition: '-mt-2 md:mt-4 lg:-mt-6',
+      // titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
+      bg: '/images/our-platforms/view/FoundryTerminal.png',
+      // description: 'One terminal for managing all business operations centrally.',
+      // link: '/our-platforms/business/foundry-terminal',
+      detailedDescription: ``,
+      sub_components_title: "",
+      sub_components: [], 
+
+     
+    },
+    {
+      title: 'Invoice Management',
+      titleColor: 'text-black',
+      titlePosition: '-mt-5 md:mt- 4 lg:-mt-6 lg:md:whitespace-nowrap ',
+      bg: '/images/our-platforms/view/InvoiceManagement.png',
+      description: 'Send, track, and reconcile invoices effortlessly.',
+      // link: '/our-platforms/business/invoice-management',
+      detailedDescription: ``,
+      sub_components_title: "",
+      sub_components: []
+    },
+   
     {
       title: 'Manage Payroll',
       bg: '/images/our-platforms/view/MExpense.png',
@@ -95,6 +123,18 @@ export const businessPlatformData = {
       ]
     },
     {
+      title: 'Business Loans',
+      bg: '/images/AccessLoanCard.png',
+      product_image: "/images/our-platforms/new/hr.png",
+      description: 'Streamline employee data, benefits, and HR processes.',
+      // link: '/our-platforms/business/hr',
+      detailedDescription: ``,
+      sub_components_title: "",
+      sub_components: [],
+      backgroundsize: 'cover',
+      titleColor: 'text-white',
+    },
+    {
       title: '  Trust Score   ',
       bg: '/images/our-platforms/view/Analytics.png',
       // description: 'Turn your data into actionable insights with powerful dashboards.',
@@ -112,45 +152,7 @@ export const businessPlatformData = {
       sub_components_title: "",
       sub_components: []
     },
-    {
-      title: 'Point of Sale',
-      titleColor: 'text-[black]',
-      // titlePosition: '-mt-6 md:mt-4 lg:-mt-6',
-      bg: '/images/POS.png',
-      // description: 'Sell smarter with real-time inventory and sales tracking.',
-      // link: '/our-platforms/business/point-of-sale',
-      detailedDescription: ``,
-      sub_components_title: "",
-      sub_components: [],
-      backgroundsize: '120%',
-  backgroundcolor: '#E4EEF0 ',
-      
-    },
-    {
-      title: 'Foundry Terminal',
-      titleColor: 'text-black',
-      titlePosition: '-mt-2 md:mt-4 lg:-mt-6',
-      // titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
-      bg: '/images/our-platforms/view/FoundryTerminal.png',
-      // description: 'One terminal for managing all business operations centrally.',
-      // link: '/our-platforms/business/foundry-terminal',
-      detailedDescription: ``,
-      sub_components_title: "",
-      sub_components: [], 
-
-     
-    },
-    {
-      title: 'Invoice Management',
-      titleColor: 'text-black',
-      titlePosition: '-mt-5 md:mt- 4 lg:-mt-6 lg:md:whitespace-nowrap ',
-      bg: '/images/our-platforms/view/InvoiceManagement.png',
-      description: 'Send, track, and reconcile invoices effortlessly.',
-      // link: '/our-platforms/business/invoice-management',
-      detailedDescription: ``,
-      sub_components_title: "",
-      sub_components: []
-    },
+   
     {
       title: 'Reconcile Transactions',
       bg: '/images/our-platforms/view/MExpense.png',
