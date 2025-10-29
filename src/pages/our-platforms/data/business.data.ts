@@ -53,7 +53,7 @@ export const businessPlatformData = {
     {
       title: 'Invoice Management',
       titleColor: 'text-black',
-      titlePosition: '-mt-5 md:mt- 4 lg:-mt-6 lg:md:whitespace-nowrap ',
+      titlePosition: '-mt-4 md:mt- 4 lg:-mt-6 lg:md:whitespace-nowrap ',
       bg: '/images/our-platforms/view/InvoiceManagement.png',
       description: 'Send, track, and reconcile invoices effortlessly.',
       // link: '/our-platforms/business/invoice-management',

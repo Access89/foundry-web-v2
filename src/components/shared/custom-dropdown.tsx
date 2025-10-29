@@ -206,13 +206,13 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
                           </Link>
                         </div>
                       ))}
-                      <Link
+                      {/* <Link
                         onClick={() => setIsOpen(false)}
                         to="use-cases"
                         className="mt-4 text-[#000000] hover:text-gray-400 transition-all"
                       >
                         All Use cases
-                      </Link>
+                      </Link> */}
                     </div>
 
                     {/* Right column – core features of hovered parent */}

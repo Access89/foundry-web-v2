@@ -338,6 +338,7 @@ const successStoriesData: Record<string, SuccessStoriesProps> = {
         imageAlt: 'Happy business owner checking dashboard',
         overlayText: 'How Analytics Powered Their Growth',
         overlayIcon: '/icons/play.svg',
+        link: 'https://www.linkedin.com/feed/update/urn:li:activity:7374049585800941568',
       },
       {
         type: 'stats',

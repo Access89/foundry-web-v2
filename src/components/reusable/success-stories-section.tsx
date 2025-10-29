@@ -107,13 +107,36 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
               ) : card.type === 'image' ? (
                 <>
                   <div className="flex-1 relative">
-                    <img src={card.imageSrc} alt={card.imageAlt} className="h-full w-full object-cover" />
-                    <div className="absolute bottom-5 left-5 right-5 bg-[#FAFAFA]/20 backdrop-blur-sm p-3 rounded-md">
-                      <p className="text-white font-medium flex justify-between">
-                        {card.overlayText}
-                        {card.overlayIcon && <img src={card.overlayIcon} alt="" className="w-auto h-5" />}
-                      </p>
-                    </div>
+                    {card.link ? (
+                      <a 
+                        href={card.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="block h-full w-full relative cursor-pointer z-10"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(card.link, '_blank', 'noopener,noreferrer');
+                        }}
+                      >
+                        <img src={card.imageSrc} alt={card.imageAlt} className="h-full w-full object-cover" />
+                        <div className="absolute bottom-5 left-5 right-5 bg-[#FAFAFA]/20 backdrop-blur-sm p-3 rounded-md pointer-events-none">
+                          <p className="text-white font-medium flex justify-between">
+                            {card.overlayText}
+                            {card.overlayIcon && <img src={card.overlayIcon} alt="" className="w-auto h-5" />}
+                          </p>
+                        </div>
+                      </a>
+                    ) : (
+                      <>
+                        <img src={card.imageSrc} alt={card.imageAlt} className="h-full w-full object-cover" />
+                        <div className="absolute bottom-5 left-5 right-5 bg-[#FAFAFA]/20 backdrop-blur-sm p-3 rounded-md">
+                          <p className="text-white font-medium flex justify-between">
+                            {card.overlayText}
+                            {card.overlayIcon && <img src={card.overlayIcon} alt="" className="w-auto h-5" />}
+                          </p>
+                        </div>
+                      </>
+                    )}
                   </div>
                   {card.buttonText && (
                     <div className="p-4 bg-white">

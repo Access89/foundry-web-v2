@@ -571,6 +571,7 @@ const exampleData: SuccessStoriesProps = {
     {
       type: "image",
       imageSrc: "/images/LS_4.webp", // Update to the correct image URL
+      link:'https://www.linkedin.com/feed/update/urn:li:activity:7374049585800941568',
       imageAlt: "Afro woman in beauty store",
       overlayText: "The importance of data to WeNaturals",
       overlayIcon: "/icons/play.svg"
