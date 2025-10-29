@@ -141,7 +141,8 @@ export const financePlatformData = {
     },
     {
       title: 'Digital Banking',
-      bg: '/images/our-platforms/view/MExpense.png',
+      bg: '/images/DigitalBanking.png',
+      backgroundsize: 'cover',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Deliver seamless mobile and online banking experiences.',
       // link: '/our-platforms/finance/digital-banking',
@@ -186,7 +187,9 @@ export const financePlatformData = {
     },
     {
       title: 'Lending',
-      bg: '/images/our-platforms/view/MExpense.png',
+      bg: '/images/LendingCard.png',
+      backgroundsize: '210% 100% ',
+      // backgroundcolor: 'white',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Simplify loan origination, approvals, and repayments.',
 

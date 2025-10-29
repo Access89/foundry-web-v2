@@ -53,7 +53,7 @@ export const businessPlatformData = {
     {
       title: 'Invoice Management',
       titleColor: 'text-black',
-      titlePosition: '-mt-4 md:mt- 4 lg:-mt-6 lg:md:whitespace-nowrap ',
+      titlePosition: '-mt-5 md:mt- 4 lg:-mt-6 lg:md:whitespace-nowrap ',
       bg: '/images/our-platforms/view/InvoiceManagement.png',
       description: 'Send, track, and reconcile invoices effortlessly.',
       // link: '/our-platforms/business/invoice-management',
@@ -64,7 +64,9 @@ export const businessPlatformData = {
    
     {
       title: 'Manage Payroll',
-      bg: '/images/our-platforms/view/MExpense.png',
+      bg: '/images/ManagePayroll.png',
+      backgroundsize: 'cover ',
+      backgroundcolor: '#E4EEF0 ',
       description: 'Manage purchasing workflows and vendor interactions efficiently.',
       // link: '/our-platforms/business/procurement',
       detailedDescription: `Foundry procuremnet eliminates waste and provides visibility. From requisitions to approvals, purchase nd distribution of inventory to desired sections of your business`,
@@ -133,6 +135,7 @@ export const businessPlatformData = {
       sub_components: [],
       backgroundsize: 'cover',
       titleColor: 'text-white',
+      // backgroundcolor: '#E4EEF0 ',
     },
     {
       title: '  Trust Score   ',
@@ -146,6 +149,7 @@ export const businessPlatformData = {
     {
       title: 'Business APIs',
       bg: '/images/BusinessAPI.png',
+      backgroundsize: '130% 100% ',
       // description: 'Easily integrate third-party tools and automate workflows.',
       // link: '/our-platforms/business/business-apis',
       detailedDescription: ``,
