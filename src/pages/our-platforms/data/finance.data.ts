@@ -238,7 +238,8 @@ export const financePlatformData = {
     },
     {
       title: 'Sentinel',
-      bg: '/images/our-platforms/view/MExpense.png',
+      bg: '/images/SentinelCard.png',
+      backgroundsize: '200% 100% ',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: '',
       // link: '/our-platforms/finance/sentinel',
