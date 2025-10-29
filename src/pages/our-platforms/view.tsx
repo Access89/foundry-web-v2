@@ -332,14 +332,20 @@ const successStoriesData: Record<string, SuccessStoriesProps> = {
         author: 'Cecilia Dekyi, Cepodek',
         // buttonText: 'See their transformation',
       },
-      {
-        type: 'image',
-        imageSrc: '/images/LS_4.webp', // Placeholder
-        imageAlt: 'Happy business owner checking dashboard',
-        overlayText: 'How Analytics Powered Their Growth',
-        overlayIcon: '/icons/play.svg',
-        link: 'https://www.linkedin.com/feed/update/urn:li:activity:7374049585800941568',
+      {   type: 'linkedin',
+      embedUrl: 'https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7374046467688304640?compact=1',
+      height: '399',
+      width: '504',
+      buttonText: 'View LinkedIn Post',
       },
+      // {
+      //   type: 'image',
+      //   imageSrc: '/images/LS_4.webp', // Placeholder
+      //   imageAlt: 'Happy business owner checking dashboard',
+      //   overlayText: 'How Analytics Powered Their Growth',
+      //   overlayIcon: '/icons/play.svg',
+      //   link: 'https://www.linkedin.com/feed/update/urn:li:activity:7374049585800941568',
+      // },
       {
         type: 'stats',
         title: 'Coalition of Concerned Teachers (CCT)',
