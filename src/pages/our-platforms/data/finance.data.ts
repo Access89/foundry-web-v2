@@ -142,7 +142,8 @@ export const financePlatformData = {
     {
       title: 'Digital Banking',
       bg: '/images/DigitalBanking.png',
-      backgroundsize: 'cover',
+      backgroundsize: '175%',
+      backgroundcolor: '#969593',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Deliver seamless mobile and online banking experiences.',
       // link: '/our-platforms/finance/digital-banking',
@@ -188,8 +189,8 @@ export const financePlatformData = {
     {
       title: 'Lending',
       bg: '/images/LendingCard.png',
-      backgroundsize: '210% 100% ',
-      // backgroundcolor: 'white',
+      backgroundsize: '120% ',
+      backgroundcolor: 'white',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Simplify loan origination, approvals, and repayments.',
 
@@ -239,7 +240,7 @@ export const financePlatformData = {
     {
       title: 'Sentinel',
       bg: '/images/SentinelCard.png',
-      backgroundsize: '200% 100% ',
+      // backgroundsize: '125% 100% ',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: '',
       // link: '/our-platforms/finance/sentinel',
