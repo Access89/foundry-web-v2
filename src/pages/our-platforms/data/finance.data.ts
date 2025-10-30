@@ -14,7 +14,9 @@ export const financePlatformData = {
          
     {
       title: "Onboarding",
-      bg: '/images/our-platforms/view/MExpense.png',
+      bg: '/images/OnboardingCard.png',
+      backgroundcolor: 'white',
+  backgroundsize: '150%',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Transform the customer onboarding experience.',
       pdfLink: '/Documents/Onboarding.pdf', // Add this line - replace with your actual PDF path
