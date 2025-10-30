@@ -65,7 +65,7 @@ export const businessPlatformData = {
     {
       title: 'Manage Payroll',
       bg: '/images/ManagePayroll.png',
-      titleColor: 'text-white',
+    
       backgroundsize: '130% ',
       backgroundcolor: '#E4EEF0 ',
       description: 'Manage purchasing workflows and vendor interactions efficiently.',

@@ -65,7 +65,7 @@ export const tradePlatformData = {
       sub_components: []
     },
     {
-      title: 'Cornershop',
+      title: 'Customs and compliance workflows',
       bg: '/images/CornerShopImage.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Launch and manage microstores for hyperlocal commerce.',
