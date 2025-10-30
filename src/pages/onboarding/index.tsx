@@ -105,11 +105,9 @@ const Onboarding = () => {
       </div>
 
       <CustomButton
-        className={`py-6 transition-all duration-300 ${
-          safe
-            ? 'bg-primary text-white shadow-lg hover:shadow-xl'
-            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-        }`}
+        className={`py-6 transition-all duration-300 bg-primary text-white 
+      
+            `}
         onPress={() => {
           const returnValue = tabs?.[activeTab]?.next();
           if (typeof returnValue == 'string') {
