@@ -97,7 +97,7 @@ export const financePlatformData = {
     },
     {
       title: 'Digital Lending',
-      bg: '/images/LendingCard.png',
+      bg: '/images/DigitalLending.png',
       backgroundsize: '120% ',
       backgroundcolor: 'white',
       product_image: '/images/our-platforms/view/MExpense.png',
