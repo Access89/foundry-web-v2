@@ -275,10 +275,10 @@ export const financePlatformData = {
     },
     {
       title: 'Banking as a Service',
-      titleColor: 'white',
+      // titleColor: 'white',
       bg: '/images/BankingAsAService.png',
       backgroundsize: '105%',
-      backgroundcolor: '#224f55',
+      backgroundcolor: '#378790',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Launch and scale banking products with ready-to-integrate APIs.',
       // link: '/our-platforms/finance/banking-as-a-service',
