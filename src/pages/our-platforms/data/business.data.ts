@@ -12,6 +12,7 @@ export const businessPlatformData = {
     {
       title: 'Expense Management',
       titleColor: 'text-[#F9F9F9]',
+      titlePosition: '-mt-5 md:mt-4 lg:-mt-6',
       // titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
       bg: '/images/our-platforms/view/ExpenseM.png',
       // description: 'Automate and track business expenses with ease.',
@@ -25,6 +26,7 @@ export const businessPlatformData = {
     {
       title: 'Point of Sale',
       titleColor: 'text-[black]',
+      titlePosition: '-mt-6 md:mt-4 lg:-mt-6',
       // titlePosition: '-mt-6 md:mt-4 lg:-mt-6',
       bg: '/images/POS.png',
       // description: 'Sell smarter with real-time inventory and sales tracking.',
@@ -38,8 +40,9 @@ export const businessPlatformData = {
     },
     {
       title: 'Foundry Terminal',
+      
       titleColor: 'text-black',
-      titlePosition: '-mt-2 md:mt-4 lg:-mt-6',
+      titlePosition: '-mt-5 md:mt-4 lg:-mt-6',
       // titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
       bg: '/images/our-platforms/view/FoundryTerminal.png',
       // description: 'One terminal for managing all business operations centrally.',
@@ -65,6 +68,7 @@ export const businessPlatformData = {
     {
       title: 'Manage Payroll',
       bg: '/images/ManagePayroll.png',
+      titlePosition: '-mt-5 md:mt-4 lg:-mt-6',
     
       backgroundsize: '130%',
       backgroundcolor: '#E4EEF0 ',
@@ -128,6 +132,7 @@ export const businessPlatformData = {
     {
       title: 'Business Loans',
       bg: '/images/AccessLoanCard.png',
+      titlePosition: '-mt-5 md:mt-4 lg:-mt-6',
       product_image: "/images/our-platforms/new/hr.png",
       description: 'Streamline employee data, benefits, and HR processes.',
       // link: '/our-platforms/business/hr',
@@ -141,6 +146,7 @@ export const businessPlatformData = {
     {
       title: '  Trust Score   ',
       bg: '/images/our-platforms/view/Analytics.png',
+      titlePosition: '-mt-5 md:mt-4 lg:-mt-6',
       // description: 'Turn your data into actionable insights with powerful dashboards.',
       // link: '/our-platforms/business/analytics',
       detailedDescription: ``,
@@ -150,7 +156,9 @@ export const businessPlatformData = {
     {
       title: 'Business APIs',
       bg: '/images/BusinessAPI.png',
-      backgroundsize: '130% 100% ',
+      backgroundsize: '125% 100% ',
+      titlePosition: '-mt-5 md:mt-4 lg:-mt-6',
+    
       // description: 'Easily integrate third-party tools and automate workflows.',
       // link: '/our-platforms/business/business-apis',
       detailedDescription: ``,
