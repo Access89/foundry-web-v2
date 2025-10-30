@@ -57,14 +57,6 @@ const ViewPlatforms = () => {
     loadData();
   }, [pathname]);
 
-  // Keep scroll position in sync with currentIndex
-  useEffect(() => {
-    if (!scrollRef.current || !moduleData?.subitems?.length) return;
-    const step = getCardStep();
-    const targetLeft = currentIndex * step;
-    scrollRef.current.scrollTo({ left: targetLeft, behavior: 'smooth' });
-  }, [currentIndex, moduleData]);
-
   // Clamp index when items change (e.g., when a card is removed)
   useEffect(() => {
     const len = moduleData?.subitems?.length ?? 0;
@@ -76,25 +68,34 @@ const ViewPlatforms = () => {
     setCurrentIndex((i) => Math.min(i, len - 1));
   }, [moduleData?.subitems?.length]);
 
-  // Auto-advance by updating index (single source of truth)
+  // Auto-advance slider
   useEffect(() => {
-    if (!moduleData?.subitems?.length) return;
-    const len = moduleData.subitems.length;
-    const id = setInterval(() => {
-      setCurrentIndex((prev) => {
-        const next = prev + 1;
-        if (!scrollRef.current) return next % len;
-        const step = getCardStep();
-        const maxIndex = Math.max(
-          0,
-          Math.floor(
-            (scrollRef.current.scrollWidth - scrollRef.current.clientWidth) / step
-          )
-        );
-        return next > maxIndex ? 0 : next;
+    if (!scrollRef.current || !moduleData?.subitems?.length) return;
+    
+    const interval = setInterval(() => {
+      if (!scrollRef.current || !moduleData?.subitems?.length) return;
+      
+      const container = scrollRef.current;
+      const totalCards = moduleData.subitems.length;
+      const step = getCardStep();
+      
+      setCurrentIndex((prevIndex) => {
+        const nextIndex = prevIndex + 1;
+        
+        // If we've reached the end, loop back to start
+        if (nextIndex >= totalCards) {
+          container.scrollTo({ left: 0, behavior: 'smooth' });
+          return 0;
+        }
+        
+        // Scroll to the next card position
+        const scrollPosition = nextIndex * step;
+        container.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+        return nextIndex;
       });
     }, 4000);
-    return () => clearInterval(id);
+    
+    return () => clearInterval(interval);
   }, [moduleData]);
 
   const currentSuccessStories = useMemo(() => {
@@ -212,11 +213,6 @@ const ViewPlatforms = () => {
             <div
               className="flex gap-5 px-1 transition-transform duration-300 ease-in-out items-stretch justify-start overflow-x-auto scrollbar-hide scroll-smooth"
               ref={scrollRef}
-              onScroll={() => {
-                const scrollLeft = scrollRef.current?.scrollLeft ?? 0;
-                const step = getCardStep();
-                setCurrentIndex(Math.round(scrollLeft / step));
-              }}
             >
               {moduleData?.subitems.map((item: any, idx: number) => (
                 <div
