@@ -66,7 +66,7 @@ export const businessPlatformData = {
       title: 'Manage Payroll',
       bg: '/images/ManagePayroll.png',
       titleColor: 'text-white',
-      backgroundsize: 'cover ',
+      backgroundsize: '130% ',
       backgroundcolor: '#E4EEF0 ',
       description: 'Manage purchasing workflows and vendor interactions efficiently.',
       // link: '/our-platforms/business/procurement',
@@ -158,14 +158,14 @@ export const businessPlatformData = {
       sub_components: []
     },
    
-    {
-      title: 'Reconcile Transactions',
-      bg: '/images/our-platforms/view/MExpense.png',
-      description: 'Match transactions automatically and reduce reconciliation time.',
-      // link: '/our-platforms/business/reconcile-transactions',
-      detailedDescription: ``,
-      sub_components_title: "",
-      sub_components: []
-    }
+    // {
+    //   title: 'Reconcile Transactions',
+    //   bg: '/images/our-platforms/view/MExpense.png',
+    //   description: 'Match transactions automatically and reduce reconciliation time.',
+    //   // link: '/our-platforms/business/reconcile-transactions',
+    //   detailedDescription: ``,
+    //   sub_components_title: "",
+    //   sub_components: []
+    // }
   ]
 };

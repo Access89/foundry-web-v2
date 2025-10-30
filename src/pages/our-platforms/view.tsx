@@ -23,6 +23,17 @@ const ViewPlatforms = () => {
   const [moduleData, setModuleData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
+  // Compute scroll step based on actual card width and container gap
+  const getCardStep = () => {
+    if (!scrollRef.current) return 320; // fallback
+    const firstCard = scrollRef.current.querySelector('[data-card]') as HTMLElement | null;
+    const cardWidth = firstCard?.offsetWidth || 300;
+    const styles = window.getComputedStyle(scrollRef.current);
+    const gapStr = styles.columnGap || styles.gap || '20';
+    const gap = parseInt(gapStr, 10);
+    return cardWidth + (Number.isNaN(gap) ? 20 : gap);
+    };
+
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
@@ -46,27 +57,44 @@ const ViewPlatforms = () => {
     loadData();
   }, [pathname]);
 
+  // Keep scroll position in sync with currentIndex
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (!scrollRef.current || !moduleData?.subitems?.length) return;
+    if (!scrollRef.current || !moduleData?.subitems?.length) return;
+    const step = getCardStep();
+    const targetLeft = currentIndex * step;
+    scrollRef.current.scrollTo({ left: targetLeft, behavior: 'smooth' });
+  }, [currentIndex, moduleData]);
 
-      const container = scrollRef.current;
-      const cardWidth = 300; // fallback width
-      const gap = 20; // assumed gap
-      const scrollAmount = cardWidth + gap;
+  // Clamp index when items change (e.g., when a card is removed)
+  useEffect(() => {
+    const len = moduleData?.subitems?.length ?? 0;
+    if (len === 0) {
+      setCurrentIndex(0);
+      if (scrollRef.current) scrollRef.current.scrollTo({ left: 0 });
+      return;
+    }
+    setCurrentIndex((i) => Math.min(i, len - 1));
+  }, [moduleData?.subitems?.length]);
 
-      container.scrollBy({
-        left: scrollAmount,
-        behavior: 'smooth',
-      });
-
+  // Auto-advance by updating index (single source of truth)
+  useEffect(() => {
+    if (!moduleData?.subitems?.length) return;
+    const len = moduleData.subitems.length;
+    const id = setInterval(() => {
       setCurrentIndex((prev) => {
-        const next = (prev + 1) % moduleData.subitems.length;
-        return next;
+        const next = prev + 1;
+        if (!scrollRef.current) return next % len;
+        const step = getCardStep();
+        const maxIndex = Math.max(
+          0,
+          Math.floor(
+            (scrollRef.current.scrollWidth - scrollRef.current.clientWidth) / step
+          )
+        );
+        return next > maxIndex ? 0 : next;
       });
-    }, 4000); //
-
-    return () => clearInterval(interval);
+    }, 4000);
+    return () => clearInterval(id);
   }, [moduleData]);
 
   const currentSuccessStories = useMemo(() => {
@@ -186,12 +214,13 @@ const ViewPlatforms = () => {
               ref={scrollRef}
               onScroll={() => {
                 const scrollLeft = scrollRef.current?.scrollLeft ?? 0;
-                const width = 250 + 20; // item width + gap
-                setCurrentIndex(Math.round(scrollLeft / width));
+                const step = getCardStep();
+                setCurrentIndex(Math.round(scrollLeft / step));
               }}
             >
               {moduleData?.subitems.map((item: any, idx: number) => (
                 <div
+                  data-card
                   onClick={() => {
                     // Check if the item has a pdfLink and handle it differently
                     if (item.pdfLink) {
@@ -239,13 +268,8 @@ const ViewPlatforms = () => {
                   key={idx}
                   onClick={() => {
                     if (!scrollRef.current) return;
-                    const container = scrollRef.current;
-                    const cardWidth = 300;
-                    const gap = 20;
-                    container.scrollTo({
-                      left: idx * (cardWidth + gap),
-                      behavior: 'smooth',
-                    });
+                    const step = getCardStep();
+                    scrollRef.current.scrollTo({ left: idx * step, behavior: 'smooth' });
                     setCurrentIndex(idx);
                   }}
                   className={`h-2 w-2 rounded-full cursor-pointer ${
