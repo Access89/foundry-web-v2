@@ -14,6 +14,7 @@ export const financePlatformData = {
          
     {
       title: "Onboarding",
+      titleColor: 'text-white',
       bg: '/images/OnboardingCard.png',
       backgroundcolor: 'white',
   backgroundsize: 'cover',
@@ -242,7 +243,7 @@ export const financePlatformData = {
     {
       title: 'Sentinel',
       backgroundcolor: '#6e9fb0',
-      backgroundsize: 'cover',
+      backgroundsize: '100%',
       bg: '/images/SentinelCard.png',
       titleColor: 'white',
       // backgroundsize: '125% ',
