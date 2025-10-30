@@ -242,7 +242,7 @@ export const financePlatformData = {
     },
     {
       title: 'Sentinel',
-      backgroundcolor: '#6e9fb0',
+      backgroundcolor: '#253137',
       backgroundsize: '100%',
       bg: '/images/SentinelCard.png',
       titleColor: 'white',
