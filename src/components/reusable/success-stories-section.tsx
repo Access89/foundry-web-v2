@@ -198,7 +198,8 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                 
               ) : card.type === 'linkedin' ? (
                 <>
-                  <div className="flex-1 relative w-full overflow-hidden" style={{ minHeight: card.height || '400px' }}>
+                  {/* Show iframe on desktop, fallback on mobile */}
+                  <div className="hidden md:block flex-1 relative w-full overflow-hidden bg-white" style={{ minHeight: card.height || '400px' }}>
                     <iframe
                       src={card.embedUrl}
                       height="100%"
@@ -209,9 +210,29 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                       className="absolute inset-0 w-full h-full rounded-t-xl"
                     ></iframe>
                   </div>
+                  
+                  {/* Mobile fallback - clickable card */}
+                  <div 
+                    className="md:hidden flex-1 relative w-full overflow-hidden bg-gradient-to-br from-[#0077B5] to-[#00A0DC] p-8 flex flex-col justify-center items-center cursor-pointer min-h-[300px]"
+                    onClick={() => {
+                      const linkedinUrl = card.embedUrl.replace('/embed/feed/update/', '/feed/update/');
+                      window.open(linkedinUrl, '_blank', 'noopener,noreferrer');
+                    }}
+                  >
+                    <Icon icon="mdi:linkedin" className="text-white mb-4" fontSize={60} />
+                    <p className="text-white text-center text-lg font-medium mb-2">View LinkedIn Post</p>
+                    <p className="text-white/80 text-center text-sm">Tap to open in LinkedIn</p>
+                  </div>
+                  
                   {card.buttonText && (
                     <div className="p-4 bg-white">
-                      <motion.button className="flex items-center gap-x-2 group text-primary font-medium">
+                      <motion.button 
+                        className="flex items-center gap-x-2 group text-primary font-medium"
+                        onClick={() => {
+                          const linkedinUrl = card.embedUrl.replace('/embed/feed/update/', '/feed/update/');
+                          window.open(linkedinUrl, '_blank', 'noopener,noreferrer');
+                        }}
+                      >
                         {card.buttonText}
                         <Icon icon="fluent-emoji-high-contrast:right-arrow" fontSize={19} />
                       </motion.button>

@@ -95,57 +95,11 @@ export const financePlatformData = {
         }
       ]
     },
-    {
-      title: 'Core Banking',
-      bg: '/images/our-platforms/view/MExpense.png',
-      product_image: '/images/our-platforms/view/MExpense.png',
-      description: 'Robust backend system to manage accounts, transactions, and ledgers.',
-      // link: '/our-platforms/finance/core-banking',
-      detailedDescription: `Take full control of your institution's core functions through a unified platform that brings together everything; from account opening, deposits, withdrawals, loans, and other customer transactions to key internal functions like accounting, HR, CRM, procurement, and workflows into one centralized platform. With real-time dashboards, operational analytics, and audit-ready logs, you gain full operational transparency, enhanced compliance, and the agility to run with efficiency and scale.`,
-      sub_components_title: "",
-      sub_components: [
-        {
-          title: "Core Banking",
-          description: "Gives you the foundational power of modern finance. Manage all your core banking activities- from account management and customer master data to ledgering, transaction processing, and fixed deposit management—with a single, robust platform that ensures security, accuracy, and compliance at every step.",
-          icon: "tabler:building-bank",
-          learn_more: []
-        },
-        {
-          title: "Business and Finance Automation (Internal Engine)",
-          description: "Streamline your internal operations with Foundry's comprehensive automation suite. Our platform integrates Accounting, HRMS, Payroll, Inventory & Procurement, and CMS/CRM into one powerful system. This eliminates fragmented data and manual work, providing a single source of truth that drives efficiency and reduces administrative costs",
-          icon: "lucide:settings",
-          learn_more: []
-        },
-        {
-          title: "Workflow Management",
-          description: "Bring order to your operations with our dynamic Workflow Management. Design, automate, and track every request and task with customizable workflows. From service requests to complaints, you can ensure that nothing falls through the cracks, leading to faster resolutions, greater accountability, and superior service delivehere needed.",
-          icon: "lucide:workflow",
-          learn_more: []
-        },
-        {
-          title: "Management Portal",
-          description: "Gain complete oversight with our intuitive Management Portal. This central hub provides an executive view of your entire institution, displaying key performance dashboards, real-time reports, and critical data insights. It's the ultimate tool for strategic decision-making, giving you a clear, comprehensive picture of your business at all times",
-          icon: "lucide:layout-dashboard",
-          learn_more: []
-        },
-        {
-          title: "Reminders and Notifications",
-          description: "Ensure your team and customers are always in the loop with our automated Reminders & Notification system. Set up and send timely alerts for important tasks, deadlines, and customer communications. This keeps everyone informed and engaged, helping you stay ahead of your schedule and maintain a high level of service.",
-          icon: "lucide:bell",
-          learn_more: []
-        },
-        {
-          title: "Reports and Data Analytics",
-          description: "Turn your raw data into a strategic asset with our advanced Reports & Data Analytics engine. Generate detailed financial, operational, and customer reports, and gain valuable insights into your institution's performance. With the ability to visualize and analyze data, you can make smarter, more informed decisions that drive sustainable growth",
-          icon: "tabler:chart-dots-3",
-          learn_more: []
-        }
-      ]
-    },
+  
     {
       title: 'Digital Banking',
       bg: '/images/DigitalBanking.png',
-      backgroundsize: '120%',
+      backgroundsize: '110%',
       backgroundcolor: '#dedcdf',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Deliver seamless mobile and online banking experiences.',
@@ -275,6 +229,53 @@ export const financePlatformData = {
           title: "Case (Compliance Case Management)",
           description: " Streamlines the investigation and resolution of compliance-related incidents with structured workflows and escalation paths.",
           icon: "lucide:folder-search",
+          learn_more: []
+        }
+      ]
+    },
+    {
+      title: 'Core Banking',
+      bg: '/images/CoreBankingCard.png',
+      product_image: '/images/our-platforms/view/MExpense.png',
+      description: 'Robust backend system to manage accounts, transactions, and ledgers.',
+      // link: '/our-platforms/finance/core-banking',
+      detailedDescription: `Take full control of your institution's core functions through a unified platform that brings together everything; from account opening, deposits, withdrawals, loans, and other customer transactions to key internal functions like accounting, HR, CRM, procurement, and workflows into one centralized platform. With real-time dashboards, operational analytics, and audit-ready logs, you gain full operational transparency, enhanced compliance, and the agility to run with efficiency and scale.`,
+      sub_components_title: "",
+      sub_components: [
+        {
+          title: "Core Banking",
+          description: "Gives you the foundational power of modern finance. Manage all your core banking activities- from account management and customer master data to ledgering, transaction processing, and fixed deposit management—with a single, robust platform that ensures security, accuracy, and compliance at every step.",
+          icon: "tabler:building-bank",
+          learn_more: []
+        },
+        {
+          title: "Business and Finance Automation (Internal Engine)",
+          description: "Streamline your internal operations with Foundry's comprehensive automation suite. Our platform integrates Accounting, HRMS, Payroll, Inventory & Procurement, and CMS/CRM into one powerful system. This eliminates fragmented data and manual work, providing a single source of truth that drives efficiency and reduces administrative costs",
+          icon: "lucide:settings",
+          learn_more: []
+        },
+        {
+          title: "Workflow Management",
+          description: "Bring order to your operations with our dynamic Workflow Management. Design, automate, and track every request and task with customizable workflows. From service requests to complaints, you can ensure that nothing falls through the cracks, leading to faster resolutions, greater accountability, and superior service delivehere needed.",
+          icon: "lucide:workflow",
+          learn_more: []
+        },
+        {
+          title: "Management Portal",
+          description: "Gain complete oversight with our intuitive Management Portal. This central hub provides an executive view of your entire institution, displaying key performance dashboards, real-time reports, and critical data insights. It's the ultimate tool for strategic decision-making, giving you a clear, comprehensive picture of your business at all times",
+          icon: "lucide:layout-dashboard",
+          learn_more: []
+        },
+        {
+          title: "Reminders and Notifications",
+          description: "Ensure your team and customers are always in the loop with our automated Reminders & Notification system. Set up and send timely alerts for important tasks, deadlines, and customer communications. This keeps everyone informed and engaged, helping you stay ahead of your schedule and maintain a high level of service.",
+          icon: "lucide:bell",
+          learn_more: []
+        },
+        {
+          title: "Reports and Data Analytics",
+          description: "Turn your raw data into a strategic asset with our advanced Reports & Data Analytics engine. Generate detailed financial, operational, and customer reports, and gain valuable insights into your institution's performance. With the ability to visualize and analyze data, you can make smarter, more informed decisions that drive sustainable growth",
+          icon: "tabler:chart-dots-3",
           learn_more: []
         }
       ]
