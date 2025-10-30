@@ -99,7 +99,7 @@ export const financePlatformData = {
     {
       title: 'Digital Banking',
       bg: '/images/DigitalBanking.png',
-      backgroundsize: '110%',
+      backgroundsize: 'cover',
       backgroundcolor: '#dedcdf',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Deliver seamless mobile and online banking experiences.',
