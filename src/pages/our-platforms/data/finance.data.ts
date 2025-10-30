@@ -187,7 +187,8 @@ export const financePlatformData = {
     
    
     {
-      title: 'Compliance and Risk',
+      title: 'Compliance and Risk Management',
+     
       backgroundcolor: '#253137',
       backgroundsize: '100%',
       bg: '/images/SentinelCard.png',
@@ -274,6 +275,7 @@ export const financePlatformData = {
     },
     {
       title: 'Banking as a Service',
+      titleColor: 'white',
       bg: '/images/BankingAsAService.png',
       backgroundsize: '105%',
       backgroundcolor: '#224f55',
