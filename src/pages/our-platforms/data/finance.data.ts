@@ -16,7 +16,7 @@ export const financePlatformData = {
       title: "Onboarding",
       bg: '/images/OnboardingCard.png',
       backgroundcolor: 'white',
-  backgroundsize: '150%',
+  backgroundsize: 'cover',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Transform the customer onboarding experience.',
       pdfLink: '/Documents/Onboarding.pdf', // Add this line - replace with your actual PDF path
@@ -241,8 +241,11 @@ export const financePlatformData = {
     },
     {
       title: 'Sentinel',
+      backgroundcolor: '#6e9fb0',
+      backgroundsize: 'cover',
       bg: '/images/SentinelCard.png',
-      // backgroundsize: '125% 100% ',
+      titleColor: 'white',
+      // backgroundsize: '125% ',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: '',
       // link: '/our-platforms/finance/sentinel',

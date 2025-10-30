@@ -25,7 +25,7 @@ export const tradePlatformData = {
       
     },
     {
-      title: 'Trade Management',
+      title: 'FX access and conversion',
       bg: '/images/our-platforms/view/MExpense.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Manage inventory levels, storage, and dispatch operations efficiently.',
@@ -45,7 +45,7 @@ export const tradePlatformData = {
     //   sub_components: []
     // },
     {
-      title: 'Track Orders',
+      title: 'Trade financing',
       bg: '/images/our-platforms/view/MExpense.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Monitor order status and delivery in real-time across channels.',
@@ -55,7 +55,7 @@ export const tradePlatformData = {
       sub_components: []
     },
     {
-      title: 'Compliance',
+      title: 'Regulatory documentation',
       bg: '/images/our-platforms/view/MExpense.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Centralized control tower for business workflows and integrations.',
