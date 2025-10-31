@@ -46,7 +46,9 @@ export const tradePlatformData = {
     // },
     {
       title: 'Trade financing',
-      bg: '/images/our-platforms/view/MExpense.png',
+      titleColor: 'text-white',
+      backgroundSize: 'cover',
+      bg: '/images/TradeFinancing.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Monitor order status and delivery in real-time across channels.',
       link: '/our-platforms/trade/track-orders',
