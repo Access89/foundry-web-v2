@@ -265,6 +265,7 @@ const menuItems: MenuItem[] = [
 
       {
         link: '/use-cases/ev-charging',
+        image: '/images/KYCAndCompliance.png',
         title: 'KYC & Compliance',
         icon: 'https://www.powermag.com/wp-content/uploads/2020/03/fig-1-car-charging-electric-vehicle-ev-electrification.jpg',
         core_features: [

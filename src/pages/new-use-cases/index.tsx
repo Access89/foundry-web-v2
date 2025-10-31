@@ -18,13 +18,14 @@ const NewUseCases = () => {
       description:
         'Rapidly deploy AI for CRM, smart lending, cash management, AML and more; scale across banking, insurance and wealth.',
     },
-    // {
-    //   link: '/use-cases/ev-charging',
-    //   title: 'Electric Vehicle Charging Platform',
-    //   icon: 'https://www.powermag.com/wp-content/uploads/2020/03/fig-1-car-charging-electric-vehicle-ev-electrification.jpg',
-    //   description:
-    //     'Optimize reliability, energy management, load forecasting, and operational asset uptime—leveraging AI at scale.',
-    // },
+    {
+      link: '/use-cases/ev-charging',
+      title: 'Electric Vehicle Charging Platform',
+      image: '/images/KYCAndCompliance.png',
+      icon: 'https://www.powermag.com/wp-content/uploads/2020/03/fig-1-car-charging-electric-vehicle-ev-electrification.jpg',
+      description:
+        'Optimize reliability, energy management, load forecasting, and operational asset uptime—leveraging AI at scale.',
+    },
     {
       link: '/use-cases/restaurant',
       title: 'Restaurant',
@@ -79,7 +80,7 @@ const NewUseCases = () => {
             className="relative group h-96 overflow-hidden "
           >
             <img
-              src={uc.icon}
+              src={uc.image|| uc.icon}
               alt={uc.title}
               className="w-full h-full object-cover"
             />
