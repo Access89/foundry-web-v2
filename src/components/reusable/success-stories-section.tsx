@@ -46,7 +46,14 @@ width?: string;
 buttonText?: string;
 };
 
-type CardItem = TextCard | ImageCard | StatsCard | VideoCard | LinkedInCard;
+type YouTubeCard = {
+  type: 'youtube';
+  videoId: string;
+  title?: string;
+  buttonText?: string;
+};
+
+type CardItem = TextCard | ImageCard | StatsCard | VideoCard | LinkedInCard | YouTubeCard;
 
 export type SuccessStoriesProps = {
   title: string;
@@ -231,6 +238,48 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                         onClick={() => {
                           const linkedinUrl = card.embedUrl.replace('/embed/feed/update/', '/feed/update/');
                           window.open(linkedinUrl, '_blank', 'noopener,noreferrer');
+                        }}
+                      >
+                        {card.buttonText}
+                        <Icon icon="fluent-emoji-high-contrast:right-arrow" fontSize={19} />
+                      </motion.button>
+                    </div>
+                  )}
+                </>
+              ) : card.type === 'youtube' ? (
+                <>
+                  {/* YouTube embed on desktop */}
+                  <div className="hidden md:block flex-1 relative w-full overflow-hidden bg-black" style={{ minHeight: '315px' }}>
+                    <iframe
+                      src={`https://www.youtube.com/embed/${card.videoId}`}
+                      height="100%"
+                      width="100%"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      title={card.title || 'YouTube video'}
+                      className="absolute inset-0 w-full h-full rounded-t-xl"
+                    ></iframe>
+                  </div>
+                  
+                  {/* Mobile fallback - clickable thumbnail */}
+                  <div 
+                    className="md:hidden flex-1 relative w-full overflow-hidden bg-gradient-to-br from-red-600 to-red-700 p-8 flex flex-col justify-center items-center cursor-pointer min-h-[300px]"
+                    onClick={() => {
+                      window.open(`https://www.youtube.com/watch?v=${card.videoId}`, '_blank', 'noopener,noreferrer');
+                    }}
+                  >
+                    <Icon icon="mdi:youtube" className="text-white mb-4" fontSize={60} />
+                    <p className="text-white text-center text-lg font-medium mb-2">{card.title || 'Watch Video'}</p>
+                    <p className="text-white/80 text-center text-sm">Tap to watch on YouTube</p>
+                  </div>
+                  
+                  {card.buttonText && (
+                    <div className="p-4 bg-white">
+                      <motion.button 
+                        className="flex items-center gap-x-2 group text-red-600 font-medium"
+                        onClick={() => {
+                          window.open(`https://www.youtube.com/watch?v=${card.videoId}`, '_blank', 'noopener,noreferrer');
                         }}
                       >
                         {card.buttonText}

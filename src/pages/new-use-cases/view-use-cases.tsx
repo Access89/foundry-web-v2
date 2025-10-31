@@ -360,6 +360,7 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
   // },
   restaurant: {
     title: 'Restaurant Excellence Stories',
+  
     links: [
       { title: 'Restaurant Case Studies', link: '/case-studies/restaurant' },
       { title: 'Customer Testimonials', link: '/testimonials/restaurant' },
@@ -373,11 +374,10 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         // buttonText: 'See their kitchen transformation',
       },
       {
-        type: 'image', // MIDDLE CARD
-        imageSrc: 'https://placehold.co/400',
-        imageAlt: 'Busy restaurant kitchen',
-        overlayText: 'Streamlined Order Management',
-        overlayIcon: '/icons/play.svg',
+        type: 'youtube',
+        videoId: 'vjkCyNKA29k',
+        title: 'Restaurant Success Story',
+        // buttonText: 'Watch Video',
       },
       {
         type: 'stats',
@@ -457,6 +457,35 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
           { value: '$1B+', label: 'assets under management on Foundry' },
         ],
         buttonText: 'See their AUM growth',
+      },
+    ],
+  },
+  'kyc-and-compliance': {
+    title: 'KYC & Compliance Success Stories',
+    links: [
+      { title: 'Read Compliance Case Studies', link: '/case-studies/compliance' },
+      { title: 'Customer Testimonials', link: '/testimonials/compliance' },
+    ],
+    cards: [
+      {
+        type: 'text',
+        content:
+          '"Fortify your institution with Foundry Sentinel, a holistic compliance and risk management platform."',
+        author: 'Shield Microfinance',
+        // buttonText: 'Learn more',
+      },
+      {
+        type: 'text', 
+        content:
+        '"Empowering your compliance team to focus on genuine threats and streamline their response efforts within a single, unified interface."',  
+        author : 'Ubuntu Capital',
+      },
+      {
+        type: 'text',
+      content:
+      '"By reducing false positives by up to 95%, our intelligent platform turns noisy alerts into actionable intelligence."',
+      author: 'Cedi Capital',
+      
       },
     ],
   },

@@ -5,7 +5,8 @@ const NewUseCases = () => {
   const use_cases = [
     {
       link: '/use-cases/retail',
-      title: 'Retail',
+      title: 'Retail & Wholesale',
+      image: '/images/RetailPage.png',
       
       icon: 'https://www.shutterstock.com/image-photo/female-retail-worker-standing-store-600nw-2487354813.jpg',
       description:
@@ -14,17 +15,18 @@ const NewUseCases = () => {
     {
       link: '/use-cases/financial-services',
       title: 'Financial services',
+      image: '/images/FinancialUseCase.png',
       icon: 'https://st5.depositphotos.com/6338242/68514/i/450/depositphotos_685142928-stock-photo-financial-service-concept-businessman-using.jpg',
       description:
         'Rapidly deploy AI for CRM, smart lending, cash management, AML and more; scale across banking, insurance and wealth.',
     },
     {
-      link: '/use-cases/ev-charging',
-      title: 'Electric Vehicle Charging Platform',
+      link: '/use-cases/kyc-and-compliance',
+      title: 'KYC and Compliance',
       image: '/images/KYCAndCompliance.png',
-      icon: 'https://www.powermag.com/wp-content/uploads/2020/03/fig-1-car-charging-electric-vehicle-ev-electrification.jpg',
+      icon: '/images/KYCAndCompliance.png',
       description:
-        'Optimize reliability, energy management, load forecasting, and operational asset uptime—leveraging AI at scale.',
+        'Embedded Know Your Customer and Business checks plus automated risk scoring to ensure regulatory compliance and informed decisions.',
     },
     {
       link: '/use-cases/restaurant',
@@ -36,6 +38,7 @@ const NewUseCases = () => {
     {
       link: '/use-cases/logistics',
       title: 'Logistics and Supply Chain',
+      image: '/images/LogisticsPage.png',
       icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3X-6CPkdk9U9ERuKoQFlVitTop64hRVwtx_-aWPkN32t69uLGh0rmFxm0of2AwNxImkg&usqp=CAU',
       description:
         'Improve forecasting, route and delivery optimization, inventory and resilience across supply network via AI.',
@@ -43,6 +46,7 @@ const NewUseCases = () => {
     {
       link: '/use-cases/fund-management',
       title: 'Fund Management',
+      image: '/images/FundManagementImage.png',
       icon: 'https://www.shutterstock.com/image-photo/real-estate-professionals-clients-discussing-600nw-2175050111.jpg',
       description:
         'AI‑powered analytics for cash, risk, compliance, customer churn, and smart lending tailored to asset managers.',

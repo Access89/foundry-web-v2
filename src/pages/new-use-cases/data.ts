@@ -6,7 +6,7 @@ export const UsecaseData: Record<string, any> = {
     retail: {
           title: 'Retail & Wholesale',
           description: 'Transform the retail experience with digital storefronts, personalized customer engagement, and intelligent supply chains.',
-          images: 'image/RetailPage.jpg',
+          images: '/images/RetailPage.png',
   
           'video-link': 'https://youtube.com',
           'features-description': 'From inventory optimization to omnichannel commerce, drive efficiency and engagement.',
@@ -75,27 +75,28 @@ export const UsecaseData: Record<string, any> = {
           ],
         },
       
-        'ev-charging': {
+        'kyc-and-compliance': {
           title: 'KYC and Compliance',        
           description: 'Embedded Know Your Customer and Business checks plus automated risk scoring to ensure regulatory compliance and informed decisions.',
           images:'/images/KYCAndCompliance.png',
           'video-link': 'https://youtube.com',
           'features-description': 'Verification, risk management, and compliance with ease.',
           'core-features': [
-            { icon: 'mdi:ev-station', title: 'Verify (KYC/KYB & Identity Verification)', description: 'Integrates with external APIs for instant KYC/KYB checks, AML, and sanction screening.' },
-            { icon: 'mdi:map-marker-radius', title: 'Watch (Real-Time Transaction Monitoring)', description: 'Proactively detects suspicious activities and fraud with real-time transaction monitoring against defined rules and patterns.' },
-            { icon: 'mdi:currency-usd', title: 'Assure (Reconciliation Intelligence)', description: 'Provides automated reconciliation workflows to quickly detect mismatches and discrepancies across different financial systems.' },
+            { icon: 'mdi:shield-check', title: 'Verify (KYC/KYB & Identity Verification)', description: 'Integrates with external APIs for instant KYC/KYB checks, AML, and sanction screening.' },
+            { icon: 'mdi:eye-check', title: 'Watch (Real-Time Transaction Monitoring)', description: 'Proactively detects suspicious activities and fraud with real-time transaction monitoring against defined rules and patterns.' },
+            { icon: 'mdi:file-document-check', title: 'Assure (Reconciliation Intelligence)', description: 'Provides automated reconciliation workflows to quickly detect mismatches and discrepancies across different financial systems.' },
           ],
           goals: [
-            { icon: 'mdi:battery-charging', title: 'Scale Charging Infrastructure', description: 'Add and onboard stations quickly.' },
-            { icon: 'mdi:cloud-check-outline', title: 'Uptime & Monitoring', description: 'Ensure availability and real-time maintenance alerts.' },
-            { icon: 'mdi:leaf', title: 'Sustainability Insights', description: 'Report on carbon offsets and usage.' },
+            { icon: 'mdi:security', title: 'Regulatory Compliance', description: 'Meet regulatory requirements with automated KYC/KYB workflows.' },
+            { icon: 'mdi:shield-alert', title: 'Fraud Prevention', description: 'Real-time monitoring and alerts for suspicious activities.' },
+            { icon: 'mdi:chart-timeline-variant', title: 'Risk Management', description: 'Dynamic risk scoring and comprehensive compliance reporting.' },
           ],
         },
       
         restaurant: {
           title: 'Restaurant',
           description: 'Digitize your restaurant operations and elevate customer experiences.',
+          images:'/images/RestaurantPage.png',
           'video-link': 'https://youtube.com',
           'features-description': 'Handle orders, reservations, and payments with integrated tools.',
           'core-features': [
