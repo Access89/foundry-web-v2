@@ -58,7 +58,10 @@ export const tradePlatformData = {
     },
     {
       title: 'Regulatory documentation',
-      bg: '/images/our-platforms/view/MExpense.png',
+      bg: '/images/RegulatoryDocument.png',
+      backgroundsize: '160%',
+      titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
+      titleColor: 'text-white',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Centralized control tower for business workflows and integrations.',
       link: '/our-platforms/trade/foundry-hub',

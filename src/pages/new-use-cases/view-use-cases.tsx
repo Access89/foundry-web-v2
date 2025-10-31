@@ -476,22 +476,17 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         // buttonText: 'Learn more',
       },
       {
-        type: 'image', // Default also has image in the middle
-        imageSrc: '/images/FundManagement.png',
-        imageAlt: 'Customer success',
-        overlayText: 'View LinkedIn Post',
-        // overlayIcon: '/icons/play.svg',
-        link: 'https://www.linkedin.com/posts/foundryplatform_ugcPost-7382068419166154752-2e_t?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEcncdoBWpdrGtVAkWtWfDHOasxwU-Arhfc',
-     
+        type: 'text', 
+        content:
+        '"empowering your compliance team to focus on genuine threats and streamline their response efforts within a single, unified interface."',  
+        author : 'Cedi Capital.',
       },
       {
-        type: 'stats',
-        title: 'Tech Solutions Co.',
-        stats: [
-          { value: '50%', label: 'increase in productivity' },
-          { value: '99%', label: 'customer satisfaction' },
-        ],
-        buttonText: 'View their success story',
+        type: 'text',
+      content:
+      '" By reducing false positives by up to 95%, our intelligent platform turns noisy alerts into actionable intelligence"',
+      author: 'Cedi Capital.',
+      
       },
     ],
   },

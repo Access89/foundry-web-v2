@@ -4,9 +4,9 @@
 
 export const UsecaseData: Record<string, any> = {
     retail: {
-          title: 'Retail',
+          title: 'Retail & Wholesale',
           description: 'Transform the retail experience with digital storefronts, personalized customer engagement, and intelligent supply chains.',
-          images: 'image/retail.jpg',
+          images: 'image/RetailPage.jpg',
   
           'video-link': 'https://youtube.com',
           'features-description': 'From inventory optimization to omnichannel commerce, drive efficiency and engagement.',
