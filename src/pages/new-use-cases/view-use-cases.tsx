@@ -471,7 +471,7 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
       {
         type: 'text',
         content:
-          '"Foundry transformed how we operate. Their solutions are intuitive and highly effective."',
+          '"Fortify your institution with Foundry Sentinel, a holistic compliance and risk management platform."',
         author: 'A Happy Customer, Global Inc.',
         // buttonText: 'Learn more',
       },
