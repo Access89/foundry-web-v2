@@ -68,6 +68,7 @@ export const tradePlatformData = {
     },
     {
       title: 'Customs and compliance workflows',
+      titlePosition: '-mt-7 md:mt-4 lg:-mt-6',
       bg: '/images/CornerShopImage.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Launch and manage microstores for hyperlocal commerce.',
