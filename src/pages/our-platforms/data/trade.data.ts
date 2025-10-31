@@ -15,7 +15,7 @@ export const tradePlatformData = {
       titlePosition: 'align-center -mt-6 md:mt-4 lg:-mt-3 whitespace-nowrap',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Optimize delivery routes, fleet management, and shipment tracking.',
-      // link: '/our-platforms/trade/logistics',
+      link: '/our-platforms/trade/logistics',
       detailedDescription: ``,
       sub_components_title: "",
       sub_components: [],

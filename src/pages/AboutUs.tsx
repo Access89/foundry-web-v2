@@ -4,7 +4,7 @@ import {
   MissionSection,
   VisionSection,
   PurposeSection,
-  TeamSection
+  // TeamSection
 } from "../components/sections";
 import { aboutData } from "../data/aboutData";
 
