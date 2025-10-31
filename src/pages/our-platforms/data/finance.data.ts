@@ -98,8 +98,8 @@ export const financePlatformData = {
     {
       title: 'Digital Lending',
       bg: '/images/DigitalLending.png',
-      backgroundsize: '120% ',
-      backgroundcolor: 'white',
+      backgroundsize: 'cover',
+      backgroundcolor: '#dedce9',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Simplify loan origination, approvals, and repayments.',
 
