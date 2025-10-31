@@ -15,7 +15,7 @@ export const tradePlatformData = {
       titlePosition: 'align-center -mt-6 md:mt-4 lg:-mt-3 whitespace-nowrap',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Optimize delivery routes, fleet management, and shipment tracking.',
-      link: '/our-platforms/trade/logistics',
+      // link: '/our-platforms/trade/logistics',
       detailedDescription: ``,
       sub_components_title: "",
       sub_components: [],
@@ -53,7 +53,7 @@ export const tradePlatformData = {
       bg: '/images/TradeFinancing.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Monitor order status and delivery in real-time across channels.',
-      link: '/our-platforms/trade/track-orders',
+      // link: '/our-platforms/trade/track-orders',
       detailedDescription: ``,
       sub_components_title: "",
       sub_components: []
@@ -66,7 +66,7 @@ export const tradePlatformData = {
       titleColor: 'text-white',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Centralized control tower for business workflows and integrations.',
-      link: '/our-platforms/trade/foundry-hub',
+      // link: '/our-platforms/trade/foundry-hub',
       detailedDescription: ``,
       sub_components_title: "",
       sub_components: []
@@ -77,7 +77,7 @@ export const tradePlatformData = {
       bg: '/images/CustomsAndCompliance.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Launch and manage microstores for hyperlocal commerce.',
-      link: '/our-platforms/trade/cornershop',
+      // link: '/our-platforms/trade/cornershop',
       detailedDescription: ``,
       sub_components_title: "",
       sub_components: []

@@ -250,13 +250,13 @@ const menuItems: MenuItem[] = [
           },
           {
             icon: 'mdi:file-certificate',
-            title: 'Regulatory Compliance',
+            title: 'Loan origination and repayment automation',
             description:
               'Ensure alignment with financial regulations through automation.',
           },
           {
             icon: 'mdi:shield-lock',
-            title: 'Fraud Detection',
+            title: 'Transaction monitoring and AML screening (Sentinel)',
             description:
               'Use AI to monitor and flag suspicious activity in real-time.',
           },
@@ -271,17 +271,17 @@ const menuItems: MenuItem[] = [
         core_features: [
           {
             icon: 'mdi:shield-check',
-            title: 'Verify (KYC/KYB & Identity Verification)',
+            title: 'Identity verification and document validation',
             description: 'Integrates with external APIs for instant KYC/KYB checks, AML, and sanction screening.',
           },
           {
             icon: 'mdi:eye-check',
-            title: 'Watch (Real-Time Transaction Monitoring)',
+            title: 'Continuous AML screening and sanctions monitoring',
             description: 'Proactively detects suspicious activities and fraud with real-time transaction monitoring.',
           },
           {
             icon: 'mdi:file-document-check',
-            title: 'Assure (Reconciliation Intelligence)',
+            title: 'Risk-based scoring and alert management',
             description: 'Provides automated reconciliation workflows to quickly detect mismatches and discrepancies.',
           },
         ],
@@ -293,17 +293,17 @@ const menuItems: MenuItem[] = [
         core_features: [
           {
             icon: 'mdi:chart-pie',
-            title: 'Portfolio Dashboards',
+            title: 'Investor onboarding and KYC automation',
             description: 'Track fund and asset performance in real-time.',
           },
           {
             icon: 'mdi:file-document-outline',
-            title: 'Investor Reporting',
+            title: 'Portfolio and asset performance dashboards',
             description: 'Automate quarterly reports and statements.',
           },
           {
             icon: 'mdi:shield-account',
-            title: 'Compliance Workflows',
+            title: 'Automated NAV calculations and fund accounting',
             description: 'Ensure regulatory alignment across jurisdictions.',
           },
         ],
@@ -315,23 +315,23 @@ const menuItems: MenuItem[] = [
         core_features: [
           {
             icon: 'mdi:food',
-            title: 'Menu Management',
+            title: 'Smart POS and kitchen order management',
             description: 'Update items and pricing in real-time.',
           },
           {
             icon: 'mdi:table-chair',
-            title: 'Reservation System',
+            title: 'Inventory tracking with supplier auto-replenishment',
             description: 'Allow customers to book and manage tables.',
           },
           {
             icon: 'mdi:monitor-dashboard',
-            title: 'Kitchen Display System',
+            title: 'Expense and revenue analytics in Foundry Books',
             description:
               'Streamline kitchen operations by displaying orders digitally in real-time.',
           },
           {
             icon: 'mdi:credit-card-outline',
-            title: 'Integrated POS',
+            title: 'Staff performance and payroll management',
             description: 'Process orders and payments from any device.',
           },
         ],
@@ -343,17 +343,17 @@ const menuItems: MenuItem[] = [
         core_features: [
           {
             icon: 'mdi:truck',
-            title: 'Fleet Management',
+            title: 'End-to-end shipment visibility and tracking',
             description: 'Track deliveries and driver routes in real-time.',
           },
           {
             icon: 'mdi:package-variant-closed',
-            title: 'Inventory Sync',
+            title: 'Route optimization and delivery management',
             description: 'Keep warehouse data in sync across systems.',
           },
           {
             icon: 'mdi:map-clock',
-            title: 'Route Optimization',
+            title: 'Integrated order-to-payment workflows',
             description:
               'Plan the fastest, most cost-efficient delivery routes.',
           },

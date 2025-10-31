@@ -20,7 +20,7 @@ export const financePlatformData = {
   backgroundsize: 'cover',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Transform the customer onboarding experience.',
-      pdfLink: '/Documents/Onboarding.pdf', // Add this line - replace with your actual PDF path
+      // pdfLink: '/Documents/Onboarding.pdf', // Add this line - replace with your actual PDF path
       sub_components: [
         {
           title: "KYC/KYB & Risk Rating",
@@ -142,7 +142,7 @@ export const financePlatformData = {
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Simplify loan origination, approvals, and repayments.',
 
-      pdfLink: '/Documents/Lending.pdf',
+      // pdfLink: '/Documents/Lending.pdf',
       // link: '/our-platforms/finance/lending',
       detailedDescription: `Foundry's fully digital, end-to-end platform empowers lending institutions, from personal to SME and commercial. Accelerate loan applications with high-speed lead capture and pre-populated intake. Our AI-driven hybrid underwriting and credit scoring, complete with full auditability, centralize document and e-signature workflows. Enjoy rapid ACH or Mobile Wallet disbursements, seamless repayment collections, configurable workflows, risk-based pricing, and automated borrower communications. Built on a scalable microservices architecture, Foundry drastically cuts turnaround times and reduces operational costs by up to 40%.`,
       sub_components_title: "",
