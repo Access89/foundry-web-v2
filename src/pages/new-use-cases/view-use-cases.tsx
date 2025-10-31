@@ -63,7 +63,10 @@ const ViewUseCase = () => {
       `hidden md:block absolute right-10 mt-20 rounded-none ${ current?.['imageSize']? '' : 'w-[8rem] h-[10rem] md:h-auto lg:w-[25rem] lg:h-[35rem]'}`,
     img: 'rounded-none',
   }}
-  style={current?.['imageSize'] ? {width: current?.['imageSize'] }: undefined}
+  style={current?.['imageSize'] || current?.['imageMarginTop'] ? {
+    width: current?.['imageSize'],
+    marginTop: current?.['imageMarginTop']
+  } : undefined}
 />
             </div>
 

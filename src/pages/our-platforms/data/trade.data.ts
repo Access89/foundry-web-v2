@@ -11,14 +11,14 @@ export const tradePlatformData = {
   subitems: [
     {
       title: 'Payment settlement',
-      bg: '/images/LogisticsImage.png',
+      bg: '/images/PaymentSettlement.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Optimize delivery routes, fleet management, and shipment tracking.',
       link: '/our-platforms/trade/logistics',
       detailedDescription: ``,
       sub_components_title: "",
       sub_components: [],
-          backgroundsize: 'object-top-right',
+          backgroundsize: '114%',
           backgroundcolor:'#D2D9DB',  
             
 

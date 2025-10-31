@@ -264,26 +264,25 @@ const menuItems: MenuItem[] = [
       },
 
       {
-        link: '/use-cases/ev-charging',
+        link: '/use-cases/kyc-and-compliance',
         image: '/images/KYCAndCompliance.png',
         title: 'KYC & Compliance',
-        icon: 'https://www.powermag.com/wp-content/uploads/2020/03/fig-1-car-charging-electric-vehicle-ev-electrification.jpg',
+        icon: '/images/KYCAndCompliance.png',
         core_features: [
           {
-            icon: 'mdi:ev-station',
-            title: 'Charger Network Management',
-            description: 'Monitor and control station performance.',
+            icon: 'mdi:shield-check',
+            title: 'Verify (KYC/KYB & Identity Verification)',
+            description: 'Integrates with external APIs for instant KYC/KYB checks, AML, and sanction screening.',
           },
           {
-            icon: 'mdi:map-marker-radius',
-            title: 'Location Services',
-            description: 'Let users find available chargers nearby.',
+            icon: 'mdi:eye-check',
+            title: 'Watch (Real-Time Transaction Monitoring)',
+            description: 'Proactively detects suspicious activities and fraud with real-time transaction monitoring.',
           },
           {
-            icon: 'mdi:currency-usd',
-            title: 'Billing Integration',
-            description:
-              'Enable subscriptions, pay-per-use, and energy tariffs.',
+            icon: 'mdi:file-document-check',
+            title: 'Assure (Reconciliation Intelligence)',
+            description: 'Provides automated reconciliation workflows to quickly detect mismatches and discrepancies.',
           },
         ],
       },
@@ -383,29 +382,7 @@ const menuItems: MenuItem[] = [
           },
         ],
       },
-      {
-        link: '/use-cases/fintech',
-        title: 'Fintech',
-        icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRvGHmylHthm7eKZ3bAvUmzvKCk8UFwsL2dw&s',
-        core_features: [
-          {
-            icon: 'mdi:wallet',
-            title: 'Digital Wallets',
-            description: 'Enable peer-to-peer transfers and in-app payments.',
-          },
-          {
-            icon: 'mdi:credit-card-plus',
-            title: 'Loan Origination',
-            description: 'Automate scoring, approval, and disbursal.',
-          },
-          {
-            icon: 'mdi:api',
-            title: 'Open Banking APIs',
-            description:
-              'Integrate with partners and banks using secure standards.',
-          },
-        ],
-      },
+    
     ],
   },
   // {

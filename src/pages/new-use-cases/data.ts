@@ -78,7 +78,7 @@ export const UsecaseData: Record<string, any> = {
         'kyc-and-compliance': {
           title: 'KYC and Compliance',        
           description: 'Embedded Know Your Customer and Business checks plus automated risk scoring to ensure regulatory compliance and informed decisions.',
-          images:'/images/KYCAndCompliance.png',
+          images: '/images/KYCAndCompliance.png',
           'video-link': 'https://youtube.com',
           'features-description': 'Verification, risk management, and compliance with ease.',
           'core-features': [
@@ -96,7 +96,9 @@ export const UsecaseData: Record<string, any> = {
         restaurant: {
           title: 'Restaurant',
           description: 'Digitize your restaurant operations and elevate customer experiences.',
-          images:'/images/RestaurantPage.png',
+          images: '/images/RestaurantImage.png',
+          imageSize: '35rem',
+          imageMarginTop: '-5rem',
           'video-link': 'https://youtube.com',
           'features-description': 'Handle orders, reservations, and payments with integrated tools.',
           'core-features': [
