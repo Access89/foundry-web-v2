@@ -360,28 +360,28 @@ const menuItems: MenuItem[] = [
         ],
       },
 
-      {
-        link: '/use-cases/manufacturing',
-        title: 'Manufacturing',
-        icon: 'https://freedesignfile.com/upload/2017/11/Cargo-transport-logistics-warehouse-Stock-Photo-10.jpg',
-        core_features: [
-          {
-            icon: 'mdi:robot-industrial',
-            title: 'Smart Factory Automation',
-            description: 'Integrate robotics and machine telemetry.',
-          },
-          {
-            icon: 'mdi:chart-areaspline',
-            title: 'Production Analytics',
-            description: 'Monitor KPIs and predict downtime.',
-          },
-          {
-            icon: 'mdi:truck-fast',
-            title: 'Supply Chain Visibility',
-            description: 'Track parts and products from order to delivery.',
-          },
-        ],
-      },
+      // {
+      //   link: '/use-cases/manufacturing',
+      //   title: 'Manufacturing',
+      //   icon: 'https://freedesignfile.com/upload/2017/11/Cargo-transport-logistics-warehouse-Stock-Photo-10.jpg',
+      //   core_features: [
+      //     {
+      //       icon: 'mdi:robot-industrial',
+      //       title: 'Smart Factory Automation',
+      //       description: 'Integrate robotics and machine telemetry.',
+      //     },
+      //     {
+      //       icon: 'mdi:chart-areaspline',
+      //       title: 'Production Analytics',
+      //       description: 'Monitor KPIs and predict downtime.',
+      //     },
+      //     {
+      //       icon: 'mdi:truck-fast',
+      //       title: 'Supply Chain Visibility',
+      //       description: 'Track parts and products from order to delivery.',
+      //     },
+      //   ],
+      // },
     
     ],
   },

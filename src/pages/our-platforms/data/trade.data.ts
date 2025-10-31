@@ -12,6 +12,7 @@ export const tradePlatformData = {
     {
       title: 'Payment settlement',
       bg: '/images/PaymentSettlement.png',
+      titlePosition: 'align-center -mt-6 md:mt-4 lg:-mt-3 whitespace-nowrap',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Optimize delivery routes, fleet management, and shipment tracking.',
       link: '/our-platforms/trade/logistics',
@@ -47,6 +48,7 @@ export const tradePlatformData = {
     {
       title: 'Trade financing',
       titleColor: 'text-white',
+      titlePosition: '-mt-6 md:mt-4 lg:-mt-2 whitespace-nowrap',
       backgroundSize: 'cover',
       bg: '/images/TradeFinancing.png',
       product_image: '/images/our-platforms/view/MExpense.png',
@@ -60,7 +62,7 @@ export const tradePlatformData = {
       title: 'Regulatory documentation',
       bg: '/images/RegulatoryDocument.png',
       backgroundsize: '160%',
-      titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
+      titlePosition: '-mt-8 md:mt-4 lg:-mt-5 ',
       titleColor: 'text-white',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Centralized control tower for business workflows and integrations.',
@@ -72,7 +74,7 @@ export const tradePlatformData = {
     {
       title: 'Customs and compliance workflows',
       titlePosition: '-mt-7 md:mt-4 lg:-mt-6',
-      bg: '/images/CornerShopImage.png',
+      bg: '/images/CustomsAndCompliance.png',
       product_image: '/images/our-platforms/view/MExpense.png',
       description: 'Launch and manage microstores for hyperlocal commerce.',
       link: '/our-platforms/trade/cornershop',

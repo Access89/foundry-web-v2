@@ -475,6 +475,8 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         content:
           '"Fortify your institution with Foundry Sentinel, a holistic compliance and risk management platform."',
         author: 'Shield Microfinance',
+        bgClass: 'bg-[#16232A]',
+        textColor: 'text-white',
         // buttonText: 'Learn more',
       },
       {
@@ -482,13 +484,16 @@ const useCaseSuccessStoriesData: Record<string, SuccessStoriesProps> = {
         content:
         '"Empowering your compliance team to focus on genuine threats and streamline their response efforts within a single, unified interface."',  
         author : 'Ubuntu Capital',
+        bgClass: 'bg-[#E4EEF0]',
+        textColor: 'text-black',
       },
       {
         type: 'text',
       content:
       '"By reducing false positives by up to 95%, our intelligent platform turns noisy alerts into actionable intelligence."',
       author: 'Cedi Capital',
-      
+      bgClass: 'bg-[#16232A]',
+      textColor: 'text-white',
       },
     ],
   },
