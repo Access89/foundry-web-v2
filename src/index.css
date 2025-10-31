@@ -77,3 +77,18 @@ html,
 body {
   height: -webkit-fill-available;
 }
+
+/* Prevent horizontal scroll on mobile */
+html,
+body,
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Ensure media never exceeds viewport width */
+img,
+iframe {
+  max-width: 100%;
+  display: block;
+}

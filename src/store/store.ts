@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import globalSlice from './features/global';
 import subscriberSlice from './features/subscriber';
 import hireSlice from './features/hire';
+import plansSlice from './features/plans';
 
 const persistConfig = {
 	key: 'Foundry Web',
@@ -15,7 +16,8 @@ const persistConfig = {
 const combinedReducers = combineReducers({
 	global: globalSlice.reducer,
 	subscriber: subscriberSlice.reducer ,
-	hire: hireSlice.reducer 
+	hire: hireSlice.reducer,
+	plans: plansSlice.reducer
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducers);

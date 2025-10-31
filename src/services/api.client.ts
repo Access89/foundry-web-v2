@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { variables } from "@/utils/helper";
+// import { variables } from "@/utils/helper";
 import axios, { AxiosRequestConfig } from "axios";
 
 
@@ -39,7 +39,8 @@ const requestConfigInterface = (options: IOptions): AxiosRequestConfig<any> => {
       // Authorization: `Bearer ${token?.access}`,
       "Cache-Control": "no-cache",
       "Max-Forwards": 3,
-      "x-app-env": variables.environment,
+      "x-app-env": "prod",
+      // "x-app-env": variables.environment,
       ...options.header,
     },
     params: options.params,

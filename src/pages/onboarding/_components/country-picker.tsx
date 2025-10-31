@@ -2,37 +2,36 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import CustomModal from '@/components/shared/modal';
 import { updateSubscriberState } from '@/store/features/subscriber';
-import { RootState } from '@/store/store';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { cn, useDisclosure } from '@nextui-org/react';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { countries } from '../_utils/misc';
 
 const CountryPicker = () => {
   const { onOpenChange, onClose, isOpen, onOpen } = useDisclosure();
-  const { country, country_code } = useSelector(
-    (state: RootState) => state.subscriber
-  );
+  // const { country, country_code } = useSelector(
+  //   (state: RootState) => state.subscriber,
+  // );
 
-  const [selected, setSelected] = useState<string>(country || 'Ghana');
+  const [selected, setSelected] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log({
-      country,
-      country_code,
-    });
-    if (country !== '') {
-      dispatch(
-        updateSubscriberState({
-          safe: true,
-        })
-      );
-    }
-  }, []);
+  // useEffect(() => {
+  //   console.log({
+  //     country,
+  //     country_code,
+  //   });
+  //   if (country !== '') {
+  //     dispatch(
+  //       updateSubscriberState({
+  //         safe: true,
+  //       }),
+  //     );
+  //   }
+  // }, []);
 
   const onSelectCountry = (country: any) => {
     console.log('fired', country);
@@ -40,8 +39,7 @@ const CountryPicker = () => {
       updateSubscriberState({
         country: country.name,
         country_code: country.phoneCode,
-        safe: true,
-      })
+      }),
     );
     setSelected(country.name);
 
@@ -61,7 +59,8 @@ const CountryPicker = () => {
         className="lg:w-full rounded-xl bg-[#4C7F64]/5 hover:bg-[#4C7F64]/10 duration-700 px-4 py-3 cursor-pointer flex items-center justify-between "
         onClick={() => {
           onOpen();
-        }}>
+        }}
+      >
         <div>
           <p className="text-[#717173] font-extralight lg:text-[0.6rem] text-[0.7rem]">
             Country
@@ -98,7 +97,8 @@ const CountryPicker = () => {
                   // eslint-disable-next-line @typescript-eslint/no-unused-vars
                   onClick={(_) => {
                     setSearchQuery('');
-                  }}>
+                  }}
+                >
                   <Icon
                     icon="material-symbols:cancel"
                     className="text-[#717173]/60"
@@ -110,13 +110,13 @@ const CountryPicker = () => {
             <div className="lg:h-[60vh] overflow-scroll bg-white rounded-[1rem] lg:p-2 p-1 flex flex-col lg:gap-2 scrollbar-hide h-[40vh]">
               {searchQuery !== '' ? (
                 reordered_counties.filter((country) =>
-                  country.name.includes(searchQuery)
+                  country.name.includes(searchQuery),
                 ).length != 0 ? (
                   reordered_counties
                     .filter((country) =>
                       country.name
                         .toLowerCase()
-                        .includes(searchQuery.toLowerCase())
+                        .includes(searchQuery.toLowerCase()),
                     )
                     ?.map((country) => {
                       return (
@@ -128,8 +128,9 @@ const CountryPicker = () => {
                           }}
                           className={cn(
                             'flex items-center gap-4 px-2 py-3 rounded-xl cursor-pointer hover:bg-[#717173]/5',
-                            selected == country.name && 'bg-[#4C7F64]/5'
-                          )}>
+                            selected == country.name && 'bg-[#4C7F64]/5',
+                          )}
+                        >
                           <div className="relative">
                             <Icon
                               icon={country.icon}
@@ -167,8 +168,9 @@ const CountryPicker = () => {
                       }}
                       className={cn(
                         'flex items-center gap-4 px-2 py-3 rounded-xl cursor-pointer hover:bg-[#717173]/5',
-                        selected == country.name && 'bg-[#4C7F64]/5'
-                      )}>
+                        selected == country.name && 'bg-[#4C7F64]/5',
+                      )}
+                    >
                       <div className="relative">
                         <Icon
                           icon={country.icon}

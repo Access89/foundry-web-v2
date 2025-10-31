@@ -1,25 +1,37 @@
-import { Button } from "@nextui-org/react";
-import Country from "./_components/_tabs/Country";
-import { useState } from "react";
-import BasicInformation from "./_components/_tabs/basic-information";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import BusinessInformation from "./_components/_tabs/business-information";
+import Country from './_components/_tabs/Country';
+import { useState, useEffect } from 'react';
+import BasicInformation from './_components/_tabs/basic-information';
+import { Icon } from '@iconify/react/dist/iconify.js';
+import BusinessInformation from './_components/_tabs/business-information';
 // import PasswordSetting from "./_components/_tabs/password";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/store/store";
-import { updateSubscriberState } from "@/store/features/subscriber";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
+import { updateSubscriberState } from '@/store/features/subscriber';
+import { CustomButton } from '@/components/shared/shared_customs';
 
-type ITab = "country" | "basic-information" | "business-information";
+type ITab = 'country' | 'basic-information' | 'business-information';
 type TReturnValue = void | string;
 
 const Onboarding = () => {
   const navigate = useNavigate();
-  const { safe } = useSelector((state: RootState) => state.subscriber);
+  const { safe, nature_of_business } = useSelector(
+    (state: RootState) => state.subscriber,
+  );
 
   const dispatch = useDispatch();
 
-  const [activeTab, setActiveTab] = useState<ITab>("country");
+  const [activeTab, setActiveTab] = useState<ITab>('country');
+
+  // Reset validation state when switching tabs
+  useEffect(() => {
+    dispatch(
+      updateSubscriberState({
+        safe: false,
+      }),
+    );
+  }, [activeTab, dispatch]);
+
   const tabs: Record<
     string,
     {
@@ -30,32 +42,40 @@ const Onboarding = () => {
   > = {
     country: {
       prev: () => {
-        navigate("/");
+        navigate(-1);
       },
       next: () => {
-        return "basic-information";
+        return 'business-information';
       },
       component: <Country />,
     },
-    "basic-information": {
+    'business-information': {
       prev: () => {
-        return "country";
+        return 'country';
       },
       next: () => {
-        return "business-information";
-      },
-      component: <BasicInformation />,
-    },
-    "business-information": {
-      prev: () => {
-        return "basic-information";
-      },
-      next: () => {
-        // return "password";
-        navigate("password");
+        if (
+          nature_of_business === 'Sole Proprietorship'
+          // business_type === 'Retail'
+        ) {
+          return 'basic-information';
+        } else {
+          navigate('/book-a-demo');
+        }
       },
       component: <BusinessInformation />,
     },
+
+    'basic-information': {
+      prev: () => {
+        return 'business-information';
+      },
+      next: () => {
+        navigate('password');
+      },
+      component: <BasicInformation />,
+    },
+
     // password: {
     //   prev: () => {
     //     return "business-information";
@@ -74,38 +94,31 @@ const Onboarding = () => {
           onClick={(event) => {
             event.preventDefault();
             const returnValue = tabs?.[activeTab]?.prev();
-            if (typeof returnValue == "string") {
+            if (typeof returnValue == 'string') {
               setActiveTab(returnValue as ITab);
             }
           }}
         >
-          <Icon icon={"fluent:arrow-left-16-filled"} height={25} />
+          <Icon icon={'fluent:arrow-left-16-filled'} height={25} />
         </div>
         {tabs?.[activeTab]?.component}
       </div>
 
-      <Button
-        className={`lg:w-[50%] w-[90%] py-4 lg:py-6 rounded-3xl mx-auto shadow-xl focus:outline-none
-        ${
-          safe
-            ? "bg-[#4C7F64] text-white shadow-[#4C7F64]/30"
-            : "bg-gray-300 text-gray-500 shadow-none cursor-not-allowed"
-        }`}
-        onClick={() => {
+      <CustomButton
+        className={`py-6 transition-all duration-300 bg-primary text-white 
+      
+            `}
+        onPress={() => {
           const returnValue = tabs?.[activeTab]?.next();
-          if (typeof returnValue == "string") {
+          if (typeof returnValue == 'string') {
             setActiveTab(returnValue as ITab);
           }
-          dispatch(
-            updateSubscriberState({
-              safe: false,
-            })
-          );
+          // Don't reset safe state here - let each tab handle its own validation
         }}
         disabled={!safe}
       >
         Continue
-      </Button>
+      </CustomButton>
     </div>
   );
 };
