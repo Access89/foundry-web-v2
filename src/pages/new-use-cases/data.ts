@@ -76,14 +76,14 @@ export const UsecaseData: Record<string, any> = {
         },
       
         'ev-charging': {
-          title: 'Electric Vehicle Charging Platform',
-          description: 'Power your EV charging business with scalable, real-time platforms.',
+          title: 'KYC and Compliance',        
+          description: 'Embedded Know Your Customer and Business checks plus automated risk scoring to ensure regulatory compliance and informed decisions.',
           'video-link': 'https://youtube.com',
-          'features-description': 'Connect chargers, users, and billing systems with ease.',
+          'features-description': 'Verification, risk management, and compliance with ease.',
           'core-features': [
-            { icon: 'mdi:ev-station', title: 'Charger Network Management', description: 'Monitor and control station performance.' },
-            { icon: 'mdi:map-marker-radius', title: 'Location Services', description: 'Let users find available chargers nearby.' },
-            { icon: 'mdi:currency-usd', title: 'Billing Integration', description: 'Enable subscriptions, pay-per-use, and energy tariffs.' },
+            { icon: 'mdi:ev-station', title: 'Verify (KYC/KYB & Identity Verification)', description: 'Integrates with external APIs for instant KYC/KYB checks, AML, and sanction screening.' },
+            { icon: 'mdi:map-marker-radius', title: 'Watch (Real-Time Transaction Monitoring)', description: 'Proactively detects suspicious activities and fraud with real-time transaction monitoring against defined rules and patterns.' },
+            { icon: 'mdi:currency-usd', title: 'Assure (Reconciliation Intelligence)', description: 'Provides automated reconciliation workflows to quickly detect mismatches and discrepancies across different financial systems.' },
           ],
           goals: [
             { icon: 'mdi:battery-charging', title: 'Scale Charging Infrastructure', description: 'Add and onboard stations quickly.' },

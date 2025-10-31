@@ -101,12 +101,12 @@ const ViewUseCase = () => {
                     />
                   )} */}
 
-                  <div className="mt-2 text-xl font-semibold  max-w-[15rem]">
-                    <h5 className="pb-4">{e.description}</h5>
-                    <p className="text-sm flex items-center gap-x-1 mt-10 hover:opacity-80 group">
-                      {e.title}
-                    </p>
-                  </div>
+<div className="mt-2 text-xl max-w-[15rem] flex flex-col h-full">
+  <h5 className="pb-4 font-bold flex-grow">{e.description}</h5>
+  <p className="text-sm flex items-center font-semibold gap-x-1 hover:opacity-80 group  whitespace-nowrap mt-auto">
+    {e.title}
+  </p>
+</div>
 
                   {isOdd && (
                     <div className="absolute top-6 right-6">
