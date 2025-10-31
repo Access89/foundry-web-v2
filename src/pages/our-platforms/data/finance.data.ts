@@ -95,6 +95,45 @@ export const financePlatformData = {
         }
       ]
     },
+  
+  
+    {
+      title: 'Digital Banking',
+      bg: '/images/DigitalBanking.png',
+      backgroundsize: 'cover',
+      backgroundcolor: '#dedcdf',
+      product_image: '/images/our-platforms/view/MExpense.png',
+      description: 'Deliver seamless mobile and online banking experiences.',
+      // link: '/our-platforms/finance/digital-banking',
+      detailedDescription: `The Foundry Digital Platform makes banking a few taps away, putting your institution in the palm of your customers' hands. This all-in-one solution provides a seamless suite of services from fast digital loans and secure savings to investments and insurance, all accessible through a single, intuitive interface on their mobile phone, whether it's a smartphone or a basic feature phone. It's the strategic platform you need to drive growth, enhance customer loyalty, and lead the way in digital finance.`,
+      sub_components_title: "",
+      sub_components: [
+        {
+          title: "Digital Savings",
+          description: "Empower your customers to take control of their financial future. Our digital savings module lets them open accounts, set goals, and make secure deposits with a few taps via USSD or a powerful mobile app. It's a seamless way to build wealth and track progress, all without stepping into a branch.",
+          icon: "lucide:piggy-bank",
+          learn_more: []
+        },
+        {
+          title: "Digital Lending",
+          description: "Remove the friction from borrowing. Our digital lending platform provides a fast, paperless loan experience from start to finish. Customers can apply, get assessed, and receive funds via a simple USSD menu or a feature-rich mobile app, giving them instant access to the credit they need, when they need it",
+          icon: "tabler:hand-coin",
+          learn_more: []
+        },
+        {
+          title: "Insurance",
+          description: "Make insurance simple and accessible. Our digital insurance module integrates the entire policy lifecycle into your platform. Customers can browse, purchase, and manage policies or file claims digitally via a secure mobile app and basic USSD prompts, giving them peace of mind and protection with unprecedented convenience.",
+          icon: "lucide:shield-check",
+          learn_more: []
+        },
+        {
+          title: "Investment",
+          description: "Democratize investments for everyone. We lower the barrier to entry by putting investment products directly on your customers' devices. Whether they're using a feature phone or a smartphone, they can explore options, manage portfolios, and track returns through a user-friendly mobile app and simplified USSD prompts",
+          icon: "tabler:trending-up",
+          learn_more: []
+        }
+      ]
+    },
     {
       title: 'Digital Lending',
       bg: '/images/DigitalLending.png',
@@ -142,44 +181,6 @@ export const financePlatformData = {
           title: "Approval Management",
           description: "Take control of your loan decisions with intuitive approval management. Configure multi-level approval workflows that fit your specific policies, allowing for efficient review, secure decision-making, and clear audit trails for every application",
           icon: "tabler:checklist",
-          learn_more: []
-        }
-      ]
-    },
-  
-    {
-      title: 'Digital Banking',
-      bg: '/images/DigitalBanking.png',
-      backgroundsize: 'cover',
-      backgroundcolor: '#dedcdf',
-      product_image: '/images/our-platforms/view/MExpense.png',
-      description: 'Deliver seamless mobile and online banking experiences.',
-      // link: '/our-platforms/finance/digital-banking',
-      detailedDescription: `The Foundry Digital Platform makes banking a few taps away, putting your institution in the palm of your customers' hands. This all-in-one solution provides a seamless suite of services from fast digital loans and secure savings to investments and insurance, all accessible through a single, intuitive interface on their mobile phone, whether it's a smartphone or a basic feature phone. It's the strategic platform you need to drive growth, enhance customer loyalty, and lead the way in digital finance.`,
-      sub_components_title: "",
-      sub_components: [
-        {
-          title: "Digital Savings",
-          description: "Empower your customers to take control of their financial future. Our digital savings module lets them open accounts, set goals, and make secure deposits with a few taps via USSD or a powerful mobile app. It's a seamless way to build wealth and track progress, all without stepping into a branch.",
-          icon: "lucide:piggy-bank",
-          learn_more: []
-        },
-        {
-          title: "Digital Lending",
-          description: "Remove the friction from borrowing. Our digital lending platform provides a fast, paperless loan experience from start to finish. Customers can apply, get assessed, and receive funds via a simple USSD menu or a feature-rich mobile app, giving them instant access to the credit they need, when they need it",
-          icon: "tabler:hand-coin",
-          learn_more: []
-        },
-        {
-          title: "Insurance",
-          description: "Make insurance simple and accessible. Our digital insurance module integrates the entire policy lifecycle into your platform. Customers can browse, purchase, and manage policies or file claims digitally via a secure mobile app and basic USSD prompts, giving them peace of mind and protection with unprecedented convenience.",
-          icon: "lucide:shield-check",
-          learn_more: []
-        },
-        {
-          title: "Investment",
-          description: "Democratize investments for everyone. We lower the barrier to entry by putting investment products directly on your customers' devices. Whether they're using a feature phone or a smartphone, they can explore options, manage portfolios, and track returns through a user-friendly mobile app and simplified USSD prompts",
-          icon: "tabler:trending-up",
           learn_more: []
         }
       ]
