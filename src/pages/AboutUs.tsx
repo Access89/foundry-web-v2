@@ -27,7 +27,7 @@ export default function AboutUs() {
       
       <PurposeSection data={aboutData.purpose} />
 
-      <TeamSection teamMembers={aboutData.team} />
+      {/* <TeamSection teamMembers={aboutData.team} /> */}
     </main>
   );
 }

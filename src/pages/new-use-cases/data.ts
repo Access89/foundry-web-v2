@@ -79,6 +79,8 @@ export const UsecaseData: Record<string, any> = {
           title: 'KYC and Compliance',        
           description: 'Embedded Know Your Customer and Business checks plus automated risk scoring to ensure regulatory compliance and informed decisions.',
           images: '/images/KYCAndCompliance.png',
+          imageSize: '25rem',
+          
           'video-link': 'https://youtube.com',
           'features-description': 'Verification, risk management, and compliance with ease.',
           'core-features': [

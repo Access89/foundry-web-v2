@@ -216,23 +216,23 @@ const menuItems: MenuItem[] = [
         core_features: [
           {
             icon: 'mdi:warehouse',
-            title: 'Inventory Management',
+            title: 'Unified inventory, sales, and procurement dashboard',
             description: 'Automate stock tracking and reorder workflows.',
           },
           {
             icon: 'mdi:credit-card-outline',
-            title: 'Integrated POS',
+            title: 'POS integration with real-time analytics',
             description: 'Process orders and payments from any device.',
           },
           {
             icon: 'mdi:chart-line',
-            title: 'Sales Analytics',
+            title: 'Supplier and buyer management via Foundry Hub',
             description:
               'Understand performance metrics and customer behaviors in real-time.',
           },
           {
             icon: 'eos-icons:ai',
-            title: 'AI Powered Business Insights',
+            title: 'Automated order and restock workflows',
             description:
               'Understand performance metrics and customer behaviors in real-time.',
           },
@@ -245,7 +245,7 @@ const menuItems: MenuItem[] = [
         core_features: [
           {
             icon: 'mdi:bank',
-            title: 'Streamline account management and loan processing.',
+            title: 'Digital onboarding and credit scoring (Foundry Finance)',
             description: 'Streamline account management and loan processing.',
           },
           {
