@@ -377,7 +377,7 @@ const DownloadAppsAndOtherOffers = () => {
   }>({});
   const dispatch = useDispatch();
 
-  const pos_api_base_url = 'https://api.access89.com/pos-api/v1';
+  const pos_api_base_url = 'https://api.access89.com/support/v1';
 
   const {
     mutate: mutateSubscriber,
@@ -387,7 +387,7 @@ const DownloadAppsAndOtherOffers = () => {
   } = useMutation(
     (newData: SubscriberStateType) =>
       mutateFn({
-        url: `${pos_api_base_url}/setup/create/setup`,
+        url: `${pos_api_base_url}/setup/create`,
         data: newData,
       }),
     {

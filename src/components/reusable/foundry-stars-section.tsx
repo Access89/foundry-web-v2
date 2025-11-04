@@ -40,7 +40,7 @@ const foundry_stars = [
     boldedGreen: ['I want to'],
     boldedBlack: ['manage my business'],
     link: '/our-platforms/businesss',  
-    image: '/images/foundry_stars/POSImage.png',
+    image: '/images/foundry_stars/POSImage.webp',
     imageSize: 'w-[38%]',
     accentClass: 'text-[#075056]', // Change to your desired color
   },
@@ -49,7 +49,7 @@ const foundry_stars = [
     boldedGreen: ['I want to embed'],
     boldedBlack: ['Finance'],
     link: 'https://developer.access89.com/api-reference/origination',
-    image: '/images/foundry_stars/finance.png',
+    image: '/images/foundry_stars/finance.webp',
     imageSize: 'w-[30%]',
     external: true,
     widthHeight: 'w-[360px] h-[150px]',
