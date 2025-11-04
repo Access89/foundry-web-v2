@@ -37,7 +37,7 @@ const GreenSection = () => {
         'Streamline procurement, logistics, and B2B transactions end-to-end.',
       // icon: 'mdi-light:truck',
       linkTitle: 'Learn More',
-      link: 'logistics-supply-chain',
+      link: '/our-platforms/trade',
       textColor: 'text-white',
       fontClass: 'font-sans',
       titleClass: 'font-semibold text-xl',

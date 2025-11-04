@@ -15,7 +15,7 @@ import {
 
 const appList = [
   {
-    name: 'Foundry POS',
+    name: 'Foundry Books',
     plan_id: 5,
     plan_type: 'FREE',
     plan_category: 3,
@@ -26,7 +26,7 @@ const appList = [
     appstore_link: 'https://apps.apple.com/gh/developer/access89/id1781630972',
     playstore_link:
       'https://play.google.com/store/apps/developer?id=access+89&hl=en_US',
-    displayImage: '/images/apps/FOUND 1.svg',
+    displayImage: '/images/FOUND2.png',
     use_cases_list: [
       'Fashion, electronics, grocery, convenience shops',
       'Chain stores, local provision shops',
@@ -39,7 +39,7 @@ const appList = [
     ],
   },
   {
-    name: 'Foundry Books',
+    name: 'Foundry POS',
     plan_id: 13,
     plan_type: 'FREE',
     plan_category: 5,
@@ -235,7 +235,7 @@ const RecommendedAppSection = () => {
 
           {/* Google Play Button */}
           <div
-            className="flex-1 bg-[#01875F] rounded-xl p-3 cursor-pointer hover:bg-[#028C67] transition-colors group flex items-center justify-between"
+            className="flex-1 bg-[#16232A] rounded-xl p-3 cursor-pointer hover:bg-[#028C67] transition-colors group flex items-center justify-between"
             onClick={() => window.open(recommendedApp.playstore_link, '_blank')}
           >
             <div className="flex items-center gap-2">
@@ -547,7 +547,7 @@ const DownloadAppsAndOtherOffers = () => {
                           <div className="h-10"></div>
                         ) : (
                           <CustomButton
-                            className="bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
+                            className="bg-[#16232A] text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
                             onPress={() => navigate('/onboarding')}
                           >
                             Get Started
