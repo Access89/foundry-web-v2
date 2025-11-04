@@ -14,10 +14,10 @@ const CARDS_TO_SHOW = {
 
 const foundry_stars = [
   {
-    title: '   borrow money and pay in 30, 60 or 90 days',
-    boldedGreen: ['I want to', 'money and'],
-    breakAt: ['borrow'],
-    boldedBlack: ['borrow', 'pay in 30, 60 or 90 days'], 
+    title: '  Finance your inventory or Purchase orders',
+    boldedGreen: ['Finance your', 'inventory'],
+    breakAt: ['or'],
+    boldedBlack: ['Purchase orders'], 
     link: '/loan',
     image: '/images/foundry_stars/MobilePhone.png',
     imageSize: 'w-[38%] h-[120px]',

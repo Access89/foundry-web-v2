@@ -204,28 +204,29 @@ const RecommendedAppSection = () => {
   if (!recommendedApp) return null;
 
   return (
-    <section className="mb-12 mx-4 flex items-center justify-between">
-      <div className=" mb-8 w-[35%]">
-        <h2 className="text-2xl md:text-6xl font-semibold mb-4">
+    <section className="mb-12 mx-4 flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div className="mb-8 w-full lg:w-[35%]">
+        <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold mb-4">
           {recommendedApp.name}
         </h2>
-        <p className="text-gray-600 mb-6 text-base md:text-lg">
+        <p className="text-gray-600 mb-6 text-sm md:text-base lg:text-lg">
           {recommendedApp.description}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-          <div className="rounded-lg bg-primary-light p-4 md:col-span-2 flex justify-between items-center cursor-pointer group">
-            <p className="flex flex-col justify-between  h-full group-hover:text-primary transition-colors">
-              <p></p>
-              <p className=" ">Scan to download</p>
-            </p>
-            <p>
+          <div className="rounded-lg bg-primary-light p-6 md:col-span-2 flex flex-col md:flex-row justify-between items-center gap-4 cursor-pointer group">
+            <div className="flex flex-col justify-center text-center md:text-left group-hover:text-primary transition-colors">
+              <span className="text-primary text-lg md:text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                Scan to download <Icon icon="material-symbols:arrow-outward" className="inline" />
+              </span>
+            </div>
+            <div className="flex-shrink-0">
               <img
                 src={recommendedApp.qr_code}
                 alt={recommendedApp.name}
-                className="w-32 h-32 mx-auto group-hover:scale-105 transition-transform rounded-lg"
+                className="w-40 h-40 md:w-32 md:h-32 mx-auto group-hover:scale-105 transition-transform rounded-lg"
               />
-            </p>
+            </div>
           </div>
           {/* Download Buttons */}
           {/* App Store Button */}
@@ -274,11 +275,11 @@ const RecommendedAppSection = () => {
         </div>
       </div>
 
-      <div className="w-[65%]">
+      <div className="w-full lg:w-[65%]">
         <img
           src={recommendedApp.displayImage}
           alt={recommendedApp.name}
-          className="w-[80%] h-full mx-auto mb-6 rounded-lg"
+          className="w-full lg:w-[80%] h-auto mx-auto mb-6 rounded-lg"
         />
       </div>
     </section>
