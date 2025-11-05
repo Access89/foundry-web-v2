@@ -14,10 +14,10 @@ const CARDS_TO_SHOW = {
 
 const foundry_stars = [
   {
-    title: '   borrow money and pay in 30, 60 or 90 days',
-    boldedGreen: ['I want to', 'money and'],
-    breakAt: ['borrow'],
-    boldedBlack: ['borrow', 'pay in 30, 60 or 90 days'], 
+    title: '  Finance your inventory or Purchase orders',
+    boldedGreen: ['Finance your', 'inventory'],
+    breakAt: ['or'],
+    boldedBlack: ['Purchase orders'], 
     link: '/loan',
     image: '/images/foundry_stars/MobilePhone.png',
     imageSize: 'w-[38%] h-[120px]',
@@ -40,7 +40,7 @@ const foundry_stars = [
     boldedGreen: ['I want to'],
     boldedBlack: ['manage my business'],
     link: '/our-platforms/businesss',  
-    image: '/images/foundry_stars/POSImage.png',
+    image: '/images/foundry_stars/POSImage.webp',
     imageSize: 'w-[38%]',
     accentClass: 'text-[#075056]', // Change to your desired color
   },
@@ -49,7 +49,7 @@ const foundry_stars = [
     boldedGreen: ['I want to embed'],
     boldedBlack: ['Finance'],
     link: 'https://developer.access89.com/api-reference/origination',
-    image: '/images/foundry_stars/finance.png',
+    image: '/images/foundry_stars/finance.webp',
     imageSize: 'w-[30%]',
     external: true,
     widthHeight: 'w-[360px] h-[150px]',

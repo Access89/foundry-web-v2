@@ -15,7 +15,7 @@ import {
 
 const appList = [
   {
-    name: 'Foundry POS',
+    name: 'Foundry Books',
     plan_id: 5,
     plan_type: 'FREE',
     plan_category: 3,
@@ -26,7 +26,7 @@ const appList = [
     appstore_link: 'https://apps.apple.com/gh/developer/access89/id1781630972',
     playstore_link:
       'https://play.google.com/store/apps/developer?id=access+89&hl=en_US',
-    displayImage: '/images/apps/FOUND 1.svg',
+    displayImage: '/images/FOUND2.png',
     use_cases_list: [
       'Fashion, electronics, grocery, convenience shops',
       'Chain stores, local provision shops',
@@ -39,7 +39,7 @@ const appList = [
     ],
   },
   {
-    name: 'Foundry Books',
+    name: 'Foundry POS',
     plan_id: 13,
     plan_type: 'FREE',
     plan_category: 5,
@@ -49,7 +49,7 @@ const appList = [
     appstore_link: 'https://apps.apple.com/gh/developer/access89/id1781630972',
     playstore_link:
       'https://play.google.com/store/apps/developer?id=access+89&hl=en_US',
-    displayImage: '/images/apps/FOUND 1.svg',
+    // displayImage: '/images/apps/FOUND 1.svg',
 
     use_cases_list: [
       'Consultants, designers, tutors, artisans',
@@ -204,81 +204,76 @@ const RecommendedAppSection = () => {
   if (!recommendedApp) return null;
 
   return (
-    <section className="mb-12 mx-4 flex items-center justify-between">
-      <div className=" mb-8 w-[35%]">
-        <h2 className="text-2xl md:text-6xl font-semibold mb-4">
+    <section className="mb-12 mx-4 flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div className="mb-8 w-full lg:w-[35%]">
+        <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold mb-4">
           {recommendedApp.name}
         </h2>
-        <p className="text-gray-600 mb-6 text-base md:text-lg">
+        <p className="text-gray-600 mb-6 text-sm md:text-base lg:text-lg">
           {recommendedApp.description}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-          <div className="rounded-lg bg-primary-light p-4 md:col-span-2 flex justify-between items-center cursor-pointer group">
-            <p className="flex flex-col justify-between  h-full group-hover:text-primary transition-colors">
-              <p></p>
-              <p className=" ">Scan to download</p>
-            </p>
-            <p>
-              <img
-                src={recommendedApp.qr_code}
-                alt={recommendedApp.name}
-                className="w-32 h-32 mx-auto group-hover:scale-105 transition-transform rounded-lg"
-              />
-            </p>
-          </div>
-          {/* Download Buttons */}
+        {/* Download Buttons - Now positioned here */}
+        <div className="flex flex-col sm:flex-row gap-3 mb-6">
           {/* App Store Button */}
           <div
-            className="bg-primary-light rounded-2xl p-4 cursor-pointer  transition-colors group"
+            className="flex-1 bg-[#1C1C1E] rounded-xl p-3 cursor-pointer hover:bg-[#2C2C2E] transition-colors group flex items-center justify-between"
             onClick={() => window.open(recommendedApp.appstore_link, '_blank')}
           >
-            <div className="flex flex-col justify-between gap-10">
-              <div className="flex items-center justify-between">
-                <Icon
-                  icon="simple-icons:apple"
-                  className="text-primary text-3xl"
-                />
-                <Icon
-                  icon="material-symbols:arrow-outward"
-                  className="text-primary text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                />
-              </div>
+            <div className="flex items-center gap-2">
+              <Icon icon="simple-icons:apple" className="text-white text-2xl" />
               <div>
-                <p className="">Open AppStore</p>
+                <p className="text-white text-xs">Download on the</p>
+                <p className="text-white font-semibold">App Store</p>
               </div>
             </div>
+            <Icon
+              icon="material-symbols:arrow-outward"
+              className="text-white text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+            />
           </div>
 
           {/* Google Play Button */}
           <div
-            className="bg-primary-light rounded-2xl p-4 cursor-pointer  transition-colors group"
+            className="flex-1 bg-[#16232A] rounded-xl p-3 cursor-pointer hover:bg-[#028C67] transition-colors group flex items-center justify-between"
             onClick={() => window.open(recommendedApp.playstore_link, '_blank')}
           >
-            <div className="flex flex-col justify-between gap-10">
-              <div className="flex items-center justify-between">
-                <Icon
-                  icon="simple-icons:googleplay"
-                  className="text-primary text-3xl"
-                />
-                <Icon
-                  icon="material-symbols:arrow-outward"
-                  className="text-primary text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                />
-              </div>
+            <div className="flex items-center gap-2">
+              <Icon icon="simple-icons:googleplay" className="text-white text-2xl" />
               <div>
-                <p className=""> Open Google Play</p>
+                <p className="text-white text-xs">Get it on</p>
+                <p className="text-white font-semibold">Google Play</p>
               </div>
             </div>
+            <Icon
+              icon="material-symbols:arrow-outward"
+              className="text-white text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+            />
+          </div>
+        </div>
+
+        {/* QR Code Section */}
+        <div className="rounded-lg bg-primary-light p-6 flex flex-col md:flex-row justify-between items-center gap-4 cursor-pointer group">
+          <div className="flex flex-col justify-center text-center md:text-left group-hover:text-primary transition-colors">
+            <span className="text-primary text-lg md:text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+              Scan to download <Icon icon="material-symbols:arrow-outward" className="inline" />
+            </span>
+          </div>
+          <div className="flex-shrink-0">
+            <img
+              src={recommendedApp.qr_code}
+              alt={recommendedApp.name}
+              className="w-40 h-40 md:w-32 md:h-32 mx-auto group-hover:scale-105 transition-transform rounded-lg"
+            />
           </div>
         </div>
       </div>
 
-      <div className="w-[65%]">
+      <div className="w-full lg:w-[65%]">
         <img
           src={recommendedApp.displayImage}
           alt={recommendedApp.name}
-          className="w-[80%] h-full mx-auto mb-6 rounded-lg"
+          className="w-full lg:w-[80%] h-auto lg:ml-auto mb-6 rounded-lg"
         />
       </div>
     </section>
@@ -376,7 +371,7 @@ const DownloadAppsAndOtherOffers = () => {
   }>({});
   const dispatch = useDispatch();
 
-  const pos_api_base_url = 'https://api.access89.com/pos-api/v1';
+  const pos_api_base_url = 'https://api.access89.com/support/v1';
 
   const {
     mutate: mutateSubscriber,
@@ -386,7 +381,7 @@ const DownloadAppsAndOtherOffers = () => {
   } = useMutation(
     (newData: SubscriberStateType) =>
       mutateFn({
-        url: `${pos_api_base_url}/setup/create/setup`,
+        url: `${pos_api_base_url}/setup/create`,
         data: newData,
       }),
     {
@@ -552,7 +547,7 @@ const DownloadAppsAndOtherOffers = () => {
                           <div className="h-10"></div>
                         ) : (
                           <CustomButton
-                            className="bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
+                            className="bg-[#16232A] text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
                             onPress={() => navigate('/onboarding')}
                           >
                             Get Started
@@ -653,18 +648,12 @@ const DownloadAppsAndOtherOffers = () => {
             {appList.map((app, index) => (
               <div
                 key={index}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${
-                  index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-                }`}
+                className="max-w-3xl mx-auto w-full"
               >
-                {/* Content */}
-                <div
-                  className={`space-y-6 ${
-                    index % 2 === 1 ? 'lg:col-start-2' : ''
-                  }`}
-                >
+                {/* Content - Centered */}
+                <div className="space-y-6">
                   <div>
-                    <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center gap-4 mb-4 justify-center">
                       <img
                         src={app.image}
                         alt={app.name}
@@ -674,14 +663,59 @@ const DownloadAppsAndOtherOffers = () => {
                         {app.name}
                       </h3>
                     </div>
-                    <p className="text-lg text-gray-600 mb-6">
+                    <p className="text-lg text-gray-600 mb-6 text-center">
                       {app.description}
                     </p>
                   </div>
 
+                  {/* Download Options */}
+                  <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                    {/* App Store */}
+                    <div
+                      className="flex-1 bg-[#1C1C1E] rounded-xl p-3 cursor-pointer hover:bg-[#2C2C2E] transition-colors group flex items-center justify-between"
+                      onClick={() => window.open(app.appstore_link, '_blank')}
+                    >
+                      <div className="flex items-center gap-2">
+                        <Icon
+                          icon="simple-icons:apple"
+                          className="text-white text-2xl"
+                        />
+                        <div>
+                          <p className="text-white text-xs">Download on the</p>
+                          <p className="text-white font-semibold">App Store</p>
+                        </div>
+                      </div>
+                      <Icon
+                        icon="material-symbols:arrow-outward"
+                        className="text-white text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                      />
+                    </div>
+
+                    {/* Google Play */}
+                    <div
+                      className="flex-1 bg-[#01875F] rounded-xl p-3 cursor-pointer hover:bg-[#028C67] transition-colors group flex items-center justify-between"
+                      onClick={() => window.open(app.playstore_link, '_blank')}
+                    >
+                      <div className="flex items-center gap-2">
+                        <Icon
+                          icon="simple-icons:googleplay"
+                          className="text-white text-2xl"
+                        />
+                        <div>
+                          <p className="text-white text-xs">Get it on</p>
+                          <p className="text-white font-semibold">Google Play</p>
+                        </div>
+                      </div>
+                      <Icon
+                        icon="material-symbols:arrow-outward"
+                        className="text-white text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                      />
+                    </div>
+                  </div>
+
                   {/* Use Cases */}
                   <div className="bg-gray-50 rounded-2xl p-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">
+                    <h4 className="font-semibold text-gray-900 mb-3 text-center">
                       Perfect for:
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -699,79 +733,6 @@ const DownloadAppsAndOtherOffers = () => {
                         </div>
                       ))}
                     </div>
-                  </div>
-
-                  {/* Download Options */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* App Store */}
-                    <div
-                      className="bg-gray-900 rounded-2xl p-6 cursor-pointer hover:bg-gray-800 transition-colors group"
-                      onClick={() => window.open(app.appstore_link, '_blank')}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4">
-                          <p>
-                            <Icon
-                              icon="simple-icons:apple"
-                              className="text-white text-2xl"
-                            />
-                          </p>
-                          <div>
-                            <p className="text-white font-medium">
-                              Download on the
-                            </p>
-                            <p className="text-white text-lg font-bold">
-                              App Store
-                            </p>
-                          </div>
-                        </div>
-                        <Icon
-                          icon="material-symbols:arrow-outward"
-                          className="text-white text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Google Play */}
-                    <div
-                      className="bg-green-600 rounded-2xl p-6 cursor-pointer hover:bg-green-700 transition-colors group"
-                      onClick={() => window.open(app.playstore_link, '_blank')}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4">
-                          <p>
-                            <Icon
-                              icon="simple-icons:googleplay"
-                              className="text-white text-2xl"
-                            />
-                          </p>
-                          <div>
-                            <p className="text-white font-medium">Get it on</p>
-                            <p className="text-white text-lg font-bold">
-                              Google Play
-                            </p>
-                          </div>
-                        </div>
-                        <Icon
-                          icon="material-symbols:arrow-outward"
-                          className="text-white text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Image */}
-                <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                  <div className="relative">
-                    <img
-                      src={app.displayImage}
-                      alt={app.name}
-                      className="w-full max-w-lg h-auto rounded-2xl  mx-auto"
-                    />
-                    {/* Decorative elements */}
-                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full opacity-60"></div>
-                    <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-primary/10 rounded-full opacity-40"></div>
                   </div>
                 </div>
               </div>

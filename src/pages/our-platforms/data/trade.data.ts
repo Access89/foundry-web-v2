@@ -19,22 +19,22 @@ export const tradePlatformData = {
       detailedDescription: ``,
       sub_components_title: "",
       sub_components: [],
-          backgroundsize: '114%',
+          backgroundsize: 'contain',
           backgroundcolor:'#D2D9DB',  
             
 
       
     },
-    {
-      title: 'FX access and conversion',
-      bg: '/images/our-platforms/view/MExpense.png',
-      product_image: '/images/our-platforms/view/MExpense.png',
-      description: 'Manage inventory levels, storage, and dispatch operations efficiently.',
-      link: '/our-platforms/trade/warehousing',
-      detailedDescription: ``,
-      sub_components_title: "",
-      sub_components: []
-    },
+    // {
+    //   title: 'FX access and conversion',
+    //   bg: '/images/our-platforms/view/MExpense.png',
+    //   product_image: '/images/our-platforms/view/MExpense.png',
+    //   description: 'Manage inventory levels, storage, and dispatch operations efficiently.',
+    //   link: '/our-platforms/trade/warehousing',
+    //   detailedDescription: ``,
+    //   sub_components_title: "",
+    //   sub_components: []
+    // },
     // {
     //   title: 'Make Payments',
     //   bg: '/images/our-platforms/view/MExpense.png',
@@ -71,16 +71,16 @@ export const tradePlatformData = {
       sub_components_title: "",
       sub_components: []
     },
-    {
-      title: 'Customs and compliance workflows',
-      titlePosition: '-mt-7 md:mt-4 lg:-mt-6',
-      bg: '/images/CustomsAndCompliance.png',
-      product_image: '/images/our-platforms/view/MExpense.png',
-      description: 'Launch and manage microstores for hyperlocal commerce.',
-      // link: '/our-platforms/trade/cornershop',
-      detailedDescription: ``,
-      sub_components_title: "",
-      sub_components: []
-    }
+    // {
+    //   title: 'Customs and compliance workflows',
+    //   titlePosition: '-mt-7 md:mt-4 lg:-mt-6',
+    //   bg: '/images/CustomsAndCompliance.png',
+    //   product_image: '/images/our-platforms/view/MExpense.png',
+    //   description: 'Launch and manage microstores for hyperlocal commerce.',
+    //   // link: '/our-platforms/trade/cornershop',
+    //   detailedDescription: ``,
+    //   sub_components_title: "",
+    //   sub_components: []
+    // }
   ]
 };

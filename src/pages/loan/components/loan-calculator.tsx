@@ -46,14 +46,14 @@ export const LoanCalculator = () => {
               step={1000}
               value={loanAmount}
               classNames={{
-                thumb: "bg-[#4C7F64]",
+                thumb: "bg-[#075056]",
                 track: ["bg-[#4C7F64]/20", "h-2"],
-                filler: "bg-[#4C7F64]",
+                filler: "bg-[#075056]",
               }}
               onChange={(val: any) => setLoanAmount(val)}
             />
             <div className="flex gap-2 w-full items-center mt-3">
-              <p className="text-xl font-bold text-white bg-[#4C7F64] py-2 px-3 rounded-lg">
+              <p className="text-xl font-bold text-white bg-[#075056] py-2 px-3 rounded-lg">
                 ₵
               </p>
               <Input
@@ -74,7 +74,7 @@ export const LoanCalculator = () => {
               classNames={{
                 thumb: "bg-[#4C7F64]",
                 track: ["bg-[#4C7F64]/20", "h-2"],
-                filler: "bg-[#4C7F64]",
+                filler: "bg-[#075056]",
               }}
               step={12}
               marks={[12, 24, 36, 48, 60].map((val) => ({
@@ -88,7 +88,7 @@ export const LoanCalculator = () => {
         </div>
 
         {/* Loan Summary Card */}
-        <Card className=" bg-[#4C7F64] text-white rounded-md flex flex-col justify-between md:w-[365px] ">
+        <Card className=" bg-[#075056] text-white rounded-md flex flex-col justify-between md:w-[365px] ">
           {loan_summary.map((item, index) => (
             <>
               <p
@@ -113,12 +113,12 @@ export const LoanCalculator = () => {
 
       {/* Apply Button */}
       <div className="w-full flex justify-end mt-5 md:mt-10">
-        <CustomButton className="border border-[#619B7D] rounded-full">
+        <CustomButton className="border border-[#075056] rounded-full">
           Apply Now{" "}
           <Icon
             icon="material-symbols-light:arrow-right-alt-rounded"
             fontSize={30}
-            className="text-[#619B7D]"
+            className="text-[#075056]"
           />
         </CustomButton>
       </div>
