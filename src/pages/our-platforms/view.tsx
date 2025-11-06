@@ -388,14 +388,14 @@ const successStoriesData: Record<string, SuccessStoriesProps> = {
         type: 'text',
         content:
           '"Our partnership with Foundry not only eliminated our manual errors but gave us the digital power to scale our customer base and dramatically increase revenue"',
-        author: 'Nana Agyemang Prempeh., CEO of Negios MicroCredit',
+        author: 'CEO of Negios MicroCredit',
         bgClass: 'bg-[#16232A]',
       },
       {
         type: 'text',
         content: 
         '“We grew our customer base by 300% in a year, thanks to Foundry\'s digital platform that made scaling possible”',
-        author: 'Reuben Cudjoe., CEO of Shield Microfinance',
+        author: ' CEO of Shield Microfinance',
         bgClass: 'bg-[#E4EEF0]',
         textColor: 'text-black',
 
@@ -403,7 +403,7 @@ const successStoriesData: Record<string, SuccessStoriesProps> = {
       {
         type: 'text', 
         content: '“Going fully digital with Foundry didn\'t just save us time, it slashed our operational costs by 50% and brought our paper costs down to zero.”',
-        author: 'Kwadwo Adjei., CEO of Ubuntu Microfinance',
+        author: 'CEO of Ubuntu Microfinance',
         
       },
     ],
