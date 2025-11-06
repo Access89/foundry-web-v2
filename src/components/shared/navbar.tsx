@@ -98,7 +98,7 @@ export default function NavbarComponent() {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem className="gap-x-3 hidden lg:flex mr-[5vw]">
+        <NavbarItem className="gap-x-3 hidden lg:flex mr-[2vw]">
           <CustomButton
             onPress={() => navigate('/onboarding')}
             className="bg-primary text-white hidden md:flex"

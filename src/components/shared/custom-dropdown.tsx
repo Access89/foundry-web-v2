@@ -97,7 +97,7 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
             // toggle for keyboard users; mouseenter/mouseleave still work for hover
             setIsOpen((s) => !s);
           }}
-          className=" h-full py-6  flex gap-1 transition-all items-center text-base font-medium  text-[#434343] px-2"
+          className="h-full py-6 flex gap-1 transition-all items-center text-base font-medium text-[#434343]"
         >
           {item.title}
           {item.subItems && (
@@ -116,7 +116,7 @@ const CustomeDropdownDesktop = ({ item }: DropdownProps) => {
             setIsOpen(false);
           }}
           target={item.external ? '_blank' : '_self'}
-          className=" h-full py-6  flex gap-1 transition-all items-center text-base font-medium  text-[#434343] px-2"
+          className="h-full py-6 flex gap-1 transition-all items-center text-base font-medium text-[#434343]"
         >
           {item.title}
         </Link>
