@@ -25,6 +25,7 @@ import DownloadAppsAndOtherOffers from './pages/onboarding/_components/_tabs/dow
 import UpgradePlan from './pages/onboarding/_pages/upgrade-plan';
 import AboutUs from './pages/AboutUs';
 import OnboardingPage from './pages/OnboardingPage';
+import PrivacyPolicy from './PrivacyPolicy';
 const Home = lazy(() => import('./pages/home'));
 const BusinessAutomation = lazy(() => import('./pages/business_automation'));
 const Loan = lazy(() => import('./pages/loan'));
@@ -113,7 +114,9 @@ function App() {
         <Route path="contact" element={<ContactPage />} />
         <Route path="custom-plan" element={<CustomPlan />} />
         <Route path="onboarding-page" element={<OnboardingPage />} />
-        <Route path="onboarding/">
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+       <Route path="onboarding/">
+       <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="" element={<Onboarding />} />
           <Route path="pricing" element={<PricingPage />} />
           <Route path="password" element={<PasswordSetting />} />
