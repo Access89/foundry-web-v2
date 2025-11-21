@@ -3,8 +3,8 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen bg-white">
       <div className="container mx-auto px-6 md:px-12 lg:px-24 py-12 max-w-[95vw]">
         {/* Header */}
-        <div className="mb-12 text-center">
-          <h1 className="font-sans font-medium text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-4">
+        <div className="mb-12 ">
+          <h1 className="font-sans font-medium text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-4 ">
             Privacy Policy
           </h1>
           <p className="text-gray-600 text-lg font-sans">
@@ -16,18 +16,18 @@ export default function PrivacyPolicy() {
         </div>
 
         {/* Section 1: About Us */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 ">
             1. About Us
           </h2>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed ">
             This is the privacy policy (the "Privacy Policy") of Foundry ("we," "our," or "us"). We are committed to protecting the privacy and security of the personal and business information of our users ("you," "your").
           </p>
         </div>
 
         {/* Section 2: Why Read This */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 ">
             2. Why Do I Need to Read This Privacy Policy?
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -37,31 +37,31 @@ export default function PrivacyPolicy() {
 
         {/* Your Information Section Header */}
         <div className="bg-primary/10 py-4 px-6 mb-8 border-l-4 border-primary">
-          <h2 className="font-sans font-medium text-3xl md:text-4xl text-primary text-center">Your Information</h2>
+          <h2 className="font-sans font-medium text-3xl md:text-4xl text-primary ">Your Information</h2>
         </div>
 
         {/* Section 3: Personal Information */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 ">
             3. What Personal Information Do You Collect About Me?
           </h2>
-          <p className="text-gray-700 mb-4">
+          <p className="text-gray-700 mb-12">
 We may collect the following categories of information: 
           </p>
 
           <div className="space-y-6">
-            <div className="border-l-4 border-primary pl-4">
+            <div className=" border-primary mb-12 pl-4">
               <h3 className="font-sans font-medium text-xl text-gray-800 mb-2">
 Personal Information 	 
               </h3>
-              <ul className="list-disc list-inside text-gray-700 space-y-2">
+              <ul className=" text-gray-700 space-y-2">
                 <li>Name, email, phone number, and address</li>
                 <li>Identity verification information (e.g., government-issued ID, business registration documents)</li>
                 <li>Payment information (e.g., bank account, card details)</li>
               </ul>
             </div>
 
-            <div className="border-l-4 border-primary pl-4">
+            <div className=" border-primary mb-12 pl-4">
               <h3 className="font-sans font-medium text-xl text-gray-800 mb-2">
 Business Information 	 
               </h3>
@@ -72,7 +72,7 @@ Business Information
               </ul>
             </div>
 
-            <div className="border-l-4 border-primary pl-4">
+            <div className=" border-primary mb-12 pl-4">
               <h3 className="font-sans font-medium text-xl text-gray-800 mb-2">
 Technical Information 	 
               </h3>
@@ -86,8 +86,8 @@ Technical Information
         </div>
 
         {/* Section 4: Why We Collect */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 ">
             4. Why Do You Collect, Use and Hold My Personal Information?
           </h2>
           <p className="text-gray-700 mb-3">
@@ -104,8 +104,8 @@ We use the information collected for purposes including:
         </div>
 
         {/* Section 5: Required Information */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             5. Do I Have to Provide My Information?
           </h2>
           <p className="text-gray-700 mb-3">
@@ -119,8 +119,8 @@ At times we are required to collect your personal information to comply with leg
         </div>
 
         {/* Section 6: Sharing Information */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             6. Do You Share My Personal Information With Anyone Else?
           </h2>
           <p className="text-gray-700 mb-3">We may share your information with:</p>
@@ -137,8 +137,8 @@ We do not sell your personal or business information to third parties.
         </div>
 
         {/* Section 7: Marketing */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             7. How Do You Use My Information for Marketing?
           </h2>
           <p className="text-gray-700 mb-3">We may use your information to:</p>
@@ -146,55 +146,55 @@ We do not sell your personal or business information to third parties.
             <li>Communicate marketing information (with consent)</li>
             <li>Deliver personalized content and marketing (where consented) using cookies and similar technologies</li>
           </ul>
-          <p className="text-gray-700 mt-4">
+          <p className="text-gray-700 mt-12">
 You have the right to object to processing for marketing or other purposes and can withdraw consent at any time. 
           </p>
         </div>
 
         {/* Your Rights Section Header */}
         <div className="bg-primary/10 py-4 px-6 mb-8 border-l-4 border-primary">
-          <h2 className="font-sans font-medium text-3xl md:text-4xl text-primary text-center">Your Rights</h2>
+          <h2 className="font-sans font-medium text-3xl md:text-4xl text-primary ">Your Rights</h2>
         </div>
 
         {/* Section 8: Rights */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 ">
             8. What Are My Rights?
           </h2>
           <p className="text-gray-700 mb-4">
             Depending on your jurisdiction, you may have the following rights:
           </p>
-          <div className="space-y-6">
-            <div className="border-l-4 border-primary pl-4">
-              <h4 className="font-sans font-medium text-lg text-gray-900 mb-2 text-center">Right to be informed</h4>
+          <div className="space-y-10">
+            <div className=" border-primary pl-4">
+              <h4 className="font-sans font-medium text-lg text-gray-900 mb-2 ">Right to be informed</h4>
               <p className="text-gray-700">You have the right to be told about how we use your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information.</p>
             </div>
-            <div className="border-l-4 border-primary pl-4">
-              <h4 className="font-sans font-medium text-lg text-gray-900 mb-2 text-center">Right to access and correct</h4>
+            <div className=" border-primary pl-4">
+              <h4 className="font-sans font-medium text-lg text-gray-900 mb-2">Right to access and correct</h4>
               <p className="text-gray-700">You can ask to access or correct your personal information. You may have rights to access, correct, or update your information.</p>
             </div>
-            <div className="border-l-4 border-primary pl-4">
-              <h4 className="font-sans font-medium text-lg text-gray-900 mb-2 text-center">Right to deletion</h4>
+            <div className=" border-primary pl-4">
+              <h4 className="font-sans font-medium text-lg text-gray-900 mb-2">Right to deletion</h4>
               <p className="text-gray-700">You can ask us to delete your personal information. You may have rights to request deletion or restriction of processing.</p>
             </div>
-            <div className="border-l-4 border-primary pl-4">
-              <h4 className="font-sans font-medium text-lg text-gray-900 mb-2 text-center">Right to object</h4>
+            <div className=" border-primary pl-4">
+              <h4 className="font-sans font-medium text-lg text-gray-900 mb-2">Right to object</h4>
               <p className="text-gray-700">You can object to us using your personal information for marketing. You may have rights to object to processing for marketing or other purposes.</p>
             </div>
-            <div className="border-l-4 border-primary pl-4">
-              <h4 className="font-sans font-medium text-lg text-gray-900 mb-2 text-center">Right to withdraw consent</h4>
+            <div className=" border-primary pl-4">
+              <h4 className="font-sans font-medium text-lg text-gray-900 mb-2 ">Right to withdraw consent</h4>
               <p className="text-gray-700">You can withdraw your permission. You may have rights to withdraw consent at any time.</p>
             </div>
-            <div className="border-l-4 border-primary pl-4">
-              <h4 className="font-sans font-medium text-lg text-gray-900 mb-2 text-center">Right to lodge a complaint</h4>
+            <div className=" border-primary pl-4">
+              <h4 className="font-sans font-medium text-lg text-gray-900 mb-2 ">Right to lodge a complaint</h4>
               <p className="text-gray-700">You can lodge a complaint. You may have rights to lodge complaints with relevant data protection authorities.</p>
             </div>
           </div>
         </div>
 
         {/* Section 9: Complaints */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 ">
             9. How Do I Raise a Complaint?
           </h2>
           <p className="text-gray-700 mb-4">
@@ -209,8 +209,8 @@ You have the right to object to processing for marketing or other purposes and c
         </div>
 
         {/* Section 10: International Transfers */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             10. Will My Information Go Outside My Country?
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -219,8 +219,8 @@ You have the right to object to processing for marketing or other purposes and c
         </div>
 
         {/* Section 11: Data Security */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 ">
             11. How Do You Protect My Personal Information?
           </h2>
           <p className="text-gray-700 mb-3">
@@ -238,8 +238,8 @@ We implement industry-standard administrative, technical, and physical measures 
         </div>
 
         {/* Section 12: Data Retention */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 ">
             12. How Long Will You Keep My Personal Information For?
           </h2>
           <p className="text-gray-700 mb-3">
@@ -256,8 +256,8 @@ We retain your personal and business information only as long as necessary to:
         </div>
 
         {/* Section 13: Updates */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 ">
             13. How Will You Keep Me Updated on How You Use My Information?
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -266,8 +266,8 @@ We retain your personal and business information only as long as necessary to:
         </div>
 
         {/* Section 14: Cookies */}
-        <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+        <div className="mb-12">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 ">
             14. Cookies
           </h2>
           <p className="text-gray-700 mb-3">
@@ -285,7 +285,7 @@ We use cookies and similar technologies to:
 
         {/* Section 15: Third-Party Links */}
         <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4 text-center">
+          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             15. Third-Party Links
           </h2>
           <p className="text-gray-700 leading-relaxed">
