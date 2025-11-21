@@ -36,8 +36,8 @@ export default function PrivacyPolicy() {
         </div>
 
         {/* Your Information Section Header */}
-        <div className="bg-primary/10 py-4 px-6 mb-8 border-l-4 border-primary">
-          <h2 className="font-sans font-medium text-3xl md:text-4xl text-primary ">Your Information</h2>
+        <div className=" py-4 px-6 mb-8">
+          <h2 className="font-sans font-medium text-3xl md:text-4xl text-gray-900">Your Information</h2>
         </div>
 
         {/* Section 3: Personal Information */}
@@ -152,8 +152,8 @@ You have the right to object to processing for marketing or other purposes and c
         </div>
 
         {/* Your Rights Section Header */}
-        <div className="bg-primary/10 py-4 px-6 mb-8 border-l-4 border-primary">
-          <h2 className="font-sans font-medium text-3xl md:text-4xl text-primary ">Your Rights</h2>
+        <div className=" py-4 px-6 mb-8  border-primary">
+          <h2 className="font-sans font-medium text-3xl md:text-4xl text-grey-900 ">Your Rights</h2>
         </div>
 
         {/* Section 8: Rights */}
@@ -200,7 +200,7 @@ You have the right to object to processing for marketing or other purposes and c
           <p className="text-gray-700 mb-4">
             For questions, concerns, or requests regarding this Privacy Policy, please contact:
           </p>
-          <div className="bg-gray-50 p-6 border-l-4 border-primary">
+          <div className=" p-6  border-primary">
             <p className="text-gray-700"><strong>Foundry Platform Privacy Team</strong></p>
             <p className="text-gray-700 mt-2">Email: privacy@foundryplatform.com</p>
             <p className="text-gray-700">Phone: [Insert Phone Number]</p>
