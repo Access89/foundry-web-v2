@@ -155,6 +155,7 @@ const BasicInformation = () => {
             label={'Business Type'}
             placeholder={'e.g. Fashion'}
             id={'business_type'}
+            defaultSelected={business_type}
             {...form}
             handleChange={(e: any) => {
               dispatch(

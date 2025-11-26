@@ -8,6 +8,8 @@ const Country = () => {
   const dispatch = useDispatch();
   const { country } = useSelector((state: RootState) => state.subscriber);
 
+  console.log('country render', country);
+
   useEffect(() => {
     // Only set safe to true when a country is actually selected
     if (country !== '') {

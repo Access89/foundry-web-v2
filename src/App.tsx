@@ -32,7 +32,7 @@ const Hire = lazy(() => import('./pages/hire'));
 const HireDetail = lazy(() => import('./pages/hire/hire-detail'));
 const FinancialServices = lazy(() => import('./pages/financial_services'));
 // const UseCases = lazy(() => import('./pages/use_cases'));
-const NewUseCases = lazy(() => import('./pages/new-use-cases'));
+// const NewUseCases = lazy(() => import('./pages/new-use-cases'));
 const OurPlatforms = lazy(() => import('./pages/our-platforms'));
 const ViewPlatforms = lazy(() => import('./pages/our-platforms/view'));
 const ViewPlatformSpecific = lazy(
@@ -74,7 +74,7 @@ function App() {
             element={<OperationsExpansion />}
           />
 
-          <Route path="use-cases" element={<NewUseCases />} />
+          {/* <Route path="use-cases" element={<NewUseCases />} /> */}
           <Route path="use-cases/:name" element={<ViewUseCase />} />
           {/* <Route path="use-cases" element={<UseCases />} /> */}
           <Route path="our-platforms" element={<OurPlatforms />} />

@@ -5,16 +5,15 @@ import { updateSubscriberState } from '@/store/features/subscriber';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { cn, useDisclosure } from '@nextui-org/react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { countries } from '../_utils/misc';
+import { RootState } from '@/store/store';
 
 const CountryPicker = () => {
   const { onOpenChange, onClose, isOpen, onOpen } = useDisclosure();
-  // const { country, country_code } = useSelector(
-  //   (state: RootState) => state.subscriber,
-  // );
+  const { country } = useSelector((state: RootState) => state.subscriber);
 
-  const [selected, setSelected] = useState<string>('');
+  const [selected, setSelected] = useState<string>(country || '');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const dispatch = useDispatch();
