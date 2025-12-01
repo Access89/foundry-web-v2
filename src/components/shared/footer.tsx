@@ -178,12 +178,12 @@ const FOOTER_ITEMS = [
         href: "/about",
       },
       {
-        title: "Privacy Policy",
-        href: "/privacy-policy",
-      },
-      {
         title: "IS Policy",
         href: "/information-security-policy",
+      },
+      {
+        title: "Privacy Policy",
+        href: "/privacy-policy",
       },
       // {
 
