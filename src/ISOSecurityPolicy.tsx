@@ -68,7 +68,7 @@ export default function ISOSecurityPolicy() {
         </div>
 
         {/* Information Security Policy Section Header */}
-        <div className="py-4 px-6 mb-8">
+        <div className="py-4 px6 mb-8">
           <h2 className="font-sans font-medium text-3xl md:text-4xl text-gray-900">
             Information Security Policy
           </h2>
@@ -105,7 +105,7 @@ export default function ISOSecurityPolicy() {
           <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             2.2 Information Security Policy Statement
           </h2>
-          <div className="bg-gray-50 p-6 border-l-4 border-primary">
+          <div className="bg-gray-50 p-6">
             <p className="text-gray-700 leading-relaxed italic">
               Access 89 is committed to protecting the confidentiality,
               integrity, and availability of all information assets, supporting

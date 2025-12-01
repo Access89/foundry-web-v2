@@ -41,7 +41,7 @@ const Footer = () => {
               <div className="h-[0.2rem] w-[15%] mb-2 bg-gray-200/20 rounded-full" />
               <div className="flex gap-y-1 flex-col">
                 {item.links.map((itx, idx) => (
-                  itx.href === "/iso-security-policy" ? (
+                  itx.href === "/iso-security-policy" || itx.href === "/privacy-policy" ? (
                     <Link target="_blank" className="hover:opacity-80" key={idx} to={itx.href}>
                       {itx.title}
                     </Link>
