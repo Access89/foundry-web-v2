@@ -1,5 +1,3 @@
-import Footer from "./components/shared/footer";
-
 export default function ISOSecurityPolicy() {
   return (
     <div className="min-h-screen bg-white">
