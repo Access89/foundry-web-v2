@@ -116,7 +116,7 @@ function App() {
         <Route path="custom-plan" element={<CustomPlan />} />
         <Route path="onboarding-page" element={<OnboardingPage />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="iso-security-policy" element={<ISOSecurityPolicy />} />
+        <Route path="information-security-policy" element={<ISOSecurityPolicy />} />
         <Route path="onboarding/">
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="" element={<Onboarding />} />

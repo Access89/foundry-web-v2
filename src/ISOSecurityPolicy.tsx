@@ -200,7 +200,7 @@ export default function ISOSecurityPolicy() {
         </div>
 
         {/* Section 2.6 - Policy Areas Table */}
-        <div className="mb-12">
+        <div className="mb-12 hidden">
           <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             2.6 Information Security Policy Areas
           </h2>
@@ -248,7 +248,7 @@ export default function ISOSecurityPolicy() {
         {/* Section 2.7 */}
         <div className="mb-12">
           <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
-            2.7 Policy Communication and Accessibility
+            2.6 Policy Communication and Accessibility
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             Access 89 will make this Information Security Policy available to
@@ -300,7 +300,7 @@ export default function ISOSecurityPolicy() {
         {/* Section 2.8 */}
         <div className="mb-8">
           <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
-            2.8 Application of Information Security Policy
+            2.7 Application of Information Security Policy
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             This policy and all supporting documents have been reviewed and
