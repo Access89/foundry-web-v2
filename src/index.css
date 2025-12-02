@@ -5,8 +5,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'AtypDisplay';
+  src: url('./assets/fonts/AtypDisplay-Light.woff2') format('woff2'),
+  url('./assets/fonts/AtypDisplay-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'AtypDisplay';
+  src: url('./assets/fonts/AtypDisplay-Regular.woff2') format('woff2'),
+  url('./assets/fonts/AtypDisplay-Regular.woff') format('woff');
+}
+
 * {
-  font-family: "DM Sans", serif;
+  font-family: "AtypDisplay", serif;
 }
 .custom-button::before {
   content: "";

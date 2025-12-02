@@ -100,7 +100,7 @@ const GreenSection = () => {
         </div>
 
         <motion.div
-          className="grid lg:flex grid-cols-1 gap-y-10 lg:gap-y-0 lg:grid-cols-[0.4fr,1fr] gap-x-6 lg:gap-x-16 my-12 md:my-16 text-sm"
+          className="grid lgflex grid-cols-1 gap-y-10 lg:gap-y-0 lg:grid-cols-[0.4fr,1fr] gap-x-6 lg:gap-x-16 my-12 md:my-16 text-sm hidden"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
