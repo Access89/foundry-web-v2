@@ -13,7 +13,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-10xl l px-4 md:px-6 lg:px-8 mx-auto relative z-10">
         <div className="mb-16 md:text-center max-w-3xl mx-auto">
           <div className="inline-block px-3 py-1 bg-red-900/30 text-red-400 border border-red-500/30 text-xs font-bold mb-6 tracking-wide">
             RISK & COMPLIANCE

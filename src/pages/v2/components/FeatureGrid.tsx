@@ -27,7 +27,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
           : "bg-zinc-50 text-zinc-900"
       }`}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto">
         <div className="mb-16 md:text-center max-w-3xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 tracking-tight">
             {activeSegment === "merchant"
