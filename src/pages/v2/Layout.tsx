@@ -42,54 +42,25 @@ const Layout = () => {
       >
         {/* --- Navigation --- */}
         <nav
-          className={`fixed w-full z-50 transition-all duration-300 ${
-            scrolled
-              ? `backdrop-blur-md border-b shadow-sm ${
-                  activeSegment === "bank"
-                    ? "bg-slate-900/90 border-slate-800"
-                    : "bg-white/90 border-zinc-200"
-                }`
-              : "py-5 bg-transparent"
+          className={`fixed w-full z-50 transition-all duration-300 bg-white border-b ${
+            scrolled ? "shadow-sm border-zinc-200" : "border-transparent"
           }`}
           onMouseLeave={() => setHoveredNav(null)}
         >
-          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
+          <div className="max-w-[1636px] mx-auto px-8 lg:px-12 py-4 flex justify-between items-center relative">
+            {/* Logo - from old navbar */}
             <div
-              className="flex items-center gap-2 font-bold text-2xl tracking-tighter cursor-pointer z-50"
+              className="flex items-center gap-3 cursor-pointer z-50"
               onClick={() => handleNavigate("/v2")}
             >
-              <div
-                className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                  activeSegment === "bank" ? "bg-indigo-500" : "bg-black"
-                }`}
-              >
-                <Zap className="w-5 h-5 text-white" fill="currentColor" />
-              </div>
-              <span
-                className={
-                  scrolled || activeSegment === "merchant"
-                    ? activeSegment === "bank"
-                      ? "text-white"
-                      : "text-black"
-                    : "text-white"
-                }
-              >
-                Foundry
-              </span>
+              <img src="/icons/logo.svg" className="w-[1.3rem]" alt="logo" />
+              <p className="font-bold text-[#1A1A1A] text-inherit uppercase text-xl tracking-tight">
+                foundry
+              </p>
             </div>
 
             {/* Desktop Menu */}
-            <div
-              className={`hidden md:flex gap-1 font-medium ${
-                scrolled
-                  ? activeSegment === "bank"
-                    ? "text-slate-300"
-                    : "text-zinc-600"
-                  : activeSegment === "merchant"
-                  ? "text-zinc-600"
-                  : "text-slate-300"
-              }`}
-            >
+            <div className="hidden md:flex gap-1 font-medium text-[#434343]">
               {Object.keys(navData).map((item) => (
                 <div
                   key={item}
@@ -97,12 +68,8 @@ const Layout = () => {
                   onMouseEnter={() => setHoveredNav(item)}
                 >
                   <button
-                    className={`px-4 py-2 rounded-full flex items-center gap-1 hover:text-current transition-colors hover:opacity-100 opacity-80 ${
-                      hoveredNav === item
-                        ? (activeSegment === "bank"
-                            ? "bg-white/10"
-                            : "bg-black/5") + " opacity-100"
-                        : ""
+                    className={`px-4 py-2 flex items-center gap-1 hover:text-[#1A1A1A] transition-colors ${
+                      hoveredNav === item ? "text-[#1A1A1A]" : "text-[#434343]"
                     }`}
                   >
                     {item}{" "}
@@ -242,55 +209,29 @@ const Layout = () => {
               ))}
             </div>
 
-            <div className="hidden md:flex gap-4 z-50">
+            <div className="hidden md:flex gap-4 z-50 py-2">
               <button
-                className={`px-4 py-2 text-sm font-semibold transition-colors ${
-                  scrolled || activeSegment === "merchant"
-                    ? activeSegment === "bank"
-                      ? "text-white hover:bg-white/10"
-                      : "text-black hover:bg-zinc-100"
-                    : "text-white hover:bg-white/10"
-                } rounded-full`}
+                onClick={() => navigate("/onboarding")}
+                className="px-6 py-2 bg-primary text-white font-semibold transition-all hover:opacity-90"
               >
-                Sign In
+                Sign up
               </button>
               <button
-                className={`px-5 py-2 text-sm font-bold rounded-full transition-all ${
-                  activeSegment === "merchant"
-                    ? "bg-black text-white hover:scale-105"
-                    : "bg-indigo-500 text-white hover:bg-indigo-400"
-                }`}
+                onClick={() =>
+                  window.open("https://foundry-platform.com", "_blank")
+                }
+                className="px-6 py-2 bg-[#EDF2EE] border-2 border-primary text-primary font-semibold transition-all hover:bg-primary hover:text-white"
               >
-                Get Started
+                Log In
               </button>
             </div>
 
             {/* Mobile Toggle */}
             <button
-              className="md:hidden z-50"
+              className="md:hidden z-50 text-black"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? (
-                <X
-                  className={
-                    scrolled || activeSegment === "merchant"
-                      ? activeSegment === "bank"
-                        ? "text-white"
-                        : "text-black"
-                      : "text-white"
-                  }
-                />
-              ) : (
-                <Menu
-                  className={
-                    scrolled || activeSegment === "merchant"
-                      ? activeSegment === "bank"
-                        ? "text-white"
-                        : "text-black"
-                      : "text-white"
-                  }
-                />
-              )}
+              {isMenuOpen ? <X /> : <Menu />}
             </button>
           </div>
 
@@ -407,22 +348,18 @@ const Layout = () => {
                 </div>
               ))}
               <button
-                className={`w-full py-4 rounded-xl font-bold mt-4 shadow-lg ${
-                  activeSegment === "bank"
-                    ? "bg-indigo-600 text-white"
-                    : "bg-black text-white"
-                }`}
+                onClick={() => navigate("/onboarding")}
+                className="w-full py-4 bg-primary text-white font-bold mt-4 shadow-lg"
               >
-                Get Started
+                Sign up
               </button>
               <button
-                className={`w-full py-4 rounded-xl font-bold ${
-                  activeSegment === "bank"
-                    ? "bg-slate-800 text-white"
-                    : "bg-zinc-100 text-zinc-900"
-                }`}
+                onClick={() =>
+                  window.open("https://foundry-platform.com", "_blank")
+                }
+                className="w-full py-4 bg-[#EDF2EE] border-2 border-primary text-primary font-bold"
               >
-                Sign In
+                Log In
               </button>
             </div>
           )}
