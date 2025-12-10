@@ -647,7 +647,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                   shadow hover:shadow-lg transition-all duration-300 ease-in-out transform rounded-3xl
                   ${
                     idx === currentIndex + 2 ? "scale-100" : "scale-95"
-                  } hover:scale-105`}
+                  }`}
                 style={{
                   backgroundImage: `url(${item.bg})`,
                   backgroundPosition: "center",
