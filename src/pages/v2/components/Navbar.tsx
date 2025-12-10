@@ -72,16 +72,6 @@ const Navbar: React.FC<NavbarProps> = ({
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex gap-4 items-center mx-auto">
-            {/* Home Link */}
-            <Link
-              to="/"
-              className={`text-base font-medium text-[#434343] hover:text-[#1A1A1A] transition-colors ${
-                location.pathname === "/" ? "text-[#1A1A1A]" : ""
-              }`}
-            >
-              Home
-            </Link>
-
             {/* Segment Links */}
             <button
               onClick={() => {
