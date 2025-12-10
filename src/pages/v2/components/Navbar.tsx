@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({
       }`}
       onMouseLeave={() => setHoveredNav(null)}
     >
-      <div className="max-w-10xl mx-auto px-4 md:px-6 lg:px-0">
+      <div className="max-w-10xl mx-auto px-4 md:px-6 lg:px-8">
         {/* White container */}
         <div
           className={`bg-white px-6 py-3 flex justify-between items-center relative border rounded-lg border-zinc-200 transition-all duration-300 ${
