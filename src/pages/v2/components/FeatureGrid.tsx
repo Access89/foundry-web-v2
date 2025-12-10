@@ -30,7 +30,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
       <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 mb-16 items-end">
           <h2
-            className={`text-4xl md:text-5xl font-bold tracking-tight ${
+            className={`text-4xl md:text-5xl font-medium tracking-tight ${
               activeSegment === "bank" ? "text-white" : "text-zinc-900"
             }`}
           >
@@ -59,7 +59,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                   <div className="w-12 h-12 bg-zinc-100 flex items-center justify-center mb-6">
                     <ShoppingBag className="w-6 h-6 text-black" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">Omnichannel Sales</h3>
+                  <h3 className="text-2xl font-medium mb-2">Omnichannel Sales</h3>
                   <p className="opacity-70 max-w-sm">
                     Sell in-store, online, and on the go. Inventory syncs
                     automatically across every channel.
@@ -68,14 +68,14 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 <div className="mt-8 flex gap-4">
                   <div className="bg-zinc-50 border border-zinc-100 p-4 flex-1 shadow-sm">
                     <div className="text-xs text-zinc-400 mb-1">Online</div>
-                    <div className="font-bold text-lg">$14,203</div>
+                    <div className="font-medium text-lg">$14,203</div>
                     <div className="w-full h-1 bg-zinc-200 mt-2">
                       <div className="w-3/4 h-full bg-black"></div>
                     </div>
                   </div>
                   <div className="bg-zinc-50 border border-zinc-100 p-4 flex-1 shadow-sm">
                     <div className="text-xs text-zinc-400 mb-1">In-Store</div>
-                    <div className="font-bold text-lg">$8,450</div>
+                    <div className="font-medium text-lg">$8,450</div>
                     <div className="w-full h-1 bg-zinc-200 mt-2">
                       <div className="w-1/2 h-full bg-black"></div>
                     </div>
@@ -90,7 +90,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 <div className="w-12 h-12 bg-zinc-800 flex items-center justify-center mb-6">
                   <Landmark className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-2">
+                <h3 className="text-2xl font-medium mb-2">
                   Banking & Reconciliation
                 </h3>
                 <p className="opacity-70 text-sm">
@@ -126,7 +126,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                     className="flex justify-between items-center text-xs"
                   >
                     <div>
-                      <div className="font-bold">{tx.name}</div>
+                      <div className="font-medium">{tx.name}</div>
                       <div className="text-green-400 text-[10px]">
                         {tx.status}
                       </div>
@@ -150,7 +150,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 <div className="w-10 h-10 bg-zinc-100 flex items-center justify-center mb-4">
                   <Receipt className="w-5 h-5 text-black" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Spend Management</h3>
+                <h3 className="text-xl font-medium mb-2">Spend Management</h3>
                 <p className="text-sm opacity-70 mb-4">
                   Issue corporate cards with custom limits for every employee.
                 </p>
@@ -170,11 +170,11 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 <div className="w-10 h-10 bg-zinc-100 flex items-center justify-center mb-4">
                   <Truck className="w-5 h-5 text-black" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Purchases</h3>
+                <h3 className="text-xl font-medium mb-2">Purchases</h3>
                 <p className="text-sm opacity-70 mb-4">
                   Manage vendors, create purchase orders, and track deliveries.
                 </p>
-                <div className="flex items-center gap-2 text-xs font-bold bg-zinc-50 p-2 border border-zinc-100">
+                <div className="flex items-center gap-2 text-xs font-medium bg-zinc-50 p-2 border border-zinc-100">
                   <div className="w-2 h-2 bg-green-500"></div>
                   PO #8832 • Approved
                 </div>
@@ -187,7 +187,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 <div className="w-10 h-10 bg-zinc-100 flex items-center justify-center mb-4">
                   <Briefcase className="w-5 h-5 text-black" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Staff Management</h3>
+                <h3 className="text-xl font-medium mb-2">Staff Management</h3>
                 <p className="text-sm opacity-70">
                   Payroll, scheduling, and permissions fully integrated.
                 </p>
@@ -211,26 +211,26 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 <div className="w-10 h-10 bg-white shadow-sm flex items-center justify-center mb-4">
                   <Coins className="w-5 h-5 text-black" />
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Credit & Lending</h3>
+                <h3 className="text-2xl font-medium mb-2">Credit & Lending</h3>
                 <p className="opacity-70 mb-6">
                   Access capital based on your real-time sales data. No
                   paperwork, just growth.
                 </p>
-                <button className="text-sm font-bold border-b border-black pb-0.5 hover:opacity-70">
+                <button className="text-sm font-medium border-b border-black pb-0.5 hover:opacity-70">
                   View Loan Offers
                 </button>
               </div>
               <div className="flex-1 w-full">
                 <div className="bg-white p-4 shadow-lg border border-zinc-100">
                   <div className="flex justify-between items-center mb-2">
-                    <div className="text-xs font-bold text-zinc-500">
+                    <div className="text-xs font-medium text-zinc-500">
                       Available Credit
                     </div>
-                    <div className="text-xs text-green-600 font-bold">
+                    <div className="text-xs text-green-600 font-medium">
                       Ready now
                     </div>
                   </div>
-                  <div className="text-3xl font-bold mb-2">$50,000</div>
+                  <div className="text-3xl font-medium mb-2">$50,000</div>
                   <div className="w-full bg-zinc-100 h-2 overflow-hidden">
                     <div className="bg-black w-2/3 h-full"></div>
                   </div>
@@ -247,7 +247,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 <div className="w-12 h-12 bg-zinc-800 text-white flex items-center justify-center mb-6">
                   <Layers className="w-6 h-6" />
                 </div>
-                <h3 className="text-3xl font-bold mb-3">
+                <h3 className="text-3xl font-medium mb-3">
                   Engagement Banking Platform
                 </h3>
                 <p className="opacity-80 mb-6 max-w-lg text-lg">
@@ -256,13 +256,13 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                   seamless fabric.
                 </p>
                 <div className="flex gap-2">
-                  <span className="text-xs font-bold bg-white/10 px-3 py-1 border border-white/10">
+                  <span className="text-xs font-medium bg-white/10 px-3 py-1 border border-white/10">
                     Digital Fabric
                   </span>
-                  <span className="text-xs font-bold bg-white/10 px-3 py-1 border border-white/10">
+                  <span className="text-xs font-medium bg-white/10 px-3 py-1 border border-white/10">
                     Data + AI
                   </span>
-                  <span className="text-xs font-bold bg-white/10 px-3 py-1 border border-white/10">
+                  <span className="text-xs font-medium bg-white/10 px-3 py-1 border border-white/10">
                     Integration
                   </span>
                 </div>
@@ -279,7 +279,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 <div className="w-12 h-12 bg-zinc-800 flex items-center justify-center mb-6 text-white">
                   <Users className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Tailored Segments</h3>
+                <h3 className="text-2xl font-medium mb-2">Tailored Segments</h3>
                 <p className="opacity-60 text-sm">
                   Pre-built journeys for every line of business.
                 </p>
@@ -302,7 +302,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                     className="p-4 bg-zinc-800/50 border border-zinc-700/50 hover:bg-zinc-800 transition-colors cursor-pointer group"
                   >
                     <div className="flex justify-between items-center mb-1">
-                      <span className="font-bold text-gray-200">
+                      <span className="font-medium text-gray-200">
                         {seg.title}
                       </span>
                       <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-gray-400" />
@@ -319,7 +319,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 <div className="w-10 h-10 bg-zinc-800 flex items-center justify-center mb-4 text-white">
                   <UserCheck className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">
+                <h3 className="text-xl font-medium mb-2">
                   Onboarding & Origination
                 </h3>
                 <p className="text-sm opacity-60 mb-4">
@@ -341,7 +341,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 <div className="w-10 h-10 bg-zinc-800 flex items-center justify-center mb-4 text-white">
                   <MessageSquare className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Human Assist</h3>
+                <h3 className="text-xl font-medium mb-2">Human Assist</h3>
                 <p className="text-sm opacity-60 mb-4">
                   Empower employees with a unified dashboard. See exactly what
                   your customer sees.
@@ -360,17 +360,17 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                   <div className="w-10 h-10 bg-zinc-800 flex items-center justify-center text-white">
                     <Cpu className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-bold tracking-widest text-gray-400 uppercase">
+                  <span className="text-xs font-medium tracking-widest text-gray-400 uppercase">
                     Grand Central
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Data & AI Fabric</h3>
+                <h3 className="text-2xl font-medium mb-2">Data & AI Fabric</h3>
                 <p className="opacity-60 mb-6 max-w-xl">
                   Drive real-time personalization. Cleanse, aggregate, and
                   enrich legacy data to power agentic AI and predictive
                   insights.
                 </p>
-                <button className="text-sm font-bold border-b border-white/20 pb-0.5 hover:text-gray-300 hover:border-gray-300 transition-colors">
+                <button className="text-sm font-medium border-b border-white/20 pb-0.5 hover:text-gray-300 hover:border-gray-300 transition-colors">
                   Explore Intelligence
                 </button>
               </div>

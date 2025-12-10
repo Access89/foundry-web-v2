@@ -33,7 +33,7 @@ const Home = () => {
           {/* MetaMask style 2-column header */}
           <div className="grid lg:grid-cols-2 gap-8 mb-16 items-end">
             <h2
-              className={`text-4xl md:text-5xl font-bold tracking-tight ${
+              className={`text-4xl md:text-5xl font-medium tracking-tight ${
                 activeSegment === "bank" ? "text-white" : "text-zinc-900"
               }`}
             >
@@ -86,7 +86,7 @@ const Home = () => {
               >
                 <div className="flex justify-between items-start mb-4">
                   <div
-                    className={`w-10 h-10 flex items-center justify-center font-bold ${
+                    className={`w-10 h-10 flex items-center justify-center font-medium ${
                       activeSegment === "bank"
                         ? "bg-zinc-800 text-white"
                         : "bg-white border border-zinc-200 text-zinc-600"
@@ -105,7 +105,7 @@ const Home = () => {
                   </span>
                 </div>
                 <h3
-                  className={`font-bold mb-1 ${
+                  className={`font-medium mb-1 ${
                     activeSegment === "bank" ? "text-white" : "text-zinc-900"
                   }`}
                 >
@@ -167,7 +167,7 @@ const Home = () => {
               </blockquote>
               <div className="flex items-center gap-4">
                 <div
-                  className={`w-12 h-12 rounded-full flex items-center justify-center font-bold ${
+                  className={`w-12 h-12 rounded-full flex items-center justify-center font-medium ${
                     activeSegment === "bank"
                       ? "bg-zinc-700 text-white"
                       : "bg-zinc-200 text-zinc-700"
@@ -177,7 +177,7 @@ const Home = () => {
                 </div>
                 <div>
                   <div
-                    className={`font-bold ${
+                    className={`font-medium ${
                       activeSegment === "bank" ? "text-white" : "text-zinc-900"
                     }`}
                   >
@@ -209,7 +209,7 @@ const Home = () => {
               }`}
             >
               <h3
-                className={`text-lg font-bold mb-8 ${
+                className={`text-lg font-medium mb-8 ${
                   activeSegment === "bank" ? "text-white" : "text-zinc-900"
                 }`}
               >
@@ -253,7 +253,7 @@ const Home = () => {
                 ].map((stat, i) => (
                   <div key={i}>
                     <div
-                      className={`text-3xl font-bold mb-1 ${
+                      className={`text-3xl font-medium mb-1 ${
                         activeSegment === "bank"
                           ? "text-[#F6851B]"
                           : "text-black"

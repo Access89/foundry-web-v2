@@ -1,4 +1,3 @@
-import React from "react";
 
 const Enterprise = () => {
   return (
@@ -6,10 +5,10 @@ const Enterprise = () => {
       <div className="max-w-10xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 items-center mb-20 mt-8">
           <div className="flex-1">
-            <div className="inline-block px-3 py-1 bg-zinc-800 text-xs font-bold mb-6">
+            <div className="inline-block px-3 py-1 bg-zinc-800 text-xs font-medium mb-6">
               ENTERPRISE PLATFORM
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+            <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-6">
               Global payments.
               <br />
               Without the friction.
@@ -19,10 +18,10 @@ const Enterprise = () => {
               regions, and channels.
             </p>
             <div className="flex gap-4">
-              <button className="px-8 py-4 bg-white text-black rounded-md font-bold text-lg hover:opacity-90 transition-opacity">
+              <button className="px-8 py-4 bg-white text-black rounded-md font-medium text-lg hover:opacity-90 transition-opacity">
                 Contact Sales
               </button>
-              <button className="px-8 py-4 border border-zinc-700 text-white rounded-md font-bold text-lg hover:bg-white/5 transition-colors">
+              <button className="px-8 py-4 border border-zinc-700 text-white rounded-md font-medium text-lg hover:bg-white/5 transition-colors">
                 View API Docs
               </button>
             </div>

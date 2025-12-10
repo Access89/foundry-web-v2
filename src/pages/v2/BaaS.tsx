@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Code2,
   CreditCard,
@@ -15,10 +14,10 @@ const BaaS = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24 mt-8">
           <div className="order-2 lg:order-1">
-            <div className="inline-block px-3 py-1 bg-zinc-800 text-xs font-bold mb-6">
+            <div className="inline-block px-3 py-1 bg-zinc-800 text-xs font-medium mb-6">
               BANKING PRIMITIVES
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-6 leading-tight">
               Build your own bank.
               <br />
               One API call at a time.
@@ -29,7 +28,7 @@ const BaaS = () => {
               instant transfers—infrastructure handled.
             </p>
             <div className="flex gap-4">
-              <button className="px-8 py-4 bg-white text-black rounded-md font-bold text-lg hover:opacity-90 transition-opacity">
+              <button className="px-8 py-4 bg-white text-black rounded-md font-medium text-lg hover:opacity-90 transition-opacity">
                 Start Building
               </button>
             </div>
@@ -109,7 +108,7 @@ const BaaS = () => {
               className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow"
             >
               <div className="text-white mb-6">{feature.icon}</div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+              <h3 className="text-xl font-medium mb-3">{feature.title}</h3>
               <p className="text-gray-400">{feature.desc}</p>
             </div>
           ))}
@@ -118,13 +117,13 @@ const BaaS = () => {
         {/* CTA */}
         <div className="bg-zinc-900 p-12 md:p-20 text-center mb-20">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-medium mb-6">
               Ready to build?
             </h2>
             <p className="text-gray-400 mb-8">
               Get API keys and start testing in sandbox mode today.
             </p>
-            <button className="px-8 py-4 bg-white text-black font-bold rounded-md hover:opacity-90 transition-opacity">
+            <button className="px-8 py-4 bg-white text-black font-medium rounded-md hover:opacity-90 transition-opacity">
               Get API Access
             </button>
           </div>

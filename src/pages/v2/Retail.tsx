@@ -1,4 +1,3 @@
-import React from "react";
 import { Layers, Users, Star, CheckCircle2 } from "lucide-react";
 
 const Retail = () => {
@@ -7,10 +6,10 @@ const Retail = () => {
       <div className="max-w-10xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20 mt-8">
           <div>
-            <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-bold mb-6">
+            <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-medium mb-6">
               RETAIL SOLUTIONS
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+            <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-6">
               Sell anywhere.
               <br />
               Manage everywhere.
@@ -19,14 +18,14 @@ const Retail = () => {
               A complete point-of-sale system that works as hard as you do. Sync
               your online and offline sales in real-time.
             </p>
-            <button className="px-8 py-4 bg-primary text-white rounded-md font-bold text-lg hover:opacity-90 transition-opacity">
+            <button className="px-8 py-4 bg-primary text-white rounded-md font-medium text-lg hover:opacity-90 transition-opacity">
               Get Started Free
             </button>
           </div>
           <div className="relative h-[500px] bg-zinc-50 border border-zinc-200 shadow-lg overflow-hidden flex items-center justify-center">
             {/* Mockup of POS */}
             <div className="w-64 h-[400px] bg-white border-8 border-zinc-900 flex flex-col">
-              <div className="h-8 bg-zinc-100 border-b border-zinc-200 flex items-center justify-center text-[10px] font-bold text-zinc-400">
+              <div className="h-8 bg-zinc-100 border-b border-zinc-200 flex items-center justify-center text-[10px] font-medium text-zinc-400">
                 Foundry POS
               </div>
               <div className="flex-1 p-4 grid grid-cols-2 gap-2">
@@ -35,11 +34,11 @@ const Retail = () => {
                 ))}
               </div>
               <div className="p-4 border-t border-zinc-100">
-                <div className="flex justify-between font-bold mb-2">
+                <div className="flex justify-between font-medium mb-2">
                   <span>Total</span>
                   <span>$142.50</span>
                 </div>
-                <div className="w-full h-10 bg-black text-white flex items-center justify-center text-sm font-bold">
+                <div className="w-full h-10 bg-black text-white flex items-center justify-center text-sm font-medium">
                   Charge
                 </div>
               </div>
@@ -73,7 +72,7 @@ const Retail = () => {
               <div className="w-12 h-12 bg-white border border-zinc-200 flex items-center justify-center mb-6">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+              <h3 className="text-xl font-medium mb-2">{feature.title}</h3>
               <p className="text-zinc-600">{feature.desc}</p>
             </div>
           ))}
@@ -82,7 +81,7 @@ const Retail = () => {
         {/* Wholesale Feature */}
         <div className="bg-zinc-50 p-12 border border-zinc-200 mb-20">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Built for wholesale too</h2>
+            <h2 className="text-3xl font-medium mb-4">Built for wholesale too</h2>
             <p className="text-lg text-zinc-600 mb-8">
               Manage bulk orders, tiered pricing, and B2B relationships with the
               same system. One platform for retail and wholesale.
@@ -105,14 +104,14 @@ const Retail = () => {
         {/* CTA */}
         <div className="bg-black text-white p-12 md:p-20 text-center mb-20">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-medium mb-6">
               Start selling today
             </h2>
             <p className="text-zinc-400 mb-8">
               Join thousands of retailers who trust Foundry to power their
               business.
             </p>
-            <button className="px-8 py-4 bg-primary text-white font-bold hover:opacity-90 transition-opacity">
+            <button className="px-8 py-4 bg-primary text-white font-medium hover:opacity-90 transition-opacity">
               Get Started Free
             </button>
           </div>

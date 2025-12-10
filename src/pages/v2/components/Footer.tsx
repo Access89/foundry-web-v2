@@ -6,7 +6,7 @@ interface FooterProps {
   setActiveSegment: (segment: string) => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ activeSegment, setActiveSegment }) => {
+const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
   const navigate = useNavigate();
 
   const handleNavigate = (path: string, segment?: string) => {
@@ -31,13 +31,13 @@ const Footer: React.FC<FooterProps> = ({ activeSegment, setActiveSegment }) => {
         {/* Logo column */}
         <div className="col-span-2 md:col-span-1">
           <div className="flex flex-col gap-1 mb-6">
-            <span className="text-3xl font-bold">Foundry</span>
+            <span className="text-3xl font-medium">Foundry</span>
           </div>
         </div>
 
         {/* Foundry column */}
         <div>
-          <h4 className="font-bold mb-4 text-gray-300">Foundry</h4>
+          <h4 className="font-medium mb-4 text-gray-300">Foundry</h4>
           <ul className="space-y-3 text-sm">
             <li>
               <button
@@ -70,7 +70,7 @@ const Footer: React.FC<FooterProps> = ({ activeSegment, setActiveSegment }) => {
               >
                 Banking
               </button>
-              <span className="px-2 py-0.5 bg-[#A6F44C] text-black text-xs font-bold rounded-md">
+              <span className="px-2 py-0.5 bg-[#A6F44C] text-black text-xs font-medium rounded-md">
                 NEW
               </span>
             </li>
@@ -81,7 +81,7 @@ const Footer: React.FC<FooterProps> = ({ activeSegment, setActiveSegment }) => {
               >
                 Credit
               </button>
-              <span className="px-2 py-0.5 bg-[#A6F44C] text-black text-xs font-bold rounded-md">
+              <span className="px-2 py-0.5 bg-[#A6F44C] text-black text-xs font-medium rounded-md">
                 NEW
               </span>
             </li>
@@ -90,7 +90,7 @@ const Footer: React.FC<FooterProps> = ({ activeSegment, setActiveSegment }) => {
 
         {/* Products column */}
         <div>
-          <h4 className="font-bold mb-4 text-gray-300">Products</h4>
+          <h4 className="font-medium mb-4 text-gray-300">Products</h4>
           <ul className="space-y-3 text-sm">
             <li className="flex items-center gap-2">
               <a
@@ -99,7 +99,7 @@ const Footer: React.FC<FooterProps> = ({ activeSegment, setActiveSegment }) => {
               >
                 POS Terminal
               </a>
-              <span className="px-2 py-0.5 bg-[#A6F44C] text-black text-xs font-bold rounded-md">
+              <span className="px-2 py-0.5 bg-[#A6F44C] text-black text-xs font-medium rounded-md">
                 NEW
               </span>
             </li>
@@ -140,7 +140,7 @@ const Footer: React.FC<FooterProps> = ({ activeSegment, setActiveSegment }) => {
 
         {/* Developer column */}
         <div>
-          <h4 className="font-bold mb-4 text-gray-300">Developer</h4>
+          <h4 className="font-medium mb-4 text-gray-300">Developer</h4>
           <ul className="space-y-3 text-sm">
             <li>
               <a
@@ -195,7 +195,7 @@ const Footer: React.FC<FooterProps> = ({ activeSegment, setActiveSegment }) => {
 
         {/* About column */}
         <div>
-          <h4 className="font-bold mb-4 text-gray-300">About</h4>
+          <h4 className="font-medium mb-4 text-gray-300">About</h4>
           <ul className="space-y-3 text-sm">
             <li>
               <a
@@ -259,7 +259,7 @@ const Footer: React.FC<FooterProps> = ({ activeSegment, setActiveSegment }) => {
                   className="w-8 h-8 bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center cursor-pointer transition-colors text-xs"
                 >
                   {icon === "RSS" ? (
-                    <span className="text-[10px] font-bold">RSS</span>
+                    <span className="text-[10px] font-medium">RSS</span>
                   ) : (
                     <span className="text-gray-400">{icon}</span>
                   )}

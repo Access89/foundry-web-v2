@@ -37,7 +37,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               setActiveSegment("merchant");
               handleNavigate("/v2");
             }}
-            className={`flex-1 py-3 rounded-md font-semibold transition-colors ${
+            className={`flex-1 py-3 rounded-md font-medium transition-colors ${
               activeSegment === "merchant"
                 ? "bg-black text-white"
                 : "bg-zinc-100 text-black"
@@ -50,7 +50,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               setActiveSegment("bank");
               handleNavigate("/v2");
             }}
-            className={`flex-1 py-3 rounded-md font-semibold transition-colors ${
+            className={`flex-1 py-3 rounded-md font-medium transition-colors ${
               activeSegment === "bank"
                 ? "bg-black text-white"
                 : "bg-zinc-100 text-black"
@@ -61,14 +61,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         </div>
         {Object.keys(navData).map((item) => (
           <div key={item} className="border-b border-zinc-100 pb-4">
-            <div className="text-xl font-bold mb-4 text-black">{item}</div>
+            <div className="text-xl font-medium mb-4 text-black">{item}</div>
             {(navData[item as keyof typeof navData] as any).type ===
             "categorized" ? (
               <div className="space-y-6">
                 {(navData[item as keyof typeof navData] as any).sections.map(
                   (section: any, sectionIdx: number) => (
                     <div key={sectionIdx}>
-                      <div className="text-xs font-bold uppercase tracking-wider mb-3 text-zinc-400">
+                      <div className="text-xs font-medium uppercase tracking-wider mb-3 text-zinc-400">
                         {section.title}
                       </div>
                       <div className="grid grid-cols-1 gap-4 pl-2">
@@ -83,7 +83,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                           >
                             <div className="text-zinc-400">{subItem.icon}</div>
                             <div>
-                              <div className="font-semibold text-sm text-black">
+                              <div className="font-medium text-sm text-black">
                                 {subItem.title}
                               </div>
                               <div className="text-xs text-zinc-500">
@@ -111,7 +111,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     >
                       <div className="text-zinc-400">{subItem.icon}</div>
                       <div>
-                        <div className="font-semibold text-sm text-black">
+                        <div className="font-medium text-sm text-black">
                           {subItem.title}
                         </div>
                         <div className="text-xs text-zinc-500">
@@ -127,7 +127,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         ))}
         <button
           onClick={() => navigate("/onboarding")}
-          className="bg-black text-white px-6 py-3 rounded-md font-semibold mt-4"
+          className="bg-black text-white px-6 py-3 rounded-md font-medium mt-4"
         >
           GET STARTED
         </button>

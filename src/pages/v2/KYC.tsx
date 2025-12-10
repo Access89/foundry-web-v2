@@ -1,4 +1,3 @@
-import React from "react";
 import {
   ScanFace,
   Globe,
@@ -15,10 +14,10 @@ const KYC = () => {
       <div className="max-w-10xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20 mt-8">
           <div>
-            <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-bold mb-6">
+            <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-medium mb-6">
               IDENTITY VERIFICATION
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+            <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-6">
               Trust is your
               <br />
               currency.
@@ -27,7 +26,7 @@ const KYC = () => {
               Verify users in seconds, not days. Prevent fraud with biometric
               authentication and global document checks.
             </p>
-            <button className="px-8 py-4 bg-primary text-white rounded-md font-bold text-lg hover:opacity-90 transition-opacity">
+            <button className="px-8 py-4 bg-primary text-white rounded-md font-medium text-lg hover:opacity-90 transition-opacity">
               Start Verifying
             </button>
           </div>
@@ -42,7 +41,7 @@ const KYC = () => {
                 <div className="w-20 h-20 bg-zinc-100 flex items-center justify-center mb-6">
                   <ScanFace className="w-10 h-10 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Identity Verified</h3>
+                <h3 className="text-xl font-medium mb-2">Identity Verified</h3>
                 <p className="text-sm text-zinc-500 mb-6">
                   Match confirmed. Liveness check passed.
                 </p>
@@ -50,7 +49,7 @@ const KYC = () => {
                 <div className="w-full bg-zinc-50 p-3 text-left mb-2 flex items-center gap-3">
                   <FileBadge className="w-5 h-5 text-primary" />
                   <div className="text-xs">
-                    <div className="font-bold">Document</div>
+                    <div className="font-medium">Document</div>
                     <div className="text-zinc-400">Driver's License</div>
                   </div>
                   <CheckCircle2 className="w-4 h-4 text-primary ml-auto" />
@@ -58,14 +57,14 @@ const KYC = () => {
                 <div className="w-full bg-zinc-50 p-3 text-left flex items-center gap-3">
                   <Fingerprint className="w-5 h-5 text-primary" />
                   <div className="text-xs">
-                    <div className="font-bold">Biometrics</div>
+                    <div className="font-medium">Biometrics</div>
                     <div className="text-zinc-400">99.8% Match</div>
                   </div>
                   <CheckCircle2 className="w-4 h-4 text-primary ml-auto" />
                 </div>
               </div>
 
-              <div className="p-4 bg-primary text-white text-center font-bold text-sm">
+              <div className="p-4 bg-primary text-white text-center font-medium text-sm">
                 Access Granted
               </div>
             </div>
@@ -75,7 +74,7 @@ const KYC = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-24">
           <div className="p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow">
             <ScanFace className="w-12 h-12 text-primary mb-6" />
-            <h3 className="text-xl font-bold mb-3">Liveness Detection</h3>
+            <h3 className="text-xl font-medium mb-3">Liveness Detection</h3>
             <p className="text-zinc-600">
               Stop deepfakes and bots. Our AI analyzes micro-movements to ensure
               the user is physically present.
@@ -83,7 +82,7 @@ const KYC = () => {
           </div>
           <div className="p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow">
             <Globe className="w-12 h-12 text-primary mb-6" />
-            <h3 className="text-xl font-bold mb-3">Global Coverage</h3>
+            <h3 className="text-xl font-medium mb-3">Global Coverage</h3>
             <p className="text-zinc-600">
               Support for 12,000+ document types across 200+ countries and
               territories.
@@ -91,7 +90,7 @@ const KYC = () => {
           </div>
           <div className="p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow">
             <ShieldCheck className="w-12 h-12 text-primary mb-6" />
-            <h3 className="text-xl font-bold mb-3">AML Screening</h3>
+            <h3 className="text-xl font-medium mb-3">AML Screening</h3>
             <p className="text-zinc-600">
               Automatically screen users against PEPs, sanctions, and adverse
               media lists during onboarding.

@@ -65,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({
             }}
           >
             <img src="/icons/logo.svg" className="w-[1.3rem]" alt="logo" />
-            <p className="font-bold text-black uppercase text-lg tracking-tight">
+            <p className="font-medium text-black uppercase text-lg tracking-tight">
               foundry
             </p>
           </div>
@@ -124,7 +124,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
                 {/* Mega Menu Dropdown */}
                 <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 p-2 shadow-xl border bg-white backdrop-blur-md transition-all duration-300 origin-top ${
+                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 p-2 shadow-xl border bg-white backdrop-blur-md transition-all duration-300 origin-top  ${
                     hoveredNav === item
                       ? "opacity-100 scale-100 translate-y-0 visible"
                       : "opacity-0 scale-95 -translate-y-2 invisible pointer-events-none"
@@ -142,7 +142,7 @@ const Navbar: React.FC<NavbarProps> = ({
                         navData[item as keyof typeof navData] as any
                       ).sections.map((section: any, idx: number) => (
                         <div key={idx} className="flex-1">
-                          <div className="text-xs font-bold uppercase tracking-wider mb-4 px-2 text-zinc-400">
+                          <div className="text-xs font-medium uppercase tracking-wider mb-4 px-2 text-zinc-400">
                             {section.title}
                           </div>
                           <div className="flex flex-col gap-1">
@@ -161,7 +161,7 @@ const Navbar: React.FC<NavbarProps> = ({
                                     {subItem.icon}
                                   </div>
                                   <div>
-                                    <div className="font-bold text-sm text-zinc-900">
+                                    <div className="font-medium text-sm text-zinc-900">
                                       {subItem.title}
                                     </div>
                                     <div className="text-xs mt-0.5 text-zinc-500">
@@ -192,7 +192,7 @@ const Navbar: React.FC<NavbarProps> = ({
                               {subItem.icon}
                             </div>
                             <div>
-                              <div className="font-bold text-sm text-zinc-900">
+                              <div className="font-medium text-sm text-zinc-900">
                                 {subItem.title}
                               </div>
                               <div className="text-xs mt-0.5 text-zinc-500">
@@ -223,7 +223,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <div className="hidden lg:flex gap-3 items-center">
             <button
               onClick={() => navigate("/onboarding")}
-              className="bg-primary text-white px-6 py-2.5 rounded-md font-semibold text-sm hover:opacity-90 transition-opacity"
+              className="bg-primary text-white px-6 py-2.5 rounded-md font-medium text-sm hover:opacity-90 transition-opacity"
             >
               Sign up
             </button>
@@ -231,7 +231,7 @@ const Navbar: React.FC<NavbarProps> = ({
               onClick={() =>
                 window.open("https://foundry-platform.com", "_blank")
               }
-              className="bg-[#EDF2EE] border-2 border-primary text-primary px-6 py-2.5 rounded-md font-semibold text-sm hover:bg-primary hover:text-white transition-all"
+              className="bg-[#EDF2EE] border-2 border-primary text-primary px-6 py-2.5 rounded-md font-medium text-sm hover:bg-primary hover:text-white transition-all"
             >
               Log In
             </button>

@@ -13,7 +13,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
       <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
         {/* Section Header - MetaMask 2-column style */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16 items-end">
-          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-medium text-white tracking-tight">
             Develop with
             <br />
             Foundry
@@ -23,7 +23,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
               A comprehensive set of developer tools, products and services for
               onboarding and engaging with Foundry users.
             </p>
-            <button className="px-6 py-3 bg-white text-black rounded-md font-semibold text-sm hover:bg-gray-100 transition-colors uppercase">
+            <button className="px-6 py-3 bg-white text-black rounded-md font-medium text-sm hover:bg-gray-100 transition-colors uppercase">
               Get Started
             </button>
           </div>
@@ -115,7 +115,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
         <div className="grid md:grid-cols-2 gap-6">
           {/* Card 1 */}
           <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all">
-            <h3 className="text-xl font-bold mb-3 text-[#F6851B]">
+            <h3 className="text-xl font-medium mb-3 text-[#F6851B]">
               Global Sanctions & Watchlists
             </h3>
             <p className="text-gray-400 text-sm mb-4">
@@ -132,7 +132,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
 
           {/* Card 2 */}
           <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all">
-            <h3 className="text-xl font-bold mb-3 text-[#F6851B]">
+            <h3 className="text-xl font-medium mb-3 text-[#F6851B]">
               AI Transaction Monitoring
             </h3>
             <p className="text-gray-400 text-sm mb-4">
@@ -149,7 +149,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
 
           {/* Card 3 */}
           <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all">
-            <h3 className="text-xl font-bold mb-3 text-[#F6851B]">
+            <h3 className="text-xl font-medium mb-3 text-[#F6851B]">
               Automated KYB
             </h3>
             <p className="text-gray-400 text-sm mb-4">
@@ -166,7 +166,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
 
           {/* Card 4 */}
           <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all">
-            <h3 className="text-xl font-bold mb-3 text-[#F6851B]">
+            <h3 className="text-xl font-medium mb-3 text-[#F6851B]">
               Real-time Alerts
             </h3>
             <p className="text-gray-400 text-sm mb-4">

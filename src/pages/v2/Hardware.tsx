@@ -1,4 +1,3 @@
-import React from "react";
 import { Zap, CreditCard, Battery, Wifi, ShieldCheck } from "lucide-react";
 
 const Hardware = () => {
@@ -6,10 +5,10 @@ const Hardware = () => {
     <div className="pt-24 min-h-screen bg-white text-zinc-900">
       <div className="max-w-10xl mx-auto px-6">
         <div className="text-center max-w-4xl mx-auto mb-20 mt-8">
-          <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-bold mb-6">
+          <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-medium mb-6">
             POINT OF SALE
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+          <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-6">
             Hardware that
             <br />
             <span className="text-zinc-400">means business.</span>
@@ -29,14 +28,14 @@ const Hardware = () => {
               {/* UI Mockup */}
               <div className="p-6 pt-12">
                 <div className="text-center mb-8">
-                  <div className="text-4xl font-bold">$24.00</div>
+                  <div className="text-4xl font-medium">$24.00</div>
                   <div className="text-sm text-zinc-400">Total Amount</div>
                 </div>
                 <div className="space-y-3">
-                  <div className="h-12 bg-black text-white flex items-center justify-center font-bold shadow-lg">
+                  <div className="h-12 bg-black text-white flex items-center justify-center font-medium shadow-lg">
                     Tap to Pay
                   </div>
-                  <div className="h-12 border border-zinc-200 flex items-center justify-center font-bold">
+                  <div className="h-12 border border-zinc-200 flex items-center justify-center font-medium">
                     Insert Card
                   </div>
                 </div>
@@ -65,20 +64,20 @@ const Hardware = () => {
                 <CreditCard className="w-10 h-10 text-zinc-300" />
               </div>
             </div>
-            <h3 className="text-2xl font-bold mb-2">Reader</h3>
+            <h3 className="text-2xl font-medium mb-2">Reader</h3>
             <p className="text-zinc-600 mb-6">
               Connect wirelessly to your phone or tablet. Pocket-sized power.
             </p>
             <div className="flex justify-between items-center">
-              <span className="font-bold">$49</span>
-              <button className="px-4 py-2 bg-primary text-white rounded-md text-sm font-bold hover:opacity-90 transition-opacity">
+              <span className="font-medium">$49</span>
+              <button className="px-4 py-2 bg-primary text-white rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
                 Shop
               </button>
             </div>
           </div>
 
           <div className="group p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow relative overflow-hidden">
-            <div className="absolute top-4 right-4 bg-black text-white text-xs font-bold px-2 py-1">
+            <div className="absolute top-4 right-4 bg-black text-white text-xs font-medium px-2 py-1">
               BEST SELLER
             </div>
             <div className="h-48 flex items-center justify-center mb-6">
@@ -88,13 +87,13 @@ const Hardware = () => {
                 <div className="h-2 w-1/2 bg-zinc-200 mx-auto"></div>
               </div>
             </div>
-            <h3 className="text-2xl font-bold mb-2">Terminal</h3>
+            <h3 className="text-2xl font-medium mb-2">Terminal</h3>
             <p className="text-zinc-600 mb-6">
               All-in-one device for payments and receipts. No phone needed.
             </p>
             <div className="flex justify-between items-center">
-              <span className="font-bold">$299</span>
-              <button className="px-4 py-2 bg-primary text-white rounded-md text-sm font-bold hover:opacity-90 transition-opacity">
+              <span className="font-medium">$299</span>
+              <button className="px-4 py-2 bg-primary text-white rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
                 Shop
               </button>
             </div>
@@ -108,14 +107,14 @@ const Hardware = () => {
                 <div className="absolute -right-6 top-1/2 -translate-y-1/2 w-12 h-20 bg-zinc-800 transform -rotate-12"></div>
               </div>
             </div>
-            <h3 className="text-2xl font-bold mb-2">Register</h3>
+            <h3 className="text-2xl font-medium mb-2">Register</h3>
             <p className="text-zinc-600 mb-6">
               Two displays. Dedicated customer screen. The center of your
               counter.
             </p>
             <div className="flex justify-between items-center">
-              <span className="font-bold">$799</span>
-              <button className="px-4 py-2 bg-primary text-white rounded-md text-sm font-bold hover:opacity-90 transition-opacity">
+              <span className="font-medium">$799</span>
+              <button className="px-4 py-2 bg-primary text-white rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
                 Shop
               </button>
             </div>
@@ -126,22 +125,22 @@ const Hardware = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24 text-center">
           <div className="p-6 bg-zinc-50 border border-zinc-200">
             <Battery className="w-8 h-8 mx-auto mb-3" />
-            <div className="font-bold text-3xl mb-1">24h</div>
+            <div className="font-medium text-3xl mb-1">24h</div>
             <div className="text-sm text-zinc-500">Battery Life</div>
           </div>
           <div className="p-6 bg-zinc-50 border border-zinc-200">
             <Zap className="w-8 h-8 mx-auto mb-3" />
-            <div className="font-bold text-3xl mb-1">0.1s</div>
+            <div className="font-medium text-3xl mb-1">0.1s</div>
             <div className="text-sm text-zinc-500">Processing Speed</div>
           </div>
           <div className="p-6 bg-zinc-50 border border-zinc-200">
             <Wifi className="w-8 h-8 mx-auto mb-3" />
-            <div className="font-bold text-3xl mb-1">4G</div>
+            <div className="font-medium text-3xl mb-1">4G</div>
             <div className="text-sm text-zinc-500">LTE & WiFi</div>
           </div>
           <div className="p-6 bg-zinc-50 border border-zinc-200">
             <ShieldCheck className="w-8 h-8 mx-auto mb-3" />
-            <div className="font-bold text-3xl mb-1">IP67</div>
+            <div className="font-medium text-3xl mb-1">IP67</div>
             <div className="text-sm text-zinc-500">Water Resistant</div>
           </div>
         </div>

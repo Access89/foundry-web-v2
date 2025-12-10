@@ -1,7 +1,5 @@
-import React from "react";
 import {
   CreditCard,
-  Smartphone,
   Layers,
   ShoppingBag,
   Coffee,

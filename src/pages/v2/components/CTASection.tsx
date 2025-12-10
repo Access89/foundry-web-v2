@@ -16,7 +16,7 @@ const CTASection: React.FC<CTASectionProps> = ({ activeSegment }) => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className="md:pb-20 lg:pb-28 lg:pt-16 px-8 lg:px-16">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-black">
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6 text-black">
               Start building
               <br />
               with a free Foundry
@@ -29,7 +29,7 @@ const CTASection: React.FC<CTASectionProps> = ({ activeSegment }) => {
                 : "Deploy your smart contracts and banking integrations with Foundry's enterprise APIs. Get started for free."}
             </p>
 
-            <button className="px-8 py-4 bg-black text-white rounded-md font-semibold uppercase text-sm hover:bg-gray-800 transition-colors">
+            <button className="px-8 py-4 bg-black text-white rounded-md font-medium uppercase text-sm hover:bg-gray-800 transition-colors">
               Get Started
             </button>
           </div>

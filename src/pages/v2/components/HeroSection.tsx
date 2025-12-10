@@ -8,7 +8,6 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   activeSegment,
-  setActiveSegment,
 }) => {
   return (
     <header
@@ -24,7 +23,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               activeSegment === "bank" ? "text-white" : "text-zinc-900"
             }`}
           >
-            <h1 className="text-6xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
+            <h1 className="text-6xl md:text-7xl font-medium tracking-tight leading-[1.1] mb-6">
               {activeSegment === "merchant" ? (
                 <>
                   <TextType
@@ -93,7 +92,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
             <div className="flex flex-col sm:flex-row gap-4">
               <button
-                className={`px-8 py-4 text-lg font-semibold rounded-md transition-all uppercase ${
+                className={`px-8 py-4 text-lg font-medium rounded-md transition-all uppercase ${
                   activeSegment === "merchant"
                     ? "bg-black text-white hover:bg-gray-800"
                     : "bg-white text-black hover:bg-gray-100"
