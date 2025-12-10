@@ -232,59 +232,161 @@ const FoundryCard: React.FC<FoundryCardProps> = ({
 };
 
 const FoundrySection = () => {
+  const [index, setIndex] = useState(0);
+  const [cardsToShow, setCardsToShow] = useState(getCardsToShow());
+
+  // const [showHandClick, setShowHandClick] = useState(false);
+
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => setShowHandClick(true), 1500); // show for 2.5s
+  //   return () => clearTimeout(timeout);
+  // }, []);
+
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => setShowHandClick(false), 5000); // show for 2.5s
+  //   return () => clearTimeout(timeout);
+  // }, []);
+
+  const updateCardsToShow = useCallback(
+    () => setCardsToShow(getCardsToShow()),
+    []
+  );
+
+  useEffect(() => {
+    window.addEventListener("resize", updateCardsToShow);
+    return () => window.removeEventListener("resize", updateCardsToShow);
+  }, [updateCardsToShow]);
+
+  function getCardsToShow() {
+    if (window.innerWidth < 640) return CARDS_TO_SHOW.mobile;
+    if (window.innerWidth < 1020) return CARDS_TO_SHOW.tablet;
+    if (window.innerWidth < 1440) return CARDS_TO_SHOW.semidesktop;
+    return CARDS_TO_SHOW.desktop;
+  }
+
+  const handleSwipeLeft = useCallback(() => {
+    setIndex((prev) => Math.min(prev + 1, foundry_stars.length - 1));
+  }, []);
+
+  const handleSwipeRight = useCallback(() => {
+    setIndex((prev) => Math.max(prev - 1, 0));
+  }, []);
+
+  const handlers = useSwipeable({
+    onSwipedLeft: handleSwipeLeft,
+    onSwipedRight: handleSwipeRight,
+    trackMouse: true,
+  });
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % foundry_stars.length);
+    }, 3000); // Adjust this value (3000ms = 3s per move)
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="py-10 lg:pt-40 lg:pb-32 lg:mx-auto mx-5 flex flex-col overflow-visible flex-1">
-      {/* 2-Column Layout - Similar to V2 Hero */}
-      <div className="max-w-[1400px] mx-auto w-full px-4 md:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
-          <div className="max-w-2xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
-              <span className="">Accelerating Growth</span>
-              <br />
-              <span className="">for Everyday Businesses</span>
-            </h1>
+    <motion.section
+      className="py-10 lg:mb-20 lg:mx-auto mx-5 flex flex-col overflow-visible flex-1 "
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <motion.h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold mb-2 lg:mb-4 text-center font-roboto w-full px-4">
+        <span className=" bg-gradient-to-r from-[#C65C3E] via-[#DFAF3E]  to-[#075056] bg-clip-text text-transparent">
+          {" "}
+          Accelerating Growth
+        </span>
+        <br />{" "}
+        <span className="bg-gradient-to-r from-[#C65C3E] via-[#DFAF3E]  to-[#075056] bg-clip-text text-transparent">
+          for Everyday Businesses
+        </span>
+      </motion.h1>
 
-            <p className="text-xl md:text-2xl mb-8 leading-relaxed text-zinc-600">
-              Everything you need to sell, run, and grow your business. One
-              platform, infinite possibilities.
-            </p>
+      <div className="relative flex items-center justify-center w-full overflow-visible mt-2 md:mt-5 lg:mt-8 lg:pb-5">
+        <img
+          className="lg:w-[35%] md:w-[60%] w-[100%] h-auto"
+          src="/images/foundry_stars/Main2.png"
+          alt="hero"
+        />
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/onboarding"
-                className="px-8 py-4 bg-primary text-white text-lg font-semibold rounded-md hover:opacity-90 transition-opacity uppercase text-center"
+        {/* Scattered Cards */}
+        <div className="hidden lg:flex absolute inset-0 z-10">
+          {/* hand point */}
+          {/* {showHandClick && (
+            <motion.div
+              initial={{ opacity: 0, x: 40, y: 40, scale: 0.8 }}
+              animate={{ opacity: 1, x: -20, y: -20, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 2,
+                ease: 'easeInOut',
+              }}
+              className="absolute z-50 pointer-events-none"
+              style={{
+                top: '15%', // Start lower vertically
+                left: '28%', // Start more to the right
+              }}
+            >
+              <Icon
+                icon="fluent:cursor-click-20-filled"
+                fontSize={40}
+                className="text-black"
+              />
+            </motion.div>
+          )} */}
+
+          {foundry_stars.map((item, i) => {
+            const positions = [
+              "bottom-[5%] left-[15%]",
+              "bottom-0 right-[18%]",
+              "top-0 left-[10%]",
+              "top-0 right-[10%]",
+              // "top-1/3 left-0"
+            ];
+
+            const customOrder = [2, 3, 0, 1]; // Maps original index to its order
+            return (
+              <motion.div
+                key={i}
+                className={`absolute ${
+                  positions[i % positions.length]
+                } lg:w-[20%] w-[15%]`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: customOrder[i] * 0.4, // Use custom order for delay
+                }}
               >
-                Get Started
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Visual - Hero Image */}
-          <div className="relative h-[400px] lg:h-[500px] w-full flex items-center justify-center">
-            <img
-              className="w-full h-full object-contain"
-              src="/images/foundry_stars/Main2.png"
-              alt="Foundry Platform"
-            />
-          </div>
-        </div>
-
-        {/* Mobile Cards Carousel - Only show on mobile */}
-        <div className="lg:hidden mt-12">
-          <h3 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-[#C65C3E] via-[#DFAF3E] to-[#075056] bg-clip-text text-transparent">
-            What would you like to do?
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {foundry_stars.map((card, i) => (
-              <div key={i}>
-                <FoundryCard {...card} full={true} />
-              </div>
-            ))}
-          </div>
+                <FoundryCard {...item} />
+              </motion.div>
+            );
+          })}
         </div>
       </div>
-    </section>
+
+      <div
+        className="overflow-hidden lg:hidden relative w-full px-2"
+        {...handlers}
+      >
+        <motion.div
+          className="flex gap-2"
+          animate={{ x: `-${index * (100 / cardsToShow)}%` }}
+          transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        >
+          {foundry_stars.map((card, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 px-1"
+              style={{ flex: `0 0 ${100 / cardsToShow}%` }}
+            >
+              <FoundryCard full={true} {...card} />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </motion.section>
   );
 };
 
