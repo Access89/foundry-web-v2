@@ -4,7 +4,7 @@ import { Zap, CreditCard, Battery, Wifi, ShieldCheck } from "lucide-react";
 const Hardware = () => {
   return (
     <div className="pt-24 min-h-screen bg-white text-zinc-900">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-10xl mx-auto px-6">
         <div className="text-center max-w-4xl mx-auto mb-20 mt-8">
           <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-bold mb-6">
             POINT OF SALE
@@ -71,7 +71,7 @@ const Hardware = () => {
             </p>
             <div className="flex justify-between items-center">
               <span className="font-bold">$49</span>
-              <button className="px-4 py-2 bg-black text-white rounded-md text-sm font-bold hover:opacity-90 transition-opacity">
+              <button className="px-4 py-2 bg-primary text-white rounded-md text-sm font-bold hover:opacity-90 transition-opacity">
                 Shop
               </button>
             </div>
@@ -94,7 +94,7 @@ const Hardware = () => {
             </p>
             <div className="flex justify-between items-center">
               <span className="font-bold">$299</span>
-              <button className="px-4 py-2 bg-black text-white rounded-md text-sm font-bold hover:opacity-90 transition-opacity">
+              <button className="px-4 py-2 bg-primary text-white rounded-md text-sm font-bold hover:opacity-90 transition-opacity">
                 Shop
               </button>
             </div>
@@ -115,7 +115,7 @@ const Hardware = () => {
             </p>
             <div className="flex justify-between items-center">
               <span className="font-bold">$799</span>
-              <button className="px-4 py-2 bg-black text-white rounded-md text-sm font-bold hover:opacity-90 transition-opacity">
+              <button className="px-4 py-2 bg-primary text-white rounded-md text-sm font-bold hover:opacity-90 transition-opacity">
                 Shop
               </button>
             </div>

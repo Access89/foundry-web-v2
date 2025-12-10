@@ -3,7 +3,7 @@ import React from "react";
 const FnB = () => {
   return (
     <div className="pt-24 min-h-screen bg-white text-zinc-900">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-10xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16 mt-8">
           <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-bold mb-6">
             FOOD & BEVERAGE

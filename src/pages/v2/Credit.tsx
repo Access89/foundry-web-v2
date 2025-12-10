@@ -10,7 +10,7 @@ import {
 const Credit = () => {
   return (
     <div className="pt-24 min-h-screen bg-white text-zinc-900">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-10xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24 mt-8">
           <div>
             <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-bold mb-6">
@@ -26,7 +26,7 @@ const Credit = () => {
               sales history and inventory, deposited as soon as tomorrow.
             </p>
             <div className="flex gap-4">
-              <button className="px-8 py-4 bg-black text-white rounded-md font-bold text-lg hover:opacity-90 transition-opacity">
+              <button className="px-8 py-4 bg-primary text-white rounded-md font-bold text-lg hover:opacity-90 transition-opacity">
                 Check Eligibility
               </button>
             </div>
@@ -86,7 +86,7 @@ const Credit = () => {
                 <span className="font-bold">Invoice #1024</span>
                 <span className="font-bold">$12,500</span>
               </div>
-              <button className="w-full py-2 bg-black text-white text-xs font-bold hover:opacity-90 transition-opacity">
+              <button className="w-full py-2 bg-primary text-white text-xs font-bold hover:opacity-90 transition-opacity">
                 Advance Now
               </button>
             </div>
@@ -144,7 +144,7 @@ const Credit = () => {
               growth trajectory to offer personalized financing options with
               transparent terms.
             </p>
-            <button className="px-8 py-4 bg-black text-white rounded-md font-bold hover:opacity-90 transition-opacity">
+            <button className="px-8 py-4 bg-primary text-white rounded-md font-bold hover:opacity-90 transition-opacity">
               View Your Offers
             </button>
           </div>

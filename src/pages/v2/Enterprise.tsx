@@ -3,7 +3,7 @@ import React from "react";
 const Enterprise = () => {
   return (
     <div className="pt-24 min-h-screen bg-[#1C1C1C] text-white">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-10xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 items-center mb-20 mt-8">
           <div className="flex-1">
             <div className="inline-block px-3 py-1 bg-zinc-800 text-xs font-bold mb-6">

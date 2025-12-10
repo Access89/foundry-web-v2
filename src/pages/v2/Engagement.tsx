@@ -11,7 +11,7 @@ import {
 const Engagement = () => {
   return (
     <div className="pt-24 min-h-screen bg-[#1C1C1C] text-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-10xl mx-auto px-6">
         <div className="text-center max-w-4xl mx-auto mb-20 mt-8">
           <div className="inline-block px-3 py-1 bg-zinc-800 text-xs font-bold mb-6">
             ENGAGEMENT PLATFORM

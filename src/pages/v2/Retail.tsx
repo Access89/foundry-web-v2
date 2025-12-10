@@ -4,7 +4,7 @@ import { Layers, Users, Star, CheckCircle2 } from "lucide-react";
 const Retail = () => {
   return (
     <div className="pt-24 min-h-screen bg-white text-zinc-900">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-10xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20 mt-8">
           <div>
             <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-bold mb-6">
@@ -19,7 +19,7 @@ const Retail = () => {
               A complete point-of-sale system that works as hard as you do. Sync
               your online and offline sales in real-time.
             </p>
-            <button className="px-8 py-4 bg-black text-white rounded-md font-bold text-lg hover:opacity-90 transition-opacity">
+            <button className="px-8 py-4 bg-primary text-white rounded-md font-bold text-lg hover:opacity-90 transition-opacity">
               Get Started Free
             </button>
           </div>
@@ -112,7 +112,7 @@ const Retail = () => {
               Join thousands of retailers who trust Foundry to power their
               business.
             </p>
-            <button className="px-8 py-4 bg-white text-black font-bold hover:opacity-90 transition-opacity">
+            <button className="px-8 py-4 bg-primary text-white font-bold hover:opacity-90 transition-opacity">
               Get Started Free
             </button>
           </div>

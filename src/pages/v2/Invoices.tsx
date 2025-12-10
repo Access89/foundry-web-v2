@@ -4,7 +4,7 @@ import { RefreshCw, FileText, Activity, CheckCircle2 } from "lucide-react";
 const Invoices = () => {
   return (
     <div className="pt-24 min-h-screen bg-white text-zinc-900">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-10xl mx-auto px-6">
         {/* Hero */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24 mt-8">
           <div>
@@ -21,7 +21,7 @@ const Invoices = () => {
               pay by card, ACH, or Apple Pay directly from the email.
             </p>
             <div className="flex gap-4">
-              <button className="px-8 py-4 bg-black text-white rounded-md font-bold text-lg hover:opacity-90 transition-opacity">
+              <button className="px-8 py-4 bg-primary text-white rounded-md font-bold text-lg hover:opacity-90 transition-opacity">
                 Create Invoice
               </button>
             </div>
@@ -59,7 +59,7 @@ const Invoices = () => {
                 <div className="text-zinc-500 text-sm">Total Due</div>
                 <div className="text-2xl font-bold">$1,740.00</div>
               </div>
-              <button className="w-full mt-6 py-3 bg-black text-white font-bold hover:opacity-90 transition-opacity">
+              <button className="w-full mt-6 py-3 bg-primary text-white font-bold hover:opacity-90 transition-opacity">
                 Pay Invoice
               </button>
             </div>
@@ -67,7 +67,7 @@ const Invoices = () => {
             {/* Floating Status Notification */}
             <div className="absolute top-1/2 -right-4 bg-white p-3 shadow-lg border border-zinc-100 flex items-center gap-3">
               <div className="w-8 h-8 bg-zinc-100 flex items-center justify-center">
-                <CheckCircle2 className="w-4 h-4 text-black" />
+                <CheckCircle2 className="w-4 h-4 text-primary" />
               </div>
               <div>
                 <div className="text-xs font-bold">Paid by Client</div>
@@ -80,7 +80,7 @@ const Invoices = () => {
         {/* Features Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-24">
           <div className="p-8 bg-zinc-50 border border-zinc-200">
-            <RefreshCw className="w-10 h-10 text-black mb-6" />
+            <RefreshCw className="w-10 h-10 text-primary mb-6" />
             <h3 className="text-xl font-bold mb-3">Recurring Billing</h3>
             <p className="text-zinc-600">
               Set it and forget it. Automatically charge cards for subscriptions
@@ -88,7 +88,7 @@ const Invoices = () => {
             </p>
           </div>
           <div className="p-8 bg-zinc-50 border border-zinc-200">
-            <FileText className="w-10 h-10 text-black mb-6" />
+            <FileText className="w-10 h-10 text-primary mb-6" />
             <h3 className="text-xl font-bold mb-3">Estimates to Invoices</h3>
             <p className="text-zinc-600">
               Send estimates for approval. One click converts them into a
@@ -96,7 +96,7 @@ const Invoices = () => {
             </p>
           </div>
           <div className="p-8 bg-zinc-50 border border-zinc-200">
-            <Activity className="w-10 h-10 text-black mb-6" />
+            <Activity className="w-10 h-10 text-primary mb-6" />
             <h3 className="text-xl font-bold mb-3">Real-time Tracking</h3>
             <p className="text-zinc-600">
               Know exactly when invoices are viewed, paid, or overdue. Automated
