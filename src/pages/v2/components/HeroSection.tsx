@@ -41,7 +41,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               className={`px-6 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
                 activeSegment === "bank"
                   ? "bg-[#1C1C1C] text-white"
-                  : "text-zinc-500 hover:text-white hover:bg-white/10"
+                  : "text-zinc-500 hover:text-zinc-500 hover:bg-white/50"
               }`}
             >
               For Financial Institutions
