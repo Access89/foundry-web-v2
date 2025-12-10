@@ -1,5 +1,6 @@
 import React from "react";
 import TextType from "@/components/TextType";
+import { Globe, Layers, Smartphone } from "lucide-react";
 
 interface HeroSectionProps {
   activeSegment: string;
@@ -137,11 +138,62 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Right Visual */}
           <div className="relative h-[500px] w-full hidden lg:flex items-center justify-center">
             <div className="relative w-full h-full flex items-center justify-center">
-              <img
-                className="w-full h-full object-contain"
-                src={activeSegment === "merchant" ? "/images/foundry_stars/Main2.png" : "/images/FinanceBackground.png"}
-                alt="Foundry Platform"
-              />
+              {activeSegment === "merchant" ? (
+                <img
+                  className="w-full h-full object-contain"
+                  src={
+                    activeSegment === "merchant"
+                      ? "/images/foundry_stars/Main2.png"
+                      : "/images/FinanceBackground.png"
+                  }
+                  alt="Foundry Platform"
+                />
+              ) : (
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#F6851B]/10 blur-3xl animate-pulse"></div>
+
+                  {/* Layer 3: Apps */}
+                  <div className="absolute top-10 w-64 p-4 bg-[#24272A]/90 backdrop-blur border border-zinc-800 text-center transform -translate-y-4 shadow-2xl z-30 animate-[bounce_4s_infinite] rounded-md">
+                    <div className="text-xs text-[#F6851B] font-mono mb-2">
+                      OMNI-CHANNEL APPS
+                    </div>
+                    <div className="flex justify-center gap-3">
+                      <div className="w-8 h-8 bg-zinc-800 rounded flex items-center justify-center hover:bg-[#F6851B] transition-colors">
+                        <Smartphone className="w-4 h-4 text-white" />
+                      </div>
+                      <div className="w-8 h-8 bg-zinc-800 rounded flex items-center justify-center hover:bg-[#F6851B] transition-colors">
+                        <Globe className="w-4 h-4 text-white" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Layer 2: Platform */}
+                  <div className="absolute top-1/2 -translate-y-1/2 w-80 h-40 bg-gradient-to-r from-[#1C1C1C] to-[#24272A] border border-[#F6851B]/30 flex flex-col items-center justify-center shadow-[0_0_50px_rgba(246,133,27,0.3)] z-20 rounded-md">
+                    <Layers className="w-10 h-10 text-[#F6851B] mb-2" />
+                    <div className="font-bold text-white tracking-widest">
+                      ENGAGEMENT CORE
+                    </div>
+                    <div className="text-xs text-gray-400 mt-1">
+                      Orchestration Layer
+                    </div>
+                  </div>
+
+                  {/* Layer 1: Legacy */}
+                  <div className="absolute bottom-10 w-96 p-6 bg-[#1C1C1C] border border-zinc-800 flex justify-between items-center z-10 opacity-70 rounded-md">
+                    <div className="text-xs text-zinc-600 font-mono">
+                      LEGACY CORE
+                    </div>
+                    <div className="flex gap-2">
+                      {[1, 2, 3].map((i) => (
+                        <div key={i} className="h-2 w-8 bg-zinc-800"></div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Connectors */}
+                  <div className="absolute h-full w-px bg-gradient-to-b from-transparent via-[#F6851B] to-transparent left-1/2 -translate-x-1/2"></div>
+                </div>
+              )}
             </div>
           </div>
         </div>
