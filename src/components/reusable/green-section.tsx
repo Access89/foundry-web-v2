@@ -1,237 +1,225 @@
-import { Icon } from '@iconify/react/dist/iconify.js';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import SpotifyEpisodeList from './spotify-episode-list';
+import { Icon } from "@iconify/react/dist/iconify.js";
+import {
+  ShoppingBag,
+  Landmark,
+  Receipt,
+  Truck,
+  Briefcase,
+  Coins,
+} from "lucide-react";
 
 const GreenSection = () => {
-  const colors = ['bg-[#16232A]', 'bg-[#E4EEF0]', 'bg-[#075056]'];
-  const items = [
-    {
-      title: 'Business',
-      description:
-        'Optimize operations with tools for inventory, payroll, and analytics to run your business.',
-      icon: 'streamline-cyber:business-chart-4',
-      linkTitle: 'Learn More',
-      link: 'our-platforms/business',
-      // per-card styling
-      textColor: 'text-white',
-      fontClass: 'font-sans',
-      titleClass: 'font-semibold text-xl',
-      descClass: 'text-sm text-white/90',
-    },
-    {
-      title: 'Finance',
-      description:
-        'Access credit, manage disbursements, and embed financial services.',
-      // icon: 'material-symbols-light:money-bag-outline',
-      linkTitle: 'Learn More',
-      link: 'our-platforms/finance',
-      textColor: 'text-black',
-      fontClass: 'font-serif',
-      titleClass: 'font-medium text-lg',
-      descClass: 'text-sm text-black/90',
-    },
-    {
-      title: 'Trade',
-      description:
-        'Streamline procurement, logistics, and B2B transactions end-to-end.',
-      // icon: 'mdi-light:truck',
-      linkTitle: 'Learn More',
-      link: '/our-platforms/trade',
-      textColor: 'text-white',
-      fontClass: 'font-sans',
-      titleClass: 'font-semibold text-xl',
-      descClass: 'text-sm text-white/90',
-    },
-  ];
   return (
-    <motion.section
-      // initial={{ opacity: 0, y: 50 }}
-      // whileInView={{ opacity: 1, y: 0 }}
-      // transition={{ duration: 0.8, ease: "easeOut" }}
-      className=" p-5 md:p-10 w-full text-primary-white mt-6 lg:mt-0"
-    >
-      <div className="container" id="greensection">
-
-        <div className="mt-10  ">
-          <div className="mb-6 text-sm flex flex-col w-full items-center justify-center">
-            <h5 className="font-semibold text-xl sm:text-2xl lg:text-4xl md:mb-5 max-w-[90%] md:max-w-[68%] text-[#010101] text-center leading-snug">
-              <span className="text-[#ABABAB]">Collaborate</span> Within
-              <span className="block">The Ecosystem</span>
-            </h5>
+    <section className="p-5 md:p-10 w-full mt-6 lg:mt-0 bg-white">
+      <div className="max-w-10xl" id="greensection">
+        <div className="mt-10">
+          {/* Section Header */}
+          <div className="mb-16 md:text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 tracking-tight text-[#010101]">
+              Built for your business.
+            </h2>
+            <p className="text-lg opacity-70 text-[#575757]">
+              Powerful software that runs your entire operation. From the first
+              sale to the final reconciliation.
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-auto-fill-300 gap-3 md:gap-5">
-            {items.map((e: any, index: number) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.2,
-                  ease: "easeOut"
-                }}
-                whileHover={{ 
-                  scale: 1.05, 
-                  y: -10,
-                  transition: { duration: 0.3 }
-                }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                <Link
-                  to={e.link}
-                  className={`${colors[index % colors.length]} p-5 sm:p-6 rounded-xl min-h-[220px] sm:h-[280px] md:h-[300px] flex flex-col transition-all duration-300 hover:shadow-xl`}
-                >
-                  <div className="mt-auto text-lg sm:text-xl max-w-[22rem]">
-                    <h5 className={`pb-3 sm:pb-4 ${e.titleClass} ${e.textColor}`}>{e.description}</h5>
-                    <p className={`text-sm flex items-center gap-x-1 hover:opacity-80 group ${e.descClass} ${e.textColor}`}>
-                      {e.title}
-                      <Icon
-                        icon="iconamoon:arrow-right-2-duotone"
-                        fontSize={20}
-                        className={`group-hover:translate-x-1 transition-all ${e.textColor}`}
-                      />
-                    </p>
+
+          {/* Bento Grid */}
+          <div className="grid md:grid-cols-3 md:grid-rows-3 gap-6 h-auto">
+            {/* 1. SALES - Large Card */}
+            <div className="md:col-span-2 p-8 bg-[#16232A] text-white relative overflow-hidden group transition-all duration-400 hover:-translate-y-2 hover:shadow-xl">
+              <div className="relative z-10 flex flex-col h-full justify-between">
+                <div>
+                  <div className="w-12 h-12 bg-white/10 flex items-center justify-center mb-6">
+                    <ShoppingBag className="w-6 h-6 text-white" />
                   </div>
-                </Link>
-              </motion.div>
-            ))}
+                  <h3 className="text-2xl font-bold mb-2">Omnichannel Sales</h3>
+                  <p className="opacity-70 max-w-sm">
+                    Sell in-store, online, and on the go. Inventory syncs
+                    automatically across every channel.
+                  </p>
+                </div>
+                <div className="mt-8 flex gap-4">
+                  <div className="bg-white/5 border border-white/10 p-4 flex-1 shadow-sm">
+                    <div className="text-xs text-white/50 mb-1">Online</div>
+                    <div className="font-bold text-lg">$14,203</div>
+                    <div className="w-full h-1 bg-white/20 mt-2">
+                      <div className="w-3/4 h-full bg-[#075056]"></div>
+                    </div>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 p-4 flex-1 shadow-sm">
+                    <div className="text-xs text-white/50 mb-1">In-Store</div>
+                    <div className="font-bold text-lg">$8,450</div>
+                    <div className="w-full h-1 bg-white/20 mt-2">
+                      <div className="w-1/2 h-full bg-[#075056]"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. BANKING - Tall Card */}
+            <div className="md:row-span-2 p-8 bg-[#075056] text-white relative overflow-hidden flex flex-col transition-all duration-400 hover:-translate-y-2 hover:shadow-xl">
+              <div className="mb-6">
+                <div className="w-12 h-12 bg-white/10 flex items-center justify-center mb-6">
+                  <Landmark className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-2">
+                  Banking & Reconciliation
+                </h3>
+                <p className="opacity-70 text-sm">
+                  Payments land in your account instantly. Books balance
+                  themselves.
+                </p>
+              </div>
+              <div className="flex-1 bg-white/5 p-4 border border-white/10 space-y-3 overflow-hidden relative">
+                {[
+                  {
+                    name: "Coffee Beans Inc",
+                    amt: "-$450.00",
+                    status: "Auto-Matched",
+                  },
+                  {
+                    name: "Daily Sales Payout",
+                    amt: "+$2,100.50",
+                    status: "Reconciled",
+                  },
+                  {
+                    name: "Utility Bill",
+                    amt: "-$120.00",
+                    status: "Auto-Matched",
+                  },
+                  {
+                    name: "Catering Deposit",
+                    amt: "+$500.00",
+                    status: "Reconciled",
+                  },
+                ].map((tx, i) => (
+                  <div
+                    key={i}
+                    className="flex justify-between items-center text-xs"
+                  >
+                    <div>
+                      <div className="font-bold">{tx.name}</div>
+                      <div className="text-green-400 text-[10px]">
+                        {tx.status}
+                      </div>
+                    </div>
+                    <div
+                      className={
+                        tx.amt.startsWith("+") ? "text-white" : "text-white/50"
+                      }
+                    >
+                      {tx.amt}
+                    </div>
+                  </div>
+                ))}
+                <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#075056] to-transparent"></div>
+              </div>
+            </div>
+
+            {/* 3. SPEND */}
+            <div className="p-8 bg-[#E4EEF0] relative overflow-hidden group">
+              <div className="relative z-10">
+                <div className="w-10 h-10 bg-white flex items-center justify-center mb-4 shadow-sm">
+                  <Receipt className="w-5 h-5 text-[#075056]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-black">
+                  Spend Management
+                </h3>
+                <p className="text-sm opacity-70 mb-4 text-black">
+                  Issue corporate cards with custom limits for every employee.
+                </p>
+                <div className="h-16 bg-[#075056] w-3/4 shadow-lg relative p-3 flex flex-col justify-between group-hover:scale-105 transition-transform origin-left">
+                  <div className="w-6 h-4 bg-white/20 rounded-sm"></div>
+                  <div className="flex justify-between items-end">
+                    <div className="text-[8px] text-white/60">**** 4242</div>
+                    <div className="w-4 h-4 bg-white/20"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 4. PURCHASES */}
+            <div className="p-8 bg-[#E4EEF0] relative overflow-hidden">
+              <div className="relative z-10">
+                <div className="w-10 h-10 bg-white flex items-center justify-center mb-4 shadow-sm">
+                  <Truck className="w-5 h-5 text-[#075056]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-black">Purchases</h3>
+                <p className="text-sm opacity-70 mb-4 text-black">
+                  Manage vendors, create purchase orders, and track deliveries.
+                </p>
+                <div className="flex items-center gap-2 text-xs font-bold bg-white p-2 shadow-sm">
+                  <div className="w-2 h-2 bg-green-500"></div>
+                  PO #8832 • Approved
+                </div>
+              </div>
+            </div>
+
+            {/* 5. STAFF */}
+            <div className="p-8 bg-[#E4EEF0] relative overflow-hidden">
+              <div className="relative z-10">
+                <div className="w-10 h-10 bg-white flex items-center justify-center mb-4 shadow-sm">
+                  <Briefcase className="w-5 h-5 text-[#075056]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-black">
+                  Staff Management
+                </h3>
+                <p className="text-sm opacity-70 text-black">
+                  Payroll, scheduling, and permissions fully integrated.
+                </p>
+                <div className="flex -space-x-2 mt-4">
+                  {[1, 2, 3].map((i) => (
+                    <div
+                      key={i}
+                      className="w-8 h-8 bg-[#075056]/20 border-2 border-white"
+                    ></div>
+                  ))}
+                  <div className="w-8 h-8 bg-[#075056] text-white flex items-center justify-center text-xs border-2 border-white">
+                    +4
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 6. CREDIT - Wide Card */}
+            <div className="md:col-span-2 p-8 bg-gradient-to-r from-[#16232A] to-[#075056] text-white relative overflow-hidden flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-1">
+                <div className="w-10 h-10 bg-white/10 flex items-center justify-center mb-4">
+                  <Coins className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-2">Credit & Lending</h3>
+                <p className="opacity-70 mb-6">
+                  Access capital based on your real-time sales data. No
+                  paperwork, just growth.
+                </p>
+                <button className="text-sm font-bold border-b border-white/50 pb-0.5 hover:opacity-70 transition-opacity">
+                  View Loan Offers
+                </button>
+              </div>
+              <div className="flex-1 w-full">
+                <div className="bg-white/10 p-4 backdrop-blur-sm border border-white/20">
+                  <div className="flex justify-between items-center mb-2">
+                    <div className="text-xs font-bold text-white/70">
+                      Available Credit
+                    </div>
+                    <div className="text-xs text-green-400 font-bold">
+                      Ready now
+                    </div>
+                  </div>
+                  <div className="text-3xl font-bold mb-2">$50,000</div>
+                  <div className="w-full bg-white/20 h-2 overflow-hidden">
+                    <div className="bg-white w-2/3 h-full"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <motion.div
-          className="grid lgflex grid-cols-1 gap-y-10 lg:gap-y-0 lg:grid-cols-[0.4fr,1fr] gap-x-6 lg:gap-x-16 my-12 md:my-16 text-sm hidden"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <div className="lg:w-[60%] lg:order-1">
-            <h5 className="font-semibold text-xl sm:text-2xl lg:text-4xl mb-6 sm:mb-8 mt-4 sm:mt-8 w-full text-[#010101] text-left">
-              SME Voice by Foundry is the podcast where Africa's
-              <span className="block sm:inline"> small and medium enterprises </span>
-              <span className="text-[#075056]">get heard.</span>
-            </h5>
-
-        {/* Spotify Section */}
-            <motion.div
-              className="flex flex-col gap-4 mt-3"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h6 className="font-semibold text-lg sm:text-xl md:text-2xl text-[#010101]">Latest Episodes</h6>
-              <div className="w-full">
-                <SpotifyEpisodeList
-                  max={4}
-                  compact={true}
-                  episodeUrls={[
-                    'https://open.spotify.com/episode/2Lex8TchzmPPBCkkbxdNyO?si=550deccc6d0d4edc',
-                    'https://open.spotify.com/episode/4uEPKzMTk3DrY0UysWO21q?si=0770801ffdf044e0',
-                    'https://open.spotify.com/episode/0ImgWy9bErBARwJ9q1YR0H?si=44a344ca988d4000',
-                    // 'https://open.spotify.com/episode/1rVCmJghbeRgoLJfSn9jXJ?si=d39e98aae3d1407f',
-                  ]}
-                />
-              </div>
-            </motion.div>
-          </div>
-          <div className="h-full lg:w-[40%] lg:order-2 flex flex-col justify-end items-center mt-6 sm:mt-24 lg:mt-[15rem]">
-            <div className="bg-[#D9D9D9] flex justify-center items-center w-full rounded-lg">
-              {/* <img
-              src="/icons/camera.svg"
-              alt="camera"
-              className="w-[5rem] h-[25rem]"
-            /> */}
-              <img
-                src="/images/foundry_stars/SMEVoice.jpeg"
-                alt="SME Voice"
-                title="SME Voice"
-                className="w-full h-auto max-h-[60rem] sm:max-h-[28rem] bg-[#D9D9D9] rounded-lg cursor-pointer hover:opacity-90 transition-opacity object-cover"
-                onClick={() => window.open('https://open.spotify.com/show/36anmwQqvL43s64Kzcx987?si=c5d95c2d7a9a415f/', '_blank', 'noopener,noreferrer')}
-              
-              />
-            </div>
-            <motion.button
-              className="mt-6 sm:mt-4 bg-white text-[#075056] px-6 sm:px-8 py-3 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl relative overflow-hidden"
-              onClick={() => window.open('https://open.spotify.com/show/36anmwQqvL43s64Kzcx987?si=c5d95c2d7a9a415f/', '_blank', 'noopener,noreferrer')}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              whileHover={{ 
-                scale: 1.05,
-                y: -2,
-                transition: { duration: 0.2 }
-              }}
-              whileTap={{ 
-                scale: 0.95,
-                transition: { duration: 0.1 }
-              }}
-              animate={{
-                boxShadow: [
-                  "0 10px 25px rgba(0,0,0,0.1)",
-                  "0 15px 35px rgba(7, 80, 86, 0.2)",
-                  "0 10px 25px rgba(0,0,0,0.1)"
-                ]
-              }}
-           
-        
-            >
-              <motion.span
-                className="relative z-10"
-                whileHover={{ x: 2 }}
-                transition={{ duration: 0.2 }}
-              >
-                Listen More
-              </motion.span>
-              <motion.div
-                whileHover={{ 
-                  rotate: 360,
-                  scale: 1.1
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <Icon
-                  icon="mdi:spotify"
-                  fontSize={22}
-                  className="text-[#075056]"
-                />
-              </motion.div>
-              
-              {/* Animated background gradient */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-[#075056]/10 to-transparent"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "100%" }}
-                transition={{ duration: 0.6 }}
-              />
-            </motion.button>
-          </div>
-        </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 };
-
-// const goalsConst = [
-//   {
-//     title: 'connect with verified players',
-//     desc: 'Partner with reliable suppliers, service providers, and industry leaders to strengthen your business network',
-//   },
-//   {
-//     title: 'Scale Your Business with capital',
-//     desc: 'Expand your reach, increase efficiency, and drive sustainable growth with the right strategies and capital.',
-//   },
-//   {
-//     title: 'Gain Operational Insights',
-//     desc: 'Leverage data-driven insights to monitor performance, streamline processes, and make informed decisions',
-//   },
-//   {
-//     title: 'Optimize & Eliminate Waste',
-//     desc: 'Improve efficiency, reduce costs, and enhance productivity by eliminating inefficiencies.',
-//   },
-//   {
-//     title: 'Enhance Customer Experience',
-//     desc: 'Build lasting relationships by delivering exceptional service and personalized experiences.',
-//   },
-// ];
 
 export default GreenSection;

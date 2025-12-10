@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 interface NavbarProps {
@@ -9,7 +9,7 @@ interface NavbarProps {
   setActiveSegment: (segment: string) => void;
   hoveredNav: string | null;
   setHoveredNav: (nav: string | null) => void;
-  navData: any;
+  navData: Record<string, unknown>;
 }
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -22,6 +22,17 @@ const Navbar: React.FC<NavbarProps> = ({
   navData,
 }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNavigate = (path: string, segment?: string) => {
     navigate(path);
@@ -33,12 +44,18 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <nav
-      className="fixed w-full z-50 py-6"
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? "py-3" : "py-6"
+      }`}
       onMouseLeave={() => setHoveredNav(null)}
     >
       <div className="max-w-10xl mx-auto px-8">
         {/* White container */}
-        <div className="bg-white px-6 py-3 flex justify-between items-center shadow-lg relative">
+        <div
+          className={`bg-white px-6 py-3 flex justify-between items-center relative border border-zinc-200 transition-all duration-300 ${
+            isScrolled ? "shadow-xl" : "shadow-lg"
+          }`}
+        >
           {/* Logo - Links to Merchant */}
           <div
             className="flex items-center gap-3 cursor-pointer"
@@ -54,15 +71,27 @@ const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-1 font-medium text-black items-center">
+          <div className="hidden lg:flex gap-4 items-center mx-auto">
+            {/* Home Link */}
+            <Link
+              to="/"
+              className={`text-base font-medium text-[#434343] hover:text-[#1A1A1A] transition-colors ${
+                location.pathname === "/" ? "text-[#1A1A1A]" : ""
+              }`}
+            >
+              Home
+            </Link>
+
             {/* Segment Links */}
             <button
               onClick={() => {
                 setActiveSegment("merchant");
                 handleNavigate("/v2");
               }}
-              className={`px-4 py-2 transition-opacity ${
-                activeSegment === "merchant" ? "font-bold" : "hover:opacity-70"
+              className={`text-base font-medium transition-colors ${
+                activeSegment === "merchant" && location.pathname === "/v2"
+                  ? "text-[#1A1A1A]"
+                  : "text-[#434343] hover:text-[#1A1A1A]"
               }`}
             >
               For Business
@@ -72,13 +101,16 @@ const Navbar: React.FC<NavbarProps> = ({
                 setActiveSegment("bank");
                 handleNavigate("/v2");
               }}
-              className={`px-4 py-2 transition-opacity ${
-                activeSegment === "bank" ? "font-bold" : "hover:opacity-70"
+              className={`text-base font-medium transition-colors ${
+                activeSegment === "bank" && location.pathname === "/v2"
+                  ? "text-[#1A1A1A]"
+                  : "text-[#434343] hover:text-[#1A1A1A]"
               }`}
             >
               For Banks
             </button>
-            <div className="w-px h-6 bg-zinc-200 mx-2"></div>
+
+            {/* V2 Navigation Dropdowns */}
             {Object.keys(navData).map((item) => (
               <div
                 key={item}
@@ -86,8 +118,10 @@ const Navbar: React.FC<NavbarProps> = ({
                 onMouseEnter={() => setHoveredNav(item)}
               >
                 <button
-                  className={`px-4 py-2 flex items-center gap-1 hover:opacity-70 transition-opacity ${
-                    hoveredNav === item ? "opacity-70" : ""
+                  className={`flex items-center gap-1 text-base font-medium transition-colors ${
+                    hoveredNav === item
+                      ? "text-[#1A1A1A]"
+                      : "text-[#434343] hover:text-[#1A1A1A]"
                   }`}
                 >
                   {item}
@@ -184,12 +218,32 @@ const Navbar: React.FC<NavbarProps> = ({
               </div>
             ))}
 
-            {/* GET STARTED Button */}
+            {/* Pricing Link */}
+            <Link
+              to="/pricing"
+              className={`text-base font-medium text-[#434343] hover:text-[#1A1A1A] transition-colors ${
+                location.pathname === "/pricing" ? "text-[#1A1A1A]" : ""
+              }`}
+            >
+              Pricing
+            </Link>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="hidden lg:flex gap-3 items-center">
             <button
               onClick={() => navigate("/onboarding")}
-              className="bg-black text-white px-6 py-2.5 rounded-md font-semibold text-sm hover:bg-gray-800 transition-colors ml-4"
+              className="bg-primary text-white px-6 py-2.5 rounded-md font-semibold text-sm hover:opacity-90 transition-opacity"
             >
-              GET STARTED
+              Sign up
+            </button>
+            <button
+              onClick={() =>
+                window.open("https://foundry-platform.com", "_blank")
+              }
+              className="bg-[#EDF2EE] border-2 border-primary text-primary px-6 py-2.5 rounded-md font-semibold text-sm hover:bg-primary hover:text-white transition-all"
+            >
+              Log In
             </button>
           </div>
 

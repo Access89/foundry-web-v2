@@ -1,4 +1,3 @@
-import React from "react";
 import { Star, ArrowUpRight } from "lucide-react";
 import { useV2Context } from "./context";
 import HeroSection from "./components/HeroSection";
@@ -76,7 +75,7 @@ const Home = () => {
                 desc: "Enterprise-grade core banking integration",
                 status: "Live",
               },
-            {[1, 2, 3, 4, 5].map((app, i) => (
+            ].map((app, i) => (
               <div
                 key={i}
                 className={`p-6 h-[300px] border transition-all hover:scale-[1.02] cursor-pointer ${
