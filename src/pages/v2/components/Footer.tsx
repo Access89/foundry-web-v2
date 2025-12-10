@@ -19,11 +19,11 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
     <footer className="pt-16 pb-8 bg-[#1C1C1C] text-white border-t border-zinc-800">
       {/* Breadcrumb */}
       <div className="max-w-10xl mx-auto px-8 mb-12">
-        <div className="flex items-center gap-2 text-sm text-gray-400">
+        {/* <div className="flex items-center gap-2 text-sm text-gray-400">
           <span>🏠</span>
           <span>›</span>
           <span className="text-white">Home</span>
-        </div>
+        </div> */}
       </div>
 
       {/* Main footer content */}

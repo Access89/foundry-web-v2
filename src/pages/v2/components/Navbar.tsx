@@ -15,7 +15,6 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({
   isMenuOpen,
   setIsMenuOpen,
-  activeSegment,
   setActiveSegment,
   hoveredNav,
   setHoveredNav,
@@ -45,7 +44,7 @@ const Navbar: React.FC<NavbarProps> = ({
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "py-3" : "py-6"
+        isScrolled ? "py-3" : "py-4"
       }`}
       onMouseLeave={() => setHoveredNav(null)}
     >
@@ -73,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({
           {/* Desktop Menu */}
           <div className="hidden lg:flex gap-4 items-center mx-auto">
             {/* Segment Links */}
-            <button
+            {/* <button
               onClick={() => {
                 setActiveSegment("merchant");
                 handleNavigate("/v2");
@@ -84,7 +83,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   : "text-[#434343] hover:text-[#1A1A1A]"
               }`}
             >
-              For Business
+              Business
             </button>
             <button
               onClick={() => {
@@ -97,8 +96,8 @@ const Navbar: React.FC<NavbarProps> = ({
                   : "text-[#434343] hover:text-[#1A1A1A]"
               }`}
             >
-              For Banks
-            </button>
+              Banking
+            </button> */}
 
             {/* V2 Navigation Dropdowns */}
             {Object.keys(navData).map((item) => (
@@ -222,18 +221,18 @@ const Navbar: React.FC<NavbarProps> = ({
           {/* Action Buttons */}
           <div className="hidden lg:flex gap-3 items-center">
             <button
-              onClick={() => navigate("/onboarding")}
-              className="bg-primary text-white px-6 py-2.5 rounded-md font-medium text-sm hover:opacity-90 transition-opacity"
-            >
-              Sign up
-            </button>
-            <button
               onClick={() =>
                 window.open("https://foundry-platform.com", "_blank")
               }
-              className="bg-[#EDF2EE] border-2 border-primary text-primary px-6 py-2.5 rounded-md font-medium text-sm hover:bg-primary hover:text-white transition-all"
+              className="text-primary border-2 border-transparent hover:border-primary duration-300 px-6 py-2.5 rounded-md font-medium text-sm hover:opacity-90 transition-opacity"
             >
-              Log In
+              Sign In
+            </button>
+            <button
+              onClick={() => navigate("/onboarding")}
+              className="border-2 border-primary text-primary px-6 py-2.5 rounded-md font-medium text-sm hover:bg-primary hover:text-white transition-all"
+            >
+              Get Started
             </button>
           </div>
 

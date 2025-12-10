@@ -202,7 +202,7 @@ const ViewPlatforms = () => {
             <div className=" p-4 mt-0 md:mt-16 flex items-center flex-col md:flex-row gap-5"></div>
           </div>
         </section>
-
+{/* move section */}
         <h1 className="text-3xl md:text-4xl lg:text-6xl font-semibold md:mb-10 text-center font-roboto w-full">
           <span className="text-[#929292]">Made</span>{' '}
           <span className="text-[#000000]">for</span>{' '}
