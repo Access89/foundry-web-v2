@@ -1,5 +1,5 @@
 import React from "react";
-import { Globe, ShieldCheck, RefreshCw } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface KYCSectionProps {
   activeSegment: string;
@@ -9,123 +9,176 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
   if (activeSegment !== "bank") return null;
 
   return (
-    <section className="py-24 bg-slate-950 border-t border-slate-900 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-
-      <div className="max-w-10xl l px-4 md:px-6 lg:px-8 mx-auto relative z-10">
-        <div className="mb-16 md:text-center max-w-3xl mx-auto">
-          <div className="inline-block px-3 py-1 bg-red-900/30 text-red-400 border border-red-500/30 text-xs font-bold mb-6 tracking-wide">
-            RISK & COMPLIANCE
-          </div>
-          <h2 className="text-4xl font-bold mb-4 text-white">
-            See risk before it strikes.
+    <section className="py-24 bg-[#1C1C1C] relative overflow-hidden">
+      <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
+        {/* Section Header - MetaMask 2-column style */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-16 items-end">
+          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+            Develop with
+            <br />
+            Foundry
           </h2>
-          <p className="text-lg text-slate-400">
-            Replace manual checks with automated, real-time intelligence. Screen
-            against global watchlists, monitor transactions, and onboard
-            customers faster.
-          </p>
+          <div>
+            <p className="text-gray-400 text-lg mb-6">
+              A comprehensive set of developer tools, products and services for
+              onboarding and engaging with Foundry users.
+            </p>
+            <button className="px-6 py-3 bg-white text-black rounded-full font-semibold text-sm hover:bg-gray-100 transition-colors uppercase">
+              Get Started
+            </button>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Visual Interface */}
-          <div className="bg-slate-900 border border-slate-800 p-6 shadow-2xl relative">
-            {/* Header */}
-            <div className="flex justify-between items-center mb-6 border-b border-slate-800 pb-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-slate-800 flex items-center justify-center text-slate-300 font-bold">
-                  JD
-                </div>
-                <div>
-                  <div className="text-white font-bold">John Doe</div>
-                  <div className="text-xs text-slate-500">ID: 9928381</div>
-                </div>
-              </div>
-              <div className="px-3 py-1 bg-red-500/20 text-red-400 border border-red-500/50 rounded text-xs font-bold flex items-center gap-2">
-                <div className="w-2 h-2 bg-red-500 animate-pulse"></div>
-                HIGH RISK
-              </div>
+        {/* Code Block - MetaMask style */}
+        <div className="bg-[#24272A] rounded-lg border border-zinc-800 overflow-hidden mb-16">
+          {/* Tab bar */}
+          <div className="flex items-center gap-0 border-b border-zinc-800 px-4">
+            <div className="flex items-center gap-2 py-3 mr-4">
+              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
             </div>
-
-            {/* Risk Factors */}
-            <div className="space-y-4">
-              <div className="p-4 bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <Globe className="w-5 h-5 text-indigo-400" />
-                  <span className="text-sm text-slate-300">PEP Screening</span>
-                </div>
-                <span className="text-xs font-mono text-green-400">CLEAR</span>
-              </div>
-              <div className="p-4 bg-slate-950 border border-red-900/30 flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <ShieldCheck className="w-5 h-5 text-red-400" />
-                  <span className="text-sm text-slate-300">Sanctions List</span>
-                </div>
-                <span className="text-xs font-mono text-red-400">
-                  MATCH FOUND
-                </span>
-              </div>
-              <div className="p-4 bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <RefreshCw className="w-5 h-5 text-indigo-400" />
-                  <span className="text-sm text-slate-300">Adverse Media</span>
-                </div>
-                <span className="text-xs font-mono text-green-400">CLEAR</span>
-              </div>
+            {[
+              "risk_check",
+              "sanctions",
+              "kyb_verify",
+              "monitoring",
+              "alerts",
+            ].map((tab, i) => (
+              <button
+                key={tab}
+                className={`px-4 py-3 text-sm font-mono ${
+                  i === 0
+                    ? "text-white bg-zinc-800/50 border-b-2 border-white"
+                    : "text-gray-500 hover:text-gray-300"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+          {/* Code content */}
+          <div className="p-6 font-mono text-sm">
+            <div className="text-gray-500">1</div>
+            <div className="flex gap-4">
+              <span className="text-gray-500 select-none w-6">1</span>
+              <span>
+                <span className="text-purple-400">await</span>{" "}
+                <span className="text-blue-400">foundry</span>.
+                <span className="text-yellow-400">risk</span>.
+                <span className="text-green-400">check</span>({"{"}
+              </span>
             </div>
-
-            {/* Graph Visual */}
-            <div className="mt-6 pt-6 border-t border-slate-800">
-              <div className="text-xs text-slate-500 mb-3 font-bold uppercase tracking-wider">
-                Transaction Link Analysis
-              </div>
-              <div className="flex justify-center gap-8 relative h-24 items-center">
-                {/* Node 1 */}
-                <div className="w-8 h-8 bg-slate-700 z-10 border-2 border-slate-500"></div>
-                {/* Connector Line */}
-                <div className="absolute h-0.5 bg-slate-700 w-32 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-                {/* Node 2 (Center) */}
-                <div className="w-12 h-12 bg-red-900/50 z-10 border-2 border-red-500 flex items-center justify-center text-red-500 font-bold text-xs">
-                  !
-                </div>
-                {/* Node 3 */}
-                <div className="w-8 h-8 bg-slate-700 z-10 border-2 border-slate-500"></div>
-              </div>
+            <div className="flex gap-4">
+              <span className="text-gray-500 select-none w-6">2</span>
+              <span className="pl-4">
+                <span className="text-cyan-400">"entity_id"</span>:{" "}
+                <span className="text-orange-400">"cust_9928381"</span>,
+              </span>
+            </div>
+            <div className="flex gap-4">
+              <span className="text-gray-500 select-none w-6">3</span>
+              <span className="pl-4">
+                <span className="text-cyan-400">"checks"</span>: [
+              </span>
+            </div>
+            <div className="flex gap-4">
+              <span className="text-gray-500 select-none w-6">4</span>
+              <span className="pl-8">
+                <span className="text-orange-400">"pep_screening"</span>,
+              </span>
+            </div>
+            <div className="flex gap-4">
+              <span className="text-gray-500 select-none w-6">5</span>
+              <span className="pl-8">
+                <span className="text-orange-400">"sanctions_list"</span>,
+              </span>
+            </div>
+            <div className="flex gap-4">
+              <span className="text-gray-500 select-none w-6">6</span>
+              <span className="pl-8">
+                <span className="text-orange-400">"adverse_media"</span>
+              </span>
+            </div>
+            <div className="flex gap-4">
+              <span className="text-gray-500 select-none w-6">7</span>
+              <span className="pl-4">]</span>
+            </div>
+            <div className="flex gap-4">
+              <span className="text-gray-500 select-none w-6">8</span>
+              <span>{"}"});</span>
             </div>
           </div>
+        </div>
 
-          {/* Features List */}
-          <div className="space-y-8">
-            {[
-              {
-                title: "Global Sanctions & Watchlists",
-                desc: "Live API connections to OFAC, UN, HMT, and 1000+ global enforcement lists. Updates in seconds, not days.",
-              },
-              {
-                title: "AI Transaction Monitoring",
-                desc: "Reduce false positives by 70%. Our behavioral models adapt to new fraud typologies automatically.",
-              },
-              {
-                title: "Automated KYB",
-                desc: "Unwrap corporate structures instantly. Visualize UBOs (Ultimate Beneficial Owners) with interactive graph networks.",
-              },
-            ].map((item, i) => (
-              <div key={i} className="flex gap-4">
-                <div className="w-10 h-10 bg-slate-900 border border-slate-800 flex flex-shrink-0 items-center justify-center text-red-400 font-bold">
-                  {i + 1}
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-400 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-            <button className="mt-4 px-8 py-3 bg-red-600 hover:bg-red-500 text-white font-bold transition-colors shadow-lg shadow-red-900/20">
-              View Compliance API
-            </button>
+        {/* Feature Grid - MetaMask style */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Card 1 */}
+          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all">
+            <h3 className="text-xl font-bold mb-3 text-[#F6851B]">
+              Global Sanctions & Watchlists
+            </h3>
+            <p className="text-gray-400 text-sm mb-4">
+              Live API connections to OFAC, UN, HMT, and 1000+ global
+              enforcement lists. Updates in seconds, not days.
+            </p>
+            <a
+              href="#"
+              className="inline-flex items-center gap-1 text-gray-300 text-sm hover:text-white transition-colors"
+            >
+              Documentation <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          {/* Card 2 */}
+          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all">
+            <h3 className="text-xl font-bold mb-3 text-[#F6851B]">
+              AI Transaction Monitoring
+            </h3>
+            <p className="text-gray-400 text-sm mb-4">
+              Reduce false positives by 70%. Our behavioral models adapt to new
+              fraud typologies automatically.
+            </p>
+            <a
+              href="#"
+              className="inline-flex items-center gap-1 text-gray-300 text-sm hover:text-white transition-colors"
+            >
+              Documentation <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          {/* Card 3 */}
+          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all">
+            <h3 className="text-xl font-bold mb-3 text-[#F6851B]">
+              Automated KYB
+            </h3>
+            <p className="text-gray-400 text-sm mb-4">
+              Unwrap corporate structures instantly. Visualize UBOs with
+              interactive graph networks.
+            </p>
+            <a
+              href="#"
+              className="inline-flex items-center gap-1 text-gray-300 text-sm hover:text-white transition-colors"
+            >
+              Documentation <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          {/* Card 4 */}
+          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all">
+            <h3 className="text-xl font-bold mb-3 text-[#F6851B]">
+              Real-time Alerts
+            </h3>
+            <p className="text-gray-400 text-sm mb-4">
+              Get notified instantly when risk profiles change. Configurable
+              webhooks for your compliance workflow.
+            </p>
+            <a
+              href="#"
+              className="inline-flex items-center gap-1 text-gray-300 text-sm hover:text-white transition-colors"
+            >
+              Sign up for waitlist <ArrowUpRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </div>

@@ -263,40 +263,98 @@ const Layout = () => {
           <Outlet />
         </main>
 
-        {/* --- Footer --- */}
-        <footer className="pt-20 pb-10 border-t border-zinc-800 bg-[#1C1C1C] text-white">
-          <div className="max-w-10xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
+        {/* --- Footer (MetaMask Style) --- */}
+        <footer className="pt-16 pb-8 bg-[#1C1C1C] text-white border-t border-zinc-800">
+          {/* Breadcrumb */}
+          <div className="max-w-10xl mx-auto px-8 mb-12">
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <span>🏠</span>
+              <span>›</span>
+              <span className="text-white">Home</span>
+            </div>
+          </div>
+
+          {/* Main footer content */}
+          <div className="max-w-10xl mx-auto px-8 grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
+            {/* Logo column */}
             <div className="col-span-2 md:col-span-1">
-              <div className="flex items-center gap-2 font-bold text-2xl mb-6">
-                <img src="/icons/logo.svg" className="w-8 h-8" alt="logo" />
-                Foundry
-              </div>
-              <p className="text-sm mb-6 max-w-xs opacity-80">
-                The operating system for modern finance. Bridging the gap
-                between merchant agility and banking scale.
-              </p>
-              <div className="flex gap-4">
-                <div className="w-8 h-8 rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors cursor-pointer"></div>
-                <div className="w-8 h-8 rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors cursor-pointer"></div>
-                <div className="w-8 h-8 rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors cursor-pointer"></div>
+              <div className="flex flex-col gap-1 mb-6">
+                <span className="text-3xl font-bold">Foundry</span>
               </div>
             </div>
 
+            {/* Foundry column */}
             <div>
-              <h4 className="font-bold mb-6">Products</h4>
-              <ul className="space-y-3 text-sm opacity-80">
+              <h4 className="font-bold mb-4 text-gray-300">Foundry</h4>
+              <ul className="space-y-3 text-sm">
                 <li>
                   <button
                     onClick={() => handleNavigate("/v2", "merchant")}
-                    className="hover:underline text-left"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Get Foundry
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => handleNavigate("/v2", "merchant")}
+                    className="text-gray-400 hover:text-white transition-colors"
                   >
                     Payments
                   </button>
                 </li>
                 <li>
                   <button
+                    onClick={() => handleNavigate("/v2", "merchant")}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Commerce
+                  </button>
+                </li>
+                <li className="flex items-center gap-2">
+                  <button
+                    onClick={() => handleNavigate("/v2", "bank")}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Banking
+                  </button>
+                  <span className="px-2 py-0.5 bg-[#A6F44C] text-black text-xs font-bold rounded">
+                    NEW
+                  </span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <button
+                    onClick={() => handleNavigate("/v2", "bank")}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Credit
+                  </button>
+                  <span className="px-2 py-0.5 bg-[#A6F44C] text-black text-xs font-bold rounded">
+                    NEW
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Products column */}
+            <div>
+              <h4 className="font-bold mb-4 text-gray-300">Products</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-center gap-2">
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    POS Terminal
+                  </a>
+                  <span className="px-2 py-0.5 bg-[#A6F44C] text-black text-xs font-bold rounded">
+                    NEW
+                  </span>
+                </li>
+                <li>
+                  <button
                     onClick={() => handleNavigate("/v2/baas", "bank")}
-                    className="hover:underline text-left"
+                    className="text-gray-400 hover:text-white transition-colors"
                   >
                     Banking as a Service
                   </button>
@@ -304,84 +362,209 @@ const Layout = () => {
                 <li>
                   <button
                     onClick={() => handleNavigate("/v2/engagement", "bank")}
-                    className="hover:underline text-left"
+                    className="text-gray-400 hover:text-white transition-colors"
                   >
                     Engagement Platform
                   </button>
                 </li>
                 <li>
-                  <button
-                    onClick={() => handleNavigate("/v2/hardware", "merchant")}
-                    className="hover:underline text-left"
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Terminal Hardware
-                  </button>
+                    KYC & Compliance
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Learn
+                  </a>
                 </li>
               </ul>
             </div>
 
+            {/* Developer column */}
             <div>
-              <h4 className="font-bold mb-6">Resources</h4>
-              <ul className="space-y-3 text-sm opacity-80">
+              <h4 className="font-bold mb-4 text-gray-300">Developer</h4>
+              <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#" className="hover:underline">
-                    Documentation
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    View the Docs
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Developer Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Dashboard
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
                     API Reference
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
-                    Customer Stories
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Foundry SDK
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
-                    Blog
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Webhooks
                   </a>
                 </li>
               </ul>
             </div>
 
+            {/* About column */}
             <div>
-              <h4 className="font-bold mb-6">Company</h4>
-              <ul className="space-y-3 text-sm opacity-80">
+              <h4 className="font-bold mb-4 text-gray-300">About</h4>
+              <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#" className="hover:underline">
-                    About
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Security
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Support
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
                     Careers
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
-                    Partners
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:underline">
-                    Legal
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Contact
                   </a>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="max-w-10xl mx-auto px-8 border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between text-sm opacity-60">
-            <div>© 2024 Foundry Inc.</div>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="hover:underline">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:underline">
-                Terms of Service
-              </a>
+          {/* Language and social icons */}
+          <div className="max-w-10xl mx-auto px-8 mb-8">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+              {/* Language selector */}
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <span>🌐</span>
+                <span>English</span>
+              </div>
+
+              {/* Social icons */}
+              <div className="flex gap-3">
+                {["𝕏", "GitHub", "▶", "📷", "💬", "🎧", "♪", "RSS"].map(
+                  (icon, i) => (
+                    <div
+                      key={i}
+                      className="w-8 h-8 rounded-lg bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center cursor-pointer transition-colors text-xs"
+                    >
+                      {icon === "RSS" ? (
+                        <span className="text-[10px] font-bold">RSS</span>
+                      ) : (
+                        <span className="text-gray-400">{icon}</span>
+                      )}
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom legal links */}
+          <div className="max-w-10xl mx-auto px-8 pt-8 border-t border-zinc-800">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div className="flex flex-wrap gap-4 text-xs text-gray-500">
+                <a href="#" className="hover:text-gray-300 transition-colors">
+                  Consensys
+                </a>
+                <a
+                  href="#"
+                  className="hover:text-gray-300 transition-colors underline"
+                >
+                  Privacy Policy
+                </a>
+                <a
+                  href="#"
+                  className="hover:text-gray-300 transition-colors underline"
+                >
+                  Terms of Use
+                </a>
+                <a
+                  href="#"
+                  className="hover:text-gray-300 transition-colors underline"
+                >
+                  Contributor License Agreement
+                </a>
+                <a
+                  href="#"
+                  className="hover:text-gray-300 transition-colors underline"
+                >
+                  Sitemap
+                </a>
+                <a
+                  href="#"
+                  className="hover:text-gray-300 transition-colors underline"
+                >
+                  Accessibility
+                </a>
+                <a
+                  href="#"
+                  className="hover:text-gray-300 transition-colors underline"
+                >
+                  Manage Cookies
+                </a>
+              </div>
+              <div className="text-xs text-gray-500">
+                ©2025 Foundry • An Access89 Formation
+              </div>
             </div>
           </div>
         </footer>
