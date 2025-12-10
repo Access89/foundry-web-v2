@@ -5,6 +5,7 @@ import HeroSection from "./components/HeroSection";
 import FeatureGrid from "./components/FeatureGrid";
 import KYCSection from "./components/KYCSection";
 import CTASection from "./components/CTASection";
+import CountUp from "@/components/CountUp";
 
 const Home = () => {
   const { activeSegment, setActiveSegment } = useV2Context();
@@ -75,10 +76,10 @@ const Home = () => {
                 desc: "Enterprise-grade core banking integration",
                 status: "Live",
               },
-            ].map((app, i) => (
+            {[1, 2, 3, 4, 5].map((app, i) => (
               <div
                 key={i}
-                className={`p-6 rounded-lg border transition-all hover:scale-[1.02] cursor-pointer ${
+                className={`p-6 h-[300px] border transition-all hover:scale-[1.02] cursor-pointer ${
                   activeSegment === "bank"
                     ? "bg-[#24272A] border-zinc-800 hover:border-zinc-700"
                     : "bg-zinc-50 border-zinc-200 hover:border-zinc-300"
@@ -86,7 +87,7 @@ const Home = () => {
               >
                 <div className="flex justify-between items-start mb-4">
                   <div
-                    className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold ${
+                    className={`w-10 h-10 flex items-center justify-center font-bold ${
                       activeSegment === "bank"
                         ? "bg-zinc-800 text-white"
                         : "bg-white border border-zinc-200 text-zinc-600"
@@ -95,7 +96,7 @@ const Home = () => {
                     {app.name[0]}
                   </div>
                   <span
-                    className={`text-xs font-medium px-2 py-1 rounded ${
+                    className={`text-xs font-medium px-2 py-1 rounded-md ${
                       activeSegment === "bank"
                         ? "bg-green-900/30 text-green-400"
                         : "bg-green-100 text-green-700"
@@ -138,14 +139,14 @@ const Home = () => {
 
       {/* --- Success Stories Section - MetaMask Style --- */}
       <section
-        className={`py-24 transition-colors duration-500 ${
+        className={` pt-12 md:pt-24 transition-colors duration-500 ${
           activeSegment === "bank" ? "bg-[#24272A]" : "bg-zinc-50"
         }`}
       >
-        <div className="max-w-10xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="max-w-10xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left content */}
-            <div>
+            <div className="pb-24  pt-12 md:pb-20 lg:pb-28 lg:pt-16 md:px-8 lg:px-16 px-4">
               <div className="flex gap-1 mb-6">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star
@@ -202,10 +203,10 @@ const Home = () => {
 
             {/* Right - Stats card */}
             <div
-              className={`p-8 rounded-lg ${
+              className={`p-8 h-full ${
                 activeSegment === "bank"
-                  ? "bg-[#1C1C1C] border border-zinc-800"
-                  : "bg-white border border-zinc-200"
+                  ? "bg-[#1C1C1C] border-zinc-800"
+                  : "bg-white border-zinc-200"
               }`}
             >
               <h3
@@ -220,22 +221,31 @@ const Home = () => {
               <div className="grid grid-cols-2 gap-8">
                 {[
                   {
-                    value: activeSegment === "merchant" ? "50K+" : "200+",
+                    numValue: activeSegment === "merchant" ? 50 : 200,
+                    suffix: activeSegment === "merchant" ? "K+" : "+",
+                    prefix: "",
                     label:
                       activeSegment === "merchant"
                         ? "Businesses"
                         : "Financial Institutions",
                   },
                   {
-                    value: activeSegment === "merchant" ? "$2B+" : "$500B+",
+                    numValue: activeSegment === "merchant" ? 2 : 500,
+                    suffix: activeSegment === "merchant" ? "B+" : "B+",
+                    prefix: "$",
                     label: "Transactions Processed",
                   },
                   {
-                    value: "99.99%",
+                    numValue: 99.99,
+                    suffix: "%",
+                    prefix: "",
+                    decimals: 2,
                     label: "Uptime SLA",
                   },
                   {
-                    value: activeSegment === "merchant" ? "40%" : "70%",
+                    numValue: activeSegment === "merchant" ? 40 : 70,
+                    suffix: "%",
+                    prefix: "",
                     label:
                       activeSegment === "merchant"
                         ? "Faster Checkout"
@@ -250,7 +260,14 @@ const Home = () => {
                           : "text-black"
                       }`}
                     >
-                      {stat.value}
+                      <CountUp
+                        end={stat.numValue}
+                        duration={2000}
+                        suffix={stat.suffix}
+                        prefix={stat.prefix}
+                        decimals={stat.decimals || 0}
+                        startOnVisible={true}
+                      />
                     </div>
                     <div
                       className={`text-sm ${

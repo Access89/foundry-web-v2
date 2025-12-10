@@ -20,33 +20,99 @@ import {
   ScanFace,
 } from "lucide-react";
 
-// Theme Config
+// Theme Config - Comprehensive Style System
 export const theme = {
   merchant: {
+    // Backgrounds
     primary: "bg-black",
-    secondary: "bg-zinc-100",
-    text: "text-zinc-900",
-    accent: "bg-emerald-500",
     heroBg: "bg-white",
-    button: "bg-zinc-900 text-white hover:bg-zinc-700",
+    sectionBg: "bg-zinc-50",
+    cardBg: "bg-white",
+    cardBgDark: "bg-zinc-50",
+    codeBg: "bg-[#24272A]",
+    codeTabBg: "bg-[#1C1C1C]",
+
+    // Text Colors
+    text: "text-zinc-900",
+    textSecondary: "text-zinc-600",
+    textMuted: "text-zinc-500",
+    textLight: "text-zinc-400",
+
+    // Borders
+    border: "border-zinc-200",
+    borderLight: "border-zinc-100",
+
+    // Buttons
+    button: "bg-black text-white hover:bg-gray-800",
+    buttonSecondary: "bg-white text-black hover:bg-zinc-50",
+
+    // Dropdowns & Menus
     dropdownBg: "bg-white border-zinc-200 text-zinc-900",
     dropdownHover: "hover:bg-zinc-50",
-    footerBg: "bg-zinc-50 border-zinc-200",
-    footerText: "text-zinc-600",
+
+    // Footer
+    footerBg: "bg-[#1C1C1C] border-zinc-800",
+    footerText: "text-gray-400",
+
+    // Mobile Menu
     mobileMenuBg: "bg-white text-zinc-900",
+
+    // Stats & Accents
+    accentColor: "text-black",
+    statColor: "text-black",
+
+    // Status Colors
+    statusActive: "bg-green-100 text-green-700",
+
+    // CTAs
+    ctaBg: "bg-[#D6ECFF]",
+    ctaText: "text-black",
   },
   bank: {
-    primary: "bg-blue-900",
-    secondary: "bg-slate-50",
-    text: "text-slate-100",
-    accent: "bg-indigo-500",
-    heroBg: "bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900",
-    button: "bg-indigo-600 text-white hover:bg-indigo-500",
-    dropdownBg: "bg-slate-900 border-slate-700 text-slate-100",
-    dropdownHover: "hover:bg-white/5",
-    footerBg: "bg-slate-950 border-slate-800",
-    footerText: "text-slate-400",
-    mobileMenuBg: "bg-slate-900 text-white",
+    // Backgrounds
+    primary: "bg-[#1C1C1C]",
+    heroBg: "bg-[#1C1C1C]",
+    sectionBg: "bg-[#1C1C1C]",
+    cardBg: "bg-[#24272A]",
+    cardBgDark: "bg-[#1C1C1C]",
+    codeBg: "bg-[#24272A]",
+    codeTabBg: "bg-[#1C1C1C]",
+
+    // Text Colors
+    text: "text-white",
+    textSecondary: "text-gray-400",
+    textMuted: "text-gray-500",
+    textLight: "text-gray-300",
+
+    // Borders
+    border: "border-zinc-800",
+    borderLight: "border-zinc-700",
+
+    // Buttons
+    button: "bg-white text-black hover:bg-gray-100",
+    buttonSecondary: "bg-zinc-800 text-white hover:bg-zinc-700",
+
+    // Dropdowns & Menus
+    dropdownBg: "bg-[#24272A] border-zinc-800 text-white",
+    dropdownHover: "hover:bg-zinc-800",
+
+    // Footer
+    footerBg: "bg-[#1C1C1C] border-zinc-800",
+    footerText: "text-gray-400",
+
+    // Mobile Menu
+    mobileMenuBg: "bg-[#1C1C1C] text-white",
+
+    // Stats & Accents
+    accentColor: "text-[#F6851B]",
+    statColor: "text-[#F6851B]",
+
+    // Status Colors
+    statusActive: "bg-green-900/30 text-green-400",
+
+    // CTAs
+    ctaBg: "bg-[#D6ECFF]",
+    ctaText: "text-black",
   },
 };
 

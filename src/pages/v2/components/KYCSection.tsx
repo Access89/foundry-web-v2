@@ -23,20 +23,20 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
               A comprehensive set of developer tools, products and services for
               onboarding and engaging with Foundry users.
             </p>
-            <button className="px-6 py-3 bg-white text-black rounded-full font-semibold text-sm hover:bg-gray-100 transition-colors uppercase">
+            <button className="px-6 py-3 bg-white text-black rounded-md font-semibold text-sm hover:bg-gray-100 transition-colors uppercase">
               Get Started
             </button>
           </div>
         </div>
 
         {/* Code Block - MetaMask style */}
-        <div className="bg-[#24272A] rounded-lg border border-zinc-800 overflow-hidden mb-16">
+        <div className="bg-[#24272A] border border-zinc-800 overflow-hidden mb-16">
           {/* Tab bar */}
           <div className="flex items-center gap-0 border-b border-zinc-800 px-4">
             <div className="flex items-center gap-2 py-3 mr-4">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              <div className="w-3 h-3 bg-red-500"></div>
+              <div className="w-3 h-3 bg-yellow-500"></div>
+              <div className="w-3 h-3 bg-green-500"></div>
             </div>
             {[
               "risk_check",

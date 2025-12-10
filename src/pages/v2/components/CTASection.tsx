@@ -7,7 +7,7 @@ interface CTASectionProps {
 const CTASection: React.FC<CTASectionProps> = ({ activeSegment }) => {
   return (
     <section
-      className={`py-24 px-8 transition-colors duration-700 ${
+      className={`pt-12 md:pt-24 transition-colors duration-700 ${
         activeSegment === "bank" ? "bg-[#D6ECFF]" : "bg-[#D6ECFF]"
       }`}
     >
@@ -15,7 +15,7 @@ const CTASection: React.FC<CTASectionProps> = ({ activeSegment }) => {
         {/* MetaMask style - 2 column layout with code editor */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div>
+          <div className="md:pb-20 lg:pb-28 lg:pt-16 px-8 lg:px-16">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-black">
               Start building
               <br />
@@ -29,32 +29,32 @@ const CTASection: React.FC<CTASectionProps> = ({ activeSegment }) => {
                 : "Deploy your smart contracts and banking integrations with Foundry's enterprise APIs. Get started for free."}
             </p>
 
-            <button className="px-8 py-4 bg-black text-white rounded-full font-semibold uppercase text-sm hover:bg-gray-800 transition-colors">
+            <button className="px-8 py-4 bg-black text-white rounded-md font-semibold uppercase text-sm hover:bg-gray-800 transition-colors">
               Get Started
             </button>
           </div>
 
           {/* Right - Code Editor Mockup */}
-          <div className="bg-[#24272A] rounded-lg overflow-hidden shadow-2xl border border-zinc-700">
+          <div className="hidden lg:block h-full bg-[#24272A] overflow-hidden shadow-2xl border border-zinc-700">
             {/* Window controls */}
             <div className="flex items-center gap-2 px-4 py-3 bg-[#1C1C1C] border-b border-zinc-800">
               <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                <div className="w-3 h-3 bg-red-500"></div>
+                <div className="w-3 h-3 bg-yellow-500"></div>
+                <div className="w-3 h-3 bg-green-500"></div>
               </div>
               <div className="flex items-center gap-2 ml-4 text-sm text-gray-400">
-                <span className="px-3 py-1 bg-[#24272A] rounded">🔒</span>
+                <span className="px-3 py-1 bg-[#24272A]">🔒</span>
                 <span>Deploy to Foundry</span>
               </div>
             </div>
 
             {/* Editor content */}
-            <div className="flex">
+            <div className="flex h-full">
               {/* Sidebar */}
               <div className="w-40 bg-[#1C1C1C] border-r border-zinc-800 p-3">
                 <div className="text-xs text-gray-500 mb-2">Deploy ▾</div>
-                <div className="flex items-center gap-2 text-sm text-white bg-zinc-800 px-2 py-1 rounded">
+                <div className="flex items-center gap-2 text-sm text-white bg-zinc-800 px-2 py-1 rounded-md">
                   <span className="text-blue-400">📄</span> intro.js
                 </div>
               </div>
