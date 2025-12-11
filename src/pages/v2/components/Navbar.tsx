@@ -15,6 +15,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({
   isMenuOpen,
   setIsMenuOpen,
+  activeSegment,
   setActiveSegment,
   hoveredNav,
   setHoveredNav,
@@ -41,11 +42,15 @@ const Navbar: React.FC<NavbarProps> = ({
     window.scrollTo(0, 0);
   };
 
+  const isDark = activeSegment === "bank";
+
   return (
     <nav
-      className={`fixed w-full z-50 bg-white border-b border-zinc-200 transition-all duration-300 ${
-        isScrolled ? "shadow-lg" : ""
-      }`}
+      className={`fixed w-full z-50 transition-all duration-700 ${
+        isDark
+          ? "bg-[#1C1C1C] border-b border-zinc-800"
+          : "bg-white border-b border-zinc-200"
+      } ${isScrolled ? "shadow-lg" : ""}`}
       onMouseLeave={() => setHoveredNav(null)}
     >
       <div className="max-w-full mx-auto px-4 md:px-6 lg:px-8">
@@ -58,8 +63,18 @@ const Navbar: React.FC<NavbarProps> = ({
               handleNavigate("/");
             }}
           >
-            <img src="/icons/logo.svg" className="w-[1.3rem]" alt="logo" />
-            <p className="font-bold text-inherit uppercase">foundry</p>
+            <img
+              src={isDark ? "/icons/logo_white.svg" : "/icons/logo.svg"}
+              className="w-[1.3rem]"
+              alt="logo"
+            />
+            <p
+              className={`font-bold uppercase ${
+                isDark ? "text-white" : "text-black"
+              }`}
+            >
+              foundry
+            </p>
           </div>
 
           {/* Desktop Menu - Centered */}
@@ -74,7 +89,11 @@ const Navbar: React.FC<NavbarProps> = ({
                 <button
                   className={`flex items-center gap-1 text-base font-medium transition-colors ${
                     hoveredNav === item
-                      ? "text-[#1A1A1A]"
+                      ? isDark
+                        ? "text-white"
+                        : "text-[#1A1A1A]"
+                      : isDark
+                      ? "text-gray-400 hover:text-white"
                       : "text-[#434343] hover:text-[#1A1A1A]"
                   }`}
                 >
@@ -88,7 +107,11 @@ const Navbar: React.FC<NavbarProps> = ({
 
                 {/* Mega Menu Dropdown */}
                 <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 p-2 shadow-xl border border-zinc-200 bg-white transition-all duration-300 origin-top rounded-lg ${
+                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 p-2 shadow-xl transition-all duration-300 origin-top rounded-lg ${
+                    isDark
+                      ? "border border-zinc-800 bg-[#24272A]"
+                      : "border border-zinc-200 bg-white"
+                  } ${
                     hoveredNav === item
                       ? "opacity-100 scale-100 translate-y-0 visible"
                       : "opacity-0 scale-95 -translate-y-2 invisible pointer-events-none"
@@ -106,7 +129,11 @@ const Navbar: React.FC<NavbarProps> = ({
                         navData[item as keyof typeof navData] as any
                       ).sections.map((section: any, idx: number) => (
                         <div key={idx} className="flex-1">
-                          <div className="text-xs font-medium uppercase tracking-wider mb-4 px-2 text-zinc-400">
+                          <div
+                            className={`text-xs font-medium uppercase tracking-wider mb-4 px-2 ${
+                              isDark ? "text-gray-500" : "text-zinc-400"
+                            }`}
+                          >
                             {section.title}
                           </div>
                           <div className="flex flex-col gap-1">
@@ -119,16 +146,36 @@ const Navbar: React.FC<NavbarProps> = ({
                                     setIsMenuOpen(false);
                                     setHoveredNav(null);
                                   }}
-                                  className="flex items-start text-left gap-3 p-3 rounded-md transition-colors hover:bg-zinc-50 group w-full"
+                                  className={`flex items-start text-left gap-3 p-3 rounded-md transition-colors group w-full ${
+                                    isDark
+                                      ? "hover:bg-zinc-800"
+                                      : "hover:bg-zinc-50"
+                                  }`}
                                 >
-                                  <div className="mt-1 p-2 bg-zinc-100 text-zinc-900 rounded">
+                                  <div
+                                    className={`mt-1 p-2 rounded ${
+                                      isDark
+                                        ? "bg-zinc-800 text-white"
+                                        : "bg-zinc-100 text-zinc-900"
+                                    }`}
+                                  >
                                     {subItem.icon}
                                   </div>
                                   <div>
-                                    <div className="font-medium text-sm text-zinc-900">
+                                    <div
+                                      className={`font-medium text-sm ${
+                                        isDark ? "text-white" : "text-zinc-900"
+                                      }`}
+                                    >
                                       {subItem.title}
                                     </div>
-                                    <div className="text-xs mt-0.5 text-zinc-500">
+                                    <div
+                                      className={`text-xs mt-0.5 ${
+                                        isDark
+                                          ? "text-gray-400"
+                                          : "text-zinc-500"
+                                      }`}
+                                    >
                                       {subItem.desc}
                                     </div>
                                   </div>
@@ -150,16 +197,32 @@ const Navbar: React.FC<NavbarProps> = ({
                               setIsMenuOpen(false);
                               setHoveredNav(null);
                             }}
-                            className="flex items-start text-left gap-3 p-3 rounded-md transition-colors hover:bg-zinc-50 group w-full"
+                            className={`flex items-start text-left gap-3 p-3 rounded-md transition-colors group w-full ${
+                              isDark ? "hover:bg-zinc-800" : "hover:bg-zinc-50"
+                            }`}
                           >
-                            <div className="mt-1 p-2 bg-zinc-100 text-zinc-900 rounded">
+                            <div
+                              className={`mt-1 p-2 rounded ${
+                                isDark
+                                  ? "bg-zinc-800 text-white"
+                                  : "bg-zinc-100 text-zinc-900"
+                              }`}
+                            >
                               {subItem.icon}
                             </div>
                             <div>
-                              <div className="font-medium text-sm text-zinc-900">
+                              <div
+                                className={`font-medium text-sm ${
+                                  isDark ? "text-white" : "text-zinc-900"
+                                }`}
+                              >
                                 {subItem.title}
                               </div>
-                              <div className="text-xs mt-0.5 text-zinc-500">
+                              <div
+                                className={`text-xs mt-0.5 ${
+                                  isDark ? "text-gray-400" : "text-zinc-500"
+                                }`}
+                              >
                                 {subItem.desc}
                               </div>
                             </div>
@@ -175,8 +238,14 @@ const Navbar: React.FC<NavbarProps> = ({
             {/* Pricing Link */}
             <Link
               to="/pricing"
-              className={`text-base font-medium text-[#434343] hover:text-[#1A1A1A] transition-colors ${
-                location.pathname === "/pricing" ? "text-[#1A1A1A]" : ""
+              className={`text-base font-medium transition-colors ${
+                isDark
+                  ? location.pathname === "/pricing"
+                    ? "text-white"
+                    : "text-gray-400 hover:text-white"
+                  : location.pathname === "/pricing"
+                  ? "text-[#1A1A1A]"
+                  : "text-[#434343] hover:text-[#1A1A1A]"
               }`}
             >
               Pricing
@@ -189,13 +258,21 @@ const Navbar: React.FC<NavbarProps> = ({
               onClick={() =>
                 window.open("https://foundry-platform.com", "_blank")
               }
-              className="text-primary border-2 border-transparent hover:border-primary duration-300 px-6 py-2.5 rounded-md font-medium text-sm hover:opacity-90 transition-opacity"
+              className={`border-2 px-6 py-2.5 rounded-md font-medium text-sm transition-all ${
+                isDark
+                  ? "text-white border-zinc-700 hover:bg-zinc-800"
+                  : "text-primary border-transparent hover:border-primary hover:opacity-90"
+              }`}
             >
               Sign In
             </button>
             <button
               onClick={() => navigate("/onboarding")}
-              className="border-2 bg-primary border-primary text-white px-6 py-2.5 rounded-md font-medium text-sm hover:bg-primary-dark hover:text-white transition-all"
+              className={`border-2 text-white px-6 py-2.5 rounded-md font-medium text-sm transition-all${
+                !isDark
+                  ? " bg-primary border-primary hover:bg-primary-dark hover:border-primary-dark hover:opacity-90"
+                  : " bg-[#F6851B] border-[#F6851B]  hover:bg-[#E57710] hover:border-[#E57710] "
+              }`}
             >
               Get Started
             </button>
@@ -203,7 +280,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
           {/* Mobile Toggle */}
           <button
-            className="lg:hidden text-black"
+            className={`lg:hidden ${isDark ? "text-white" : "text-black"}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
