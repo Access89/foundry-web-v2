@@ -255,7 +255,7 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
       </div>
 
       {/* Language and social icons */}
-      <div className="max-w-10xl mx-auto px-8 mb-8">
+      <div className="max-w-10xl mx-auto px-8 mb-8 ">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           {/* Language selector */}
           <div className="flex items-center gap-2 text-sm text-gray-400">
