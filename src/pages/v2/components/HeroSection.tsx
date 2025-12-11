@@ -1,6 +1,7 @@
 import React from "react";
 import TextType from "@/components/TextType";
 import { Globe, Layers, Smartphone } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface HeroSectionProps {
   activeSegment: string;
@@ -11,6 +12,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   activeSegment,
   setActiveSegment,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <header
       className={`relative pt-32 md:pt-28 xl:pt-44 pb-16 md:pb-24 xl:pb-32 px-4 md:px-8 overflow-hidden transition-colors duration-700 ${
@@ -125,6 +128,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
               <button
+                onClick={() => navigate("/onboarding")}
                 className={`px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase ${
                   activeSegment === "merchant"
                     ? "bg-primary text-white hover:bg-primary-dark"
