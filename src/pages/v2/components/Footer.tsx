@@ -291,7 +291,7 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
               onClick={() => handleNavigate("/about")}
               className="hover:text-gray-300 transition-colors"
             >
-              About Foundry
+              Foundry
             </button>
             <button
               onClick={() => handleNavigate("/privacy-policy")}
