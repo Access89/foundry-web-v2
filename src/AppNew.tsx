@@ -34,6 +34,7 @@ import { Toaster } from "react-hot-toast";
 import ScrollToTop from "./components/shared/scroll_to_top";
 import PrivacyPolicy from "./PrivacyPolicy";
 import ISOSecurityPolicy from "./ISOSecurityPolicy";
+import PasswordSetting from "./pages/onboarding/_components/_tabs/password";
 const BusinessAutomation = lazy(() => import("./pages/business_automation"));
 const Loan = lazy(() => import("./pages/loan"));
 const Hire = lazy(() => import("./pages/hire"));
@@ -77,7 +78,10 @@ const App = () => {
         </Route>
 
         {/* Shared Routes - Available from both layouts */}
-        <Route path="onboarding" element={<Onboarding />} />
+        <Route path="onboarding/">
+          <Route path="" element={<Onboarding />} />
+          <Route path="password" element={<PasswordSetting />} />
+        </Route>
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route
           path="information-security-policy"
