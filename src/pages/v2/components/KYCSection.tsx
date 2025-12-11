@@ -1,5 +1,4 @@
 import React from "react";
-import { ArrowUpRight } from "lucide-react";
 
 interface KYCSectionProps {
   activeSegment: string;
@@ -111,74 +110,50 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
           </div>
         </div>
 
-        {/* Feature Grid - MetaMask style */}
+        {/* Feature Grid - Clean Bento Style */}
         <div className="grid md:grid-cols-2 gap-6">
           {/* Card 1 */}
-          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all">
-            <h3 className="text-xl font-medium mb-3 text-[#F6851B]">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:shadow-xl transition-all group">
+            <h3 className="text-xl font-medium mb-3 text-white group-hover:text-[#F6851B] transition-colors">
               Global Sanctions & Watchlists
             </h3>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-400 text-base leading-relaxed">
               Live API connections to OFAC, UN, HMT, and 1000+ global
               enforcement lists. Updates in seconds, not days.
             </p>
-            <a
-              href="#"
-              className="inline-flex items-center gap-1 text-gray-300 text-sm hover:text-white transition-colors"
-            >
-              Documentation <ArrowUpRight className="w-4 h-4" />
-            </a>
           </div>
 
           {/* Card 2 */}
-          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all">
-            <h3 className="text-xl font-medium mb-3 text-[#F6851B]">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:shadow-xl transition-all group">
+            <h3 className="text-xl font-medium mb-3 text-white group-hover:text-[#F6851B] transition-colors">
               AI Transaction Monitoring
             </h3>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-400 text-base leading-relaxed">
               Reduce false positives by 70%. Our behavioral models adapt to new
               fraud typologies automatically.
             </p>
-            <a
-              href="#"
-              className="inline-flex items-center gap-1 text-gray-300 text-sm hover:text-white transition-colors"
-            >
-              Documentation <ArrowUpRight className="w-4 h-4" />
-            </a>
           </div>
 
           {/* Card 3 */}
-          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all">
-            <h3 className="text-xl font-medium mb-3 text-[#F6851B]">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:shadow-xl transition-all group">
+            <h3 className="text-xl font-medium mb-3 text-white group-hover:text-[#F6851B] transition-colors">
               Automated KYB
             </h3>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-400 text-base leading-relaxed">
               Unwrap corporate structures instantly. Visualize UBOs with
               interactive graph networks.
             </p>
-            <a
-              href="#"
-              className="inline-flex items-center gap-1 text-gray-300 text-sm hover:text-white transition-colors"
-            >
-              Documentation <ArrowUpRight className="w-4 h-4" />
-            </a>
           </div>
 
           {/* Card 4 */}
-          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all">
-            <h3 className="text-xl font-medium mb-3 text-[#F6851B]">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:shadow-xl transition-all group">
+            <h3 className="text-xl font-medium mb-3 text-white group-hover:text-[#F6851B] transition-colors">
               Real-time Alerts
             </h3>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-400 text-base leading-relaxed">
               Get notified instantly when risk profiles change. Configurable
               webhooks for your compliance workflow.
             </p>
-            <a
-              href="#"
-              className="inline-flex items-center gap-1 text-gray-300 text-sm hover:text-white transition-colors"
-            >
-              Sign up for waitlist <ArrowUpRight className="w-4 h-4" />
-            </a>
           </div>
         </div>
       </div>
