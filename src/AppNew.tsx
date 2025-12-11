@@ -13,6 +13,8 @@ import Hardware from "./pages/v2/Hardware";
 import Credit from "./pages/v2/Credit";
 import KYC from "./pages/v2/KYC";
 import Invoices from "./pages/v2/Invoices";
+import CustomerStories from "./pages/v2/CustomerStories";
+import HelpCenter from "./pages/v2/HelpCenter";
 import MainLayout from "./layout/main_layout";
 import BookingManagement from "./pages/logistics/booking_management";
 import OrderManagement from "./pages/logistics/order_management";
@@ -70,6 +72,8 @@ const App = () => {
           <Route path="credit" element={<Credit />} />
           <Route path="kyc" element={<KYC />} />
           <Route path="invoices" element={<Invoices />} />
+          <Route path="customer-stories" element={<CustomerStories />} />
+          <Route path="help-center" element={<HelpCenter />} />
         </Route>
 
         {/* Shared Routes - Available from both layouts */}

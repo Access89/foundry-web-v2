@@ -258,19 +258,27 @@ export const getNavData = (
       title: "Blog",
       desc: "News and industry insights.",
       icon: <BookOpen className="w-5 h-5" />,
-      action: () => {},
+      action: () => {
+        window.open("https://www.linkedin.com/company/access-89/", "_blank");
+      },
     },
     {
       title: "Customer Stories",
       desc: "See how others grow.",
       icon: <Users className="w-5 h-5" />,
-      action: () => {},
+      action: () => {
+        navigate("/customer-stories");
+        if (setSegment) setSegment("merchant");
+      },
     },
     {
       title: "Help Center",
       desc: "24/7 support and guides.",
       icon: <MessageSquare className="w-5 h-5" />,
-      action: () => {},
+      action: () => {
+        navigate("/help-center");
+        if (setSegment) setSegment("merchant");
+      },
     },
   ],
 });
