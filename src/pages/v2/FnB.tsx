@@ -4,7 +4,7 @@ const FnB = () => {
       {/* Hero Section */}
       <header className="relative pt-32 md:pt-28 xl:pt-44 pb-16 md:pb-24 xl:pb-32 px-4 md:px-8 overflow-hidden bg-white">
         <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
-          <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12">
+          <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12 lg:mb-24 xl:mb-32 lg:mt-10">
             <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-medium mb-4 md:mb-6 uppercase tracking-wider">
               FOOD & BEVERAGE
             </div>

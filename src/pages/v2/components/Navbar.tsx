@@ -59,8 +59,8 @@ const Navbar: React.FC<NavbarProps> = ({
           <div
             className="flex items-center gap-3 cursor-pointer"
             onClick={() => {
-              setActiveSegment("merchant");
-              handleNavigate("/v2");
+              setActiveSegment("bank");
+              handleNavigate("/");
             }}
           >
             <img src="/icons/logo.svg" className="w-[1.3rem]" alt="logo" />
