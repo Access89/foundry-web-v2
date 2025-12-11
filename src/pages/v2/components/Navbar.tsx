@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({
       } ${isScrolled ? "shadow-lg" : ""}`}
       onMouseLeave={() => setHoveredNav(null)}
     >
-      <div className="max-w-full mx-auto px-4 md:px-6 lg:px-8">
+      <div className="max-w-10xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div
