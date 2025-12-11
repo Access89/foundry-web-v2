@@ -46,10 +46,32 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       bg: "/images/our-platforms/view/ExpenseM.png",
       // description: 'Automate and track business expenses with ease.',
       // link: '/our-platforms/business/expense-management',
-      detailedDescription: ``,
+      detailedDescription: `Foundry Expense Management gives businesses real-time control over every cedi spent. It centralizes expense capture, approvals, spending limits, and reporting into one intelligent system that fits seamlessly within the Foundry ecosystem, ensuring complete accuracy without manual effort.`,
       product_image: "",
-      sub_components_title: "",
-      sub_components: [],
+      sub_components_title: "Core Features",
+      sub_components: [
+        {
+          title: "Automated Expense Capture",
+          description:
+            "From mobile money and card transactions to receipts and supplier payments, Foundry automatically records, categorizes, and reconciles every expense with complete accuracy.",
+          icon: "lucide:scan",
+          learn_more: [],
+        },
+        {
+          title: "Approval Workflows & Budget Control",
+          description:
+            "Streamline team spending with digital approvals, project and department budgets, automated reimbursements, and instant policy enforcement across all business units.",
+          icon: "tabler:checklist",
+          learn_more: [],
+        },
+        {
+          title: "Real-time Visibility & Reporting",
+          description:
+            "Managers get real-time visibility, finance teams close faster with clean data, and insightful dashboards show where money is going, helping leaders make better decisions every day.",
+          icon: "lucide:bar-chart-3",
+          learn_more: [],
+        },
+      ],
     },
     {
       title: "Point of Sale",
@@ -59,9 +81,31 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       bg: "/images/POS.png",
       // description: 'Sell smarter with real-time inventory and sales tracking.',
       // link: '/our-platforms/business/point-of-sale',
-      detailedDescription: ``,
-      sub_components_title: "",
-      sub_components: [],
+      detailedDescription: `Foundry Point of Sale is a unified sales, inventory, and payments engine designed for modern African retail and distribution businesses. It brings together checkout, stock management, customer insights, multi-branch visibility, and real-time financial reporting into one seamless system.`,
+      sub_components_title: "Core Features",
+      sub_components: [
+        {
+          title: "Sales & Checkout",
+          description:
+            "Process sales in-store, via mobile, or through field agents with barcode scanning, catalog management, discounts, and secure digital receipts—supported by cash, card, and mobile money payment options.",
+          icon: "tabler:shopping-cart",
+          learn_more: [],
+        },
+        {
+          title: "Inventory Management",
+          description:
+            "Monitor inventory across multiple locations with automated stock alerts, price controls, role permissions, and real-time tracking to prevent stock loss and ensure optimal stock levels.",
+          icon: "lucide:package",
+          learn_more: [],
+        },
+        {
+          title: "Multi-channel Integration",
+          description:
+            "Every transaction syncs instantly into Foundry Business and Foundry Books, eliminating manual errors. Finance teams benefit from automatic posting and reconciliation, accelerating the month-end close.",
+          icon: "lucide:git-merge",
+          learn_more: [],
+        },
+      ],
       backgroundsize: "120%",
       backgroundcolor: "#E4EEF0 ",
     },
@@ -74,9 +118,31 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       bg: "/images/our-platforms/view/FoundryTerminal.png",
       // description: 'One terminal for managing all business operations centrally.',
       // link: '/our-platforms/business/foundry-terminal',
-      detailedDescription: ``,
-      sub_components_title: "",
-      sub_components: [],
+      detailedDescription: `Foundry Terminal is the unified interface that brings Foundry's financial and operational services directly to the point of interaction with customers, agents, and merchants. It acts as the operational bridge between in-person commerce and your backend systems—ensuring clean data, instant reporting, and seamless reconciliation.`,
+      sub_components_title: "Core Features",
+      sub_components: [
+        {
+          title: "Payment Processing",
+          description:
+            "Enable fast, secure payments across mobile money, card, and digital wallets while synchronizing every transaction into the Foundry platform in real-time.",
+          icon: "tabler:credit-card",
+          learn_more: [],
+        },
+        {
+          title: "Customer Services",
+          description:
+            "Support value-added capabilities such as customer onboarding, identity verification, balance inquiries, collections, bill payments, and cash-in/cash-out operations.",
+          icon: "lucide:user-check",
+          learn_more: [],
+        },
+        {
+          title: "Operations Management",
+          description:
+            "Intuitive UI with offline resilience and multi-user access controls. Each activity is logged with audit trails and real-time notifications, reducing fraud and strengthening operational oversight.",
+          icon: "lucide:settings",
+          learn_more: [],
+        },
+      ],
     },
     {
       title: "Invoice Management",
@@ -85,9 +151,31 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       bg: "/images/our-platforms/view/InvoiceManagement.png",
       description: "Send, track, and reconcile invoices effortlessly.",
       // link: '/our-platforms/business/invoice-management',
-      detailedDescription: ``,
-      sub_components_title: "",
-      sub_components: [],
+      detailedDescription: `Foundry Invoice Management gives businesses a complete, integrated system for creating, sending, tracking, and reconciling invoices with unmatched accuracy and speed. Designed for SMEs and fast-growing enterprises, it automates the entire invoicing lifecycle and syncs seamlessly with Foundry Books and Foundry Finance.`,
+      sub_components_title: "Core Features",
+      sub_components: [
+        {
+          title: "Invoice Lifecycle Automation",
+          description:
+            "Automate quotation, invoice generation, customer reminders, payment collection, and ledger posting. Supports digital invoices, recurring billing, and multi-branch operations.",
+          icon: "lucide:file-text",
+          learn_more: [],
+        },
+        {
+          title: "Payment Collection & Tracking",
+          description:
+            "Track invoice status in real time with automated payment links across mobile money, bank transfer, and card. Smart reminders and customer notifications reduce late payments.",
+          icon: "tabler:cash",
+          learn_more: [],
+        },
+        {
+          title: "Financial Integration & Compliance",
+          description:
+            "Every invoice syncs seamlessly eliminating manual data entry. Audit trails, approval workflows, and role-based access maintain compliance and reduce risk across the invoicing process.",
+          icon: "lucide:shield-check",
+          learn_more: [],
+        },
+      ],
     },
 
     {
@@ -98,70 +186,32 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       backgroundsize: "130%",
       backgroundcolor: "#E4EEF0 ",
       description:
-        "Manage purchasing workflows and vendor interactions efficiently.",
+        "Automated payroll solution ensuring accurate and timely payments.",
       // link: '/our-platforms/business/procurement',
-      detailedDescription: `Foundry procuremnet eliminates waste and provides visibility. From requisitions to approvals, purchase nd distribution of inventory to desired sections of your business`,
+      detailedDescription: `Foundry Manage Payroll is a complete, automated payroll solution that ensures your employees are paid accurately and on time, every time. It handles salary computation, deductions, allowances, taxes, and benefits while integrating seamlessly with Foundry Books and Foundry Finance.`,
       product_image: "/images/our-platforms/new/procure.png",
       sub_components_title: "Core Features",
       sub_components: [
         {
-          title: "Purchase",
+          title: "Payroll Automation",
           description:
-            "Streamline requisition, approval, and ordering processes with a digital-first procurement experience.",
-          icon: "tabler:shopping-cart-check",
-          learn_more: [
-            {
-              title: "Smart Requisition Forms",
-              description:
-                "Pre-filled, role-aware forms that guide employees through item selection, quantity, justification, and urgency tagging.",
-            },
-            {
-              title: "Approval Routing",
-              description:
-                "Multi-level approval routing based on amount, category, or department with real-time status tracking.",
-            },
-            {
-              title: "Order & Delivery Tracking",
-              description:
-                "Monitor the lifecycle of each purchase from request to vendor confirmation, fulfillment, and delivery with integrated alerts.",
-            },
-          ],
+            "Automate salary computation, deductions, allowances, taxes, and benefits. Reduces errors, saves time, and provides a single source of truth for all payroll data.",
+          icon: "tabler:calculator",
+          learn_more: [],
         },
         {
-          title: "Spend",
+          title: "Compliance & Reporting",
           description:
-            "Track, control, and optimize company spending across departments and vendors with real-time visibility and approval workflows.",
-          icon: "ph:chart-bar",
-          learn_more: [
-            {
-              title: "Spend Analytics",
-              description:
-                "Gain insight into spending patterns across teams, suppliers, and categories to make data-driven decisions and reduce waste.",
-            },
-            {
-              title: "Budget Controls",
-              description:
-                "Define spending limits, auto-flag overages, and route requests through customizable approval flows.",
-            },
-          ],
+            "Multi-branch operations, role-based approvals, statutory compliance, and local tax regulations. Real-time dashboards show payroll costs, department-wise expenses, and projected liabilities.",
+          icon: "lucide:file-check",
+          learn_more: [],
         },
         {
-          title: "Manage",
+          title: "Employee Self-Service & Disbursement",
           description:
-            "Maintain centralized control over vendors, contracts, and internal purchasing policies with intelligent automation.",
-          icon: "mdi:account-cog",
-          learn_more: [
-            {
-              title: "Vendor Management",
-              description:
-                "Onboard and rate vendors, track compliance and contract performance, and consolidate all vendor data in one place.",
-            },
-            {
-              title: "Policy Enforcement",
-              description:
-                "Enforce procurement rules through automated validations, approval chains, and role-based permissions.",
-            },
-          ],
+            "Employees access payslips digitally. Integration with bank and mobile money systems enables instant salary disbursements and simplifies reconciliation.",
+          icon: "lucide:user-circle",
+          learn_more: [],
         },
       ],
     },
@@ -172,9 +222,31 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       product_image: "/images/our-platforms/new/hr.png",
       description: "Streamline employee data, benefits, and HR processes.",
       // link: '/our-platforms/business/hr',
-      detailedDescription: ``,
-      sub_components_title: "",
-      sub_components: [],
+      detailedDescription: `Business Loans provides SMEs with fast, flexible, and transparent access to the capital they need to grow. Integrated within the Foundry Finance ecosystem, it simplifies loan application, approval, disbursement, and repayment, all in one seamless platform without cumbersome paperwork.`,
+      sub_components_title: "Core Features",
+      sub_components: [
+        {
+          title: "Loan Application & Approval",
+          description:
+            "Access working capital, expansion loans, or short-term financing without cumbersome paperwork. Foundry automates credit assessment and compliance checks to reduce risk.",
+          icon: "lucide:file-check-2",
+          learn_more: [],
+        },
+        {
+          title: "Data-Driven Credit Assessment",
+          description:
+            "Leverages data from sales, expenses, invoices, and repayment history to offer personalized loan terms, track repayment schedules, and provide real-time insights on outstanding obligations.",
+          icon: "tabler:chart-dots",
+          learn_more: [],
+        },
+        {
+          title: "Disbursement & Repayment",
+          description:
+            "Digital disbursement and repayment options—including bank transfers and mobile money—ensure funds move quickly and securely, while automated reminders keep borrowers on track.",
+          icon: "tabler:arrows-exchange",
+          learn_more: [],
+        },
+      ],
       backgroundsize: "cover",
       titleColor: "text-white",
       // backgroundcolor: '#E4EEF0 ',
@@ -185,9 +257,31 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
       // description: 'Turn your data into actionable insights with powerful dashboards.',
       // link: '/our-platforms/business/analytics',
-      detailedDescription: ``,
-      sub_components_title: "",
-      sub_components: [],
+      detailedDescription: `Foundry Trust Score is a dynamic risk and credibility scoring system that helps businesses make smarter financial and operational decisions. By analyzing transactional history, payment behavior, compliance records, and operational data, it generates a reliable, real-time score that reflects trustworthiness.`,
+      sub_components_title: "Core Features",
+      sub_components: [
+        {
+          title: "Risk Assessment & Scoring",
+          description:
+            "Analyzes transactional history, payment behavior, compliance records, and operational data to generate reliable, real-time scores that reflect the trustworthiness of customers, suppliers, or partners.",
+          icon: "lucide:shield-alert",
+          learn_more: [],
+        },
+        {
+          title: "Real-time Score Updates",
+          description:
+            "Continuously updates scores as new data becomes available, enabling businesses to identify high-risk partners, assess creditworthiness, and optimize lending or procurement decisions.",
+          icon: "tabler:refresh",
+          learn_more: [],
+        },
+        {
+          title: "Integration & Insights",
+          description:
+            "Integrates with onboarding workflows, vendor management, and loan applications, ensuring every relationship is evaluated with accuracy and transparency. Provides actionable insights that reduce risk.",
+          icon: "lucide:network",
+          learn_more: [],
+        },
+      ],
     },
     {
       title: "Business APIs",
@@ -645,9 +739,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                 className={`cursor-pointer min-w-[60vw] sm:min-w-[45vw] lg:min-w-[18vw] min-h-[23rem] md:min-h-[18rem] lg:min-h-[28rem]
                   bg-[#36413E] bg-cover text-white p-0 flex flex-col justify-between
                   shadow hover:shadow-lg transition-all duration-300 ease-in-out transform rounded-3xl
-                  ${
-                    idx === currentIndex + 2 ? "scale-100" : "scale-95"
-                  }`}
+                  ${idx === currentIndex + 2 ? "scale-100" : "scale-95"}`}
                 style={{
                   backgroundImage: `url(${item.bg})`,
                   backgroundPosition: "center",
@@ -716,7 +808,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
           <div
             ref={contentRef}
             onClick={(e) => e.stopPropagation()}
-            className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl ${
+            className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto scrollbar-hide rounded-xl shadow-2xl ${
               activeSegment === "bank"
                 ? "bg-[#24272A] text-white"
                 : "bg-white text-zinc-900"
@@ -798,7 +890,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                       {selectedItem.sub_components.map((component, idx) => (
                         <div
                           key={idx}
-                          className={`p-6 rounded-lg border ${
+                          className={`p-6 rounded ${
                             activeSegment === "bank"
                               ? "bg-[#1C1C1C] border-zinc-800"
                               : "bg-zinc-50 border-zinc-200"
@@ -807,7 +899,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                           <h4
                             className={`text-lg font-semibold mb-2 ${
                               activeSegment === "bank"
-                                ? "text-[#F6851B]"
+                                ? "text-white"
                                 : "text-black"
                             }`}
                           >
@@ -841,7 +933,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                     {selectedItem.features.map((feature, idx) => (
                       <div
                         key={idx}
-                        className={`p-6 rounded-lg border ${
+                        className={`p-6 rounded ${
                           activeSegment === "bank"
                             ? "bg-[#1C1C1C] border-zinc-800"
                             : "bg-zinc-50 border-zinc-200"
@@ -850,7 +942,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                         <h4
                           className={`text-lg font-semibold mb-2 ${
                             activeSegment === "bank"
-                              ? "text-[#F6851B]"
+                              ? "text-white"
                               : "text-black"
                           }`}
                         >
@@ -879,7 +971,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                                 <span
                                   className={`mr-2 ${
                                     activeSegment === "bank"
-                                      ? "text-[#F6851B]"
+                                      ? "text-white"
                                       : "text-black"
                                   }`}
                                 >
@@ -901,8 +993,8 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                 <button
                   className={`px-8 py-3 rounded-md font-medium transition-all ${
                     activeSegment === "bank"
-                      ? "bg-[#F6851B] text-white hover:bg-[#e57a16]"
-                      : "bg-black text-white hover:bg-zinc-800"
+                      ? "bg-white text-black hover:opacity-90"
+                      : "bg-primary text-white hover:bg-primary-dark"
                   }`}
                 >
                   Learn More

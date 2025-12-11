@@ -59,7 +59,9 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                   <div className="w-12 h-12 bg-zinc-100 flex items-center justify-center mb-6">
                     <ShoppingBag className="w-6 h-6 text-black" />
                   </div>
-                  <h3 className="text-2xl font-medium mb-2">Omnichannel Sales</h3>
+                  <h3 className="text-2xl font-medium mb-2">
+                    Omnichannel Sales
+                  </h3>
                   <p className="opacity-70 max-w-sm">
                     Sell in-store, online, and on the go. Inventory syncs
                     automatically across every channel.
@@ -242,7 +244,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
           // BANK GRID
           <div className="grid md:grid-cols-3 md:grid-rows-3 gap-6 h-auto">
             {/* 1. ENGAGEMENT BANKING PLATFORM */}
-            <div className="md:col-span-2 md:row-span-1 p-10 relative overflow-hidden group bg-[#24272A] border border-zinc-800">
+            <div className="md:col-span-2 md:row-span-1 p-10 relative overflow-hidden group bg-[#24272A] border border-zinc-800 rounded">
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-zinc-800 text-white flex items-center justify-center mb-6">
                   <Layers className="w-6 h-6" />
@@ -255,14 +257,14 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                   orchestration layer. Replace disconnected silos with a
                   seamless fabric.
                 </p>
-                <div className="flex gap-2">
-                  <span className="text-xs font-medium bg-white/10 px-3 py-1 border border-white/10">
-                    Digital Fabric
+                <div className="flex gap-2 tracking-wide">
+                  <span className="text-xs font-medium bg-white/10 px-3 py-1 rounded borde border-white/10">
+                    Digital Operating System
                   </span>
-                  <span className="text-xs font-medium bg-white/10 px-3 py-1 border border-white/10">
+                  <span className="text-xs font-medium bg-white/10 px-3 py-1 rounded borde border-white/10">
                     Data + AI
                   </span>
-                  <span className="text-xs font-medium bg-white/10 px-3 py-1 border border-white/10">
+                  <span className="text-xs font-medium bg-white/10 px-3 py-1 rounded borde border-white/10">
                     Integration
                   </span>
                 </div>
@@ -329,8 +331,8 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 <div className="w-full bg-zinc-800 h-1.5 overflow-hidden">
                   <div className="bg-gray-400 w-3/4 h-full"></div>
                 </div>
-                <div className="text-[10px] text-gray-400 mt-2 font-mono">
-                  KYC COMPLETE • ACCOUNT FUNDED
+                <div className="text-[10px] uppercase tracking-wide text-gray-400 mt-2 font-mono">
+                  KYC, Risk Rating, Document Collection, Account Funded
                 </div>
               </div>
             </div>
@@ -343,8 +345,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 </div>
                 <h3 className="text-xl font-medium mb-2">Human Assist</h3>
                 <p className="text-sm opacity-60 mb-4">
-                  Empower employees with a unified dashboard. See exactly what
-                  your customer sees.
+                 Empower employees with a unified dashboard. Experience your customer’s journey firsthand and manage daily operations end-to-end. - Requests, Workflow, Complaints, CRM, Reports & Analytics
                 </p>
                 <div className="flex -space-x-2 opacity-50">
                   <div className="w-6 h-6 bg-zinc-600"></div>
