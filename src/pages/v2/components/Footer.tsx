@@ -30,7 +30,12 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
       <div className="max-w-10xl mx-auto px-8 grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
         {/* Logo column */}
         <div className="col-span-2 md:col-span-1">
-          <div className="flex flex-col gap-1 mb-6">
+          <div className="flex flex-col items-start gap-2 md:gap-3 lg:gap-4 mb-6">
+            <img
+              src="/icons/logo_white.svg"
+              alt="Foundry Logo"
+              className="h-8 md:h-12 lg:h-14 w-auto"
+            />
             <span className="text-3xl font-medium">Foundry</span>
           </div>
         </div>
@@ -41,7 +46,7 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
           <ul className="space-y-3 text-sm">
             <li>
               <button
-                onClick={() => handleNavigate("/v2", "merchant")}
+                onClick={() => handleNavigate("/", "merchant")}
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Get Foundry
@@ -49,7 +54,7 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
             </li>
             <li>
               <button
-                onClick={() => handleNavigate("/v2", "merchant")}
+                onClick={() => handleNavigate("/", "merchant")}
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Payments
@@ -57,7 +62,7 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
             </li>
             <li>
               <button
-                onClick={() => handleNavigate("/v2", "merchant")}
+                onClick={() => handleNavigate("/", "merchant")}
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Commerce
@@ -65,7 +70,7 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
             </li>
             <li className="flex items-center gap-2">
               <button
-                onClick={() => handleNavigate("/v2", "bank")}
+                onClick={() => handleNavigate("/", "bank")}
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Banking
@@ -76,7 +81,7 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
             </li>
             <li className="flex items-center gap-2">
               <button
-                onClick={() => handleNavigate("/v2", "bank")}
+                onClick={() => handleNavigate("/credit", "merchant")}
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Credit
@@ -93,19 +98,19 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
           <h4 className="font-medium mb-4 text-gray-300">Products</h4>
           <ul className="space-y-3 text-sm">
             <li className="flex items-center gap-2">
-              <a
-                href="#"
+              <button
+                onClick={() => handleNavigate("/hardware", "merchant")}
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 POS Terminal
-              </a>
+              </button>
               <span className="px-2 py-0.5 bg-[#A6F44C] text-black text-xs font-medium rounded-md">
                 NEW
               </span>
             </li>
             <li>
               <button
-                onClick={() => handleNavigate("/v2/baas", "bank")}
+                onClick={() => handleNavigate("/baas", "bank")}
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Banking as a Service
@@ -113,19 +118,19 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
             </li>
             <li>
               <button
-                onClick={() => handleNavigate("/v2/engagement", "bank")}
+                onClick={() => handleNavigate("/engagement", "bank")}
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Engagement Platform
               </button>
             </li>
             <li>
-              <a
-                href="#"
+              <button
+                onClick={() => handleNavigate("/kyc", "bank")}
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 KYC & Compliance
-              </a>
+              </button>
             </li>
             <li>
               <a
@@ -198,12 +203,20 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
           <h4 className="font-medium mb-4 text-gray-300">About</h4>
           <ul className="space-y-3 text-sm">
             <li>
-              <a
-                href="#"
+              <button
+                onClick={() => handleNavigate("/about")}
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                About Us
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleNavigate("/information-security-policy")}
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Security
-              </a>
+              </button>
             </li>
             <li>
               <a
@@ -274,26 +287,29 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
       <div className="max-w-10xl mx-auto px-8 pt-8 border-t border-zinc-800">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div className="flex flex-wrap gap-4 text-xs text-gray-500">
-            <a href="#" className="hover:text-gray-300 transition-colors">
-              Consensys
-            </a>
-            <a
-              href="#"
+            <button
+              onClick={() => handleNavigate("/about")}
+              className="hover:text-gray-300 transition-colors"
+            >
+              About Foundry
+            </button>
+            <button
+              onClick={() => handleNavigate("/privacy-policy")}
               className="hover:text-gray-300 transition-colors underline"
             >
               Privacy Policy
-            </a>
+            </button>
+            <button
+              onClick={() => handleNavigate("/information-security-policy")}
+              className="hover:text-gray-300 transition-colors underline"
+            >
+              Information Security Policy
+            </button>
             <a
               href="#"
               className="hover:text-gray-300 transition-colors underline"
             >
               Terms of Use
-            </a>
-            <a
-              href="#"
-              className="hover:text-gray-300 transition-colors underline"
-            >
-              Contributor License Agreement
             </a>
             <a
               href="#"

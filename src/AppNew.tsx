@@ -30,6 +30,8 @@ import Onboarding from "./pages/onboarding";
 import NotFound from "./components/shared/not_found";
 import { Toaster } from "react-hot-toast";
 import ScrollToTop from "./components/shared/scroll_to_top";
+import PrivacyPolicy from "./PrivacyPolicy";
+import ISOSecurityPolicy from "./ISOSecurityPolicy";
 const BusinessAutomation = lazy(() => import("./pages/business_automation"));
 const Loan = lazy(() => import("./pages/loan"));
 const Hire = lazy(() => import("./pages/hire"));
@@ -44,88 +46,98 @@ const ViewPlatformSpecific = lazy(
 const LogisticsAndSupply = lazy(() => import("./pages/logistics"));
 
 const App = () => {
-    const { scrollYProgress } = useScroll();
-
+  const { scrollYProgress } = useScroll();
 
   return (
-        <main className="w-full h-[100dvh] flex flex-col text-base font-roboto">
-          <motion.div
-            style={{ scaleX: scrollYProgress }}
-            className="fixed top-0 left-0 right-0"
+    <main className="w-full h-[100dvh] flex flex-col text-base font-roboto">
+      <motion.div
+        style={{ scaleX: scrollYProgress }}
+        className="fixed top-0 left-0 right-0"
+      />
+
+      <ScrollToTop />
+      <Routes>
+        {/* V2 Routes - Now Main Routes */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="retail" element={<Retail />} />
+          <Route path="fnb" element={<FnB />} />
+          <Route path="enterprise" element={<Enterprise />} />
+          <Route path="banks" element={<Banks />} />
+          <Route path="baas" element={<BaaS />} />
+          <Route path="engagement" element={<Engagement />} />
+          <Route path="hardware" element={<Hardware />} />
+          <Route path="credit" element={<Credit />} />
+          <Route path="kyc" element={<KYC />} />
+          <Route path="invoices" element={<Invoices />} />
+        </Route>
+
+        {/* Shared Routes - Available from both layouts */}
+        <Route path="onboarding" element={<Onboarding />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route
+          path="information-security-policy"
+          element={<ISOSecurityPolicy />}
+        />
+
+        {/* Old Routes - Non-Clashing Routes under MainLayout */}
+        <Route element={<MainLayout />}>
+          <Route path="business-automation" element={<BusinessAutomation />} />
+          <Route path="manage" element={<Manage />} />
+          <Route path="loan" element={<Loan />} />
+          <Route path="hire" element={<Hire />} />
+          <Route path="hire-detail" element={<HireDetail />} />
+          <Route path="financial-services" element={<FinancialServices />} />
+
+          <Route
+            path="financial-service/:service"
+            element={<FinancialServiceExpansion />}
           />
-    
-          <ScrollToTop />
-    <Routes>
-      {/* V2 Routes - Now Main Routes */}
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="retail" element={<Retail />} />
-        <Route path="fnb" element={<FnB />} />
-        <Route path="enterprise" element={<Enterprise />} />
-        <Route path="banks" element={<Banks />} />
-        <Route path="baas" element={<BaaS />} />
-        <Route path="engagement" element={<Engagement />} />
-        <Route path="hardware" element={<Hardware />} />
-        <Route path="credit" element={<Credit />} />
-        <Route path="kyc" element={<KYC />} />
-        <Route path="invoices" element={<Invoices />} />
-      </Route>
 
-      {/* Shared Routes - Available from both layouts */}
-      <Route path="onboarding" element={<Onboarding />} />
+          <Route path="pricing" element={<Pricing />} />
+          <Route path="about" element={<AboutUs />} />
 
-      {/* Old Routes - Non-Clashing Routes under MainLayout */}
-      <Route element={<MainLayout />}>
-        <Route path="business-automation" element={<BusinessAutomation />} />
-        <Route path="manage" element={<Manage />} />
-        <Route path="loan" element={<Loan />} />
-        <Route path="hire" element={<Hire />} />
-        <Route path="hire-detail" element={<HireDetail />} />
-        <Route path="financial-services" element={<FinancialServices />} />
+          <Route path="business/:service" element={<BusinessExpansion />} />
 
-        <Route
-          path="financial-service/:service"
-          element={<FinancialServiceExpansion />}
-        />
+          <Route path="operations/:service" element={<OperationsExpansion />} />
 
-        <Route path="pricing" element={<Pricing />} />
-        <Route path="about" element={<AboutUs />} />
+          <Route path="use-cases" element={<NewUseCases />} />
+          <Route path="use-cases/:name" element={<ViewUseCase />} />
+          <Route path="our-platforms" element={<OurPlatforms />} />
+          <Route path="our-platforms/:name" element={<ViewPlatforms />} />
+          <Route
+            path="our-platforms/:name/:subname"
+            element={<ViewPlatformSpecific />}
+          />
 
-        <Route path="business/:service" element={<BusinessExpansion />} />
+          <Route
+            path="onboarding/download-apps-and-other-offers"
+            element={<DownloadAppsAndOtherOffers />}
+          />
+          <Route
+            path="logistics-supply-chain"
+            element={<LogisticsAndSupply />}
+          />
+          <Route
+            path="logistics-supply-chain/booking-management"
+            element={<BookingManagement />}
+          />
+          <Route
+            path="logistics-supply-chain/order-management"
+            element={<OrderManagement />}
+          />
+          <Route
+            path="logistics-supply-chain/trucking"
+            element={<Trucking />}
+          />
+          <Route path="upgrade-plan/:category/:id" element={<UpgradePlan />} />
+        </Route>
 
-        <Route path="operations/:service" element={<OperationsExpansion />} />
-
-        <Route path="use-cases" element={<NewUseCases />} />
-        <Route path="use-cases/:name" element={<ViewUseCase />} />
-        <Route path="our-platforms" element={<OurPlatforms />} />
-        <Route path="our-platforms/:name" element={<ViewPlatforms />} />
-        <Route
-          path="our-platforms/:name/:subname"
-          element={<ViewPlatformSpecific />}
-        />
-
-        <Route
-          path="onboarding/download-apps-and-other-offers"
-          element={<DownloadAppsAndOtherOffers />}
-        />
-        <Route path="logistics-supply-chain" element={<LogisticsAndSupply />} />
-        <Route
-          path="logistics-supply-chain/booking-management"
-          element={<BookingManagement />}
-        />
-        <Route
-          path="logistics-supply-chain/order-management"
-          element={<OrderManagement />}
-        />
-        <Route path="logistics-supply-chain/trucking" element={<Trucking />} />
-        <Route path="upgrade-plan/:category/:id" element={<UpgradePlan />} />
-      </Route>
-
-      {/* 404 - Catch All */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-          <Toaster position="top-right" />
-        </main>
+        {/* 404 - Catch All */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Toaster position="top-right" />
+    </main>
   );
 };
 
