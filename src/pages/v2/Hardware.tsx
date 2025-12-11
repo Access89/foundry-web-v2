@@ -2,59 +2,63 @@ import { Zap, CreditCard, Battery, Wifi, ShieldCheck } from "lucide-react";
 
 const Hardware = () => {
   return (
-    <div className="pt-24 min-h-screen bg-white text-zinc-900">
+    <div className="min-h-screen bg-white text-zinc-900">
+      {/* Hero Section */}
+      <header className="relative pt-32 md:pt-28 xl:pt-44 pb-16 md:pb-24 xl:pb-32 px-4 md:px-8 overflow-hidden bg-white">
+        <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
+          <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12">
+            <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-medium mb-4 md:mb-6 uppercase tracking-wider">
+              POINT OF SALE
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.1] mb-4 md:mb-6">
+              Hardware that
+              <br />
+              <span className="text-zinc-400">means business.</span>
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl xl:text-2xl mb-6 md:mb-8 leading-relaxed text-zinc-600 max-w-2xl mx-auto">
+              Beautiful, reliable, and ready out of the box. Accept every
+              payment type with security built-in.
+            </p>
+          </div>
+
+          {/* Hero Product Visual */}
+          <div className="relative flex justify-center">
+            {/* Abstract representation of a sleek terminal */}
+            <div className="relative w-64 md:w-80 h-[400px] md:h-[500px] bg-zinc-900 border-4 md:border-[8px] border-zinc-800 shadow-2xl flex flex-col overflow-hidden scale-75 md:scale-90 lg:scale-100">
+              {/* Screen */}
+              <div className="flex-1 bg-white relative">
+                {/* UI Mockup */}
+                <div className="p-6 pt-12">
+                  <div className="text-center mb-8">
+                    <div className="text-4xl font-medium">$24.00</div>
+                    <div className="text-sm text-zinc-400">Total Amount</div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="h-12 bg-black text-white flex items-center justify-center font-medium shadow-lg">
+                      Tap to Pay
+                    </div>
+                    <div className="h-12 border border-zinc-200 flex items-center justify-center font-medium">
+                      Insert Card
+                    </div>
+                  </div>
+                </div>
+                {/* NFC Icon overlay */}
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-20">
+                  <Zap className="w-24 h-24" />
+                </div>
+              </div>
+              {/* Bottom Chin */}
+              <div className="h-16 bg-zinc-900 flex items-center justify-center border-t border-zinc-800">
+                <div className="w-1/3 h-1 bg-zinc-700"></div>
+              </div>
+            </div>
+
+            {/* Decorative background blobs */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-gradient-to-tr from-zinc-200 to-transparent -z-10 blur-3xl opacity-60"></div>
+          </div>
+        </div>
+      </header>
       <div className="max-w-10xl mx-auto px-6">
-        <div className="text-center max-w-4xl mx-auto mb-20 mt-8">
-          <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-medium mb-6">
-            POINT OF SALE
-          </div>
-          <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-6">
-            Hardware that
-            <br />
-            <span className="text-zinc-400">means business.</span>
-          </h1>
-          <p className="text-xl text-zinc-600 mb-8 max-w-2xl mx-auto">
-            Beautiful, reliable, and ready out of the box. Accept every payment
-            type with security built-in.
-          </p>
-        </div>
-
-        {/* Hero Product Visual */}
-        <div className="relative mb-32 flex justify-center">
-          {/* Abstract representation of a sleek terminal */}
-          <div className="relative w-80 h-[500px] bg-zinc-900 border-[8px] border-zinc-800 shadow-2xl flex flex-col overflow-hidden">
-            {/* Screen */}
-            <div className="flex-1 bg-white relative">
-              {/* UI Mockup */}
-              <div className="p-6 pt-12">
-                <div className="text-center mb-8">
-                  <div className="text-4xl font-medium">$24.00</div>
-                  <div className="text-sm text-zinc-400">Total Amount</div>
-                </div>
-                <div className="space-y-3">
-                  <div className="h-12 bg-black text-white flex items-center justify-center font-medium shadow-lg">
-                    Tap to Pay
-                  </div>
-                  <div className="h-12 border border-zinc-200 flex items-center justify-center font-medium">
-                    Insert Card
-                  </div>
-                </div>
-              </div>
-              {/* NFC Icon overlay */}
-              <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-20">
-                <Zap className="w-24 h-24" />
-              </div>
-            </div>
-            {/* Bottom Chin */}
-            <div className="h-16 bg-zinc-900 flex items-center justify-center border-t border-zinc-800">
-              <div className="w-1/3 h-1 bg-zinc-700"></div>
-            </div>
-          </div>
-
-          {/* Decorative background blobs */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-zinc-200 to-transparent -z-10 blur-3xl opacity-60"></div>
-        </div>
-
         {/* Product Lineup */}
         <div className="grid md:grid-cols-3 gap-8 mb-24">
           <div className="group p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow">

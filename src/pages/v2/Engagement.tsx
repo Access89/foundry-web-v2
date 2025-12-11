@@ -9,28 +9,33 @@ import {
 
 const Engagement = () => {
   return (
-    <div className="pt-24 min-h-screen bg-[#1C1C1C] text-white">
-      <div className="max-w-10xl mx-auto px-6">
-        <div className="text-center max-w-4xl mx-auto mb-20 mt-8">
-          <div className="inline-block px-3 py-1 bg-zinc-800 text-xs font-medium mb-6">
-            ENGAGEMENT PLATFORM
-          </div>
-          <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-6">
-            Re-architect banking
-            <br />
-            around the customer.
-          </h1>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-            Stop patching legacy silos. Implement a unified engagement layer
-            that orchestrates every interaction across web, mobile, and branch.
-          </p>
-          <div className="flex justify-center gap-4">
-            <button className="px-8 py-4 bg-white text-black rounded-md font-medium hover:opacity-90 transition-opacity">
-              Request Platform Demo
-            </button>
+    <div className="min-h-screen bg-[#1C1C1C] text-white">
+      {/* Hero Section */}
+      <header className="relative pt-32 md:pt-28 xl:pt-44 pb-16 md:pb-24 xl:pb-32 px-4 md:px-8 overflow-hidden bg-[#1C1C1C]">
+        <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
+          <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12">
+            <div className="inline-block px-3 py-1 bg-zinc-800 text-xs font-medium mb-4 md:mb-6 uppercase tracking-wider">
+              ENGAGEMENT PLATFORM
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.1] mb-4 md:mb-6">
+              Re-architect banking
+              <br />
+              <span className="text-gray-400">around the customer.</span>
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl xl:text-2xl mb-6 md:mb-8 leading-relaxed text-gray-300 max-w-2xl mx-auto">
+              Stop patching legacy silos. Implement a unified engagement layer
+              that orchestrates every interaction across web, mobile, and
+              branch.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+              <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-white text-black hover:bg-gray-100">
+                Request Platform Demo
+              </button>
+            </div>
           </div>
         </div>
-
+      </header>
+      <div className="max-w-10xl mx-auto px-6">
         {/* Architecture Visual */}
         <div className="mb-32 relative">
           <div className="relative z-10 flex flex-col items-center gap-8">

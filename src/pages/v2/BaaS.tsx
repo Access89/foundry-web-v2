@@ -10,65 +10,76 @@ import {
 
 const BaaS = () => {
   return (
-    <div className="pt-24 min-h-screen bg-[#1C1C1C] text-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24 mt-8">
-          <div className="order-2 lg:order-1">
-            <div className="inline-block px-3 py-1 bg-zinc-800 text-xs font-medium mb-6">
-              BANKING PRIMITIVES
-            </div>
-            <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-6 leading-tight">
-              Build your own bank.
-              <br />
-              One API call at a time.
-            </h1>
-            <p className="text-xl text-gray-400 mb-8 leading-relaxed">
-              Foundry BaaS provides the building blocks to embed financial
-              services into any product. Checking accounts, physical cards, and
-              instant transfers—infrastructure handled.
-            </p>
-            <div className="flex gap-4">
-              <button className="px-8 py-4 bg-white text-black rounded-md font-medium text-lg hover:opacity-90 transition-opacity">
-                Start Building
-              </button>
-            </div>
-          </div>
-          <div className="order-1 lg:order-2">
-            <div className="bg-[#24272A] border border-zinc-800 p-6 shadow-2xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-4 opacity-50">
-                <Code2 className="w-6 h-6 text-gray-500" />
+    <div className="min-h-screen bg-[#1C1C1C] text-white">
+      {/* Hero Section */}
+      <header className="relative pt-32 md:pt-28 xl:pt-44 pb-16 md:pb-24 xl:pb-32 px-4 md:px-8 overflow-hidden bg-[#1C1C1C]">
+        <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+            <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left text-white">
+              <div className="inline-block px-3 py-1 bg-zinc-800 text-xs font-medium mb-4 md:mb-6 uppercase tracking-wider">
+                BANKING PRIMITIVES
               </div>
-              <div className="font-mono text-sm overflow-x-auto">
-                <div className="text-gray-500 mb-4">
-                  # Create a Checking Account
+              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.1] mb-4 md:mb-6">
+                Build your own bank.
+                <br />
+                <span className="text-gray-400">One API call at a time.</span>
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl xl:text-2xl mb-6 md:mb-8 leading-relaxed text-gray-300">
+                Foundry BaaS provides the building blocks to embed financial
+                services into any product. Checking accounts, physical cards,
+                and instant transfers—infrastructure handled.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
+                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-white text-black hover:bg-gray-100">
+                  Start Building
+                </button>
+              </div>
+            </div>
+            <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full flex items-center justify-center">
+              <div className="relative w-full h-full flex items-center justify-center">
+                <div className="bg-[#24272A] border border-zinc-800 p-4 md:p-6 shadow-2xl relative overflow-hidden w-full max-w-lg scale-75 md:scale-90 lg:scale-100">
+                  <div className="absolute top-0 right-0 p-4 opacity-50">
+                    <Code2 className="w-6 h-6 text-gray-500" />
+                  </div>
+                  <div className="font-mono text-xs md:text-sm overflow-x-auto">
+                    <div className="text-gray-500 mb-4">
+                      # Create a Checking Account
+                    </div>
+                    <div className="text-purple-400">
+                      POST{" "}
+                      <span className="text-white">/v1/issuing/accounts</span>
+                    </div>
+                    <div className="text-gray-300 mt-2">{`{`}</div>
+                    <div className="pl-4 text-blue-300">
+                      holder_name:{" "}
+                      <span className="text-green-400">"Acme Corp"</span>,
+                    </div>
+                    <div className="pl-4 text-blue-300">
+                      type: <span className="text-green-400">"checking"</span>,
+                    </div>
+                    <div className="pl-4 text-blue-300">
+                      currency: <span className="text-green-400">"USD"</span>,
+                    </div>
+                    <div className="pl-4 text-blue-300">
+                      capabilities: [
+                      <span className="text-green-400">"transfers"</span>,{" "}
+                      <span className="text-green-400">"cards"</span>]
+                    </div>
+                    <div className="text-gray-300">{`}`}</div>
+                    <div className="text-gray-500 mt-4">
+                      # Response 201 Created
+                    </div>
+                    <div className="text-green-400">
+                      "account_id": "acc_1234"
+                    </div>
+                  </div>
                 </div>
-                <div className="text-purple-400">
-                  POST <span className="text-white">/v1/issuing/accounts</span>
-                </div>
-                <div className="text-gray-300 mt-2">{`{`}</div>
-                <div className="pl-4 text-blue-300">
-                  holder_name:{" "}
-                  <span className="text-green-400">"Acme Corp"</span>,
-                </div>
-                <div className="pl-4 text-blue-300">
-                  type: <span className="text-green-400">"checking"</span>,
-                </div>
-                <div className="pl-4 text-blue-300">
-                  currency: <span className="text-green-400">"USD"</span>,
-                </div>
-                <div className="pl-4 text-blue-300">
-                  capabilities: [
-                  <span className="text-green-400">"transfers"</span>,{" "}
-                  <span className="text-green-400">"cards"</span>]
-                </div>
-                <div className="text-gray-300">{`}`}</div>
-                <div className="text-gray-500 mt-4"># Response 201 Created</div>
-                <div className="text-green-400">"account_id": "acc_1234"</div>
               </div>
             </div>
           </div>
         </div>
-
+      </header>
+      <div className="max-w-7xl mx-auto px-6">
         {/* Features */}
         <div className="grid md:grid-cols-3 gap-8 mb-20">
           {[
