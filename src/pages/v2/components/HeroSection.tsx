@@ -25,8 +25,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           <div
             className={`p-1 flex gap-1 border rounded-full ${
               activeSegment === "bank"
-                ? "bg-white/5 backdrop-blur-sm border-white/10"
-                : "bg-zinc-100 border-zinc-200"
+                ? "bg-white/5 backdrop-blur-sm border-transparent"
+                : "bg-zinc-100 border-transparent"
             }`}
           >
             <button
