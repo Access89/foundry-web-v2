@@ -230,7 +230,7 @@ const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => navigate("/onboarding")}
-              className="border-2 border-primary text-primary px-6 py-2.5 rounded-md font-medium text-sm hover:bg-primary hover:text-white transition-all"
+              className="border-2 bg-primary border-primary text-white px-6 py-2.5 rounded-md font-medium text-sm hover:bg-primary-dark hover:text-white transition-all"
             >
               Get Started
             </button>

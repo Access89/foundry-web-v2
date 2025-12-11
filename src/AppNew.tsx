@@ -1,3 +1,4 @@
+import { motion, useScroll } from "framer-motion";
 import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./pages/v2/Layout";
@@ -25,14 +26,15 @@ import ViewUseCase from "./pages/new-use-cases/view-use-cases";
 import DownloadAppsAndOtherOffers from "./pages/onboarding/_components/_tabs/download-apps-and-other-offers";
 import UpgradePlan from "./pages/onboarding/_pages/upgrade-plan";
 import AboutUs from "./pages/AboutUs";
+import Onboarding from "./pages/onboarding";
 import NotFound from "./components/shared/not_found";
-const HomeOld = lazy(() => import("./pages/home"));
+import { Toaster } from "react-hot-toast";
+import ScrollToTop from "./components/shared/scroll_to_top";
 const BusinessAutomation = lazy(() => import("./pages/business_automation"));
 const Loan = lazy(() => import("./pages/loan"));
 const Hire = lazy(() => import("./pages/hire"));
 const HireDetail = lazy(() => import("./pages/hire/hire-detail"));
 const FinancialServices = lazy(() => import("./pages/financial_services"));
-// const UseCases = lazy(() => import('./pages/use_cases'));
 const NewUseCases = lazy(() => import("./pages/new-use-cases"));
 const OurPlatforms = lazy(() => import("./pages/our-platforms"));
 const ViewPlatforms = lazy(() => import("./pages/our-platforms/view"));
@@ -42,9 +44,20 @@ const ViewPlatformSpecific = lazy(
 const LogisticsAndSupply = lazy(() => import("./pages/logistics"));
 
 const App = () => {
+    const { scrollYProgress } = useScroll();
+
+
   return (
+        <main className="w-full h-[100dvh] flex flex-col text-base font-roboto">
+          <motion.div
+            style={{ scaleX: scrollYProgress }}
+            className="fixed top-0 left-0 right-0"
+          />
+    
+          <ScrollToTop />
     <Routes>
-      <Route path="/v2" element={<Layout />}>
+      {/* V2 Routes - Now Main Routes */}
+      <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="retail" element={<Retail />} />
         <Route path="fnb" element={<FnB />} />
@@ -57,62 +70,62 @@ const App = () => {
         <Route path="kyc" element={<KYC />} />
         <Route path="invoices" element={<Invoices />} />
       </Route>
-       <Route path="/" element={<MainLayout />}>
-          <Route path="" element={<HomeOld />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="business-automation" element={<BusinessAutomation />} />
-          <Route path="manage" element={<Manage />} />
-          <Route path="loan" element={<Loan />} />
-          <Route path="hire" element={<Hire />} />
-          <Route path="hire-detail" element={<HireDetail />} />
-          <Route path="financial-services" element={<FinancialServices />} />
 
-          <Route
-            path="/financial-service/:service"
-            element={<FinancialServiceExpansion />}
-          />
+      {/* Shared Routes - Available from both layouts */}
+      <Route path="onboarding" element={<Onboarding />} />
 
-          <Route path="/business/:service" element={<BusinessExpansion />} />
+      {/* Old Routes - Non-Clashing Routes under MainLayout */}
+      <Route element={<MainLayout />}>
+        <Route path="business-automation" element={<BusinessAutomation />} />
+        <Route path="manage" element={<Manage />} />
+        <Route path="loan" element={<Loan />} />
+        <Route path="hire" element={<Hire />} />
+        <Route path="hire-detail" element={<HireDetail />} />
+        <Route path="financial-services" element={<FinancialServices />} />
 
-          <Route
-            path="/operations/:service"
-            element={<OperationsExpansion />}
-          />
+        <Route
+          path="financial-service/:service"
+          element={<FinancialServiceExpansion />}
+        />
 
-          <Route path="use-cases" element={<NewUseCases />} />
-          <Route path="use-cases/:name" element={<ViewUseCase />} />
-          <Route path="our-platforms" element={<OurPlatforms />} />
-          <Route path="our-platforms/:name" element={<ViewPlatforms />} />
-          <Route
-            path="our-platforms/:name/:subname"
-            element={<ViewPlatformSpecific />}
-          />
+        <Route path="pricing" element={<Pricing />} />
+        <Route path="about" element={<AboutUs />} />
 
-          <Route path="pricing" element={<Pricing />} />
-          <Route
-            path="onboarding/download-apps-and-other-offers"
-            element={<DownloadAppsAndOtherOffers />}
-          />
-          <Route path="about" element={<AboutUs />} />
-          <Route
-            path="logistics-supply-chain"
-            element={<LogisticsAndSupply />}
-          />
-          <Route
-            path="logistics-supply-chain/booking-management"
-            element={<BookingManagement />}
-          />
-          <Route
-            path="logistics-supply-chain/order-management"
-            element={<OrderManagement />}
-          />
-          <Route
-            path="logistics-supply-chain/trucking"
-            element={<Trucking />}
-          />
-          <Route path="upgrade-plan/:category/:id" element={<UpgradePlan />} />
-        </Route>
+        <Route path="business/:service" element={<BusinessExpansion />} />
+
+        <Route path="operations/:service" element={<OperationsExpansion />} />
+
+        <Route path="use-cases" element={<NewUseCases />} />
+        <Route path="use-cases/:name" element={<ViewUseCase />} />
+        <Route path="our-platforms" element={<OurPlatforms />} />
+        <Route path="our-platforms/:name" element={<ViewPlatforms />} />
+        <Route
+          path="our-platforms/:name/:subname"
+          element={<ViewPlatformSpecific />}
+        />
+
+        <Route
+          path="onboarding/download-apps-and-other-offers"
+          element={<DownloadAppsAndOtherOffers />}
+        />
+        <Route path="logistics-supply-chain" element={<LogisticsAndSupply />} />
+        <Route
+          path="logistics-supply-chain/booking-management"
+          element={<BookingManagement />}
+        />
+        <Route
+          path="logistics-supply-chain/order-management"
+          element={<OrderManagement />}
+        />
+        <Route path="logistics-supply-chain/trucking" element={<Trucking />} />
+        <Route path="upgrade-plan/:category/:id" element={<UpgradePlan />} />
+      </Route>
+
+      {/* 404 - Catch All */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
+          <Toaster position="top-right" />
+        </main>
   );
 };
 

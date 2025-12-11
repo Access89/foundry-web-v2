@@ -5,9 +5,6 @@ import {
   Coffee,
   Building2,
   Landmark,
-  Code2,
-  Terminal,
-  Zap,
   BookOpen,
   Users,
   MessageSquare,
@@ -133,7 +130,7 @@ export const getNavData = (
             desc: "In-store payments",
             icon: <CreditCard className="w-5 h-5" />,
             action: () => {
-              navigate("/v2/hardware");
+              navigate("/hardware");
               if (setSegment) setSegment("merchant");
             },
           },
@@ -142,7 +139,7 @@ export const getNavData = (
             desc: "Get paid faster",
             icon: <FileText className="w-5 h-5" />,
             action: () => {
-              navigate("/v2/invoices");
+              navigate("/invoices");
               if (setSegment) setSegment("merchant");
             },
           },
@@ -151,7 +148,7 @@ export const getNavData = (
             desc: "Corporate cards",
             icon: <Receipt className="w-5 h-5" />,
             action: () => {
-              navigate("/v2/retail");
+              navigate("/retail");
               if (setSegment) setSegment("merchant");
             },
           },
@@ -160,7 +157,7 @@ export const getNavData = (
             desc: "Sync across channels",
             icon: <Package className="w-5 h-5" />,
             action: () => {
-              navigate("/v2/retail");
+              navigate("/retail");
               if (setSegment) setSegment("merchant");
             },
           },
@@ -169,7 +166,7 @@ export const getNavData = (
             desc: "Payroll & scheduling",
             icon: <Users className="w-5 h-5" />,
             action: () => {
-              navigate("/v2/retail");
+              navigate("/retail");
               if (setSegment) setSegment("merchant");
             },
           },
@@ -178,7 +175,7 @@ export const getNavData = (
             desc: "Capital & lending",
             icon: <Coins className="w-5 h-5" />,
             action: () => {
-              navigate("/v2/credit");
+              navigate("/credit");
               if (setSegment) setSegment("merchant");
             },
           },
@@ -192,7 +189,7 @@ export const getNavData = (
             desc: "Accounts & cards infrastructure",
             icon: <Landmark className="w-5 h-5" />,
             action: () => {
-              navigate("/v2/baas");
+              navigate("/baas");
               if (setSegment) setSegment("bank");
             },
           },
@@ -201,7 +198,7 @@ export const getNavData = (
             desc: "Customer journey orchestration",
             icon: <Layers className="w-5 h-5" />,
             action: () => {
-              navigate("/v2/engagement");
+              navigate("/engagement");
               if (setSegment) setSegment("bank");
             },
           },
@@ -210,7 +207,7 @@ export const getNavData = (
             desc: "Identity verification & fraud",
             icon: <ScanFace className="w-5 h-5" />,
             action: () => {
-              navigate("/v2/kyc");
+              navigate("/kyc");
               if (setSegment) setSegment("bank");
             },
           },
@@ -224,7 +221,7 @@ export const getNavData = (
       desc: "For shops and boutiques.",
       icon: <ShoppingBag className="w-5 h-5" />,
       action: () => {
-        navigate("/v2/retail");
+        navigate("/retail");
         if (setSegment) setSegment("merchant");
       },
     },
@@ -233,7 +230,7 @@ export const getNavData = (
       desc: "Restaurants, cafes, and bars.",
       icon: <Coffee className="w-5 h-5" />,
       action: () => {
-        navigate("/v2/fnb");
+        navigate("/fnb");
         if (setSegment) setSegment("merchant");
       },
     },
@@ -242,7 +239,7 @@ export const getNavData = (
       desc: "Scale with custom integrations.",
       icon: <Building2 className="w-5 h-5" />,
       action: () => {
-        navigate("/v2/enterprise");
+        navigate("/enterprise");
         if (setSegment) setSegment("bank");
       },
     },
@@ -251,29 +248,9 @@ export const getNavData = (
       desc: "Modernize legacy infrastructure.",
       icon: <Landmark className="w-5 h-5" />,
       action: () => {
-        navigate("/v2/banks");
+        navigate("/banks");
         if (setSegment) setSegment("bank");
       },
-    },
-  ],
-  Developers: [
-    {
-      title: "API Reference",
-      desc: "Detailed endpoints and guides.",
-      icon: <Code2 className="w-5 h-5" />,
-      action: () => {},
-    },
-    {
-      title: "SDKs",
-      desc: "Libraries for every language.",
-      icon: <Terminal className="w-5 h-5" />,
-      action: () => {},
-    },
-    {
-      title: "Sandbox",
-      desc: "Test with mock data.",
-      icon: <Zap className="w-5 h-5" />,
-      action: () => {},
     },
   ],
   Resources: [
