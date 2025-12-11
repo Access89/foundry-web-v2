@@ -43,19 +43,14 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "py-3" : "py-4"
+      className={`fixed w-full z-50 bg-white border-b border-zinc-200 transition-all duration-300 ${
+        isScrolled ? "shadow-lg" : ""
       }`}
       onMouseLeave={() => setHoveredNav(null)}
     >
-      <div className="max-w-10xl mx-auto px-4 md:px-6 lg:px-8">
-        {/* White container */}
-        <div
-          className={`bg-white px-6 py-3 flex justify-between items-center relative border rounded-lg border-zinc-200 transition-all duration-300 ${
-            isScrolled ? "shadow-xl" : "shadow-md"
-          }`}
-        >
-          {/* Logo - Links to Merchant */}
+      <div className="max-w-full mx-auto px-4 md:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
           <div
             className="flex items-center gap-3 cursor-pointer"
             onClick={() => {
@@ -64,41 +59,11 @@ const Navbar: React.FC<NavbarProps> = ({
             }}
           >
             <img src="/icons/logo.svg" className="w-[1.3rem]" alt="logo" />
-            <p className="font-medium text-black uppercase text-lg tracking-tight">
-              foundry
-            </p>
+            <p className="font-bold text-inherit uppercase">foundry</p>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex gap-4 items-center mx-auto">
-            {/* Segment Links */}
-            {/* <button
-              onClick={() => {
-                setActiveSegment("merchant");
-                handleNavigate("/v2");
-              }}
-              className={`text-base font-medium transition-colors ${
-                activeSegment === "merchant" && location.pathname === "/v2"
-                  ? "text-[#1A1A1A]"
-                  : "text-[#434343] hover:text-[#1A1A1A]"
-              }`}
-            >
-              Business
-            </button>
-            <button
-              onClick={() => {
-                setActiveSegment("bank");
-                handleNavigate("/v2");
-              }}
-              className={`text-base font-medium transition-colors ${
-                activeSegment === "bank" && location.pathname === "/v2"
-                  ? "text-[#1A1A1A]"
-                  : "text-[#434343] hover:text-[#1A1A1A]"
-              }`}
-            >
-              Banking
-            </button> */}
-
+          {/* Desktop Menu - Centered */}
+          <div className="hidden lg:flex gap-6 items-center mx-auto">
             {/* V2 Navigation Dropdowns */}
             {Object.keys(navData).map((item) => (
               <div
@@ -123,7 +88,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
                 {/* Mega Menu Dropdown */}
                 <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 p-2 shadow-xl border bg-white backdrop-blur-md transition-all duration-300 origin-top  ${
+                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 p-2 shadow-xl border border-zinc-200 bg-white transition-all duration-300 origin-top rounded-lg ${
                     hoveredNav === item
                       ? "opacity-100 scale-100 translate-y-0 visible"
                       : "opacity-0 scale-95 -translate-y-2 invisible pointer-events-none"
@@ -154,9 +119,9 @@ const Navbar: React.FC<NavbarProps> = ({
                                     setIsMenuOpen(false);
                                     setHoveredNav(null);
                                   }}
-                                  className="flex items-start text-left gap-4 p-3 transition-colors hover:bg-zinc-50 group w-full"
+                                  className="flex items-start text-left gap-3 p-3 rounded-md transition-colors hover:bg-zinc-50 group w-full"
                                 >
-                                  <div className="mt-1 p-2 bg-zinc-100 text-zinc-900">
+                                  <div className="mt-1 p-2 bg-zinc-100 text-zinc-900 rounded">
                                     {subItem.icon}
                                   </div>
                                   <div>
@@ -185,9 +150,9 @@ const Navbar: React.FC<NavbarProps> = ({
                               setIsMenuOpen(false);
                               setHoveredNav(null);
                             }}
-                            className="flex items-start text-left gap-4 p-3 transition-colors hover:bg-zinc-50 group w-full"
+                            className="flex items-start text-left gap-3 p-3 rounded-md transition-colors hover:bg-zinc-50 group w-full"
                           >
-                            <div className="mt-1 p-2 bg-zinc-100 text-zinc-900">
+                            <div className="mt-1 p-2 bg-zinc-100 text-zinc-900 rounded">
                               {subItem.icon}
                             </div>
                             <div>
@@ -238,7 +203,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden text-black"
+            className="lg:hidden text-black"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
