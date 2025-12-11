@@ -268,10 +268,10 @@ const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => navigate("/onboarding")}
-              className={`border-2 text-white px-6 py-2.5 rounded-md font-medium text-sm transition-all${
+              className={`border-2  px-6 py-2.5 rounded-md font-medium text-sm transition-all${
                 !isDark
-                  ? " bg-primary border-primary hover:bg-primary-dark hover:border-primary-dark hover:opacity-90"
-                  : " bg-[#F6851B] border-[#F6851B]  hover:bg-[#E57710] hover:border-[#E57710] "
+                  ? " bg-primary text-white border-primary hover:bg-primary-dark hover:border-primary-dark hover:opacity-90"
+                  : " bg-white text-black border-white hover:opacity-90 "
               }`}
             >
               Get Started
