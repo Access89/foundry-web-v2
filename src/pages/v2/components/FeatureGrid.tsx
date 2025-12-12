@@ -54,7 +54,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
           // MERCHANT GRID
           <div className="grid md:grid-cols-3 md:grid-rows-3 gap-6 h-auto">
             {/* 1. SALES */}
-            <div className="md:col-span-2 p-8 bg-white border border-zinc-200 relative overflow-hidden group transition-all duration-400 hover:-translate-y-2 hover:shadow-xl">
+            <div className="md:col-span-2 p-8 bg-white border border-zinc-200 relative overflow-hidden group transition-all duration-400 hover:-translate-y-2 hover:shadow-xl rounded-lg">
               <div className="relative z-10 flex flex-col h-full justify-between">
                 <div>
                   <div className="w-12 h-12 bg-zinc-100 flex items-center justify-center mb-6">
@@ -88,7 +88,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
             </div>
 
             {/* 2. BANKING */}
-            <div className="md:row-span-2 p-8 bg-[#24272A] text-white relative overflow-hidden flex flex-col transition-all duration-400 hover:-translate-y-2 hover:shadow-xl border border-zinc-800">
+            <div className="md:row-span-2 p-8 bg-[#24272A] text-white relative overflow-hidden flex flex-col transition-all duration-400 hover:-translate-y-2 hover:shadow-xl border border-zinc-800 rounded-lg">
               <div className="mb-6">
                 <div className="w-12 h-12 bg-zinc-800 flex items-center justify-center mb-6">
                   <Landmark className="w-6 h-6 text-white" />
@@ -148,7 +148,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
             </div>
 
             {/* 3. SPEND */}
-            <div className="p-8 bg-white border border-zinc-200 relative overflow-hidden group">
+            <div className="p-8 bg-white border border-zinc-200 relative overflow-hidden group rounded-lg">
               <div className="relative z-10">
                 <div className="w-10 h-10 bg-zinc-100 flex items-center justify-center mb-4">
                   <Receipt className="w-5 h-5 text-black" />
@@ -168,7 +168,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
             </div>
 
             {/* 4. PURCHASES */}
-            <div className="p-8 bg-white border border-zinc-200 relative overflow-hidden">
+            <div className="p-8 bg-white border border-zinc-200 relative overflow-hidden rounded-lg">
               <div className="relative z-10">
                 <div className="w-10 h-10 bg-zinc-100 flex items-center justify-center mb-4">
                   <Truck className="w-5 h-5 text-black" />
@@ -185,7 +185,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
             </div>
 
             {/* 5. STAFF */}
-            <div className="p-8 bg-white border border-zinc-200 relative overflow-hidden">
+            <div className="p-8 bg-white border border-zinc-200 relative overflow-hidden rounded-lg">
               <div className="relative z-10">
                 <div className="w-10 h-10 bg-zinc-100 flex items-center justify-center mb-4">
                   <Briefcase className="w-5 h-5 text-black" />
@@ -209,7 +209,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
             </div>
 
             {/* 6. CREDIT */}
-            <div className="md:col-span-2 p-8 bg-gradient-to-r from-zinc-100 to-white border border-zinc-200 relative overflow-hidden flex flex-col md:flex-row items-center gap-8">
+            <div className="md:col-span-2 p-8 bg-gradient-to-r from-zinc-100 to-white border border-zinc-200 relative overflow-hidden flex flex-col md:flex-row items-center gap-8 rounded-lg">
               <div className="flex-1">
                 <div className="w-10 h-10 bg-white shadow-sm flex items-center justify-center mb-4">
                   <Coins className="w-5 h-5 text-black" />
@@ -245,7 +245,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
           // BANK GRID
           <div className="grid md:grid-cols-3 md:grid-rows-3 gap-6 h-auto">
             {/* 1. ENGAGEMENT BANKING PLATFORM */}
-            <div className="md:col-span-2 md:row-span-1 p-10 relative overflow-hidden group bg-[#24272A] border border-zinc-800 rounded">
+            <div className="md:col-span-2 md:row-span-1 p-10 relative overflow-hidden group bg-[#24272A] border border-zinc-800 rounded-lg">
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-zinc-800 text-white flex items-center justify-center mb-6">
                   <Layers className="w-6 h-6" />
@@ -277,7 +277,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
             </div>
 
             {/* 2. TAILORED SEGMENTS */}
-            <div className="md:row-span-2 p-8 bg-[#24272A] border border-zinc-800 relative overflow-hidden flex flex-col">
+            <div className="md:row-span-2 p-8 bg-[#24272A] border border-zinc-800 relative overflow-hidden flex flex-col rounded-lg">
               <div className="mb-6">
                 <div className="w-12 h-12 bg-zinc-800 flex items-center justify-center mb-6 text-white">
                   <Users className="w-6 h-6" />
@@ -326,7 +326,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
             </div>
 
             {/* 3. ONBOARDING & ORIGINATION */}
-            <div className="p-8 bg-[#24272A] border border-zinc-800 relative overflow-hidden group">
+            <div className="p-8 bg-[#24272A] border border-zinc-800 relative overflow-hidden group rounded-lg">
               <div className="relative z-10">
                 <div className="w-10 h-10 bg-zinc-800 flex items-center justify-center mb-4 text-white">
                   <UserCheck className="w-5 h-5" />
@@ -348,7 +348,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
             </div>
 
             {/* 4. HUMAN ASSIST */}
-            <div className="p-8 bg-[#24272A] border border-zinc-800 relative overflow-hidden group">
+            <div className="p-8 bg-[#24272A] border border-zinc-800 relative overflow-hidden group rounded-lg">
               <div className="relative z-10">
                 <div className="w-10 h-10 bg-zinc-800 flex items-center justify-center mb-4 text-white">
                   <MessageSquare className="w-5 h-5" />
@@ -368,7 +368,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
             </div>
 
             {/* 5. DATA & AI FABRIC */}
-            <div className="md:col-span-3 p-8 bg-[#1C1C1C] border border-zinc-800 relative overflow-hidden flex flex-col md:flex-row items-center gap-8 group">
+            <div className="md:col-span-3 p-8 bg-[#1C1C1C] border border-zinc-800 relative overflow-hidden flex flex-col md:flex-row items-center gap-8 group rounded-lg">
               <div className="flex-1 relative z-10">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-zinc-800 flex items-center justify-center text-white">
