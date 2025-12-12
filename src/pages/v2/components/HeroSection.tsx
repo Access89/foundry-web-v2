@@ -155,7 +155,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   <img
                     className="w-full h-full object-contain"
                     src={
-                      "public/images/v2/foundry_hero.png"                    }
+                      "/images/v2/foundry_hero.png"                    }
                     alt="Foundry Platform"
                   />
                 </div>
