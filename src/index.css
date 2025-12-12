@@ -105,6 +105,11 @@ iframe {
   display: block;
 }
 
+.bg-gradient {
+  background: #16232A;
+  background: linear-gradient(180deg, rgba(22, 35, 42, 1) 15%, rgba(7, 80, 86, 1) 60%, rgba(228, 238, 240, 1) 86%, rgba(255, 255, 255, 1) 100%);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

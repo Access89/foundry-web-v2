@@ -1,0 +1,194 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Building2,
+  LayoutGrid,
+  ShieldCheck,
+  Banknote,
+  ArrowRight,
+  ChevronRight,
+  CheckCircle,
+} from "lucide-react";
+
+const BusinessBanking = () => {
+  const navigate = useNavigate();
+
+  const features = [
+    {
+      title: "Integrated Onboarding",
+      desc: "Replace paper forms. Instantly set up bank accounts, POS, and Books simultaneously.",
+      icon: LayoutGrid,
+    },
+    {
+      title: "Real-Time Entitlements",
+      desc: "Granular control for business owners. Manage staff permissions for bank & POS from one dashboard.",
+      icon: ShieldCheck,
+    },
+    {
+      title: "Digital Lending & Loan Mgmt",
+      desc: "A built-in Loan Management Platform (LMP). Automate origination, scoring, and lifecycle servicing using real-time POS data.",
+      icon: Banknote,
+    },
+  ];
+
+  const benefits = [
+    "Lower Risk: Transactions are visible before banking entries",
+    "Higher Stickiness: Clients won't switch the OS running their business",
+    "Unified Data + AI: Clean, categorized data makes ML models infinitely more accurate",
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#1C1C1C] text-white">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white text-xs font-semibold uppercase tracking-wider mb-6">
+            <Building2 className="w-4 h-4" />
+            Business Banking
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-6 leading-[1.1]">
+            SME Onboarding &<br />
+            <span className="text-white">Entitlements</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mb-10 leading-relaxed font-light">
+            Banks need to reduce the cost of serving SMEs while increasing
+            lending revenue. They struggle with high-risk profiles due to a lack
+            of reliable data.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-start gap-4">
+            <button
+              onClick={() => navigate("/contact")}
+              className="px-8 py-4 bg-white hover:bg-gray-200 text-black rounded-lg font-medium transition-all flex items-center gap-2 group"
+            >
+              Get Started
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <button
+              onClick={() => navigate("/")}
+              className="px-8 py-4 bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700 rounded-lg font-medium transition-all"
+            >
+              Back to Home
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Solution Section */}
+      <section className="py-24 px-6 bg-zinc-900/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-5xl font-medium text-white mb-6">
+              Embed the Business OS directly into your offering.
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl font-light">
+              Transform how you serve SMEs with integrated financial services
+              that power their entire operation.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {features.map((feature, idx) => (
+              <div
+                key={idx}
+                className="p-8 rounded-2xl bg-[#24272A] border border-zinc-800 hover:border-white/30 transition-all group"
+              >
+                <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                  <feature.icon className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl font-medium mb-3 text-white">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed font-light">
+                  {feature.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">
+                Why Financial Institutions Choose Foundry
+              </h2>
+              <p className="text-gray-400 mb-8 leading-relaxed font-light">
+                Stop offering generic banking channels. Start providing the
+                digital fabric that powers their entire business lifecycle.
+              </p>
+              <div className="space-y-4">
+                {benefits.map((benefit, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <div className="mt-1">
+                      <CheckCircle className="w-5 h-5 text-white" />
+                    </div>
+                    <p className="text-gray-300 font-light">{benefit}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-[#24272A] border border-zinc-800 rounded-2xl p-8">
+              <div className="space-y-6">
+                <div className="p-6 bg-zinc-800/50 rounded-xl border border-zinc-700">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-white"></div>
+                    <h4 className="text-white font-medium">The Challenge</h4>
+                  </div>
+                  <p className="text-gray-400 italic font-light">
+                    "Banks struggle with high-risk profiles due to a lack of
+                    reliable data on SME operations and cash flow."
+                  </p>
+                </div>
+
+                <div className="p-6 bg-white/5 rounded-xl border border-white/20">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-white"></div>
+                    <h4 className="text-white font-medium">The Solution</h4>
+                  </div>
+                  <p className="text-gray-300 font-light">
+                    Foundry provides real-time operational data from POS,
+                    inventory, and invoices, enabling accurate risk assessment
+                    and automated lending decisions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 px-6 bg-zinc-900/50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-medium text-white mb-6">
+            Ready to transform your SME banking?
+          </h2>
+          <p className="text-xl text-gray-400 mb-10 font-light">
+            See how leading financial institutions are revolutionizing business
+            banking with Foundry.
+          </p>
+          <button
+            onClick={() => navigate("/contact")}
+            className="px-10 py-5 bg-white hover:bg-gray-200 text-black rounded-lg font-medium text-lg transition-all inline-flex items-center gap-2 group"
+          >
+            Schedule a Demo
+            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default BusinessBanking;

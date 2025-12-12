@@ -15,6 +15,11 @@ import KYC from "./pages/v2/KYC";
 import Invoices from "./pages/v2/Invoices";
 import CustomerStories from "./pages/v2/CustomerStories";
 import HelpCenter from "./pages/v2/HelpCenter";
+import BusinessBanking from "./pages/v2/BusinessBanking";
+import RetailBanking from "./pages/v2/RetailBanking";
+import CorporateBanking from "./pages/v2/CorporateBanking";
+import WealthManagement from "./pages/v2/WealthManagement";
+// import EngagementBanking from "./pages/v2/EngagementBanking";
 import MainLayout from "./layout/main_layout";
 import BookingManagement from "./pages/logistics/booking_management";
 import OrderManagement from "./pages/logistics/order_management";
@@ -33,6 +38,7 @@ import NotFound from "./components/shared/not_found";
 import { Toaster } from "react-hot-toast";
 import ScrollToTop from "./components/shared/scroll_to_top";
 import PrivacyPolicy from "./PrivacyPolicy";
+import TermsOfUse from "./TermsOfUse";
 import ISOSecurityPolicy from "./ISOSecurityPolicy";
 import PasswordSetting from "./pages/onboarding/_components/_tabs/password";
 const BusinessAutomation = lazy(() => import("./pages/business_automation"));
@@ -75,6 +81,11 @@ const App = () => {
           <Route path="invoices" element={<Invoices />} />
           <Route path="customer-stories" element={<CustomerStories />} />
           <Route path="help-center" element={<HelpCenter />} />
+          <Route path="business-banking" element={<BusinessBanking />} />
+          <Route path="retail-banking" element={<RetailBanking />} />
+          <Route path="corporate-banking" element={<CorporateBanking />} />
+          <Route path="wealth-management" element={<WealthManagement />} />
+          {/* <Route path="engagement-banking" element={<EngagementBanking />} /> */}
         </Route>
 
         {/* Shared Routes - Available from both layouts */}
@@ -83,6 +94,7 @@ const App = () => {
           <Route path="password" element={<PasswordSetting />} />
         </Route>
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="terms-of-use" element={<TermsOfUse />} />
         <Route
           path="information-security-policy"
           element={<ISOSecurityPolicy />}

@@ -13,6 +13,7 @@ import {
   MessageSquare,
   Cpu,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface FeatureGridProps {
   activeSegment: string;
@@ -286,31 +287,40 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                   Pre-built journeys for every line of business.
                 </p>
               </div>
-              <div className="flex-1 space-y-3">
+              <div className="flex-1 flex flex-col space-y-3">
                 {[
                   {
                     title: "Retail Banking",
                     desc: "Daily banking & loyalty",
+                    path: "/retail-banking",
                   },
                   {
                     title: "Business Banking",
                     desc: "SME onboarding & entitlements",
+                    path: "/business-banking",
                   },
-                  { title: "Corporate", desc: "Treasury & trade finance" },
-                  { title: "Wealth", desc: "Advisory & portfolio view" },
+                  {
+                    title: "Corporate",
+                    desc: "Treasury & trade finance",
+                    path: "/corporate-banking",
+                  },
+                  {
+                    title: "Wealth",
+                    desc: "Advisory & portfolio view",
+                    path: "/wealth-management",
+                  },
                 ].map((seg, i) => (
-                  <div
-                    key={i}
-                    className="p-4 bg-zinc-800/50 border border-zinc-700/50 hover:bg-zinc-800 transition-colors cursor-pointer group"
-                  >
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="font-medium text-gray-200">
-                        {seg.title}
-                      </span>
-                      <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-gray-400" />
+                  <Link key={i} to={seg.path}>
+                    <div className="p-4 bg-zinc-800/50 border border-zinc-700/50 hover:bg-zinc-800 transition-colors cursor-pointer group">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="font-medium text-gray-200">
+                          {seg.title}
+                        </span>
+                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-gray-400" />
+                      </div>
+                      <div className="text-xs text-gray-500">{seg.desc}</div>
                     </div>
-                    <div className="text-xs text-gray-500">{seg.desc}</div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -345,7 +355,10 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 </div>
                 <h3 className="text-xl font-medium mb-2">Human Assist</h3>
                 <p className="text-sm opacity-60 mb-4">
-                 Empower employees with a unified dashboard. Experience your customer’s journey firsthand and manage daily operations end-to-end. - Requests, Workflow, Complaints, CRM, Reports & Analytics
+                  Empower employees with a unified dashboard. Experience your
+                  customer’s journey firsthand and manage daily operations
+                  end-to-end. - Requests, Workflow, Complaints, CRM, Reports &
+                  Analytics
                 </p>
                 <div className="flex -space-x-2 opacity-50">
                   <div className="w-6 h-6 bg-zinc-600"></div>
