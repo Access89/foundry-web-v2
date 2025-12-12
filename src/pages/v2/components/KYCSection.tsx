@@ -22,7 +22,10 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
               A comprehensive set of developer tools, products and services for
               onboarding and engaging with Foundry users.
             </p>
-            <button className="px-6 py-3 bg-white text-black rounded-md font-medium text-sm hover:bg-gray-100 transition-colors uppercase">
+            <button
+              onClick={() => (window.location.href = "/onboarding")}
+              className="px-6 py-3 bg-white text-black rounded-md font-medium text-sm hover:bg-gray-100 transition-colors uppercase"
+            >
               Get Started
             </button>
           </div>

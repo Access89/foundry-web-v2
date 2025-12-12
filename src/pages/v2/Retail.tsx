@@ -21,7 +21,10 @@ const Retail = () => {
                 Sync your online and offline sales in real-time.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
-                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-primary text-white hover:bg-primary-dark">
+                <button
+                  onClick={() => (window.location.href = "/onboarding")}
+                  className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-primary text-white hover:bg-primary-dark"
+                >
                   Get Started Free
                 </button>
               </div>
@@ -121,7 +124,10 @@ const Retail = () => {
               Join thousands of retailers who trust Foundry to power their
               business.
             </p>
-            <button className="px-8 py-4 bg-primary text-white font-medium hover:opacity-90 transition-opacity">
+            <button
+              onClick={() => (window.location.href = "/onboarding")}
+              className="px-8 py-4 bg-primary text-white font-medium hover:opacity-90 transition-opacity"
+            >
               Get Started Free
             </button>
           </div>

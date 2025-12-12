@@ -16,10 +16,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <header
-      className={`relative pt-32 md:pt-28 xl:pt-32 pb-16 md:pb-24 xl:pb-32 px-4 md:px-8 overflow-hidden transition-colors duration-700 ${
-        activeSegment === "bank"
-          ? "bg-[#1C1C1C]"
-          : "bg-gradient"
+      className={`relative pt-32 md:pt-28 xl:pt-32 pb-16 md:pb-24 xl:pb-6 px-4 md:px-8 overflow-hidden transition-colors duration-00 ${
+        activeSegment === "bank" ? "bg-[#1C1C1C]" : "bg-gradient"
       }`}
     >
       <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
@@ -35,7 +33,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               onClick={() => setActiveSegment("merchant")}
               className={`px-4 md:px-6 py-1.5 md:py-2 text-xs md:text-sm font-medium rounded-full transition-all duration-200 ${
                 activeSegment === "merchant"
-                  ? "bg-white text-primary-dark"
+                  ? "bg-primary text-white"
                   : "text-white/70 hover:text-white hover:bg-white/10"
               }`}
             >
@@ -154,8 +152,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
                   <img
                     className="w-full h-full object-contain"
-                    src={
-                      "/images/v2/foundry_hero.png"                    }
+                    src={"/images/v2/hero.png"}
                     alt="Foundry Platform"
                   />
                 </div>

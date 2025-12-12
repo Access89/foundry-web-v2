@@ -8,14 +8,14 @@ const CTASection: React.FC<CTASectionProps> = ({ activeSegment }) => {
   return (
     <section
       className={`pt-12 md:pt-24 transition-colors duration-700 ${
-        activeSegment === "bank" ? "bg-[#D6ECFF]" : "bg-[#D6ECFF]"
+        activeSegment === "bank" ? "bg-[#D6ECFF]" : "bg-primary-light"
       }`}
     >
-      <div className="max-w-10xl mx-auto">
+      <div className="">
         {/* MetaMask style - 2 column layout with code editor */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div className="md:pb-20 lg:pb-28 lg:pt-16 px-8 lg:px-16">
+          <div className="md:pb-20 lg:pb-28 lg:pt-16 px-8 lg:px-16 max-w-[768px] mx-auto">
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6 text-black">
               Start building
               <br />
@@ -29,19 +29,22 @@ const CTASection: React.FC<CTASectionProps> = ({ activeSegment }) => {
                 : "Deploy your smart contracts and banking integrations with Foundry's enterprise APIs. Get started for free."}
             </p>
 
-            <button className="px-8 py-4 bg-black text-white rounded-md font-medium uppercase text-sm hover:bg-gray-800 transition-colors">
+            <button
+              onClick={() => (window.location.href = "/onboarding")}
+              className="px-8 py-4 bg-black text-white rounded-md font-medium uppercase text-sm hover:bg-gray-800 transition-colors"
+            >
               Get Started
             </button>
           </div>
 
           {/* Right - Code Editor Mockup */}
-          <div className="hidden lg:block h-full bg-[#24272A] overflow-hidden shadow-2xl border border-zinc-700">
+          <div className="hidden lg:block h-full bg-[#24272A] overflow-hidden shadow-2xl border border-zinc-700 rounded-tl-3xl w-full">
             {/* Window controls */}
             <div className="flex items-center gap-2 px-4 py-3 bg-[#1C1C1C] border-b border-zinc-800">
               <div className="flex gap-2">
-                <div className="w-3 h-3 bg-red-500"></div>
-                <div className="w-3 h-3 bg-yellow-500"></div>
-                <div className="w-3 h-3 bg-green-500"></div>
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
               <div className="flex items-center gap-2 ml-4 text-sm text-gray-400">
                 <span className="px-3 py-1 bg-[#24272A]">🔒</span>

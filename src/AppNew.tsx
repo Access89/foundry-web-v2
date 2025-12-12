@@ -41,6 +41,10 @@ import PrivacyPolicy from "./PrivacyPolicy";
 import TermsOfUse from "./TermsOfUse";
 import ISOSecurityPolicy from "./ISOSecurityPolicy";
 import PasswordSetting from "./pages/onboarding/_components/_tabs/password";
+import BookADemo from "./pages/book-a-demo";
+import BecomePartner from "./pages/contact/become-partner";
+import ContactPage from "./pages/contact";
+import CustomPlan from "./pages/custom-plan";
 const BusinessAutomation = lazy(() => import("./pages/business_automation"));
 const Loan = lazy(() => import("./pages/loan"));
 const Hire = lazy(() => import("./pages/hire"));
@@ -58,7 +62,7 @@ const App = () => {
   const { scrollYProgress } = useScroll();
 
   return (
-    <main className="w-full h-[100dvh] flex flex-col text-base font-roboto">
+    <main className="w-full h-[100dvh] flex flex-col text-base">
       <motion.div
         style={{ scaleX: scrollYProgress }}
         className="fixed top-0 left-0 right-0"
@@ -99,6 +103,12 @@ const App = () => {
           path="information-security-policy"
           element={<ISOSecurityPolicy />}
         />
+
+        <Route path="book-a-demo" element={<BookADemo />} />
+        <Route path="become-partner" element={<BecomePartner />} />
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="custom-plan" element={<CustomPlan />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
 
         {/* Old Routes - Non-Clashing Routes under MainLayout */}
         <Route element={<MainLayout />}>

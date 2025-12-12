@@ -63,7 +63,7 @@ const BusinessBanking = () => {
 
           <div className="flex flex-col sm:flex-row items-start gap-4">
             <button
-              onClick={() => navigate("/contact")}
+              onClick={() => navigate("/onboarding")}
               className="px-8 py-4 bg-white hover:bg-gray-200 text-black rounded-lg font-medium transition-all flex items-center gap-2 group"
             >
               Get Started
@@ -178,7 +178,7 @@ const BusinessBanking = () => {
             banking with Foundry.
           </p>
           <button
-            onClick={() => navigate("/contact")}
+            onClick={() => navigate("/book-a-demo")}
             className="px-10 py-5 bg-white hover:bg-gray-200 text-black rounded-lg font-medium text-lg transition-all inline-flex items-center gap-2 group"
           >
             Schedule a Demo

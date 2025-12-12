@@ -19,7 +19,10 @@ const Enterprise = () => {
                 regions, and channels.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
-                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-white text-black hover:bg-gray-100">
+                <button
+                  onClick={() => (window.location.href = "/book-a-demo")}
+                  className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-white text-black hover:bg-gray-100"
+                >
                   Contact Sales
                 </button>
                 <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase border border-zinc-700 text-white hover:bg-white/5">

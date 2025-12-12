@@ -66,7 +66,7 @@ const CustomerStories = () => {
                 Get Started
               </button>
               <button
-                onClick={() => (window.location.href = "/contact")}
+                onClick={() => (window.location.href = "/book-a-demo")}
                 className="bg-white border-2 border-zinc-200 text-zinc-900 px-8 py-3 rounded-lg font-normal hover:border-primary hover:text-primary transition-all"
               >
                 Contact Sales

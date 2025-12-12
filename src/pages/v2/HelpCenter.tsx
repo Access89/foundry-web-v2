@@ -40,7 +40,7 @@ const HelpCenter = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={() => (window.location.href = "/contact")}
+                onClick={() => (window.location.href = "/book-a-demo")}
                 className="bg-primary text-white px-8 py-3 rounded-lg font-normal hover:opacity-90 transition-all"
               >
                 Contact Support

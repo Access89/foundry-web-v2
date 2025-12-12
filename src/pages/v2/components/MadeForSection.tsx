@@ -15,6 +15,7 @@ interface MadeForItem {
   titleColor?: string;
   backgroundcolor?: string;
   backgroundsize?: string;
+  bgPosition?: string;
   titlePosition?: string;
   description?: string;
   detailedDescription?: string;
@@ -44,6 +45,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
       // titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
       bg: "/images/v2/hand_trans.png",
+      backgroundsize: "contain",
       description: 'Automate and track business expenses with ease.',
       // link: '/our-platforms/business/expense-management',
       detailedDescription: `Foundry Expense Management gives businesses real-time control over every cedi spent. It centralizes expense capture, approvals, spending limits, and reporting into one intelligent system that fits seamlessly within the Foundry ecosystem, ensuring complete accuracy without manual effort.`,
@@ -115,7 +117,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       titleColor: "text-black",
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
       // titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
-      bg: "/images/our-platforms/view/FoundryTerminal.png",
+      bg: "/images/v2/terminal.png",
       description: 'One terminal for managing all business operations centrally.',
       // link: '/our-platforms/business/foundry-terminal',
       detailedDescription: `Foundry Terminal is the unified interface that brings Foundry's financial and operational services directly to the point of interaction with customers, agents, and merchants. It acts as the operational bridge between in-person commerce and your backend systems—ensuring clean data, instant reporting, and seamless reconciliation.`,
@@ -150,6 +152,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       titlePosition: "-mt-5 md:mt- 4 lg:-mt-6 lg:md:whitespace-nowrap ",
       bg: "/images/v2/invoice.png",
       backgroundsize: "contain",
+      bgPosition: "mb-6",
 
 
       description: "Send, track, and reconcile invoices effortlessly.",
@@ -220,7 +223,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     },
     {
       title: "Business Loans",
-      bg: "/images/AccessLoanCard.png",
+      bg: "/images/v2/business_loans.png",
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
       product_image: "/images/our-platforms/new/hr.png",
       description: "Streamline employee data, benefits, and HR processes.",
@@ -260,6 +263,8 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
       // description: 'Turn your data into actionable insights with powerful dashboards.',
       // link: '/our-platforms/business/analytics',
+      backgroundsize: "120%",
+      bgPosition: "mb-6",  
       detailedDescription: `Foundry Trust Score is a dynamic risk and credibility scoring system that helps businesses make smarter financial and operational decisions. By analyzing transactional history, payment behavior, compliance records, and operational data, it generates a reliable, real-time score that reflects trustworthiness.`,
       sub_components_title: "Core Features",
       sub_components: [
@@ -740,16 +745,16 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                 key={idx}
                 onClick={() => handleCardClick(item)}
                 className={`snap-start cursor-pointer min-w-[340px] lg:max-w-[360px] lg:min-w-[360px] h-[32rem] md:h-[34rem] lg:h-[34rem]
-                  bg-primary-light/30 text-zinc-900 flex flex-col justify-between
-                  shadow-sm hover:shadow-md transition-all duration-300 ease-in-out rounded-2xl`}
+                  bg-primary-light/50 text-zinc-900 flex flex-col justify-between
+                  shadow-sm transition-all duration-300 ease-in-out rounded-2xl`}
               >
                 {/* Upper text content */}
                 <div className="space-y-2 p-6">
-                  <h3 className="text-xl md:text-2xl font-semibold tracking-tight">
+                  <h3 className="text-xl md:text-xl font-semibold tracking-tight">
                     {item.title}
                   </h3>
                   {item.description && (
-                    <p className="text-sm md:text-base text-zinc-600">
+                    <p className="text-sm md:text-sm text-zinc-600">
                       {item.description}
                     </p>
                   )}
@@ -767,12 +772,12 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                 </div>
 
                 {/* Media area */}
-                <div className="mt-6 w-full h-[18rem] md:h-[20rem] lg:h-[22rem] bg-transparent overflow-hidden">
+                <div className={`mt-6 w-full h-[18rem] md:h-[20rem] lg:h-[22rem] bg-transparent overflow-hidden  ${item.bgPosition}`}>
                   <div
                     className="w-full h-full bg-center bg-no-repeat"
                     style={{
                       backgroundImage: `url(${item.bg})`,
-                      backgroundSize: item.backgroundsize || "cover",
+                      backgroundSize: item.backgroundsize || "cotain",
                     }}
                   />
                 </div>
