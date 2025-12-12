@@ -31,7 +31,7 @@ const Navbar: React.FC<NavbarProps> = ({
       setIsScrolled(window.scrollY > 20);
       // Detect if past hero section - using window height as reference
       // Hero typically takes 70-90% of viewport height
-      const heroThreshold = 20;
+      const heroThreshold = window.innerHeight * 0.8;
       setIsPastHero(window.scrollY > heroThreshold);
     };
 
@@ -59,7 +59,7 @@ const Navbar: React.FC<NavbarProps> = ({
     // Merchant segment
     if (isHomePage && !isPastHero) {
       // On home page hero section - transparent with white text
-      return isScrolled
+      return isScrolled && isPastHero
         ? "bg-white/80 backdrop-blur-md border-b border-white/20"
         : "bg-transparent backdrop-blur-sm border-b border-transparent";
     }
