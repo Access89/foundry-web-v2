@@ -256,7 +256,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     },
     {
       title: "  Trust Score   ",
-      bg: "/images/our-platforms/view/Analytics.png",
+      bg: "/images/v2/score.png",
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
       // description: 'Turn your data into actionable insights with powerful dashboards.',
       // link: '/our-platforms/business/analytics',
