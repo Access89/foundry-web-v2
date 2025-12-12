@@ -28,7 +28,7 @@ const PartnersSection = () => {
         transition={{ duration: 1, ease: 'easeOut' }}
         className="text-center"
       >
-        <h2 className="lg:text-xl  text-lg font-semibold">
+        <h2 className="lg:text-xl  text-lg font-medium text-zinc-600">
           You are in good company
         </h2>
       </motion.div>
