@@ -43,8 +43,8 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       titleColor: "text-[#F9F9F9]",
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
       // titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
-      bg: "/images/our-platforms/view/ExpenseM.png",
-      // description: 'Automate and track business expenses with ease.',
+      bg: "/images/v2/hand_trans.png",
+      description: 'Automate and track business expenses with ease.',
       // link: '/our-platforms/business/expense-management',
       detailedDescription: `Foundry Expense Management gives businesses real-time control over every cedi spent. It centralizes expense capture, approvals, spending limits, and reporting into one intelligent system that fits seamlessly within the Foundry ecosystem, ensuring complete accuracy without manual effort.`,
       product_image: "",
@@ -79,7 +79,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       titlePosition: "-mt-6 md:mt-4 lg:-mt-6",
       // titlePosition: '-mt-6 md:mt-4 lg:-mt-6',
       bg: "/images/POS.png",
-      // description: 'Sell smarter with real-time inventory and sales tracking.',
+      description: 'Sell smarter with real-time inventory and sales tracking.',
       // link: '/our-platforms/business/point-of-sale',
       detailedDescription: `Foundry Point of Sale is a unified sales, inventory, and payments engine designed for modern African retail and distribution businesses. It brings together checkout, stock management, customer insights, multi-branch visibility, and real-time financial reporting into one seamless system.`,
       sub_components_title: "Core Features",
@@ -106,7 +106,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
           learn_more: [],
         },
       ],
-      backgroundsize: "120%",
+      backgroundsize: "90%",
       backgroundcolor: "#E4EEF0 ",
     },
     {
@@ -116,7 +116,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
       // titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
       bg: "/images/our-platforms/view/FoundryTerminal.png",
-      // description: 'One terminal for managing all business operations centrally.',
+      description: 'One terminal for managing all business operations centrally.',
       // link: '/our-platforms/business/foundry-terminal',
       detailedDescription: `Foundry Terminal is the unified interface that brings Foundry's financial and operational services directly to the point of interaction with customers, agents, and merchants. It acts as the operational bridge between in-person commerce and your backend systems—ensuring clean data, instant reporting, and seamless reconciliation.`,
       sub_components_title: "Core Features",
@@ -148,7 +148,10 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       title: "Invoice Management",
       titleColor: "text-black",
       titlePosition: "-mt-5 md:mt- 4 lg:-mt-6 lg:md:whitespace-nowrap ",
-      bg: "/images/our-platforms/view/InvoiceManagement.png",
+      bg: "/images/v2/invoice.png",
+      backgroundsize: "contain",
+
+
       description: "Send, track, and reconcile invoices effortlessly.",
       // link: '/our-platforms/business/invoice-management',
       detailedDescription: `Foundry Invoice Management gives businesses a complete, integrated system for creating, sending, tracking, and reconciling invoices with unmatched accuracy and speed. Designed for SMEs and fast-growing enterprises, it automates the entire invoicing lifecycle and syncs seamlessly with Foundry Books and Foundry Finance.`,
@@ -180,10 +183,10 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
 
     {
       title: "Manage Payroll",
-      bg: "/images/ManagePayroll.png",
+      bg: "/images/v2/payroll.png",
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
 
-      backgroundsize: "130%",
+      backgroundsize: "90%",
       backgroundcolor: "#E4EEF0 ",
       description:
         "Automated payroll solution ensuring accurate and timely payments.",
@@ -285,11 +288,11 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     },
     {
       title: "Business APIs",
-      bg: "/images/BusinessAPI.png",
+      bg: "/images/v2/API.png",
       backgroundsize: "125% 100% ",
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
 
-      // description: 'Easily integrate third-party tools and automate workflows.',
+      description: 'Easily integrate third-party tools and automate workflows.',
       // link: '/our-platforms/business/business-apis',
       detailedDescription: ``,
       sub_components_title: "",
@@ -728,7 +731,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
         {/* Carousel */}
         <div className="overflow-hidden relative">
           <div
-            className="flex gap-5 px-1 transition-transform duration-300 ease-in-out items-stretch justify-start overflow-x-auto scrollbar-hide scroll-smooth"
+            className="flex gap-6 px-1 transition-transform duration-300 ease-in-out items-stretch justify-start overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
             ref={scrollRef}
           >
             {data.map((item, idx) => (
@@ -736,33 +739,74 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                 data-card
                 key={idx}
                 onClick={() => handleCardClick(item)}
-                className={`cursor-pointer min-w-[60vw] sm:min-w-[45vw] lg:min-w-[18vw] min-h-[23rem] md:min-h-[18rem] lg:min-h-[28rem]
-                  bg-[#36413E] bg-cover text-white p-0 flex flex-col justify-between
-                  shadow hover:shadow-lg transition-all duration-300 ease-in-out transform rounded-3xl
-                  ${idx === currentIndex + 2 ? "scale-100" : "scale-95"}`}
-                style={{
-                  backgroundImage: `url(${item.bg})`,
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: item.backgroundsize || "cover",
-                  backgroundColor: item.backgroundcolor || "#36413E",
-                }}
+                className={`snap-start cursor-pointer min-w-[340px] lg:max-w-[360px] lg:min-w-[360px] h-[32rem] md:h-[34rem] lg:h-[34rem]
+                  bg-primary-light/30 text-zinc-900 flex flex-col justify-between
+                  shadow-sm hover:shadow-md transition-all duration-300 ease-in-out rounded-2xl`}
               >
-                {/* Title Block */}
-                <div className="py-8 md:p-8">
-                  <div
-                    className={`text-xl ${
-                      item.titlePosition || "-mt-4"
-                    } text-center font-semibold`}
+                {/* Upper text content */}
+                <div className="space-y-2 p-6">
+                  <h3 className="text-xl md:text-2xl font-semibold tracking-tight">
+                    {item.title}
+                  </h3>
+                  {item.description && (
+                    <p className="text-sm md:text-base text-zinc-600">
+                      {item.description}
+                    </p>
+                  )}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCardClick(item);
+                    }}
+                    className="pt-2 inline-flex items-center text-sm font-medium text-zinc-800 hover:text-black"
                   >
-                    <span className={item.titleColor || "text-[#272727]"}>
-                      {item.title}
-                    </span>
-                  </div>
+                    Learn more
+                    <span className="ml-1">→</span>
+                  </button>
+                </div>
+
+                {/* Media area */}
+                <div className="mt-6 w-full h-[18rem] md:h-[20rem] lg:h-[22rem] bg-transparent overflow-hidden">
+                  <div
+                    className="w-full h-full bg-center bg-no-repeat"
+                    style={{
+                      backgroundImage: `url(${item.bg})`,
+                      backgroundSize: item.backgroundsize || "cover",
+                    }}
+                  />
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Nav buttons */}
+          <button
+            aria-label="Previous"
+            className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow border border-zinc-200 text-zinc-700 hover:bg-white"
+            onClick={() => {
+              const c = scrollRef.current;
+              if (!c) return;
+              const step = getCardStep();
+              c.scrollBy({ left: -step, behavior: "smooth" });
+              setCurrentIndex((i) => Math.max(0, i - 1));
+            }}
+          >
+            ‹
+          </button>
+          <button
+            aria-label="Next"
+            className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow border border-zinc-200 text-zinc-700 hover:bg-white"
+            onClick={() => {
+              const c = scrollRef.current;
+              if (!c) return;
+              const step = getCardStep();
+              c.scrollBy({ left: step, behavior: "smooth" });
+              setCurrentIndex((i) => i + 1);
+            }}
+          >
+            ›
+          </button>
 
           {/* Indicators */}
           <div className="flex justify-center mt-6 gap-2">

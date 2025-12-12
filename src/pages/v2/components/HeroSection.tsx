@@ -16,8 +16,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <header
-      className={`relative pt-32 md:pt-28 xl:pt-44 pb-16 md:pb-24 xl:pb-32 px-4 md:px-8 overflow-hidden transition-colors duration-700 ${
-        activeSegment === "bank" ? "bg-[#1C1C1C]" : "bg-white"
+      className={`relative pt-32 md:pt-28 xl:pt-32 pb-16 md:pb-24 xl:pb-32 px-4 md:px-8 overflow-hidden transition-colors duration-700 ${
+        activeSegment === "bank"
+          ? "bg-[#1C1C1C]"
+          : "bg-gradient"
       }`}
     >
       <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
@@ -26,15 +28,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className={`p-1 flex gap-1 border rounded-full ${
               activeSegment === "bank"
                 ? "bg-white/5 backdrop-blur-sm border-transparent"
-                : "bg-zinc-100 border-transparent"
+                : "bg-white/10 backdrop-blur-sm border-transparent"
             }`}
           >
             <button
               onClick={() => setActiveSegment("merchant")}
               className={`px-4 md:px-6 py-1.5 md:py-2 text-xs md:text-sm font-medium rounded-full transition-all duration-200 ${
                 activeSegment === "merchant"
-                  ? "bg-white text-black"
-                  : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50"
+                  ? "bg-white text-primary-dark"
+                  : "text-white/70 hover:text-white hover:bg-white/10"
               }`}
             >
               For Business
@@ -44,7 +46,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               className={`px-4 md:px-6 py-1.5 md:py-2 text-xs md:text-sm font-medium rounded-full transition-all duration-200 whitespace-nowrap ${
                 activeSegment === "bank"
                   ? "bg-[#1C1C1C] text-white"
-                  : "text-zinc-500 hover:text-zinc-500 hover:bg-white/50"
+                  : "text-white/70 hover:text-white hover:bg-white/10"
               }`}
             >
               <span className="hidden sm:inline">For </span>
@@ -56,7 +58,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Left Content */}
           <div
             className={`max-w-2xl mx-auto lg:mx-0 text-center lg:text-left ${
-              activeSegment === "bank" ? "text-white" : "text-zinc-900"
+              activeSegment === "bank" ? "text-white" : "text-white"
             }`}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.1] mb-4 md:mb-6">
@@ -118,7 +120,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </h1>
             <p
               className={`text-base sm:text-lg md:text-xl xl:text-2xl mb-6 md:mb-8 leading-relaxed ${
-                activeSegment === "bank" ? "text-gray-300" : "text-zinc-600"
+                activeSegment === "bank" ? "text-gray-300" : "text-white/90"
               }`}
             >
               {activeSegment === "merchant"
@@ -129,9 +131,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
               <button
                 onClick={() => navigate("/onboarding")}
-                className={`px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase ${
+                className={`px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold rounded-full transition-all shadow-lg hover:shadow-xl ${
                   activeSegment === "merchant"
-                    ? "bg-primary text-white hover:bg-primary-dark"
+                    ? "bg-white text-black hover:bg-white/90"
                     : "bg-white text-black hover:bg-gray-100"
                 }`}
               >
@@ -141,18 +143,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Right Visual */}
-          <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full flex lg:flex items-center justify-center">
+          <div className="relative h-[300px] md:h-[400px] lg:h-[70vh] w-full flex lg:flex items-center justify-center">
             <div className="relative w-full h-full flex items-center justify-center">
               {activeSegment === "merchant" ? (
-                <img
-                  className="w-full h-full object-contain"
-                  src={
-                    activeSegment === "merchant"
-                      ? "/images/foundry_stars/Main2.png"
-                      : "/images/FinanceBackground.png"
-                  }
-                  alt="Foundry Platform"
-                />
+                <div className="relative w-full h-full flex items-center justify-center perspective-1000">
+                  {/* Gradient glow effect */}
+                  {/* <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-primary/30 blur-3xl"></div> */}
+
+                  {/* Mobile device - Right side */}
+
+                  <img
+                    className="w-full h-full object-contain"
+                    src={
+                      "public/images/v2/foundry_hero.png"                    }
+                    alt="Foundry Platform"
+                  />
+                </div>
               ) : (
                 <div className="relative w-full h-full flex items-center justify-center scale-75 md:scale-90 lg:scale-100">
                   <div className="absolute inset-0 bg-[#F6851B]/10 blur-3xl animate-pulse"></div>

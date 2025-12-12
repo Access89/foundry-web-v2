@@ -25,7 +25,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
       className={`py-24 px-6 transition-colors duration-500 ${
         activeSegment === "bank"
           ? "bg-[#1C1C1C] text-white"
-          : "bg-zinc-50 text-zinc-900"
+          : "bg-white text-zinc-900"
       }`}
     >
       <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto">

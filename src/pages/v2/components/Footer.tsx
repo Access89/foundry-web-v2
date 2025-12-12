@@ -306,7 +306,8 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
               Information Security Policy
             </button>
             <a
-              href="#"
+              href={"/terms-of-use"}
+              target="_blank"
               className="hover:text-gray-300 transition-colors underline"
             >
               Terms of Use

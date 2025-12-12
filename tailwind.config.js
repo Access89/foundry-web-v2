@@ -23,7 +23,7 @@ module.exports = {
   	extend: {
   		maxWidth: {
   			'1396px': '1396px',
-  			'10xl': '1636px'
+  			'10xl': '1536px'
   		},
   		gridTemplateColumns: {
   			'auto-fill-200': 'repeat(auto-fill, minmax(200px, 1fr))',

@@ -17,9 +17,7 @@
   url('./assets/fonts/AtypDisplay-Regular.woff') format('woff');
 }
 
-* {
-  font-family: "AtypDisplay", serif;
-}
+
 .custom-button::before {
   content: "";
   position: absolute;
@@ -170,6 +168,9 @@ iframe {
   * {
     @apply border-border;
   }
+  * {
+  font-family: "AtypDisplay", sans-serif;
+}
   body {
     @apply bg-background text-foreground;
   }
