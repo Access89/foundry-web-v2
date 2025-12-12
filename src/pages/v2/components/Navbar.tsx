@@ -24,10 +24,15 @@ const Navbar: React.FC<NavbarProps> = ({
   const navigate = useNavigate();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isPastHero, setIsPastHero] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      // Detect if past hero section - using window height as reference
+      // Hero typically takes 70-90% of viewport height
+      const heroThreshold = 20;
+      setIsPastHero(window.scrollY > heroThreshold);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -43,14 +48,29 @@ const Navbar: React.FC<NavbarProps> = ({
   };
 
   const isDark = activeSegment === "bank";
+  const isHomePage = location.pathname === "/" || location.pathname === "";
+
+  // Determine navbar styling based on scroll position and page
+  const getNavbarStyle = () => {
+    if (isDark) {
+      return "bg-[#1C1C1C] border-b border-zinc-800";
+    }
+
+    // Merchant segment
+    if (isHomePage && !isPastHero) {
+      // On home page hero section - transparent with white text
+      return isScrolled
+        ? "bg-white/80 backdrop-blur-md border-b border-white/20"
+        : "bg-transparent backdrop-blur-sm border-b border-transparent";
+    }
+
+    // Past hero or on other pages - white background with black text
+    return "bg-white/90 backdrop-blur-md border-b border-zinc-200";
+  };
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-700 ${
-        isDark
-          ? "bg-[#1C1C1C] border-b border-zinc-800"
-          : "bg-white border-b border-zinc-200"
-      } ${isScrolled ? "shadow-lg" : ""}`}
+      className={`px-4 md:px-8 fixed w-full z-50 transition-all duration-300 ${getNavbarStyle()}`}
       onMouseLeave={() => setHoveredNav(null)}
     >
       <div className="max-w-10xl mx-auto px-4 md:px-6 lg:px-8">
@@ -64,13 +84,21 @@ const Navbar: React.FC<NavbarProps> = ({
             }}
           >
             <img
-              src={isDark ? "/icons/logo_white.svg" : "/icons/logo.svg"}
+              src={
+                isDark || (isHomePage && !isPastHero)
+                  ? "/icons/logo_white.svg"
+                  : "/icons/logo.svg"
+              }
               className="w-[1.3rem]"
               alt="logo"
             />
             <p
               className={`font-bold uppercase ${
-                isDark ? "text-white" : "text-black"
+                isDark
+                  ? "text-white"
+                  : isHomePage && !isPastHero
+                  ? "text-white"
+                  : "text-black"
               }`}
             >
               foundry
@@ -91,10 +119,14 @@ const Navbar: React.FC<NavbarProps> = ({
                     hoveredNav === item
                       ? isDark
                         ? "text-white"
-                        : "text-[#1A1A1A]"
+                        : isHomePage && !isPastHero
+                        ? "text-white"
+                        : "text-black"
                       : isDark
                       ? "text-gray-400 hover:text-white"
-                      : "text-[#434343] hover:text-[#1A1A1A]"
+                      : isHomePage && !isPastHero
+                      ? "text-white/80 hover:text-white"
+                      : "text-zinc-600 hover:text-black"
                   }`}
                 >
                   {item}
@@ -244,8 +276,12 @@ const Navbar: React.FC<NavbarProps> = ({
                     ? "text-white"
                     : "text-gray-400 hover:text-white"
                   : location.pathname === "/pricing"
-                  ? "text-[#1A1A1A]"
-                  : "text-[#434343] hover:text-[#1A1A1A]"
+                  ? isHomePage && !isPastHero
+                    ? "text-white"
+                    : "text-black"
+                  : isHomePage && !isPastHero
+                  ? "text-white/80 hover:text-white"
+                  : "text-zinc-600 hover:text-black"
               }`}
             >
               Pricing
@@ -258,19 +294,23 @@ const Navbar: React.FC<NavbarProps> = ({
               onClick={() =>
                 window.open("https://foundry-platform.com", "_blank")
               }
-              className={`border-2 px-6 py-2.5 rounded-md font-medium text-sm transition-all ${
+              className={`border-2 px-6 py-2.5 rounded-full font-medium text-sm transition-all ${
                 isDark
                   ? "text-white border-zinc-700 hover:bg-zinc-800"
-                  : "text-primary border-transparent hover:border-primary hover:opacity-90"
+                  : isHomePage && !isPastHero
+                  ? "text-white border-white/30 hover:border-white hover:bg-white/10"
+                  : "text-black border-zinc-300 hover:border-zinc-400 hover:bg-zinc-50"
               }`}
             >
               Sign In
             </button>
             <button
               onClick={() => navigate("/onboarding")}
-              className={`border-2  px-6 py-2.5 rounded-md font-medium text-sm transition-all${
+              className={`border-2  px-6 py-2.5 rounded-full font-medium text-sm transition-all${
                 !isDark
-                  ? " bg-primary text-white border-primary hover:bg-primary-dark hover:border-primary-dark hover:opacity-90"
+                  ? isHomePage && !isPastHero
+                    ? " bg-white text-primary-dark border-white hover:bg-white/90 shadow-lg hover:shadow-xl"
+                    : " bg-primary text-white border-primary hover:bg-primary-dark shadow-md hover:shadow-lg"
                   : " bg-white text-black border-white hover:opacity-90 "
               }`}
             >
@@ -280,7 +320,13 @@ const Navbar: React.FC<NavbarProps> = ({
 
           {/* Mobile Toggle */}
           <button
-            className={`lg:hidden ${isDark ? "text-white" : "text-black"}`}
+            className={`lg:hidden ${
+              isDark
+                ? "text-white"
+                : isHomePage && !isPastHero
+                ? "text-white"
+                : "text-black"
+            }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
