@@ -16,7 +16,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <header
-      className={`relative pt-32 md:pt-28 xl:pt-32 pb-16 md:pb-24 xl:pb-6 px-4 md:px-8 overflow-hidden transition-colors duration-00 ${
+      className={`relative pt-32 md:pt-28 xl:pt-32 pb-16 md:pb-24 xl:pb-6 px-4 md:px-8 overflow-hidden transition-colors duration-700 ${
         activeSegment === "bank" ? "bg-[#1C1C1C]" : "bg-gradient"
       }`}
     >
@@ -152,8 +152,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
                   <img
                     className="w-full h-full object-contain"
-                    src={"/images/v2/hero.png"}
+                    src={"/images/v2/v2_hero.png"}
                     alt="Foundry Platform"
+                    loading="lazy"
                   />
                 </div>
               ) : (
