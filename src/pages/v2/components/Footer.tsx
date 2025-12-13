@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Icon } from "@iconify/react";
 
 interface FooterProps {
   activeSegment: string;
@@ -265,20 +266,33 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
 
           {/* Social icons */}
           <div className="flex gap-3">
-            {["𝕏", "GitHub", "▶", "📷", "💬", "🎧", "♪", "RSS"].map(
-              (icon, i) => (
-                <div
-                  key={i}
-                  className="w-8 h-8 bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center cursor-pointer transition-colors text-xs"
-                >
-                  {icon === "RSS" ? (
-                    <span className="text-[10px] font-medium">RSS</span>
-                  ) : (
-                    <span className="text-gray-400">{icon}</span>
-                  )}
-                </div>
-              )
-            )}
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center cursor-pointer transition-colors"
+            >
+              <Icon icon="mdi:instagram" className="text-gray-400 text-lg" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center cursor-pointer transition-colors"
+            >
+              <Icon
+                icon="ri:twitter-x-fill"
+                className="text-gray-400 text-lg"
+              />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center cursor-pointer transition-colors"
+            >
+              <Icon icon="mdi:linkedin" className="text-gray-400 text-lg" />
+            </a>
           </div>
         </div>
       </div>
