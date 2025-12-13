@@ -118,6 +118,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
       // titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
       bg: "/images/v2/terminal.png",
+      backgroundsize: "contain",
       description: 'One terminal for managing all business operations centrally.',
       // link: '/our-platforms/business/foundry-terminal',
       detailedDescription: `Foundry Terminal is the unified interface that brings Foundry's financial and operational services directly to the point of interaction with customers, agents, and merchants. It acts as the operational bridge between in-person commerce and your backend systems—ensuring clean data, instant reporting, and seamless reconciliation.`,
@@ -189,8 +190,9 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       bg: "/images/v2/payroll.png",
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
 
-      backgroundsize: "90%",
+      backgroundsize: " 90%",
       backgroundcolor: "#E4EEF0 ",
+      bgPosition: "ml-4",
       description:
         "Automated payroll solution ensuring accurate and timely payments.",
       // link: '/our-platforms/business/procurement',
@@ -263,7 +265,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
       // description: 'Turn your data into actionable insights with powerful dashboards.',
       // link: '/our-platforms/business/analytics',
-      backgroundsize: "120%",
+      backgroundsize: "contain",
       bgPosition: "mb-6",  
       detailedDescription: `Foundry Trust Score is a dynamic risk and credibility scoring system that helps businesses make smarter financial and operational decisions. By analyzing transactional history, payment behavior, compliance records, and operational data, it generates a reliable, real-time score that reflects trustworthiness.`,
       sub_components_title: "Core Features",
@@ -294,9 +296,9 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     {
       title: "Business APIs",
       bg: "/images/v2/API.png",
-      backgroundsize: "125% 100% ",
+      backgroundsize: "contain",
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
-
+      bgPosition: "ml-12",
       description: 'Easily integrate third-party tools and automate workflows.',
       // link: '/our-platforms/business/business-apis',
       detailedDescription: ``,
@@ -309,9 +311,10 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     {
       title: "Onboarding",
       titleColor: "text-white",
-      bg: "/images/OnboardingCard.png",
+      bg: "/images/v2/onboarding.png",
       backgroundcolor: "white",
-      backgroundsize: "cover",
+      backgroundsize: "contain",
+      bgPosition: "-mb-6",
       product_image: "/images/our-platforms/view/MExpense.png",
       description: "Transform the customer onboarding experience.",
       // pdfLink: '/Documents/Onboarding.pdf', // Add this line - replace with your actual PDF path
@@ -402,7 +405,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       bg: "/images/DigitalBanking.png",
       backgroundsize: "cover",
       backgroundcolor: "#dedcdf",
-      product_image: "/images/our-platforms/view/MExpense.png",
+      product_image: "/images/v2/lending.png",
       description: "Deliver seamless mobile and online banking experiences.",
       // link: '/our-platforms/finance/digital-banking',
       detailedDescription: `The Foundry Digital Platform makes banking a few taps away, putting your institution in the palm of your customers' hands. This all-in-one solution provides a seamless suite of services from fast digital loans and secure savings to investments and insurance, all accessible through a single, intuitive interface on their mobile phone, whether it's a smartphone or a basic feature phone. It's the strategic platform you need to drive growth, enhance customer loyalty, and lead the way in digital finance.`,
@@ -440,7 +443,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     },
     {
       title: "Digital Lending",
-      bg: "/images/DigitalLending.png",
+      bg: "/images/v2/lending.png",
       backgroundsize: "cover",
       backgroundcolor: "#dedce9",
       product_image: "/images/our-platforms/view/MExpense.png",
@@ -542,7 +545,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     },
     {
       title: "Core Banking",
-      bg: "/images/CoreBankingCard.png",
+      bg: "/images/v2/core_banking.png",
       product_image: "/images/our-platforms/view/MExpense.png",
       description:
         "Robust backend system to manage accounts, transactions, and ledgers.",
@@ -725,7 +728,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
               activeSegment === "bank" ? "text-gray-400" : "text-[#929292]"
             }
           >
-            Made
+            Products Made
           </span>{" "}
           <span>for</span>{" "}
           <span className="text-[#075056] capitalize">
