@@ -46,7 +46,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       // titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
       bg: "/images/v2/hand_trans.png",
       backgroundsize: "contain",
-      description: 'Automate and track business expenses with ease.',
+      description: "Automate and track business expenses with ease.",
       // link: '/our-platforms/business/expense-management',
       detailedDescription: `Foundry Expense Management gives businesses real-time control over every cedi spent. It centralizes expense capture, approvals, spending limits, and reporting into one intelligent system that fits seamlessly within the Foundry ecosystem, ensuring complete accuracy without manual effort.`,
       product_image: "",
@@ -81,7 +81,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       titlePosition: "-mt-6 md:mt-4 lg:-mt-6",
       // titlePosition: '-mt-6 md:mt-4 lg:-mt-6',
       bg: "/images/POS.png",
-      description: 'Sell smarter with real-time inventory and sales tracking.',
+      description: "Sell smarter with real-time inventory and sales tracking.",
       // link: '/our-platforms/business/point-of-sale',
       detailedDescription: `Foundry Point of Sale is a unified sales, inventory, and payments engine designed for modern African retail and distribution businesses. It brings together checkout, stock management, customer insights, multi-branch visibility, and real-time financial reporting into one seamless system.`,
       sub_components_title: "Core Features",
@@ -119,7 +119,8 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       // titlePosition: '-mt-8 md:mt-4 lg:-mt-6',
       bg: "/images/v2/terminal.png",
       backgroundsize: "contain",
-      description: 'One terminal for managing all business operations centrally.',
+      description:
+        "One terminal for managing all business operations centrally.",
       // link: '/our-platforms/business/foundry-terminal',
       detailedDescription: `Foundry Terminal is the unified interface that brings Foundry's financial and operational services directly to the point of interaction with customers, agents, and merchants. It acts as the operational bridge between in-person commerce and your backend systems—ensuring clean data, instant reporting, and seamless reconciliation.`,
       sub_components_title: "Core Features",
@@ -154,7 +155,6 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       bg: "/images/v2/invoice.png",
       backgroundsize: "contain",
       bgPosition: "mb-6",
-
 
       description: "Send, track, and reconcile invoices effortlessly.",
       // link: '/our-platforms/business/invoice-management',
@@ -266,7 +266,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       // description: 'Turn your data into actionable insights with powerful dashboards.',
       // link: '/our-platforms/business/analytics',
       backgroundsize: "contain",
-      bgPosition: "mb-6",  
+      bgPosition: "mb-6",
       detailedDescription: `Foundry Trust Score is a dynamic risk and credibility scoring system that helps businesses make smarter financial and operational decisions. By analyzing transactional history, payment behavior, compliance records, and operational data, it generates a reliable, real-time score that reflects trustworthiness.`,
       sub_components_title: "Core Features",
       sub_components: [
@@ -299,7 +299,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       backgroundsize: "contain",
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
       bgPosition: "ml-12",
-      description: 'Easily integrate third-party tools and automate workflows.',
+      description: "Easily integrate third-party tools and automate workflows.",
       // link: '/our-platforms/business/business-apis',
       detailedDescription: ``,
       sub_components_title: "",
@@ -313,8 +313,8 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       titleColor: "text-white",
       bg: "/images/v2/onboarding.png",
       backgroundcolor: "white",
-      backgroundsize: "contain",
-      bgPosition: "-mb-6",
+      backgroundsize: "cover",
+      // bgPosition: "mt-6",
       product_image: "/images/our-platforms/view/MExpense.png",
       description: "Transform the customer onboarding experience.",
       // pdfLink: '/Documents/Onboarding.pdf', // Add this line - replace with your actual PDF path
@@ -402,8 +402,9 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
 
     {
       title: "Digital Banking",
-      bg: "/images/DigitalBanking.png",
-      backgroundsize: "cover",
+      bg: "/images/v2/digital_banking.png",
+      // backgroundsize: "100%",
+      // bgPosition: "ml-4",
       backgroundcolor: "#dedcdf",
       product_image: "/images/v2/lending.png",
       description: "Deliver seamless mobile and online banking experiences.",
@@ -504,7 +505,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
 
       backgroundcolor: "#253137",
       backgroundsize: "100%",
-      bg: "/images/SentinelCard.png",
+      bg: "/images/v2/SentinelCard.png",
       titleColor: "white",
       // backgroundsize: '125% ',
       product_image: "/images/our-platforms/view/MExpense.png",
@@ -546,6 +547,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     {
       title: "Core Banking",
       bg: "/images/v2/core_banking.png",
+      bgPosition: "ml-4", 
       product_image: "/images/our-platforms/view/MExpense.png",
       description:
         "Robust backend system to manage accounts, transactions, and ledgers.",
@@ -600,8 +602,8 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     {
       title: "Banking as a Service",
       // titleColor: 'white',
-      bg: "/images/BankingAsAService.png",
-      backgroundsize: "105%",
+      bg: "/images/v2/baas.png",
+      backgroundsize: "cover",
       backgroundcolor: "#378790",
       product_image: "/images/our-platforms/view/MExpense.png",
       description:
@@ -716,25 +718,36 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
         activeSegment === "bank" ? "bg-[#1C1C1C]" : "bg-white"
       }`}
     >
-      <div className=" px-4 md:px-6 lg:px-8">
-        {/* Title */}
-        <h2
-          className={`text-3xl md:text-4xl lg:text-6xl font-semibold mb-10 text-center transition-colors duration-500 ${
-            activeSegment === "bank" ? "text-white" : "text-zinc-900"
-          }`}
-        >
-          <span
-            className={
-              activeSegment === "bank" ? "text-gray-400" : "text-[#929292]"
-            }
+      <div className="px-4 md:px-6 lg:px-8">
+        {/* Title - matching FeatureGrid layout */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-16 items-end">
+          <h2
+            className={`text-4xl md:text-5xl font-medium tracking-tight ${
+              activeSegment === "bank" ? "text-white" : "text-zinc-900"
+            }`}
           >
-            Products Made
-          </span>{" "}
-          <span>for</span>{" "}
-          <span className="text-[#075056] capitalize">
-            {activeSegment === "merchant" ? "Business" : "Finance"}
-          </span>
-        </h2>
+            <span
+              className={
+                activeSegment === "bank" ? "text-gray-400" : "text-zinc-600"
+              }
+            >
+              Products Made
+            </span>{" "}
+            <span>for</span>{" "}
+            <span className="text-[#075056] capitalize">
+              {activeSegment === "merchant" ? "Business" : "Finance"}
+            </span>
+          </h2>
+          <p
+            className={`text-lg ${
+              activeSegment === "bank" ? "text-gray-400" : "text-zinc-600"
+            }`}
+          >
+            {activeSegment === "merchant"
+              ? "Complete solutions designed to streamline your business operations and drive growth."
+              : "Banking products and services built for the digital age, enabling seamless customer experiences."}
+          </p>
+        </div>
 
         {/* Carousel */}
         <div className="overflow-hidden relative">
@@ -748,16 +761,30 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                 key={idx}
                 onClick={() => handleCardClick(item)}
                 className={`snap-start cursor-pointer min-w-[340px] lg:max-w-[360px] lg:min-w-[360px] h-[32rem] md:h-[34rem] lg:h-[34rem]
-                  bg-primary-light/50 text-zinc-900 flex flex-col justify-between
-                  shadow-sm transition-all duration-300 ease-in-out rounded-2xl`}
+                  ${
+                    activeSegment === "bank"
+                      ? "bg-[#24272A] border border-zinc-800 text-white"
+                      : "bg-primary-light/40 text-zinc-900"
+                  } flex flex-col justify-between
+                  shadow-sm transition-all duration-300 ease-in-out rounded-2xl overflow-hidden`}
               >
                 {/* Upper text content */}
                 <div className="space-y-2 p-6">
-                  <h3 className="text-xl md:text-xl font-semibold tracking-tight">
+                  <h3
+                    className={`text-xl md:text-xl font-semibold tracking-tight ${
+                      activeSegment === "bank" ? "text-white" : "text-zinc-900"
+                    }`}
+                  >
                     {item.title}
                   </h3>
                   {item.description && (
-                    <p className="text-sm md:text-sm text-zinc-600">
+                    <p
+                      className={`text-sm md:text-sm ${
+                        activeSegment === "bank"
+                          ? "text-gray-400"
+                          : "text-zinc-600"
+                      }`}
+                    >
                       {item.description}
                     </p>
                   )}
@@ -767,7 +794,11 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                       e.stopPropagation();
                       handleCardClick(item);
                     }}
-                    className="pt-2 inline-flex items-center text-sm font-medium text-zinc-800 hover:text-black"
+                    className={`pt-2 inline-flex items-center text-sm font-medium ${
+                      activeSegment === "bank"
+                        ? "text-gray-300 hover:text-white"
+                        : "text-zinc-800 hover:text-black"
+                    }`}
                   >
                     Learn more
                     <span className="ml-1">→</span>
@@ -791,7 +822,11 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
           {/* Nav buttons */}
           <button
             aria-label="Previous"
-            className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow border border-zinc-200 text-zinc-700 hover:bg-white"
+            className={`hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full shadow ${
+              activeSegment === "bank"
+                ? "bg-zinc-800 border border-zinc-700 text-white hover:bg-zinc-700"
+                : "bg-white/90 border border-zinc-200 text-zinc-700 hover:bg-white"
+            }`}
             onClick={() => {
               const c = scrollRef.current;
               if (!c) return;
@@ -804,7 +839,11 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
           </button>
           <button
             aria-label="Next"
-            className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow border border-zinc-200 text-zinc-700 hover:bg-white"
+            className={`hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full shadow ${
+              activeSegment === "bank"
+                ? "bg-zinc-800 border border-zinc-700 text-white hover:bg-zinc-700"
+                : "bg-white/90 border border-zinc-200 text-zinc-700 hover:bg-white"
+            }`}
             onClick={() => {
               const c = scrollRef.current;
               if (!c) return;
@@ -1039,19 +1078,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                   </div>
                 </div>
               )}
-
-              {/* CTA Button */}
-              <div className="mt-8 flex justify-center">
-                <button
-                  className={`px-8 py-3 rounded-md font-medium transition-all ${
-                    activeSegment === "bank"
-                      ? "bg-white text-black hover:opacity-90"
-                      : "bg-primary text-white hover:bg-primary-dark"
-                  }`}
-                >
-                  Learn More
-                </button>
-              </div>
+              
             </div>
           </div>
         </div>
