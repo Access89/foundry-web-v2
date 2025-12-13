@@ -70,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <nav
-      className={`px-4 md:px-8 fixed w-full z-50 transition-all duration-300 ${getNavbarStyle()}`}
+      className={`px-4 lg:px-8 fixed w-full z-50 transition-all duration-300 ${getNavbarStyle()}`}
       onMouseLeave={() => setHoveredNav(null)}
     >
       <div className="max-w-10xl mx-auto px-4 md:px-6 lg:px-8">

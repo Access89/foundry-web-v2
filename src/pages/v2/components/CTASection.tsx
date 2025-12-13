@@ -15,7 +15,7 @@ const CTASection: React.FC<CTASectionProps> = ({ activeSegment }) => {
         {/* MetaMask style - 2 column layout with code editor */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div className="md:pb-20 lg:pb-28 lg:pt-16 px-8 lg:px-16 max-w-[768px] mx-auto">
+          <div className="pb-12 md:pb-20 lg:pb-28 lg:pt-16 px-8 lg:px-16 max-w-[768px] ml-auto">
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6 text-black">
               Start building
               <br />

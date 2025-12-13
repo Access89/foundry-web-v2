@@ -8,7 +8,7 @@ export default function TermsOfUse() {
             Foundry Terms of Use
           </h1>
           <p className="text-gray-600 text-lg">
-            <strong>Effective Date:</strong> December 12, 2024
+            <strong>Effective Date:</strong> December 1, 2025
           </p>
           <p className="text-gray-700 mt-4 leading-relaxed mx-auto">
             Welcome to Foundry ("we," "us," "our"), a platform operated by
@@ -256,11 +256,9 @@ export default function TermsOfUse() {
           <p className="text-gray-700 mb-4">
             For any questions or concerns regarding these Terms, please contact:
           </p>
-          <div className="p-6 border-primary">
-            <p className="text-gray-700">
-              <strong>Foundry Support Team</strong>
-            </p>
-            <p className="text-gray-700 mt-2">Email: hello@access89.com</p>
+        <div className="p-6 border-primary ml-4">
+            <p className="text-gray-700">Email: support@foundry.com</p>
+            <p className="text-gray-700 mt-2">Address: Accra, Ghana</p>
           </div>
         </div>
 

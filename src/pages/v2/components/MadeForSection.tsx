@@ -720,7 +720,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     >
       <div className="px-4 md:px-6 lg:px-8">
         {/* Title - matching FeatureGrid layout */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16 items-end">
+        <div className="grid lg:grid-cols-2 gap-8 mb-16 md:mb-20 items-end">
           <h2
             className={`text-4xl md:text-5xl font-medium tracking-tight ${
               activeSegment === "bank" ? "text-white" : "text-zinc-900"
@@ -771,7 +771,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                 {/* Upper text content */}
                 <div className="space-y-2 p-6">
                   <h3
-                    className={`text-xl md:text-xl font-semibold tracking-tight ${
+                    className={`text-lg md:text-xl font-semibold tracking-tight ${
                       activeSegment === "bank" ? "text-white" : "text-zinc-900"
                     }`}
                   >
@@ -779,7 +779,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                   </h3>
                   {item.description && (
                     <p
-                      className={`text-sm md:text-sm ${
+                      className={`text-xs md:text-sm ${
                         activeSegment === "bank"
                           ? "text-gray-400"
                           : "text-zinc-600"

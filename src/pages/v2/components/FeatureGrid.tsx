@@ -22,7 +22,7 @@ interface FeatureGridProps {
 const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
   return (
     <section
-      className={`py-24 px-6 transition-colors duration-500 ${
+      className={`py-24 lg:px-6 transition-colors duration-500 ${
         activeSegment === "bank"
           ? "bg-[#1C1C1C] text-white"
           : "bg-white text-zinc-900"
