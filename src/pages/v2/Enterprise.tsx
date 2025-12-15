@@ -21,17 +21,17 @@ const Enterprise = () => {
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
                 <button
                   onClick={() => (window.location.href = "/book-a-demo")}
-                  className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-white text-black hover:bg-gray-100"
+                  className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg transition-all uppercase bg-white text-black hover:bg-gray-100"
                 >
                   Contact Sales
                 </button>
-                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase border border-zinc-700 text-white hover:bg-white/5">
+                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg transition-all uppercase border border-zinc-700 text-white hover:bg-white/5">
                   View API Docs
                 </button>
               </div>
             </div>
             <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full flex items-center justify-center">
-              <div className="bg-[#24272A] p-4 md:p-6 border border-zinc-800 font-mono text-xs md:text-sm shadow-2xl w-full max-w-lg scale-75 md:scale-90 lg:scale-100">
+              <div className="bg-[#24272A] p-4 md:p-6 border border-zinc-800 font-mono text-xs md:text-sm shadow-2xl w-full max-w-lg scale-75 md:scale-90 lg:scale-100 rounded-xl">
                 <div className="flex gap-2 mb-4 text-gray-500">
                   <div className="w-3 h-3 bg-red-500"></div>
                   <div className="w-3 h-3 bg-yellow-500"></div>

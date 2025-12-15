@@ -24,15 +24,10 @@ const Navbar: React.FC<NavbarProps> = ({
   const navigate = useNavigate();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isPastHero, setIsPastHero] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      // Detect if past hero section - using window height as reference
-      // Hero typically takes 70-90% of viewport height
-      const heroThreshold = window.innerHeight * 0.8;
-      setIsPastHero(window.scrollY > heroThreshold);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -48,29 +43,14 @@ const Navbar: React.FC<NavbarProps> = ({
   };
 
   const isDark = activeSegment === "bank";
-  const isHomePage = location.pathname === "/" || location.pathname === "";
-
-  // Determine navbar styling based on scroll position and page
-  const getNavbarStyle = () => {
-    if (isDark) {
-      return "bg-[#1C1C1C] border-b border-zinc-800";
-    }
-
-    // Merchant segment
-    if (isHomePage && !isPastHero) {
-      // On home page hero section - transparent with white text
-      return isScrolled && isPastHero
-        ? "bg-white/80 backdrop-blur-md border-b border-white/20"
-        : "bg-transparent backdrop-blur-sm border-b border-transparent";
-    }
-
-    // Past hero or on other pages - white background with black text
-    return "bg-white/90 backdrop-blur-md border-b border-zinc-200";
-  };
 
   return (
     <nav
-      className={`px-4 lg:px-8 fixed w-full z-50 transition-all duration-300 ${getNavbarStyle()}`}
+      className={`px-4 lg:px-8 fixed w-full z-50 transition-all duration-700 ${
+        isDark
+          ? "bg-[#1C1C1C] border-b border-zinc-800"
+          : "bg-white border-b border-zinc-200/50"
+      } ${isScrolled ? "shadowlg" : ""}`}
       onMouseLeave={() => setHoveredNav(null)}
     >
       <div className="max-w-10xl mx-auto px-4 md:px-6 lg:px-8">
@@ -84,21 +64,13 @@ const Navbar: React.FC<NavbarProps> = ({
             }}
           >
             <img
-              src={
-                isDark || (isHomePage && !isPastHero)
-                  ? "/icons/logo_white.svg"
-                  : "/icons/logo.svg"
-              }
+              src={isDark ? "/icons/logo_white.svg" : "/icons/logo.svg"}
               className="w-[1.3rem]"
               alt="logo"
             />
             <p
               className={`font-bold uppercase ${
-                isDark
-                  ? "text-white"
-                  : isHomePage && !isPastHero
-                  ? "text-white"
-                  : "text-black"
+                isDark ? "text-white" : "text-black"
               }`}
             >
               foundry
@@ -119,14 +91,10 @@ const Navbar: React.FC<NavbarProps> = ({
                     hoveredNav === item
                       ? isDark
                         ? "text-white"
-                        : isHomePage && !isPastHero
-                        ? "text-white"
-                        : "text-black"
+                        : "text-[#1A1A1A]"
                       : isDark
                       ? "text-gray-400 hover:text-white"
-                      : isHomePage && !isPastHero
-                      ? "text-white/80 hover:text-white"
-                      : "text-zinc-600 hover:text-black"
+                      : "text-[#434343] hover:text-[#1A1A1A]"
                   }`}
                 >
                   {item}
@@ -139,10 +107,10 @@ const Navbar: React.FC<NavbarProps> = ({
 
                 {/* Mega Menu Dropdown */}
                 <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 p-2 shadow-xl transition-all duration-300 origin-top rounded-lg ${
+                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 p-2 shadow-xl transition-all duration-300 origin-top rounded-lg ${
                     isDark
-                      ? "border border-zinc-800 bg-[#24272A]"
-                      : "border border-zinc-200 bg-white"
+                      ? "borde border-zinc-800 bg-[#24272A]"
+                      : "borde border-zinc-200 bg-white"
                   } ${
                     hoveredNav === item
                       ? "opacity-100 scale-100 translate-y-0 visible"
@@ -276,12 +244,8 @@ const Navbar: React.FC<NavbarProps> = ({
                     ? "text-white"
                     : "text-gray-400 hover:text-white"
                   : location.pathname === "/pricing"
-                  ? isHomePage && !isPastHero
-                    ? "text-white"
-                    : "text-black"
-                  : isHomePage && !isPastHero
-                  ? "text-white/80 hover:text-white"
-                  : "text-zinc-600 hover:text-black"
+                  ? "text-[#1A1A1A]"
+                  : "text-[#434343] hover:text-[#1A1A1A]"
               }`}
             >
               Pricing
@@ -294,24 +258,20 @@ const Navbar: React.FC<NavbarProps> = ({
               onClick={() =>
                 window.open("https://foundry-platform.com", "_blank")
               }
-              className={`border-2 px-6 py-2.5 rounded-full font-medium text-sm transition-all ${
+              className={`border-2 px-6 py-2.5 rounded-md font-medium text-sm transition-all ${
                 isDark
                   ? "text-white border-zinc-700 hover:bg-zinc-800"
-                  : isHomePage && !isPastHero
-                  ? "text-white border-white/30 hover:border-white hover:bg-white/10"
-                  : "text-black border-zinc-300 hover:border-zinc-400 hover:bg-zinc-50"
+                  : "text-primary border-transparent hover:border-primary hover:opacity-90"
               }`}
             >
               Sign In
             </button>
             <button
               onClick={() => navigate("/onboarding")}
-              className={`border-2  px-6 py-2.5 rounded-full font-medium text-sm transition-all${
+              className={`border-2 text-white px-6 py-2.5 rounded-md font-medium text-sm transition-all${
                 !isDark
-                  ? isHomePage && !isPastHero
-                    ? " bg-white text-primary-dark border-white hover:bg-white/90 shadow-lg hover:shadow-xl"
-                    : " bg-primary text-white border-primary hover:bg-primary-dark shadow-md hover:shadow-lg"
-                  : " bg-white text-black border-white hover:opacity-90 "
+                  ? " bg-primary border-primary hover:bg-primary-dark hover:border-primary-dark hover:opacity-90"
+                  : " bg-white hover:bg-[#E57710] hover:border-[#E57710] "
               }`}
             >
               Get Started
@@ -320,13 +280,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
           {/* Mobile Toggle */}
           <button
-            className={`lg:hidden ${
-              isDark
-                ? "text-white"
-                : isHomePage && !isPastHero
-                ? "text-white"
-                : "text-black"
-            }`}
+            className={`lg:hidden ${isDark ? "text-white" : "text-black"}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (

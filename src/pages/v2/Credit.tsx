@@ -27,14 +27,14 @@ const Credit = () => {
                 sales history and inventory, deposited as soon as tomorrow.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
-                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-primary text-white hover:bg-primary-dark">
+                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg transition-all uppercase bg-primary text-white hover:bg-primary-dark">
                   Check Eligibility
                 </button>
               </div>
             </div>
 
             <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full flex items-center justify-center">
-              <div className="bg-zinc-50 p-6 md:p-8 border border-zinc-200 shadow-lg relative overflow-hidden w-full max-w-lg scale-75 md:scale-90 lg:scale-100">
+              <div className="bg-zinc-50 p-6 md:p-8 border border-zinc-200 shadow-lg relative overflow-hidden w-full max-w-lg scale-75 md:scale-90 lg:scale-100 rounded-xl">
                 <div className="flex justify-between items-end mb-8">
                   <div>
                     <div className="text-sm text-zinc-500 font-medium mb-1">
@@ -77,7 +77,7 @@ const Credit = () => {
       </header>
       <div className="max-w-10xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-24">
-          <div className="p-8 bg-white border border-zinc-200 hover:shadow-lg transition-shadow group">
+          <div className="p-8 bg-white border border-zinc-200 hover:shadow-lg transition-shadow group rounded-xl">
             <div className="w-14 h-14 bg-zinc-100 flex items-center justify-center mb-6">
               <FileText className="w-7 h-7" />
             </div>
@@ -91,13 +91,13 @@ const Credit = () => {
                 <span className="font-medium">Invoice #1024</span>
                 <span className="font-medium">$12,500</span>
               </div>
-              <button className="w-full py-2 bg-primary text-white text-xs font-medium hover:opacity-90 transition-opacity">
+              <button className="w-full py-2 bg-primary text-white text-xs font-medium hover:opacity-90 transition-opacity rounded-lg">
                 Advance Now
               </button>
             </div>
           </div>
 
-          <div className="p-8 bg-white border border-zinc-200 hover:shadow-lg transition-shadow group">
+          <div className="p-8 bg-white border border-zinc-200 hover:shadow-lg transition-shadow group rounded-xl">
             <div className="w-14 h-14 bg-zinc-100 flex items-center justify-center mb-6">
               <FileSpreadsheet className="w-7 h-7" />
             </div>
@@ -118,7 +118,7 @@ const Credit = () => {
             </ul>
           </div>
 
-          <div className="p-8 bg-white border border-zinc-200 hover:shadow-lg transition-shadow group">
+          <div className="p-8 bg-white border border-zinc-200 hover:shadow-lg transition-shadow group rounded-xl">
             <div className="w-14 h-14 bg-zinc-100 flex items-center justify-center mb-6">
               <TrendingUp className="w-7 h-7" />
             </div>
@@ -142,7 +142,7 @@ const Credit = () => {
           </div>
         </div>
 
-        <div className="bg-zinc-50 p-12 border border-zinc-200 mb-20">
+        <div className="bg-zinc-50 p-12 border border-zinc-200 mb-20 rounded-xl">
           <div className="max-w-3xl mx-auto text-center">
             <Database className="w-16 h-16 text-black mx-auto mb-6" />
             <h2 className="text-3xl font-medium mb-4">Powered by your data</h2>
@@ -151,13 +151,13 @@ const Credit = () => {
               growth trajectory to offer personalized financing options with
               transparent terms.
             </p>
-            <button className="px-8 py-4 bg-primary text-white rounded-md font-medium hover:opacity-90 transition-opacity">
+            <button className="px-8 py-4 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-opacity">
               View Your Offers
             </button>
           </div>
         </div>
 
-        <div className="bg-zinc-900 text-white p-12 md:p-20 text-center relative overflow-hidden mb-20">
+        <div className="bg-zinc-900 text-white p-12 md:p-20 text-center relative overflow-hidden mb-20 rounded-xl">
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-medium mb-6">
               Transparent pricing. No hidden fees.

@@ -23,7 +23,7 @@ const Retail = () => {
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
                 <button
                   onClick={() => (window.location.href = "/onboarding")}
-                  className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-primary text-white hover:bg-primary-dark"
+                  className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg transition-all uppercase bg-primary text-white hover:bg-primary-dark"
                 >
                   Get Started Free
                 </button>
@@ -78,7 +78,7 @@ const Retail = () => {
           ].map((feature, i) => (
             <div
               key={i}
-              className="p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow"
+              className="p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow rounded-xl"
             >
               <div className="w-12 h-12 bg-white border border-zinc-200 flex items-center justify-center mb-6">
                 {feature.icon}
@@ -90,7 +90,7 @@ const Retail = () => {
         </div>
 
         {/* Wholesale Feature */}
-        <div className="bg-zinc-50 p-12 border border-zinc-200 mb-20">
+        <div className="bg-zinc-50 p-12 border border-zinc-200 mb-20 rounded-xl">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-medium mb-4">
               Built for wholesale too
@@ -115,7 +115,7 @@ const Retail = () => {
         </div>
 
         {/* CTA */}
-        <div className="bg-black text-white p-12 md:p-20 text-center mb-20">
+        <div className="bg-black text-white p-12 md:p-20 text-center mb-20 rounded-xl">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-medium mb-6">
               Start selling today
@@ -126,7 +126,7 @@ const Retail = () => {
             </p>
             <button
               onClick={() => (window.location.href = "/onboarding")}
-              className="px-8 py-4 bg-primary text-white font-medium hover:opacity-90 transition-opacity"
+              className="px-8 py-4 bg-primary text-white font-medium hover:opacity-90 transition-opacity rounded-lg"
             >
               Get Started Free
             </button>

@@ -720,7 +720,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     >
       <div className="px-4 md:px-6 lg:px-8">
         {/* Title - matching FeatureGrid layout */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16 md:mb-20 items-end">
+        <div className="grid lg:grid-cols-2 gap-8 mb-16 md:mb-20 items-end max-w-10xl mx-auto md:px-6 lg:px-8">
           <h2
             className={`text-4xl md:text-5xl font-medium tracking-tight ${
               activeSegment === "bank" ? "text-white" : "text-zinc-900"
@@ -981,7 +981,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                       {selectedItem.sub_components.map((component, idx) => (
                         <div
                           key={idx}
-                          className={`p-6 rounded ${
+                          className={`p-6 rounded-lg ${
                             activeSegment === "bank"
                               ? "bg-[#1C1C1C] border-zinc-800"
                               : "bg-zinc-50 border-zinc-200"
@@ -1024,7 +1024,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                     {selectedItem.features.map((feature, idx) => (
                       <div
                         key={idx}
-                        className={`p-6 rounded ${
+                        className={`p-6 rounded-lg ${
                           activeSegment === "bank"
                             ? "bg-[#1C1C1C] border-zinc-800"
                             : "bg-zinc-50 border-zinc-200"

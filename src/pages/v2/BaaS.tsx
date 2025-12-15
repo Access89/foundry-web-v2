@@ -30,14 +30,14 @@ const BaaS = () => {
                 and instant transfers—infrastructure handled.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
-                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-white text-black hover:bg-gray-100">
+                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg transition-all uppercase bg-white text-black hover:bg-gray-100">
                   Start Building
                 </button>
               </div>
             </div>
             <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full flex items-center justify-center">
               <div className="relative w-full h-full flex items-center justify-center">
-                <div className="bg-[#24272A] border border-zinc-800 p-4 md:p-6 shadow-2xl relative overflow-hidden w-full max-w-lg scale-75 md:scale-90 lg:scale-100">
+                <div className="bg-[#24272A] border border-zinc-800 p-4 md:p-6 shadow-2xl relative overflow-hidden w-full max-w-lg scale-75 md:scale-90 lg:scale-100 rounded-xl">
                   <div className="absolute top-0 right-0 p-4 opacity-50">
                     <Code2 className="w-6 h-6 text-gray-500" />
                   </div>
@@ -116,7 +116,7 @@ const BaaS = () => {
           ].map((feature, i) => (
             <div
               key={i}
-              className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow"
+              className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow rounded-xl"
             >
               <div className="text-white mb-6">{feature.icon}</div>
               <h3 className="text-xl font-medium mb-3">{feature.title}</h3>
@@ -126,7 +126,7 @@ const BaaS = () => {
         </div>
 
         {/* CTA */}
-        <div className="bg-zinc-900 p-12 md:p-20 text-center mb-20">
+        <div className="bg-zinc-900 p-12 md:p-20 text-center mb-20 rounded-xl">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-medium mb-6">
               Ready to build?
@@ -134,7 +134,7 @@ const BaaS = () => {
             <p className="text-gray-400 mb-8">
               Get API keys and start testing in sandbox mode today.
             </p>
-            <button className="px-8 py-4 bg-white text-black font-medium rounded-md hover:opacity-90 transition-opacity">
+            <button className="px-8 py-4 bg-white text-black font-medium rounded-lg hover:opacity-90 transition-opacity">
               Get API Access
             </button>
           </div>

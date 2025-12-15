@@ -50,7 +50,7 @@ const MainLayout = () => {
         setActiveSegment={setActiveSegment}
         navData={navData}
       />
-      <div className="">
+      <div className="mt-16">
         <LazyPageWrapper component={<Outlet />} />
       </div>
       <Footer

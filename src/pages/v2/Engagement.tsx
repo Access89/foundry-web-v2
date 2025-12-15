@@ -28,7 +28,7 @@ const Engagement = () => {
               branch.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-white text-black hover:bg-gray-100">
+              <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg transition-all uppercase bg-white text-black hover:bg-gray-100">
                 Request Platform Demo
               </button>
             </div>
@@ -41,15 +41,15 @@ const Engagement = () => {
           <div className="relative z-10 flex flex-col items-center gap-8">
             {/* Top Layer: Channels */}
             <div className="grid grid-cols-3 gap-6 w-full max-w-4xl">
-              <div className="p-6 bg-[#24272A] border border-zinc-800 text-center">
+              <div className="p-6 bg-[#24272A] border border-zinc-800 text-center rounded-xl">
                 <Smartphone className="w-8 h-8 text-white mx-auto mb-3" />
                 <div className="font-medium">Retail App</div>
               </div>
-              <div className="p-6 bg-[#24272A] border border-zinc-800 text-center">
+              <div className="p-6 bg-[#24272A] border border-zinc-800 text-center rounded-xl">
                 <Globe className="w-8 h-8 text-white mx-auto mb-3" />
                 <div className="font-medium">Web Banking</div>
               </div>
-              <div className="p-6 bg-[#24272A] border border-zinc-800 text-center">
+              <div className="p-6 bg-[#24272A] border border-zinc-800 text-center rounded-xl">
                 <Users className="w-8 h-8 text-white mx-auto mb-3" />
                 <div className="font-medium">Employee Hub</div>
               </div>
@@ -59,8 +59,8 @@ const Engagement = () => {
             <div className="h-12 w-px bg-zinc-700"></div>
 
             {/* Middle Layer: Engagement Platform */}
-            <div className="w-full max-w-5xl bg-zinc-800 p-1 border border-zinc-700">
-              <div className="bg-[#24272A] p-8">
+            <div className="w-full max-w-5xl bg-zinc-800 p-1 border border-zinc-700 rounded-xl">
+              <div className="bg-[#24272A] p-8 rounded-lg">
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-medium tracking-widest">
                     ENGAGEMENT BANKING PLATFORM
@@ -70,16 +70,16 @@ const Engagement = () => {
                   </p>
                 </div>
                 <div className="grid grid-cols-4 gap-4 text-center text-sm font-medium">
-                  <div className="p-4 bg-zinc-800 border border-zinc-700">
+                  <div className="p-4 bg-zinc-800 border border-zinc-700 rounded-lg">
                     Identity Mgmt
                   </div>
-                  <div className="p-4 bg-zinc-800 border border-zinc-700">
+                  <div className="p-4 bg-zinc-800 border border-zinc-700 rounded-lg">
                     Flow Control
                   </div>
-                  <div className="p-4 bg-zinc-800 border border-zinc-700">
+                  <div className="p-4 bg-zinc-800 border border-zinc-700 rounded-lg">
                     Data Aggregation
                   </div>
-                  <div className="p-4 bg-zinc-800 border border-zinc-700">
+                  <div className="p-4 bg-zinc-800 border border-zinc-700 rounded-lg">
                     Entitlements
                   </div>
                 </div>
@@ -90,7 +90,7 @@ const Engagement = () => {
             <div className="h-12 w-px bg-zinc-700"></div>
 
             {/* Bottom Layer: Systems of Record */}
-            <div className="w-full max-w-4xl p-6 bg-[#24272A] border border-zinc-800 flex justify-between items-center opacity-60">
+            <div className="w-full max-w-4xl p-6 bg-[#24272A] border border-zinc-800 flex justify-between items-center opacity-60 rounded-xl">
               <div className="font-mono text-xs text-gray-500">
                 SYSTEMS OF RECORD
               </div>
@@ -109,7 +109,7 @@ const Engagement = () => {
 
         {/* Features */}
         <div className="grid md:grid-cols-3 gap-8 mb-20">
-          <div className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow rounded-xl">
             <Layout className="w-10 h-10 text-white mb-6" />
             <h3 className="text-xl font-medium mb-3">Unified Customer View</h3>
             <p className="text-gray-400">
@@ -117,7 +117,7 @@ const Engagement = () => {
               holding in one dashboard.
             </p>
           </div>
-          <div className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow rounded-xl">
             <MousePointerClick className="w-10 h-10 text-white mb-6" />
             <h3 className="text-xl font-medium mb-3">Journey Orchestration</h3>
             <p className="text-gray-400">
@@ -125,7 +125,7 @@ const Engagement = () => {
               writing code.
             </p>
           </div>
-          <div className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow rounded-xl">
             <Monitor className="w-10 h-10 text-white mb-6" />
             <h3 className="text-xl font-medium mb-3">Employee Empowerment</h3>
             <p className="text-gray-400">

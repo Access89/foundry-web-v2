@@ -17,7 +17,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <header
       className={`relative pt-32 md:pt-28 xl:pt-32 pb-16 md:pb-24 xl:pb-6 px-4 md:px-8 overflow-hidden transition-colors duration-700 ${
-        activeSegment === "bank" ? "bg-[#1C1C1C]" : "bg-gradient"
+        activeSegment === "bank" ? "bg-[#1C1C1C]" : "bggradient"
       }`}
     >
       <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
@@ -26,14 +26,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className={`p-1 flex gap-1 border rounded-full ${
               activeSegment === "bank"
                 ? "bg-white/5 backdrop-blur-sm border-transparent"
-                : "bg-white/10 backdrop-blur-sm border-transparent"
+                : "bg-zinc-100 border-transparent"
             }`}
           >
             <button
               onClick={() => setActiveSegment("merchant")}
               className={`px-4 md:px-6 py-1.5 md:py-2 text-xs md:text-sm font-medium rounded-full transition-all duration-200 ${
                 activeSegment === "merchant"
-                  ? "bg-primary text-white"
+                  ? "bg-white text-black"
                   : "text-white/70 hover:text-white hover:bg-white/10"
               }`}
             >
@@ -44,7 +44,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               className={`px-4 md:px-6 py-1.5 md:py-2 text-xs md:text-sm font-medium rounded-full transition-all duration-200 whitespace-nowrap ${
                 activeSegment === "bank"
                   ? "bg-[#1C1C1C] text-white"
-                  : "text-white/70 hover:text-white hover:bg-white/10"
+                  : "text-zinc-500 hover:text-zinc-500 hover:bg-white/50"
               }`}
             >
               <span className="hidden sm:inline">For </span>
@@ -56,7 +56,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Left Content */}
           <div
             className={`max-w-2xl mx-auto lg:mx-0 text-center lg:text-left ${
-              activeSegment === "bank" ? "text-white" : "text-white"
+              activeSegment === "bank" ? "text-white" : "text-zinc-900"
             }`}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.1] mb-4 md:mb-6">
@@ -118,7 +118,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </h1>
             <p
               className={`text-base sm:text-lg md:text-xl xl:text-2xl mb-6 md:mb-8 leading-relaxed ${
-                activeSegment === "bank" ? "text-gray-300" : "text-white/90"
+                activeSegment === "bank" ? "text-gray-300" : "text-zinc-600"
               }`}
             >
               {activeSegment === "merchant"
@@ -129,9 +129,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
               <button
                 onClick={() => navigate("/onboarding")}
-                className={`px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-full transition-all shadow hover:shadow-xl ${
+                className={`px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg transition-all shadow hover:shadow-xl ${
                   activeSegment === "merchant"
-                    ? "bg-white text-black hover:bg-white/90"
+                    ? "bg-primary text-white hover:bg-primary-dark"
                     : "bg-white text-black hover:bg-gray-100"
                 }`}
               >

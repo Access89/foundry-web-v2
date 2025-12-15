@@ -95,7 +95,7 @@ const RetailBanking = () => {
             {features.map((feature, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-2xl bg-[#24272A] border border-zinc-800 hover:border-white/30 transition-all group"
+                className="p-8 rounded-xl bg-[#24272A] border border-zinc-800 hover:border-white/30 transition-all group"
               >
                 <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
                   <feature.icon className="w-7 h-7 text-white" />
@@ -136,7 +136,7 @@ const RetailBanking = () => {
               </div>
             </div>
 
-            <div className="bg-[#24272A] border border-zinc-800 rounded-2xl p-8">
+            <div className="bg-[#24272A] border border-zinc-800 rounded-xl p-8">
               <div className="space-y-6">
                 <div className="p-6 bg-zinc-800/50 rounded-xl border border-zinc-700">
                   <div className="flex items-center gap-3 mb-3">

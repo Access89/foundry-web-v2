@@ -25,7 +25,7 @@ const Banks = () => {
       </header>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-6 mb-20">
-          <div className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow rounded-xl">
             <Smartphone className="w-10 h-10 text-white mb-6" />
             <h3 className="text-xl font-medium mb-3">White-label Apps</h3>
             <p className="text-gray-400">
@@ -33,14 +33,14 @@ const Banks = () => {
               customizable UI.
             </p>
           </div>
-          <div className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow rounded-xl">
             <ShieldCheck className="w-10 h-10 text-white mb-6" />
             <h3 className="text-xl font-medium mb-3">Legacy Wrapper</h3>
             <p className="text-gray-400">
               Securely expose your mainframe data via REST APIs. SOC2 compliant.
             </p>
           </div>
-          <div className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 hover:shadow-lg transition-shadow rounded-xl">
             <PieChart className="w-10 h-10 text-white mb-6" />
             <h3 className="text-xl font-medium mb-3">Wealth Modules</h3>
             <p className="text-gray-400">

@@ -29,7 +29,7 @@ const KYC = () => {
                 authentication and global document checks.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
-                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-primary text-white hover:bg-primary-dark">
+                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg transition-all uppercase bg-primary text-white hover:bg-primary-dark">
                   Start Verifying
                 </button>
               </div>
@@ -37,8 +37,8 @@ const KYC = () => {
 
             {/* Interactive KYC Demo */}
             <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full flex items-center justify-center">
-              <div className="bg-zinc-50 border border-zinc-200 p-6 md:p-8 relative overflow-hidden flex flex-col items-center justify-center w-full h-full">
-                <div className="relative w-64 h-[450px] bg-white border-8 border-zinc-900 shadow-2xl flex flex-col overflow-hidden">
+              <div className="bg-zinc-50 border border-zinc-200 p-6 md:p-8 relative overflow-hidden flex flex-col items-center justify-center w-full h-full rounded-xl">
+                <div className="relative w-64 h-[450px] bg-white border-8 border-zinc-900 shadow-2xl flex flex-col overflow-hidden rounded-3xl">
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-6 bg-zinc-900 z-20"></div>
 
                   {/* Screen Content */}
@@ -82,7 +82,7 @@ const KYC = () => {
       </header>
       <div className="max-w-10xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-24">
-          <div className="p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow">
+          <div className="p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow rounded-xl">
             <ScanFace className="w-12 h-12 text-primary mb-6" />
             <h3 className="text-xl font-medium mb-3">Liveness Detection</h3>
             <p className="text-zinc-600">
@@ -90,7 +90,7 @@ const KYC = () => {
               the user is physically present.
             </p>
           </div>
-          <div className="p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow">
+          <div className="p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow rounded-xl">
             <Globe className="w-12 h-12 text-primary mb-6" />
             <h3 className="text-xl font-medium mb-3">Global Coverage</h3>
             <p className="text-zinc-600">
@@ -98,7 +98,7 @@ const KYC = () => {
               territories.
             </p>
           </div>
-          <div className="p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow">
+          <div className="p-8 bg-zinc-50 border border-zinc-200 hover:shadow-lg transition-shadow rounded-xl">
             <ShieldCheck className="w-12 h-12 text-primary mb-6" />
             <h3 className="text-xl font-medium mb-3">AML Screening</h3>
             <p className="text-zinc-600">
@@ -108,7 +108,7 @@ const KYC = () => {
           </div>
         </div>
 
-        <div className="bg-zinc-900 p-10 text-white font-mono text-sm relative overflow-hidden mb-20">
+        <div className="bg-zinc-900 p-10 text-white font-mono text-sm relative overflow-hidden mb-20 rounded-xl">
           <div className="relative z-10">
             <div className="text-gray-500 mb-4">
               # Initialize Verification Flow

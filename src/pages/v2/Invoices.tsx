@@ -21,7 +21,7 @@ const Invoices = () => {
                 pay by card, ACH, or Apple Pay directly from the email.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
-                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md transition-all uppercase bg-primary text-white hover:bg-primary-dark">
+                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg transition-all uppercase bg-primary text-white hover:bg-primary-dark">
                   Create Invoice
                 </button>
               </div>
@@ -29,8 +29,8 @@ const Invoices = () => {
 
             {/* Interactive Invoice Visual */}
             <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full flex items-center justify-center">
-              <div className="bg-zinc-50 p-6 md:p-8 border border-zinc-200 shadow-lg relative w-full h-full flex items-center justify-center">
-                <div className="bg-white shadow-sm border border-zinc-100 p-6 max-w-sm mx-auto">
+              <div className="bg-zinc-50 p-6 md:p-8 border border-zinc-200 shadow-lg relative w-full h-full flex items-center justify-center rounded-xl">
+                <div className="bg-white shadow-sm border border-zinc-100 p-6 max-w-sm mx-auto rounded-xl">
                   <div className="flex justify-between items-start mb-8">
                     <div className="w-12 h-12 bg-zinc-100"></div>
                     <div className="text-right">
@@ -68,13 +68,13 @@ const Invoices = () => {
                     <div className="text-zinc-500 text-sm">Total Due</div>
                     <div className="text-2xl font-medium">$1,740.00</div>
                   </div>
-                  <button className="w-full mt-6 py-3 bg-primary text-white font-medium hover:opacity-90 transition-opacity">
+                  <button className="w-full mt-6 py-3 bg-primary text-white font-medium hover:opacity-90 transition-opacity rounded-lg">
                     Pay Invoice
                   </button>
                 </div>
 
                 {/* Floating Status Notification */}
-                <div className="absolute top-1/2 -right-4 bg-white p-3 shadow-lg border border-zinc-100 flex items-center gap-3">
+                <div className="absolute top-1/2 -right-4 bg-white p-3 shadow-lg border border-zinc-100 flex items-center gap-3 rounded-lg">
                   <div className="w-8 h-8 bg-zinc-100 flex items-center justify-center">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
                   </div>
@@ -91,7 +91,7 @@ const Invoices = () => {
       <div className="max-w-10xl mx-auto px-6">
         {/* Features Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-24">
-          <div className="p-8 bg-zinc-50 border border-zinc-200">
+          <div className="p-8 bg-zinc-50 border border-zinc-200 rounded-xl">
             <RefreshCw className="w-10 h-10 text-primary mb-6" />
             <h3 className="text-xl font-medium mb-3">Recurring Billing</h3>
             <p className="text-zinc-600">
@@ -99,7 +99,7 @@ const Invoices = () => {
               or retainers on a schedule.
             </p>
           </div>
-          <div className="p-8 bg-zinc-50 border border-zinc-200">
+          <div className="p-8 bg-zinc-50 border border-zinc-200 rounded-xl">
             <FileText className="w-10 h-10 text-primary mb-6" />
             <h3 className="text-xl font-medium mb-3">Estimates to Invoices</h3>
             <p className="text-zinc-600">
@@ -107,7 +107,7 @@ const Invoices = () => {
               payable invoice upon acceptance.
             </p>
           </div>
-          <div className="p-8 bg-zinc-50 border border-zinc-200">
+          <div className="p-8 bg-zinc-50 border border-zinc-200 rounded-xl">
             <Activity className="w-10 h-10 text-primary mb-6" />
             <h3 className="text-xl font-medium mb-3">Real-time Tracking</h3>
             <p className="text-zinc-600">
@@ -117,14 +117,14 @@ const Invoices = () => {
           </div>
         </div>
 
-        <div className="bg-zinc-900 text-white p-12 relative overflow-hidden mb-20">
+        <div className="bg-zinc-900 text-white p-12 relative overflow-hidden mb-20 rounded-xl">
           <div className="relative z-10 max-w-2xl">
             <h2 className="text-3xl font-medium mb-6">
               Automate your accounts receivable.
             </h2>
             <div className="space-y-6">
               <div className="flex gap-4 items-start">
-                <div className="w-8 h-8 bg-white text-black flex items-center justify-center font-medium text-sm">
+                <div className="w-8 h-8 bg-white text-black flex items-center justify-center font-medium text-sm rounded-full">
                   1
                 </div>
                 <div>
@@ -136,7 +136,7 @@ const Invoices = () => {
               </div>
               <div className="h-8 w-px bg-zinc-800 ml-4"></div>
               <div className="flex gap-4 items-start">
-                <div className="w-8 h-8 bg-white text-black flex items-center justify-center font-medium text-sm">
+                <div className="w-8 h-8 bg-white text-black flex items-center justify-center font-medium text-sm rounded-full">
                   2
                 </div>
                 <div>
@@ -149,7 +149,7 @@ const Invoices = () => {
               </div>
               <div className="h-8 w-px bg-zinc-800 ml-4"></div>
               <div className="flex gap-4 items-start">
-                <div className="w-8 h-8 bg-white text-black flex items-center justify-center font-medium text-sm">
+                <div className="w-8 h-8 bg-white text-black flex items-center justify-center font-medium text-sm rounded-full">
                   3
                 </div>
                 <div>
