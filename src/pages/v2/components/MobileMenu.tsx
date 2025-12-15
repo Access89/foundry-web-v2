@@ -12,53 +12,16 @@ interface MobileMenuProps {
 const MobileMenu: React.FC<MobileMenuProps> = ({
   isMenuOpen,
   setIsMenuOpen,
-  activeSegment,
-  setActiveSegment,
   navData,
 }) => {
   const navigate = useNavigate();
 
-  const handleNavigate = (path: string, segment?: string) => {
-    navigate(path);
-    if (segment) setActiveSegment(segment);
-    setIsMenuOpen(false);
-    window.scrollTo(0, 0);
-  };
 
   if (!isMenuOpen) return null;
 
   return (
     <div className="fixed inset-0 z-40 bg-white pt-24 px-8 overflow-y-auto">
       <div className="flex flex-col gap-6 pb-10">
-        {/* Segment Links */}
-        <div className="flex gap-2 mb-4">
-          <button
-            onClick={() => {
-              setActiveSegment("merchant");
-              handleNavigate("/v2");
-            }}
-            className={`flex-1 py-3 rounded-md font-medium transition-colors ${
-              activeSegment === "merchant"
-                ? "bg-black text-white"
-                : "bg-zinc-100 text-black"
-            }`}
-          >
-            For Business
-          </button>
-          <button
-            onClick={() => {
-              setActiveSegment("bank");
-              handleNavigate("/v2");
-            }}
-            className={`flex-1 py-3 rounded-md font-medium transition-colors ${
-              activeSegment === "bank"
-                ? "bg-black text-white"
-                : "bg-zinc-100 text-black"
-            }`}
-          >
-            For Banks
-          </button>
-        </div>
         {Object.keys(navData).map((item) => (
           <div key={item} className="border-b border-zinc-100 pb-4">
             <div className="text-xl font-medium mb-4 text-black">{item}</div>
@@ -127,7 +90,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         ))}
         <button
           onClick={() => navigate("/onboarding")}
-          className="bg-black text-white px-6 py-3 rounded-md font-medium mt-4"
+          className="bg-black text-white px-6 py-3 rounded-lg font-medium mt-4"
         >
           GET STARTED
         </button>

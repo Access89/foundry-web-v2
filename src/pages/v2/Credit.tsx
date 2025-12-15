@@ -5,154 +5,136 @@ import {
   CheckCircle2,
   Database,
 } from "lucide-react";
+import ImageHero from "./components/ImageHero";
+
+// Page Data
+const creditData = {
+  hero: {
+    badge: "FOUNDRY CAPITAL",
+    title: ["Capital that flows", "as fast as you do."],
+    description:
+      "No paperwork. No personal guarantees. Access funds based on your sales history and inventory, deposited as soon as tomorrow.",
+    cta: "Check Eligibility",
+    visual: {
+      label: "AVAILABLE CAPITAL",
+      amount: "$50,000.00",
+      badge: "+12% vs last month",
+      chartData: [40, 65, 45, 80, 55, 90, 70],
+      days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    },
+  },
+  products: [
+    {
+      icon: FileText,
+      title: "Invoice Discounting",
+      description:
+        "Get paid instantly for outstanding invoices. Advance up to 90% of value.",
+      example: {
+        number: "#1024",
+        amount: "$12,500",
+        button: "Advance Now",
+      },
+      features: [],
+    },
+    {
+      icon: FileSpreadsheet,
+      title: "Factoring",
+      description:
+        "Turn your entire accounts receivable ledger into immediate working capital.",
+      features: ["No collection hassle", "Scales with sales"],
+    },
+    {
+      icon: TrendingUp,
+      title: "Revenue-Based Financing",
+      description:
+        "Flexible repayment that scales with your revenue. No fixed monthly obligations.",
+      features: ["Auto-repayment from sales", "No equity dilution"],
+    },
+  ],
+  dataSection: {
+    icon: Database,
+    title: "Powered by your data",
+    description:
+      "Our AI analyzes your transaction history, inventory turnover, and growth trajectory to offer personalized financing options with transparent terms.",
+    cta: "View Your Offers",
+  },
+  pricingExample: {
+    title: "Transparent pricing. No hidden fees.",
+    description:
+      "One flat fee. Repay automatically as you sell. If you have a slow month, you pay less.",
+    details: [
+      { label: "Loan Amount", value: "$25,000" },
+      { label: "Flat Fee", value: "$1,800" },
+      { label: "Repayment", value: "10%", suffix: "/ sale" },
+    ],
+  },
+};
 
 const Credit = () => {
+  const { hero, products, dataSection, pricingExample } = creditData;
   return (
-    <div className="min-h-screen bg-white text-zinc-900">
-      {/* Hero Section */}
-      <header className="relative pt-32 md:pt-28 xl:pt-44 pb-16 md:pb-24 xl:pb-32 px-4 md:px-8 overflow-hidden bg-white">
-        <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
-            <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left text-zinc-900">
-              <div className="inline-block px-3 py-1 bg-zinc-100 text-xs font-medium mb-4 md:mb-6 uppercase tracking-wider">
-                FOUNDRY CAPITAL
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.1] mb-4 md:mb-6">
-                Capital that flows
-                <br />
-                <span className="text-zinc-400">as fast as you do.</span>
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl xl:text-2xl mb-6 md:mb-8 leading-relaxed text-zinc-600">
-                No paperwork. No personal guarantees. Access funds based on your
-                sales history and inventory, deposited as soon as tomorrow.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
-                <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg transition-all uppercase bg-primary text-white hover:bg-primary-dark">
-                  Check Eligibility
-                </button>
-              </div>
-            </div>
-
-            <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full flex items-center justify-center">
-              <div className="bg-zinc-50 p-6 md:p-8 border border-zinc-200 shadow-lg relative overflow-hidden w-full max-w-lg scale-75 md:scale-90 lg:scale-100 rounded-xl">
-                <div className="flex justify-between items-end mb-8">
-                  <div>
-                    <div className="text-sm text-zinc-500 font-medium mb-1">
-                      AVAILABLE CAPITAL
-                    </div>
-                    <div className="text-4xl font-medium text-zinc-900">
-                      $50,000.00
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-xs font-medium text-black bg-zinc-200 px-2 py-1">
-                      +12% vs last month
-                    </div>
-                  </div>
-                </div>
-
-                <div className="h-48 flex items-end justify-between gap-2 mb-6">
-                  {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
-                    <div key={i} className="w-full bg-zinc-200 relative group">
-                      <div
-                        style={{ height: `${h}%` }}
-                        className="absolute bottom-0 w-full bg-black transition-all duration-500 group-hover:opacity-80"
-                      ></div>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex justify-between text-xs text-zinc-400 font-medium uppercase tracking-wider">
-                  <span>Mon</span>
-                  <span>Tue</span>
-                  <span>Wed</span>
-                  <span>Thu</span>
-                  <span>Fri</span>
-                  <span>Sat</span>
-                  <span>Sun</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+    <div className="lg:px-8 min-h-screen bg-white text-zinc-900">
+      <ImageHero
+        badge={hero.badge}
+        title={hero.title}
+        description={hero.description}
+        cta={hero.cta}
+        onCtaClick={() => {}}
+        heroImage="/images/v2/lending.png"
+        heroImageAlt="Foundry Capital lending solutions"
+        theme="light"
+      />
       <div className="max-w-10xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-24">
-          <div className="p-8 bg-white border border-zinc-200 hover:shadow-lg transition-shadow group rounded-xl">
-            <div className="w-14 h-14 bg-zinc-100 flex items-center justify-center mb-6">
-              <FileText className="w-7 h-7" />
-            </div>
-            <h3 className="text-2xl font-medium mb-3">Invoice Discounting</h3>
-            <p className="text-zinc-600 mb-6 min-h-[48px]">
-              Get paid instantly for outstanding invoices. Advance up to 90% of
-              value.
-            </p>
-            <div className="bg-zinc-50 p-4 border border-zinc-100 mb-6">
-              <div className="flex justify-between text-sm mb-2">
-                <span className="font-medium">Invoice #1024</span>
-                <span className="font-medium">$12,500</span>
+          {products.map((product, idx) => (
+            <div
+              key={idx}
+              className="p-8 bg-white border border-zinc-200 hover:shadow-lg transition-shadow group rounded-xl"
+            >
+              <div className="w-14 h-14 bg-zinc-100 flex items-center justify-center mb-6">
+                <product.icon className="w-7 h-7" />
               </div>
-              <button className="w-full py-2 bg-primary text-white text-xs font-medium hover:opacity-90 transition-opacity rounded-lg">
-                Advance Now
-              </button>
+              <h3 className="text-2xl font-medium mb-3">{product.title}</h3>
+              <p className="text-zinc-600 mb-6 min-h-[48px]">
+                {product.description}
+              </p>
+              {product.example && (
+                <div className="bg-zinc-50 p-4 border border-zinc-100 mb-6">
+                  <div className="flex justify-between text-sm mb-2">
+                    <span className="font-medium">
+                      Invoice {product.example.number}
+                    </span>
+                    <span className="font-medium">
+                      {product.example.amount}
+                    </span>
+                  </div>
+                  <button className="w-full py-2 bg-primary text-white text-xs font-medium hover:opacity-90 transition-opacity rounded-lg">
+                    {product.example.button}
+                  </button>
+                </div>
+              )}
+              {product.features.length > 0 && (
+                <ul className="space-y-3 text-sm text-zinc-600 mb-6">
+                  {product.features.map((feature, featureIdx) => (
+                    <li key={featureIdx} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-black" /> {feature}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-          </div>
-
-          <div className="p-8 bg-white border border-zinc-200 hover:shadow-lg transition-shadow group rounded-xl">
-            <div className="w-14 h-14 bg-zinc-100 flex items-center justify-center mb-6">
-              <FileSpreadsheet className="w-7 h-7" />
-            </div>
-            <h3 className="text-2xl font-medium mb-3">Factoring</h3>
-            <p className="text-zinc-600 mb-6 min-h-[48px]">
-              Turn your entire accounts receivable ledger into immediate working
-              capital.
-            </p>
-            <ul className="space-y-3 text-sm text-zinc-600 mb-6">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-black" /> No collection
-                hassle
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-black" /> Scales with
-                sales
-              </li>
-            </ul>
-          </div>
-
-          <div className="p-8 bg-white border border-zinc-200 hover:shadow-lg transition-shadow group rounded-xl">
-            <div className="w-14 h-14 bg-zinc-100 flex items-center justify-center mb-6">
-              <TrendingUp className="w-7 h-7" />
-            </div>
-            <h3 className="text-2xl font-medium mb-3">
-              Revenue-Based Financing
-            </h3>
-            <p className="text-zinc-600 mb-6 min-h-[48px]">
-              Flexible repayment that scales with your revenue. No fixed monthly
-              obligations.
-            </p>
-            <ul className="space-y-3 text-sm text-zinc-600">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-black" /> Auto-repayment
-                from sales
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-black" /> No equity
-                dilution
-              </li>
-            </ul>
-          </div>
+          ))}
         </div>
 
         <div className="bg-zinc-50 p-12 border border-zinc-200 mb-20 rounded-xl">
           <div className="max-w-3xl mx-auto text-center">
-            <Database className="w-16 h-16 text-black mx-auto mb-6" />
-            <h2 className="text-3xl font-medium mb-4">Powered by your data</h2>
+            <dataSection.icon className="w-16 h-16 text-black mx-auto mb-6" />
+            <h2 className="text-3xl font-medium mb-4">{dataSection.title}</h2>
             <p className="text-lg text-zinc-600 mb-8">
-              Our AI analyzes your transaction history, inventory turnover, and
-              growth trajectory to offer personalized financing options with
-              transparent terms.
+              {dataSection.description}
             </p>
             <button className="px-8 py-4 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-opacity">
-              View Your Offers
+              {dataSection.cta}
             </button>
           </div>
         </div>
@@ -160,31 +142,27 @@ const Credit = () => {
         <div className="bg-zinc-900 text-white p-12 md:p-20 text-center relative overflow-hidden mb-20 rounded-xl">
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-medium mb-6">
-              Transparent pricing. No hidden fees.
+              {pricingExample.title}
             </h2>
-            <p className="text-zinc-400 mb-12">
-              One flat fee. Repay automatically as you sell. If you have a slow
-              month, you pay less.
-            </p>
+            <p className="text-zinc-400 mb-12">{pricingExample.description}</p>
 
             <div className="grid grid-cols-3 gap-8 text-left border-t border-zinc-800 pt-8">
-              <div>
-                <div className="text-sm text-zinc-500 mb-1">Loan Amount</div>
-                <div className="text-2xl font-medium">$25,000</div>
-              </div>
-              <div>
-                <div className="text-sm text-zinc-500 mb-1">Flat Fee</div>
-                <div className="text-2xl font-medium">$1,800</div>
-              </div>
-              <div>
-                <div className="text-sm text-zinc-500 mb-1">Repayment</div>
-                <div className="text-2xl font-medium">
-                  10%{" "}
-                  <span className="text-sm text-zinc-500 font-normal">
-                    / sale
-                  </span>
+              {pricingExample.details.map((detail, idx) => (
+                <div key={idx}>
+                  <div className="text-sm text-zinc-500 mb-1">
+                    {detail.label}
+                  </div>
+                  <div className="text-2xl font-medium">
+                    {detail.value}
+                    {detail.suffix && (
+                      <span className="text-sm text-zinc-500 font-normal">
+                        {" "}
+                        {detail.suffix}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

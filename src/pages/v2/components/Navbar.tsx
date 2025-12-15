@@ -46,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <nav
-      className={`px-4 lg:px-8 fixed w-full z-50 transition-all duration-700 ${
+      className={` lg:px-8 fixed w-full z-50 transition-all duration-700 ${
         isDark
           ? "bg-[#1C1C1C] border-b border-zinc-800"
           : "bg-white border-b border-zinc-200/50"
@@ -146,7 +146,7 @@ const Navbar: React.FC<NavbarProps> = ({
                                     setIsMenuOpen(false);
                                     setHoveredNav(null);
                                   }}
-                                  className={`flex items-start text-left gap-3 p-3 rounded-md transition-colors group w-full ${
+                                  className={`flex items-start text-left gap-3 p-3 rounded-lg transition-colors group w-full ${
                                     isDark
                                       ? "hover:bg-zinc-800"
                                       : "hover:bg-zinc-50"
@@ -197,7 +197,7 @@ const Navbar: React.FC<NavbarProps> = ({
                               setIsMenuOpen(false);
                               setHoveredNav(null);
                             }}
-                            className={`flex items-start text-left gap-3 p-3 rounded-md transition-colors group w-full ${
+                            className={`flex items-start text-left gap-3 p-3 rounded-lg transition-colors group w-full ${
                               isDark ? "hover:bg-zinc-800" : "hover:bg-zinc-50"
                             }`}
                           >
@@ -258,7 +258,7 @@ const Navbar: React.FC<NavbarProps> = ({
               onClick={() =>
                 window.open("https://foundry-platform.com", "_blank")
               }
-              className={`border-2 px-6 py-2.5 rounded-md font-medium text-sm transition-all ${
+              className={`border-2 px-6 py-2.5 rounded-lg font-medium text-sm transition-all ${
                 isDark
                   ? "text-white border-zinc-700 hover:bg-zinc-800"
                   : "text-primary border-transparent hover:border-primary hover:opacity-90"
@@ -268,10 +268,10 @@ const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => navigate("/onboarding")}
-              className={`border-2 text-white px-6 py-2.5 rounded-md font-medium text-sm transition-all${
+              className={`border-2  px-6 py-2.5 rounded-lg font-medium text-sm transition-all${
                 !isDark
-                  ? " bg-primary border-primary hover:bg-primary-dark hover:border-primary-dark hover:opacity-90"
-                  : " bg-white hover:bg-[#E57710] hover:border-[#E57710] "
+                  ? " bg-primary text-white border-primary hover:bg-primary-dark hover:border-primary-dark hover:opacity-90"
+                  : " bg-white text-black hover:opacity-90"
               }`}
             >
               Get Started

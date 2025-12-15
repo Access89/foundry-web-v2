@@ -1,4 +1,4 @@
-import { Zap, CreditCard, Battery, Wifi, ShieldCheck } from "lucide-react";
+import { Zap, Battery, Wifi, ShieldCheck } from "lucide-react";
 
 // Page Data
 const hardwareData = {

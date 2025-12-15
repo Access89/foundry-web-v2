@@ -357,14 +357,13 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ activeSegment }) => {
                 <p className="text-sm opacity-60 mb-4">
                   Empower employees with a unified dashboard. Experience your
                   customer’s journey firsthand and manage daily operations
-                  end-to-end. 
+                  end-to-end.
                 </p>
                 <div className="w-full bg-zinc-800 h-1.5 overflow-hidden">
                   <div className="bg-gray-400 w-3/4 h-full"></div>
                 </div>
                 <div className="text-[10px] uppercase tracking-wide text-gray-400 mt-2 font-mono">
-                  Requests, Workflow, Complaints, CRM, Reports &
-                  Analytics
+                  Requests, Workflow, Complaints, CRM, Reports & Analytics
                 </div>
                 <div className="flex -space-x-2 opacity-50 mt-2">
                   <div className="w-6 h-6 bg-zinc-600"></div>

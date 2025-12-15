@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { aboutData } from "../data/aboutData";
+import PartnersSection from "@/components/reusable/partners-section";
 
 export default function AboutUs() {
   const navigate = useNavigate();
@@ -126,14 +127,8 @@ export default function AboutUs() {
         <p className="text-sm uppercase tracking-wider text-zinc-500 mb-8 text-center">
           Trusted by businesses across Africa
         </p>
-        <div className="flex flex-wrap justify-center items-center gap-12 opacity-40">
-          {/* Add partner logos here */}
-          <div className="text-2xl font-bold text-zinc-400">Partner 1</div>
-          <div className="text-2xl font-bold text-zinc-400">Partner 2</div>
-          <div className="text-2xl font-bold text-zinc-400">Partner 3</div>
-        </div>
+        <PartnersSection showTitle={false} />
       </section>
-
       {/* Get Started Section */}
       <section className="container mx-auto px-6 md:px-12 lg:px-24 py-20">
         {/* Icon Badge */}
@@ -166,7 +161,7 @@ export default function AboutUs() {
               No pitch. No pressure. Just an honest conversation about whether
               Foundry can drive growth for your business.
             </p>
-          </div>         
+          </div>
 
           {/* CTA Button */}
           <button
@@ -179,7 +174,6 @@ export default function AboutUs() {
       </section>
 
       {/* FAQ Section */}
-     
     </main>
   );
 }

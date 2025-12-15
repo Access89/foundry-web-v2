@@ -31,14 +31,14 @@ const CTASection: React.FC<CTASectionProps> = ({ activeSegment }) => {
 
             <button
               onClick={() => (window.location.href = "/onboarding")}
-              className="px-8 py-4 bg-black text-white rounded-md font-medium uppercase text-sm hover:bg-gray-800 transition-colors"
+              className="px-8 py-4 bg-black text-white rounded-lg font-medium uppercase text-sm hover:bg-gray-800 transition-colors"
             >
               Get Started
             </button>
           </div>
 
           {/* Right - Code Editor Mockup */}
-          <div className="hidden lg:block h-full bg-[#24272A] overflow-hidden shadow-2xl border border-zinc-700 rounded-tl-3xl w-full">
+          <div className="hidden lg:block h-full bg-[#24272A] overflow-hidden shadow-2xl border border-zinc-700 rounded-tl-xl w-full">
             {/* Window controls */}
             <div className="flex items-center gap-2 px-4 py-3 bg-[#1C1C1C] border-b border-zinc-800">
               <div className="flex gap-2">
@@ -57,7 +57,7 @@ const CTASection: React.FC<CTASectionProps> = ({ activeSegment }) => {
               {/* Sidebar */}
               <div className="w-40 bg-[#1C1C1C] border-r border-zinc-800 p-3">
                 <div className="text-xs text-gray-500 mb-2">Deploy ▾</div>
-                <div className="flex items-center gap-2 text-sm text-white bg-zinc-800 px-2 py-1 rounded-md">
+                <div className="flex items-center gap-2 text-sm text-white bg-zinc-800 px-2 py-1 rounded-lg">
                   <span className="text-blue-400">📄</span> intro.js
                 </div>
               </div>

@@ -24,7 +24,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
             </p>
             <button
               onClick={() => (window.location.href = "/onboarding")}
-              className="px-6 py-3 bg-white text-black rounded-md font-medium text-sm hover:bg-gray-100 transition-colors uppercase"
+              className="px-6 py-3 bg-white text-black rounded-lg font-medium text-sm hover:bg-gray-100 transition-colors uppercase"
             >
               Get Started
             </button>
@@ -116,7 +116,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
         {/* Feature Grid - Clean Bento Style */}
         <div className="grid md:grid-cols-2 gap-6">
           {/* Card 1 */}
-          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:shadow-xl transition-all group">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-xl hover:shadow-xl transition-all group">
             <h3 className="text-xl font-medium mb-3 text-white group-hover:text-[#F6851B] transition-colors">
               Global Sanctions & Watchlists
             </h3>
@@ -127,7 +127,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
           </div>
 
           {/* Card 2 */}
-          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:shadow-xl transition-all group">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-xl hover:shadow-xl transition-all group">
             <h3 className="text-xl font-medium mb-3 text-white group-hover:text-[#F6851B] transition-colors">
               AI Transaction Monitoring
             </h3>
@@ -138,7 +138,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
           </div>
 
           {/* Card 3 */}
-          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:shadow-xl transition-all group">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-xl hover:shadow-xl transition-all group">
             <h3 className="text-xl font-medium mb-3 text-white group-hover:text-[#F6851B] transition-colors">
               Automated KYB
             </h3>
@@ -149,7 +149,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
           </div>
 
           {/* Card 4 */}
-          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-lg hover:shadow-xl transition-all group">
+          <div className="p-8 bg-[#24272A] border border-zinc-800 rounded-xl hover:shadow-xl transition-all group">
             <h3 className="text-xl font-medium mb-3 text-white group-hover:text-[#F6851B] transition-colors">
               Real-time Alerts
             </h3>

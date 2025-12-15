@@ -9,10 +9,24 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-const RetailBanking = () => {
-  const navigate = useNavigate();
-
-  const features = [
+// Page Data
+const retailBankingData = {
+  hero: {
+    badge: { icon: Users, text: "Retail Banking" },
+    title: ["Daily Banking &", "Loyalty (B2B2C)"],
+    description:
+      "Banks are fighting for low-cost deposits and trying to acquire customers earlier in their financial journey.",
+    ctas: {
+      primary: "Get Started",
+      secondary: "Back to Home",
+    },
+  },
+  solution: {
+    title: "Turn your SME clients into acquisition channels.",
+    description:
+      "Leverage employer relationships to acquire retail customers at scale with minimal friction.",
+  },
+  features: [
     {
       title: "Employee Banking Integration",
       desc: "Open accounts for SME employees via Payroll in 'Books', capturing deposits at the source.",
@@ -28,13 +42,36 @@ const RetailBanking = () => {
       desc: "Blur the line between personal and business for sole traders. Toggle views instantly.",
       icon: FileText,
     },
-  ];
+  ],
+  benefits: {
+    title: "The B2B2C Advantage",
+    description:
+      "Transform your SME clients into distribution channels for retail banking products and services.",
+    list: [
+      "Low-cost deposit acquisition through SME partnerships",
+      "Early financial journey engagement with customers",
+      "Reduced customer acquisition costs via employer channels",
+    ],
+    challenges: {
+      title: "The Challenge",
+      text: "Traditional retail banking has high customer acquisition costs and struggles to engage customers early in their financial journey.",
+    },
+    solution: {
+      title: "The Solution",
+      text: "Foundry enables banks to acquire retail customers through existing SME relationships, reducing costs and increasing engagement through integrated payroll and lending products.",
+    },
+  },
+  cta: {
+    title: "Ready to scale retail banking?",
+    description:
+      "See how financial institutions are transforming customer acquisition with Foundry.",
+    button: "Schedule a Demo",
+  },
+};
 
-  const benefits = [
-    "Low-cost deposit acquisition through SME partnerships",
-    "Early financial journey engagement with customers",
-    "Reduced customer acquisition costs via employer channels",
-  ];
+const RetailBanking = () => {
+  const navigate = useNavigate();
+  const { hero, solution, features, benefits, cta } = retailBankingData;
 
   return (
     <div className="min-h-screen bg-[#1C1C1C] text-white">
@@ -46,18 +83,18 @@ const RetailBanking = () => {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white text-xs font-semibold uppercase tracking-wider mb-6">
-            <Users className="w-4 h-4" />
-            Retail Banking
+            <hero.badge.icon className="w-4 h-4" />
+            {hero.badge.text}
           </div>
 
           <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-6 leading-[1.1]">
-            Daily Banking &<br />
-            <span className="text-white">Loyalty (B2B2C)</span>
+            {hero.title[0]}
+            <br />
+            <span className="text-white">{hero.title[1]}</span>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mb-10 leading-relaxed font-light">
-            Banks are fighting for low-cost deposits and trying to acquire
-            customers earlier in their financial journey.
+            {hero.description}
           </p>
 
           <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -65,14 +102,14 @@ const RetailBanking = () => {
               onClick={() => navigate("/onboarding")}
               className="px-8 py-4 bg-white hover:bg-gray-200 text-black rounded-lg font-medium transition-all flex items-center gap-2 group"
             >
-              Get Started
+              {hero.ctas.primary}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
               onClick={() => navigate("/")}
               className="px-8 py-4 bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700 rounded-lg font-medium transition-all"
             >
-              Back to Home
+              {hero.ctas.secondary}
             </button>
           </div>
         </div>
@@ -83,11 +120,10 @@ const RetailBanking = () => {
         <div className="max-w-7xl mx-auto">
           <div className="mb-16">
             <h2 className="text-3xl md:text-5xl font-medium text-white mb-6">
-              Turn your SME clients into acquisition channels.
+              {solution.title}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl font-light">
-              Leverage employer relationships to acquire retail customers at
-              scale with minimal friction.
+              {solution.description}
             </p>
           </div>
 
@@ -118,14 +154,13 @@ const RetailBanking = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">
-                The B2B2C Advantage
+                {benefits.title}
               </h2>
               <p className="text-gray-400 mb-8 leading-relaxed font-light">
-                Transform your SME clients into distribution channels for retail
-                banking products and services.
+                {benefits.description}
               </p>
               <div className="space-y-4">
-                {benefits.map((benefit, idx) => (
+                {benefits.list.map((benefit, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="mt-1">
                       <CheckCircle className="w-5 h-5 text-white" />
@@ -141,24 +176,24 @@ const RetailBanking = () => {
                 <div className="p-6 bg-zinc-800/50 rounded-xl border border-zinc-700">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-2 h-2 rounded-full bg-white"></div>
-                    <h4 className="text-white font-medium">The Challenge</h4>
+                    <h4 className="text-white font-medium">
+                      {benefits.challenges.title}
+                    </h4>
                   </div>
                   <p className="text-gray-400 italic font-light">
-                    "Traditional retail banking has high customer acquisition
-                    costs and struggles to engage customers early in their
-                    financial journey."
+                    "{benefits.challenges.text}"
                   </p>
                 </div>
 
                 <div className="p-6 bg-white/5 rounded-xl border border-white/20">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-2 h-2 rounded-full bg-white"></div>
-                    <h4 className="text-white font-medium">The Solution</h4>
+                    <h4 className="text-white font-medium">
+                      {benefits.solution.title}
+                    </h4>
                   </div>
                   <p className="text-gray-300 font-light">
-                    Foundry enables banks to acquire retail customers through
-                    existing SME relationships, reducing costs and increasing
-                    engagement through integrated payroll and lending products.
+                    {benefits.solution.text}
                   </p>
                 </div>
               </div>
@@ -171,17 +206,16 @@ const RetailBanking = () => {
       <section className="py-24 px-6 bg-zinc-900/50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-medium text-white mb-6">
-            Ready to scale retail banking?
+            {cta.title}
           </h2>
           <p className="text-xl text-gray-400 mb-10 font-light">
-            See how financial institutions are transforming customer acquisition
-            with Foundry.
+            {cta.description}
           </p>
           <button
             onClick={() => navigate("/book-a-demo")}
             className="px-10 py-5 bg-white hover:bg-gray-200 text-black rounded-lg font-medium text-lg transition-all inline-flex items-center gap-2 group"
           >
-            Schedule a Demo
+            {cta.button}
             <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>

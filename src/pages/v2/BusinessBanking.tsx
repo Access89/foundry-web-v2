@@ -9,10 +9,24 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-const BusinessBanking = () => {
-  const navigate = useNavigate();
-
-  const features = [
+// Page Data
+const businessBankingData = {
+  hero: {
+    badge: { icon: Building2, text: "Business Banking" },
+    title: ["SME Onboarding &", "Entitlements"],
+    description:
+      "Banks need to reduce the cost of serving SMEs while increasing lending revenue. They struggle with high-risk profiles due to a lack of reliable data.",
+    ctas: {
+      primary: "Get Started",
+      secondary: "Back to Home",
+    },
+  },
+  solution: {
+    title: "Embed the Business OS directly into your offering.",
+    description:
+      "Transform how you serve SMEs with integrated financial services that power their entire operation.",
+  },
+  features: [
     {
       title: "Integrated Onboarding",
       desc: "Replace paper forms. Instantly set up bank accounts, POS, and Books simultaneously.",
@@ -28,13 +42,36 @@ const BusinessBanking = () => {
       desc: "A built-in Loan Management Platform (LMP). Automate origination, scoring, and lifecycle servicing using real-time POS data.",
       icon: Banknote,
     },
-  ];
+  ],
+  benefits: {
+    title: "Why Financial Institutions Choose Foundry",
+    description:
+      "Stop offering generic banking channels. Start providing the digital fabric that powers their entire business lifecycle.",
+    list: [
+      "Lower Risk: Transactions are visible before banking entries",
+      "Higher Stickiness: Clients won't switch the OS running their business",
+      "Unified Data + AI: Clean, categorized data makes ML models infinitely more accurate",
+    ],
+    challenges: {
+      title: "The Challenge",
+      text: "Banks struggle with high-risk profiles due to a lack of reliable data on SME operations and cash flow.",
+    },
+    solution: {
+      title: "The Solution",
+      text: "Foundry provides real-time operational data from POS, inventory, and invoices, enabling accurate risk assessment and automated lending decisions.",
+    },
+  },
+  cta: {
+    title: "Ready to transform your SME banking?",
+    description:
+      "See how leading financial institutions are revolutionizing business banking with Foundry.",
+    button: "Schedule a Demo",
+  },
+};
 
-  const benefits = [
-    "Lower Risk: Transactions are visible before banking entries",
-    "Higher Stickiness: Clients won't switch the OS running their business",
-    "Unified Data + AI: Clean, categorized data makes ML models infinitely more accurate",
-  ];
+const BusinessBanking = () => {
+  const navigate = useNavigate();
+  const { hero, solution, features, benefits, cta } = businessBankingData;
 
   return (
     <div className="min-h-screen bg-[#1C1C1C] text-white">
@@ -46,19 +83,18 @@ const BusinessBanking = () => {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white text-xs font-semibold uppercase tracking-wider mb-6">
-            <Building2 className="w-4 h-4" />
-            Business Banking
+            <hero.badge.icon className="w-4 h-4" />
+            {hero.badge.text}
           </div>
 
           <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-6 leading-[1.1]">
-            SME Onboarding &<br />
-            <span className="text-white">Entitlements</span>
+            {hero.title[0]}
+            <br />
+            <span className="text-white">{hero.title[1]}</span>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mb-10 leading-relaxed font-light">
-            Banks need to reduce the cost of serving SMEs while increasing
-            lending revenue. They struggle with high-risk profiles due to a lack
-            of reliable data.
+            {hero.description}
           </p>
 
           <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -66,14 +102,14 @@ const BusinessBanking = () => {
               onClick={() => navigate("/onboarding")}
               className="px-8 py-4 bg-white hover:bg-gray-200 text-black rounded-lg font-medium transition-all flex items-center gap-2 group"
             >
-              Get Started
+              {hero.ctas.primary}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
               onClick={() => navigate("/")}
               className="px-8 py-4 bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700 rounded-lg font-medium transition-all"
             >
-              Back to Home
+              {hero.ctas.secondary}
             </button>
           </div>
         </div>
@@ -84,11 +120,10 @@ const BusinessBanking = () => {
         <div className="max-w-7xl mx-auto">
           <div className="mb-16">
             <h2 className="text-3xl md:text-5xl font-medium text-white mb-6">
-              Embed the Business OS directly into your offering.
+              {solution.title}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl font-light">
-              Transform how you serve SMEs with integrated financial services
-              that power their entire operation.
+              {solution.description}
             </p>
           </div>
 
@@ -119,14 +154,13 @@ const BusinessBanking = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">
-                Why Financial Institutions Choose Foundry
+                {benefits.title}
               </h2>
               <p className="text-gray-400 mb-8 leading-relaxed font-light">
-                Stop offering generic banking channels. Start providing the
-                digital fabric that powers their entire business lifecycle.
+                {benefits.description}
               </p>
               <div className="space-y-4">
-                {benefits.map((benefit, idx) => (
+                {benefits.list.map((benefit, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="mt-1">
                       <CheckCircle className="w-5 h-5 text-white" />
@@ -142,23 +176,24 @@ const BusinessBanking = () => {
                 <div className="p-6 bg-zinc-800/50 rounded-xl border border-zinc-700">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-2 h-2 rounded-full bg-white"></div>
-                    <h4 className="text-white font-medium">The Challenge</h4>
+                    <h4 className="text-white font-medium">
+                      {benefits.challenges.title}
+                    </h4>
                   </div>
                   <p className="text-gray-400 italic font-light">
-                    "Banks struggle with high-risk profiles due to a lack of
-                    reliable data on SME operations and cash flow."
+                    "{benefits.challenges.text}"
                   </p>
                 </div>
 
                 <div className="p-6 bg-white/5 rounded-xl border border-white/20">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-2 h-2 rounded-full bg-white"></div>
-                    <h4 className="text-white font-medium">The Solution</h4>
+                    <h4 className="text-white font-medium">
+                      {benefits.solution.title}
+                    </h4>
                   </div>
                   <p className="text-gray-300 font-light">
-                    Foundry provides real-time operational data from POS,
-                    inventory, and invoices, enabling accurate risk assessment
-                    and automated lending decisions.
+                    {benefits.solution.text}
                   </p>
                 </div>
               </div>
@@ -171,17 +206,16 @@ const BusinessBanking = () => {
       <section className="py-24 px-6 bg-zinc-900/50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-medium text-white mb-6">
-            Ready to transform your SME banking?
+            {cta.title}
           </h2>
           <p className="text-xl text-gray-400 mb-10 font-light">
-            See how leading financial institutions are revolutionizing business
-            banking with Foundry.
+            {cta.description}
           </p>
           <button
             onClick={() => navigate("/book-a-demo")}
             className="px-10 py-5 bg-white hover:bg-gray-200 text-black rounded-lg font-medium text-lg transition-all inline-flex items-center gap-2 group"
           >
-            Schedule a Demo
+            {cta.button}
             <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
