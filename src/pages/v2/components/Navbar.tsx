@@ -59,7 +59,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <div
             className="flex items-center gap-3 cursor-pointer"
             onClick={() => {
-              setActiveSegment("bank");
+              setActiveSegment("merchant");
               handleNavigate("/");
             }}
           >
