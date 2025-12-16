@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const LoadingScreen = () => {
   return (
-    <div className="w-full h-full bg-[#1C1C1C] flex flex-col items-center justify-center overflow-hidden">
+    <div className="w-full h-full bg-primary-dark flex flex-col items-center justify-center overflow-hidden">
       <motion.div
         initial={{ y: 200, opacity: 0, rotateX: 90 }}
         animate={{
