@@ -148,7 +148,7 @@ export const getNavData = (
             desc: "Corporate cards",
             icon: <Receipt className="w-5 h-5" />,
             action: () => {
-              navigate("/retail");
+              navigate("/expenses");
               if (setSegment) setSegment("merchant");
             },
           },
@@ -157,7 +157,7 @@ export const getNavData = (
             desc: "Sync across channels",
             icon: <Package className="w-5 h-5" />,
             action: () => {
-              navigate("/retail");
+              navigate("/inventory");
               if (setSegment) setSegment("merchant");
             },
           },
@@ -166,7 +166,7 @@ export const getNavData = (
             desc: "Payroll & scheduling",
             icon: <Users className="w-5 h-5" />,
             action: () => {
-              navigate("/retail");
+              navigate("/staff");
               if (setSegment) setSegment("merchant");
             },
           },

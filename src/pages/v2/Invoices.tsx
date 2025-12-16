@@ -81,7 +81,7 @@ const Invoices = () => {
         description={hero.description}
         cta={hero.cta}
         onCtaClick={() => {}}
-        heroImage="/images/v2/invoice.png"
+        heroImage="/images/v2/invoice_new.png"
         heroImageAlt="Invoice management dashboard"
         theme="light"
       />

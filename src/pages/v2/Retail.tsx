@@ -1,4 +1,5 @@
 import { Layers, Users, Star, CheckCircle2 } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import ImageHero from "./components/ImageHero";
 
 // Page Data
@@ -47,6 +48,26 @@ const retailData = {
 
 const Retail = () => {
   const { hero, features, wholesale, cta } = retailData;
+  const location = useLocation();
+
+  const getHeroImage = () => {
+    const path =
+      location.pathname.endsWith("/") && location.pathname.length > 1
+        ? location.pathname.slice(0, -1)
+        : location.pathname;
+
+    switch (path) {
+      case "/expenses":
+        return "/images/v2/Space_Black.png";
+      case "/inventory":
+        return "/images/v2/terminal.png";
+      case "/staff":
+        return "/images/v2/payroll_hero.png";
+      default:
+        return "/images/RetailPage.png";
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white text-zinc-900 md:px-8">
       <ImageHero
@@ -55,8 +76,8 @@ const Retail = () => {
         description={hero.description}
         cta={hero.cta}
         onCtaClick={() => (window.location.href = "/onboarding")}
-        heroImage="/images/RetailPage.png"
-        heroImageAlt="Foundry POS devices including mobile app, tablet, and card reader"
+        heroImage={getHeroImage()}
+        heroImageAlt="Foundry specific solution hero"
         theme="light"
       />
       <div className="max-w-10xl mx-auto px-4 md:px-6 lg:px-8">
