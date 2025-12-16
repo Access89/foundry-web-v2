@@ -27,6 +27,7 @@ import AboutUs from "./pages/AboutUs";
 import OnboardingPage from "./pages/OnboardingPage";
 import PrivacyPolicy from "./PrivacyPolicy";
 import ISOSecurityPolicy from "./ISOSecurityPolicy";
+import AppV2 from "./foundryweb";
 const Home = lazy(() => import("./pages/home"));
 const BusinessAutomation = lazy(() => import("./pages/business_automation"));
 const Loan = lazy(() => import("./pages/loan"));
@@ -78,7 +79,6 @@ function App() {
 
           <Route path="use-cases" element={<NewUseCases />} />
           <Route path="use-cases/:name" element={<ViewUseCase />} />
-          {/* <Route path="use-cases" element={<UseCases />} /> */}
           <Route path="our-platforms" element={<OurPlatforms />} />
           <Route path="our-platforms/:name" element={<ViewPlatforms />} />
           <Route
@@ -110,13 +110,17 @@ function App() {
           />
           <Route path="upgrade-plan/:category/:id" element={<UpgradePlan />} />
         </Route>
+        <Route path="/v2" element={<AppV2 />} />
         <Route path="book-a-demo" element={<BookADemo />} />
         <Route path="become-partner" element={<BecomePartner />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="custom-plan" element={<CustomPlan />} />
         <Route path="onboarding-page" element={<OnboardingPage />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="information-security-policy" element={<ISOSecurityPolicy />} />
+        <Route
+          path="information-security-policy"
+          element={<ISOSecurityPolicy />}
+        />
         <Route path="onboarding/">
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="" element={<Onboarding />} />

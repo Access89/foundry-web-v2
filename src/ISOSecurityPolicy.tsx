@@ -4,24 +4,24 @@ export default function ISOSecurityPolicy() {
       <div className="container mx-auto px-6 md:px-12 lg:px-24 py-12 max-w-[95vw]">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="font-sans font-medium text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-4">
+          <h1 className=" font-medium text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-4">
             Information Security Policy
           </h1>
-          <p className="text-gray-600 text-lg font-sans mb-2">
+          <p className="text-gray-600 text-lg  mb-2">
             <strong>Access 89 Ltd</strong>
           </p>
-          <p className="text-gray-600 font-sans">
+          <p className="text-gray-600 ">
             <strong>Version:</strong> 1.0 | <strong>Publication Date:</strong>{" "}
             August 25, 2025
           </p>
-          <p className="text-gray-600 font-sans">
+          <p className="text-gray-600 ">
             <strong>Classification:</strong> Need based
           </p>
         </div>
 
         {/* Introduction */}
         <div className="mb-12">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
+          <h2 className=" font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             1. Introduction
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
@@ -69,14 +69,14 @@ export default function ISOSecurityPolicy() {
 
         {/* Information Security Policy Section Header */}
         <div className="py-4 px6 mb-8">
-          <h2 className="font-sans font-medium text-3xl md:text-4xl text-gray-900">
+          <h2 className=" font-medium text-3xl md:text-4xl text-gray-900">
             Information Security Policy
           </h2>
         </div>
 
         {/* Section 2.1 */}
         <div className="mb-12">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
+          <h2 className=" font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             2.1 Information Security Requirements
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
@@ -102,7 +102,7 @@ export default function ISOSecurityPolicy() {
 
         {/* Section 2.2 */}
         <div className="mb-12">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
+          <h2 className=" font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             2.2 Information Security Policy Statement
           </h2>
           <div className="bg-gray-50 p-6">
@@ -118,7 +118,7 @@ export default function ISOSecurityPolicy() {
 
         {/* Section 2.3 */}
         <div className="mb-12">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
+          <h2 className=" font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             2.3 Key Policy Commitments
           </h2>
           <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
@@ -143,7 +143,7 @@ export default function ISOSecurityPolicy() {
 
         {/* Section 2.4 */}
         <div className="mb-12">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
+          <h2 className=" font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             2.4 Framework for Setting Objectives
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
@@ -163,7 +163,7 @@ export default function ISOSecurityPolicy() {
 
         {/* Section 2.5 */}
         <div className="mb-12">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
+          <h2 className=" font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             2.5 Continual Improvement of the ISMS
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">Access 89 will:</p>
@@ -201,7 +201,7 @@ export default function ISOSecurityPolicy() {
 
         {/* Section 2.6 - Policy Areas Table */}
         <div className="mb-12 hidden">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
+          <h2 className=" font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             2.6 Information Security Policy Areas
           </h2>
           <p className="text-gray-700 leading-relaxed mb-6">
@@ -247,7 +247,7 @@ export default function ISOSecurityPolicy() {
 
         {/* Section 2.7 */}
         <div className="mb-12">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
+          <h2 className=" font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             2.6 Policy Communication and Accessibility
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
@@ -257,7 +257,7 @@ export default function ISOSecurityPolicy() {
 
           <div className="space-y-6">
             <div className="pl-4">
-              <h3 className="font-sans font-medium text-xl text-gray-800 mb-2">
+              <h3 className=" font-medium text-xl text-gray-800 mb-2">
                 Internal
               </h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
@@ -271,7 +271,7 @@ export default function ISOSecurityPolicy() {
             </div>
 
             <div className="pl-4">
-              <h3 className="font-sans font-medium text-xl text-gray-800 mb-2">
+              <h3 className=" font-medium text-xl text-gray-800 mb-2">
                 External
               </h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
@@ -286,7 +286,7 @@ export default function ISOSecurityPolicy() {
             </div>
 
             <div className="pl-4">
-              <h3 className="font-sans font-medium text-xl text-gray-800 mb-2">
+              <h3 className=" font-medium text-xl text-gray-800 mb-2">
                 Accessibility
               </h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
@@ -299,7 +299,7 @@ export default function ISOSecurityPolicy() {
 
         {/* Section 2.8 */}
         <div className="mb-8">
-          <h2 className="font-sans font-medium text-2xl md:text-3xl text-gray-900 mb-4">
+          <h2 className=" font-medium text-2xl md:text-3xl text-gray-900 mb-4">
             2.7 Application of Information Security Policy
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">

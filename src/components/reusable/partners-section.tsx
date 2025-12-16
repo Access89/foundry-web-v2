@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const PartnersSection = () => {
+const PartnersSection = ({showTitle = true} : {showTitle?: boolean}) => {
   const partners = [
     { name: 'Shield', logo: '/images/brands/shield.jpg' },
     { name: 'Cedi Capital', logo: '/images/brands/cedi.jpg' },
@@ -22,16 +22,17 @@ const PartnersSection = () => {
   return (
     <section className=" mt-5 mb-3 md:mb-10 flex flex-col gap-6 overflow-hidden flex-1 max-w-[100vw]">
       {/* Title Section with Fade-In Animation */}
+      {showTitle && (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: 'easeOut' }}
         className="text-center"
       >
-        <h2 className="lg:text-xl  text-lg font-semibold">
+        <h2 className="lg:text-xl  text-lg font-medium text-zinc-600">
           You are in good company
         </h2>
-      </motion.div>
+      </motion.div>)}
 
       {/* Scrolling Animation */}
       <div className="relative w-full overflow-hidden">
