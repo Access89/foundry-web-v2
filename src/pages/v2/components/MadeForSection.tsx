@@ -152,7 +152,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
       title: "Invoice Management",
       titleColor: "text-black",
       titlePosition: "-mt-5 md:mt- 4 lg:-mt-6 lg:md:whitespace-nowrap ",
-      bg: "/images/v2/invoice.png",
+      bg: "/images/v2/invoice_new.png",
       backgroundsize: "contain",
       bgPosition: "mb-6",
 
@@ -187,12 +187,12 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
 
     {
       title: "Manage Payroll",
-      bg: "/images/v2/payroll.png",
+      bg: "/images/v2/payroll_hero.png",
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
 
       backgroundsize: " 90%",
       backgroundcolor: "#E4EEF0 ",
-      bgPosition: "ml-4",
+      bgPosition: "mb-4",
       description:
         "Automated payroll solution ensuring accurate and timely payments.",
       // link: '/our-platforms/business/procurement',
@@ -225,9 +225,10 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     },
     {
       title: "Business Loans",
-      bg: "/images/v2/business_loans.png",
+      bg: "/images/v2/loan_eligibility.png",
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
-      product_image: "/images/our-platforms/new/hr.png",
+      product_image: "/images/v2/loan_eligibility.png",
+      backgroundsize: "90%",
       description: "Streamline employee data, benefits, and HR processes.",
       // link: '/our-platforms/business/hr',
       detailedDescription: `Business Loans provides SMEs with fast, flexible, and transparent access to the capital they need to grow. Integrated within the Foundry Finance ecosystem, it simplifies loan application, approval, disbursement, and repayment, all in one seamless platform without cumbersome paperwork.`,
@@ -255,7 +256,6 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
           learn_more: [],
         },
       ],
-      backgroundsize: "cover",
       titleColor: "text-white",
       // backgroundcolor: '#E4EEF0 ',
     },
@@ -295,10 +295,10 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     },
     {
       title: "Business APIs",
-      bg: "/images/v2/API.png",
+      bg: "/images/v2/Space_Black.png",
       backgroundsize: "contain",
       titlePosition: "-mt-5 md:mt-4 lg:-mt-6",
-      bgPosition: "ml-12",
+      // bgPosition: "ml-12",
       description: "Easily integrate third-party tools and automate workflows.",
       // link: '/our-platforms/business/business-apis',
       detailedDescription: ``,
@@ -547,7 +547,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     {
       title: "Core Banking",
       bg: "/images/v2/core_banking.png",
-      bgPosition: "ml-4", 
+      bgPosition: "ml-4",
       product_image: "/images/our-platforms/view/MExpense.png",
       description:
         "Robust backend system to manage accounts, transactions, and ledgers.",
@@ -806,7 +806,9 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                 </div>
 
                 {/* Media area */}
-                <div className={`mt-6 w-full h-[18rem] md:h-[20rem] lg:h-[22rem] bg-transparent overflow-hidden  ${item.bgPosition}`}>
+                <div
+                  className={`mt-6 w-full h-[18rem] md:h-[20rem] lg:h-[22rem] bg-transparent overflow-hidden  ${item.bgPosition}`}
+                >
                   <div
                     className="w-full h-full bg-center bg-no-repeat"
                     style={{
@@ -1078,7 +1080,6 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                   </div>
                 </div>
               )}
-              
             </div>
           </div>
         </div>
