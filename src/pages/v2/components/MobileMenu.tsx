@@ -40,7 +40,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       >
         {/* Header */}
         <div
-          className={`flex items-center justify-between p-6 border-b ${
+          className={`flex items-center justify-between p-4 ${
             isDark ? "border-zinc-800" : "border-zinc-200"
           }`}
         >
@@ -71,7 +71,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         </div>
 
         {/* Menu Content */}
-        <div className="overflow-y-auto h-[calc(100vh-180px)] p-6">
+        <div className="overflow-y-auto h-[calc(100vh-180px)] p-4">
           <div className="space-y-1">
             {Object.keys(navData).map((item, index) => (
               <div
@@ -89,7 +89,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                       : "hover:bg-zinc-50 text-black"
                   }`}
                 >
-                  <span className="font-semibold text-sm">{item}</span>
+                  <span className="font-medium text-base">{item}</span>
                   <ChevronDown
                     className={`w-4 h-4 transition-all duration-300 ease-out ${
                       expandedSection === item ? "rotate-180" : ""
@@ -113,7 +113,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                       ).sections.map((section: any, sectionIdx: number) => (
                         <div key={sectionIdx}>
                           <div
-                            className={`text-[11px] font-semibold uppercase tracking-wider mb-2 px-2 transition-all duration-200 ${
+                            className={`text-[13px] font-medium uppercase tracking-wider mb-2 px-2 transition-all duration-200 ${
                               isDark ? "text-gray-500" : "text-zinc-400"
                             }`}
                           >
@@ -199,14 +199,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                   : "hover:bg-zinc-50 text-black"
               }`}
             >
-              <span className="font-semibold text-sm">Pricing</span>
+              <span className="font-medium text-base">Pricing</span>
             </button>
           </div>
         </div>
 
         {/* Footer Actions */}
         <div
-          className={`absolute bottom-0 left-0 right-0 p-6 border-t ${
+          className={`absolute bottom-0 left-0 right-0 p-6 ${
             isDark ? "border-zinc-800 bg-[#1C1C1C]" : "border-zinc-200 bg-white"
           }`}
         >

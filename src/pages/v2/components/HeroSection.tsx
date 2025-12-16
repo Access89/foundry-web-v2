@@ -151,7 +151,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   {/* Mobile device - Right side */}
 
                   <img
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain drop-shadow-xl"
                     src={"/images/v2/v2_hero.png"}
                     alt="Foundry Platform"
                     loading="lazy"

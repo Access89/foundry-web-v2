@@ -80,7 +80,7 @@ const Credit = () => {
         description={hero.description}
         cta={hero.cta}
         onCtaClick={() => {}}
-        heroImage="/images/v2/lending.png"
+        heroImage="/images/v2/loan_eligibility.png"
         heroImageAlt="Foundry Capital lending solutions"
         theme="light"
       />

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import LoadingScreen from "./components/LoadingScreen";
 import { useV2Context } from "./context";
 import HeroSection from "./components/HeroSection";
@@ -11,7 +12,6 @@ import PartnersSection from "@/components/reusable/partners-section";
 const Home = () => {
   const { activeSegment, setActiveSegment } = useV2Context();
   const [isLoading, setIsLoading] = useState(true);
-  const [showLoading, setShowLoading] = useState(true);
 
   useEffect(() => {
     // Force min load time of 2s for the branding loop
@@ -27,21 +27,25 @@ const Home = () => {
 
     Promise.all([minLoadTime, imgLoad]).then(() => {
       setIsLoading(false);
-      setTimeout(() => setShowLoading(false), 700);
     });
   }, []);
 
   return (
     <>
-      {showLoading && (
-        <div
-          className={`fixed inset-0 z-[100] transition-opacity duration-700 ${
-            isLoading ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
-        >
-          <LoadingScreen />
-        </div>
-      )}
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <motion.div
+            className="fixed inset-0 z-[100]"
+            initial={{ y: 0 }}
+            exit={{
+              y: "-100%",
+              transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+            }}
+          >
+            <LoadingScreen />
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="animate-in fade-in duration-500">
         {/* Hero Section Component */}
         <HeroSection
