@@ -5,7 +5,7 @@ const LoadingScreen = () => {
     <div className="w-full h-full bg-primary-dark flex flex-col items-center justify-center overflow-hidden">
       <motion.div
         variants={{
-          initial: { y: 200, opacity: 0, rotateX: 90, rotate: 0 },
+          initial: { y: 300, opacity: 0, rotateX: 90, rotate: 0 },
           enter: {
             y: 0,
             opacity: 1,
