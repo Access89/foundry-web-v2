@@ -36,10 +36,20 @@ const Home = () => {
         {isLoading && (
           <motion.div
             className="fixed inset-0 z-[100]"
-            initial={{ y: 0 }}
-            exit={{
-              y: "-100%",
-              transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            variants={{
+              initial: { y: 0 },
+              enter: { y: 0 },
+              exit: {
+                y: "-100%",
+                transition: {
+                  delay: 0.4,
+                  duration: 0.8,
+                  ease: [0.76, 0, 0.24, 1],
+                },
+              },
             }}
           >
             <LoadingScreen />
