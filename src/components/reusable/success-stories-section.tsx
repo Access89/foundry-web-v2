@@ -96,15 +96,15 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                   ? "bg-[#16232A] text-white px-4 py-5 rounded-xl h-full flex flex-col"
                   : "overflow-hidden rounded-xl relative object-cover h-full flex flex-col"
               }`}
-              // initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              // whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              // transition={{
-              //   duration: 0.6,
-              //   delay: index * 0.2,
-              //   ease: "easeOut",
-              // }}
-              // whileHover={{ scale: 1.05, y: -10 }}
-              // viewport={{ once: true, amount: 0.3 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: "easeOut",
+              }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              viewport={{ once: true, margin: "-50px" }}
             >
               {/* TEXT CARD */}
               {card.type === "text" ? (

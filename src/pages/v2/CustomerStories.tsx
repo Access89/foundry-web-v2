@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useV2Context } from "./context";
+import { motion } from "framer-motion";
 import SuccessStories, {
   SuccessStoriesProps,
 } from "@/components/reusable/success-stories-section";
@@ -17,13 +18,23 @@ const CustomerStories = () => {
       <section className="pt-32 md:pt-28 xl:pt-44 pb-16 md:pb-24 xl:pb-32">
         <div className="container max-w-7xl px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium text-zinc-900 mb-6 tracking-tight">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium text-zinc-900 mb-6 tracking-tight"
+            >
               Customer Success Stories
-            </h1>
-            <p className="text-lg md:text-xl font-light text-zinc-600 max-w-2xl mx-auto leading-relaxed">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="text-lg md:text-xl font-light text-zinc-600 max-w-2xl mx-auto leading-relaxed"
+            >
               Discover how businesses and financial institutions are
               transforming their operations with Foundry
-            </p>
+            </motion.p>
           </div>
         </div>
       </section>
@@ -32,10 +43,22 @@ const CustomerStories = () => {
       <section className="pb-16">
         <div className="container max-w-7xl">
           <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-medium mb-3">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl md:text-3xl font-medium mb-3"
+            >
               Business Success Stories
-            </h2>
-            <div className="flex gap-6 text-xs text-zinc-500">
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex gap-6 text-xs text-zinc-500"
+            >
               <a
                 href="/foundry-reviews"
                 className="hover:text-primary transition-colors"
@@ -48,7 +71,7 @@ const CustomerStories = () => {
               >
                 View all Testimonials →
               </a>
-            </div>
+            </motion.div>
           </div>
           <SuccessStories {...businessStoriesData} />
         </div>
@@ -58,10 +81,22 @@ const CustomerStories = () => {
       <section className="pb-16">
         <div className="container max-w-7xl">
           <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-medium mb-3">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl md:text-3xl font-medium mb-3"
+            >
               Finance Success Stories
-            </h2>
-            <div className="flex gap-6 text-xs text-zinc-500">
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex gap-6 text-xs text-zinc-500"
+            >
               <a
                 href="/finance-cases"
                 className="hover:text-primary transition-colors"
@@ -74,7 +109,7 @@ const CustomerStories = () => {
               >
                 View Client Testimonials →
               </a>
-            </div>
+            </motion.div>
           </div>
           <SuccessStories {...financeStoriesData} />
         </div>
@@ -84,10 +119,22 @@ const CustomerStories = () => {
       <section className="pb-16">
         <div className="container max-w-7xl">
           <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-medium mb-3">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl md:text-3xl font-medium mb-3"
+            >
               Retail Success Stories
-            </h2>
-            <div className="flex gap-6 text-xs text-zinc-500">
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex gap-6 text-xs text-zinc-500"
+            >
               <a
                 href="/case-studies/retail"
                 className="hover:text-primary transition-colors"
@@ -100,7 +147,7 @@ const CustomerStories = () => {
               >
                 View Retail Testimonials →
               </a>
-            </div>
+            </motion.div>
           </div>
           <SuccessStories {...retailStoriesData} />
         </div>
@@ -110,10 +157,22 @@ const CustomerStories = () => {
       <section className="pb-16">
         <div className="container max-w-7xl">
           <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-medium mb-3">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl md:text-3xl font-medium mb-3"
+            >
               KYC & Compliance Success Stories
-            </h2>
-            <div className="flex gap-6 text-xs text-zinc-500">
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex gap-6 text-xs text-zinc-500"
+            >
               <a
                 href="/case-studies/compliance"
                 className="hover:text-primary transition-colors"
@@ -126,7 +185,7 @@ const CustomerStories = () => {
               >
                 Customer Testimonials →
               </a>
-            </div>
+            </motion.div>
           </div>
           <SuccessStories {...kycStoriesData} />
         </div>
