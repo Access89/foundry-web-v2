@@ -137,7 +137,7 @@ const PasswordSetting = () => {
             placeholder={''}
             id={'password'}
             values={form.values}
-            errors={form.errors}
+            errors={form.errors as any}
             handleChange={(e: any) => {
               form.setFieldValue('password', e.target.value);
               dispatch(updateSubscriberState({ password: e.target.value }));
@@ -151,7 +151,7 @@ const PasswordSetting = () => {
             placeholder={''}
             id={'confirm_password'}
             values={form.values}
-            errors={form.errors}
+          errors={form.errors as any} 
             handleChange={(e: any) => {
               form.setFieldValue('confirm_password', e.target.value);
               form.setFieldTouched('confirm_password', true, false);
