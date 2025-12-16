@@ -90,7 +90,7 @@ const BasicInformation = () => {
         <CustomInput
           type={'text'}
           label={'Location'}
-          placeholder={'e.g. Oyarifa - Teiman'}
+          placeholder={'e.g. Accra'}
           id={'location'}
           {...form}
           handleChange={(e: any) => {
