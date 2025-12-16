@@ -73,7 +73,7 @@ const Retail = () => {
           badge: "SMART INVENTORY",
           title: ["Real-time tracking.", "Zero stockouts."],
           description: "Sync inventory across all your locations and online store instantly. Automate reordering and transfer stock with ease.",
-          heroImage: "/images/v2/terminal.png"
+          heroImage: "/images/RetailPage.png"
         };
       case "/staff":
         return {
