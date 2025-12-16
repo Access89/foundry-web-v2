@@ -50,33 +50,58 @@ const Retail = () => {
   const { hero, features, wholesale, cta } = retailData;
   const location = useLocation();
 
-  const getHeroImage = () => {
+  const getHeroContent = () => {
     const path =
       location.pathname.endsWith("/") && location.pathname.length > 1
         ? location.pathname.slice(0, -1)
         : location.pathname;
 
+    const baseHero = retailData.hero;
+
     switch (path) {
       case "/expenses":
-        return "/images/v2/Space_Black.png";
+        return {
+          ...baseHero,
+          badge: "EXPENSE MANAGEMENT",
+          title: ["Control spend.", "Empower teams."],
+          description: "Issue physical and virtual cards with built-in controls. Track every expense in real-time and automate reconciliation.",
+          heroImage: "/images/v2/Space_Black.png"
+        };
       case "/inventory":
-        return "/images/v2/terminal.png";
+        return {
+          ...baseHero,
+          badge: "SMART INVENTORY",
+          title: ["Real-time tracking.", "Zero stockouts."],
+          description: "Sync inventory across all your locations and online store instantly. Automate reordering and transfer stock with ease.",
+          heroImage: "/images/v2/terminal.png"
+        };
       case "/staff":
-        return "/images/v2/payroll_hero.png";
+        return {
+          ...baseHero,
+          badge: "TEAM MANAGEMENT",
+          title: ["Schedule smarter.", "Pay faster."],
+          description: "Manage shifts, track performance, and run payroll in minutes. Keep your team happy and your business compliant.",
+          heroImage: "/images/v2/payroll_hero.png"
+        };
       default:
-        return "/images/RetailPage.png";
+        return {
+          ...baseHero,
+          heroImage: "/images/RetailPage.png"
+        };
     }
   };
+
+  const currentHero = getHeroContent();
 
   return (
     <div className="min-h-screen bg-white text-zinc-900 md:px-8">
       <ImageHero
-        badge={hero.badge}
-        title={hero.title}
-        description={hero.description}
-        cta={hero.cta}
+        badge={currentHero.badge}
+        title={currentHero.title}
+        description={currentHero.description}
+        cta={currentHero.cta}
         onCtaClick={() => (window.location.href = "/onboarding")}
-        heroImage={getHeroImage()}
+        heroImage={currentHero.heroImage}
         heroImageAlt="Foundry specific solution hero"
         theme="light"
       />
