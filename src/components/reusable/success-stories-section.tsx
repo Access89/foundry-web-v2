@@ -1,5 +1,5 @@
-import { Icon } from '@iconify/react';
-import { motion } from 'framer-motion';
+import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 
 type LinkItem = {
   title: string;
@@ -7,7 +7,7 @@ type LinkItem = {
 };
 
 type TextCard = {
-  type: 'text';
+  type: "text";
   content: string;
   author: string;
   bgClass?: string;
@@ -16,7 +16,7 @@ type TextCard = {
 };
 
 type ImageCard = {
-  type: 'image';
+  type: "image";
   imageSrc: string;
   imageAlt: string;
   overlayText: string;
@@ -26,34 +26,40 @@ type ImageCard = {
 };
 
 type StatsCard = {
-  type: 'stats';
+  type: "stats";
   title: string;
   stats: { value: string; label: string }[];
   buttonText: string;
 };
 
 type VideoCard = {
-  type: 'video';
+  type: "video";
   videoSrc: string;
   videoAlt?: string;
   buttonText?: string;
 };
 type LinkedInCard = {
-type: 'linkedin';
-embedUrl: string;
-height?: string;
-width?: string;
-buttonText?: string;
+  type: "linkedin";
+  embedUrl: string;
+  height?: string;
+  width?: string;
+  buttonText?: string;
 };
 
 type YouTubeCard = {
-  type: 'youtube';
+  type: "youtube";
   videoId: string;
   title?: string;
   buttonText?: string;
 };
 
-type CardItem = TextCard | ImageCard | StatsCard | VideoCard | LinkedInCard | YouTubeCard;
+type CardItem =
+  | TextCard
+  | ImageCard
+  | StatsCard
+  | VideoCard
+  | LinkedInCard
+  | YouTubeCard;
 
 export type SuccessStoriesProps = {
   title: string;
@@ -64,10 +70,10 @@ export type SuccessStoriesProps = {
 const SuccessStories = ({ cards }: SuccessStoriesProps) => {
   return (
     <section className="my-10">
-      <div className="container max-w-7xl">
-        <div className="md:grid md:grid-cols-[0.4fr,1fr] gap-x-10 mb-5 px-4 md:px-0">
+      <div className="containe max-w7xl">
+        <div className="md:grid-cols-[0.4fr,1fr] gap-x-10 mb-5 hidden">
           <motion.h2
-            className="font-medium text-2xl md:text-3xl lg:text-4xl"
+            className="font-medium text-2xl md:text-3xl lg:text-4xl hidden"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -77,27 +83,35 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
           </motion.h2>
         </div>
 
-        <div className="md:grid md:grid-cols-auto-fill-300 gap-8 space-y-5 md:space-y-0 mt-5 px-4 md:px-0">
-        {cards.map((card, index) => (
-          <motion.div
-            key={index}
-            className={`${
-              card.type === 'text'
-                ? `${card.bgClass ?? 'bg-primary'} ${card.textColor ?? 'text-white'} px-4 py-5 rounded-xl h-full flex flex-col`
-                : card.type === 'stats'
-                ? 'bg-[#16232A] text-white px-4 py-5 rounded-xl h-full flex flex-col'
-                : 'overflow-hidden rounded-xl relative object-cover h-full flex flex-col'
-            }`}
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
-            whileHover={{ scale: 1.05, y: -10 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
+        <div className="md:grid md:grid-cols-auto-fill-300 gap-8 space-y-5 md:space-y-0 mt-5">
+          {cards.map((card, index) => (
+            <motion.div
+              key={index}
+              className={`${
+                card.type === "text"
+                  ? `${card.bgClass ?? "bg-primary"} ${
+                      card.textColor ?? "text-white"
+                    } px-4 py-5 rounded-xl h-full flex flex-col`
+                  : card.type === "stats"
+                  ? "bg-[#16232A] text-white px-4 py-5 rounded-xl h-full flex flex-col"
+                  : "overflow-hidden rounded-xl relative object-cover h-full flex flex-col"
+              }`}
+              // initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              // whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              // transition={{
+              //   duration: 0.6,
+              //   delay: index * 0.2,
+              //   ease: "easeOut",
+              // }}
+              // whileHover={{ scale: 1.05, y: -10 }}
+              // viewport={{ once: true, amount: 0.3 }}
+            >
               {/* TEXT CARD */}
-              {card.type === 'text' ? (
+              {card.type === "text" ? (
                 <>
-                  <p className="text-xl md:text-2xl md:max-w-[15rem]">{card.content}</p>
+                  <p className="text-xl md:text-2xl md:max-w-[15rem]">
+                    {card.content}
+                  </p>
                   <div className="mt-auto">
                     <p className="text-xs mt-7 mb-10">{card.author}</p>
                     <motion.button
@@ -109,38 +123,65 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                     </motion.button>
                   </div>
                 </>
-
-              /* ✅ IMAGE CARD */
-              ) : card.type === 'image' ? (
+              ) : /* ✅ IMAGE CARD */
+              card.type === "image" ? (
                 <>
                   <div className="flex-1 relative">
                     {card.link ? (
-                      <a 
-                        href={card.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <a
+                        href={card.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="block h-full w-full relative cursor-pointer z-10"
                         onClick={(e) => {
                           e.stopPropagation();
-                          window.open(card.link, '_blank', 'noopener,noreferrer');
+                          window.open(
+                            card.link,
+                            "_blank",
+                            "noopener,noreferrer"
+                          );
                         }}
                       >
-                        <img src={card.imageSrc} alt={card.imageAlt} className="h-full w-full object-cover" />
+                        <img
+                          src={card.imageSrc}
+                          alt={card.imageAlt}
+                          className="h-full w-full object-cover"
+                        />
                         <div className="absolute bottom-5 left-5 right-5 bg-[#FAFAFA]/20 backdrop-blur-sm p-3 rounded-md pointer-events-none">
                           <p className="text-white font-medium flex justify-between">
                             {card.overlayText}
-                            {card.overlayIcon && <img src={card.overlayIcon} alt="" className="w-auto h-5" />}
+                            {card.overlayIcon && (
+                              <img
+                                src={card.overlayIcon}
+                                alt=""
+                                className="w-auto h-5"
+                              />
+                            )}
                           </p>
                         </div>
                       </a>
                     ) : (
                       <>
-                        <img src={card.imageSrc} alt={card.imageAlt} className="h-full w-full object-cover" />
-                        <div className="absolute bottom-5 left-5 right-5 bg-[#FAFAFA]/20 backdrop-blur-sm p-3 rounded-md">
-                          <p className="text-white font-medium flex justify-between">
-                            {card.overlayText}
-                            {card.overlayIcon && <img src={card.overlayIcon} alt="" className="w-auto h-5" />}
-                          </p>
+                        <img
+                          src={card.imageSrc}
+                          alt={card.imageAlt}
+                          className="h-full w-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                          <div className="text-white">
+                            <div className="w-8 h-8 rounded-full flex items-center justify-center mb-3">
+                              {card.overlayIcon && (
+                                <img
+                                  src={card.overlayIcon}
+                                  alt="play"
+                                  className="w-5 h-5"
+                                />
+                              )}
+                            </div>
+                            <p className="text-base font-medium">
+                              {card.overlayText}
+                            </p>
+                          </div>
                         </div>
                       </>
                     )}
@@ -149,16 +190,20 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                     <div className="p-4 bg-white">
                       <motion.button className="flex items-center gap-x-2 group text-primary font-medium">
                         {card.buttonText}
-                        <Icon icon="fluent-emoji-high-contrast:right-arrow" fontSize={19} />
+                        <Icon
+                          icon="fluent-emoji-high-contrast:right-arrow"
+                          fontSize={19}
+                        />
                       </motion.button>
                     </div>
                   )}
                 </>
-
-              /* ✅ STATS CARD */
-              ) : card.type === 'stats' ? (
+              ) : /* ✅ STATS CARD */
+              card.type === "stats" ? (
                 <>
-                  <p className="text-2xl md:text-3xl font-medium">{card.title}</p>
+                  <p className="text-2xl md:text-3xl font-medium">
+                    {card.title}
+                  </p>
                   {card.stats.map((stat, i) => (
                     <div key={i} className="mt-5">
                       <p className="text-xl md:text-2xl">{stat.value}</p>
@@ -168,18 +213,20 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                   <div className="mt-auto">
                     <motion.button className="flex items-center gap-x-2 group">
                       {card.buttonText}
-                      <Icon icon="fluent-emoji-high-contrast:right-arrow" fontSize={19} />
+                      <Icon
+                        icon="fluent-emoji-high-contrast:right-arrow"
+                        fontSize={19}
+                      />
                     </motion.button>
                   </div>
                 </>
-
-              /* ✅ NEW VIDEO CARD */
-              ) : card.type === 'video' ? (
+              ) : /* ✅ NEW VIDEO CARD */
+              card.type === "video" ? (
                 <>
                   <div className="relative w-full aspect-video group">
                     <iframe
                       src={card.videoSrc}
-                      title={card.videoAlt }
+                      title={card.videoAlt}
                       width="100%"
                       height="100%"
                       className="absolute inset-0 w-full h-full"
@@ -197,16 +244,21 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                     <div className="p-4 bg-white">
                       <motion.button className="flex items-center gap-x-2 group text-primary font-medium">
                         {card.buttonText}
-                        <Icon icon="fluent-emoji-high-contrast:right-arrow" fontSize={19} />
+                        <Icon
+                          icon="fluent-emoji-high-contrast:right-arrow"
+                          fontSize={19}
+                        />
                       </motion.button>
                     </div>
                   )}
                 </>
-                
-              ) : card.type === 'linkedin' ? (
+              ) : card.type === "linkedin" ? (
                 <>
                   {/* Show iframe on desktop, fallback on mobile */}
-                  <div className="hidden md:block flex-1 relative w-full overflow-hidden bg-white" style={{ minHeight: card.height || '400px' }}>
+                  <div
+                    className="hidden md:block flex-1 relative w-full overflow-hidden bg-white"
+                    style={{ minHeight: card.height || "400px" }}
+                  >
                     <iframe
                       src={card.embedUrl}
                       height="100%"
@@ -217,39 +269,63 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                       className="absolute inset-0 w-full h-full rounded-t-xl"
                     ></iframe>
                   </div>
-                  
+
                   {/* Mobile fallback - clickable card */}
-                  <div 
+                  <div
                     className="md:hidden flex-1 relative w-full overflow-hidden bg-gradient-to-br from-[#0077B5] to-[#00A0DC] p-8 flex flex-col justify-center items-center cursor-pointer min-h-[300px]"
                     onClick={() => {
-                      const linkedinUrl = card.embedUrl.replace('/embed/feed/update/', '/feed/update/');
-                      window.open(linkedinUrl, '_blank', 'noopener,noreferrer');
+                      const linkedinUrl = card.embedUrl.replace(
+                        "/embed/feed/update/",
+                        "/feed/update/"
+                      );
+                      window.open(linkedinUrl, "_blank", "noopener,noreferrer");
                     }}
                   >
-                    <Icon icon="mdi:linkedin" className="text-white mb-4" fontSize={60} />
-                    <p className="text-white text-center text-lg font-medium mb-2">View LinkedIn Post</p>
-                    <p className="text-white/80 text-center text-sm">Tap to open in LinkedIn</p>
+                    <Icon
+                      icon="mdi:linkedin"
+                      className="text-white mb-4"
+                      fontSize={60}
+                    />
+                    <p className="text-white text-center text-lg font-medium mb-2">
+                      View LinkedIn Post
+                    </p>
+                    <p className="text-white/80 text-center text-sm">
+                      Tap to open in LinkedIn
+                    </p>
                   </div>
-                  
+
                   {card.buttonText && (
                     <div className="p-4 bg-white">
-                      <motion.button 
+                      <motion.button
                         className="flex items-center gap-x-2 group text-primary font-medium"
                         onClick={() => {
-                          const linkedinUrl = card.embedUrl.replace('/embed/feed/update/', '/feed/update/');
-                          window.open(linkedinUrl, '_blank', 'noopener,noreferrer');
+                          const linkedinUrl = card.embedUrl.replace(
+                            "/embed/feed/update/",
+                            "/feed/update/"
+                          );
+                          window.open(
+                            linkedinUrl,
+                            "_blank",
+                            "noopener,noreferrer"
+                          );
                         }}
                       >
                         {card.buttonText}
-                        <Icon icon="fluent-emoji-high-contrast:right-arrow" fontSize={19} />
+                        <Icon
+                          icon="fluent-emoji-high-contrast:right-arrow"
+                          fontSize={19}
+                        />
                       </motion.button>
                     </div>
                   )}
                 </>
-              ) : card.type === 'youtube' ? (
+              ) : card.type === "youtube" ? (
                 <>
                   {/* YouTube embed on desktop */}
-                  <div className="hidden md:block flex-1 relative w-full overflow-hidden bg-black" style={{ minHeight: '315px' }}>
+                  <div
+                    className="hidden md:block flex-1 relative w-full overflow-hidden bg-black"
+                    style={{ minHeight: "315px" }}
+                  >
                     <iframe
                       src={`https://www.youtube.com/embed/${card.videoId}`}
                       height="100%"
@@ -257,33 +333,52 @@ const SuccessStories = ({ cards }: SuccessStoriesProps) => {
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen
-                      title={card.title || 'YouTube video'}
+                      title={card.title || "YouTube video"}
                       className="absolute inset-0 w-full h-full rounded-t-xl"
                     ></iframe>
                   </div>
-                  
+
                   {/* Mobile fallback - clickable thumbnail */}
-                  <div 
+                  <div
                     className="md:hidden flex-1 relative w-full overflow-hidden bg-gradient-to-br from-red-600 to-red-700 p-8 flex flex-col justify-center items-center cursor-pointer min-h-[300px]"
                     onClick={() => {
-                      window.open(`https://www.youtube.com/watch?v=${card.videoId}`, '_blank', 'noopener,noreferrer');
+                      window.open(
+                        `https://www.youtube.com/watch?v=${card.videoId}`,
+                        "_blank",
+                        "noopener,noreferrer"
+                      );
                     }}
                   >
-                    <Icon icon="mdi:youtube" className="text-white mb-4" fontSize={60} />
-                    <p className="text-white text-center text-lg font-medium mb-2">{card.title || 'Watch Video'}</p>
-                    <p className="text-white/80 text-center text-sm">Tap to watch on YouTube</p>
+                    <Icon
+                      icon="mdi:youtube"
+                      className="text-white mb-4"
+                      fontSize={60}
+                    />
+                    <p className="text-white text-center text-lg font-medium mb-2">
+                      {card.title || "Watch Video"}
+                    </p>
+                    <p className="text-white/80 text-center text-sm">
+                      Tap to watch on YouTube
+                    </p>
                   </div>
-                  
+
                   {card.buttonText && (
                     <div className="p-4 bg-white">
-                      <motion.button 
+                      <motion.button
                         className="flex items-center gap-x-2 group text-red-600 font-medium"
                         onClick={() => {
-                          window.open(`https://www.youtube.com/watch?v=${card.videoId}`, '_blank', 'noopener,noreferrer');
+                          window.open(
+                            `https://www.youtube.com/watch?v=${card.videoId}`,
+                            "_blank",
+                            "noopener,noreferrer"
+                          );
                         }}
                       >
                         {card.buttonText}
-                        <Icon icon="fluent-emoji-high-contrast:right-arrow" fontSize={19} />
+                        <Icon
+                          icon="fluent-emoji-high-contrast:right-arrow"
+                          fontSize={19}
+                        />
                       </motion.button>
                     </div>
                   )}

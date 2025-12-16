@@ -1,8 +1,16 @@
+import { useEffect } from "react";
+import { useV2Context } from "./context";
 import SuccessStories, {
   SuccessStoriesProps,
 } from "@/components/reusable/success-stories-section";
 
 const CustomerStories = () => {
+  const { setActiveSegment } = useV2Context();
+
+  useEffect(() => {
+    setActiveSegment("merchant");
+  }, [setActiveSegment]);
+
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
@@ -23,6 +31,25 @@ const CustomerStories = () => {
       {/* Business Success Stories */}
       <section className="pb-16">
         <div className="container max-w-7xl">
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-medium mb-3">
+              Business Success Stories
+            </h2>
+            <div className="flex gap-6 text-xs text-zinc-500">
+              <a
+                href="/foundry-reviews"
+                className="hover:text-primary transition-colors"
+              >
+                Read Foundry Reviews →
+              </a>
+              <a
+                href="/testimonials"
+                className="hover:text-primary transition-colors"
+              >
+                View all Testimonials →
+              </a>
+            </div>
+          </div>
           <SuccessStories {...businessStoriesData} />
         </div>
       </section>
@@ -30,6 +57,25 @@ const CustomerStories = () => {
       {/* Finance Success Stories */}
       <section className="pb-16">
         <div className="container max-w-7xl">
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-medium mb-3">
+              Finance Success Stories
+            </h2>
+            <div className="flex gap-6 text-xs text-zinc-500">
+              <a
+                href="/finance-cases"
+                className="hover:text-primary transition-colors"
+              >
+                Discover Finance Case Studies →
+              </a>
+              <a
+                href="/client-testimonials"
+                className="hover:text-primary transition-colors"
+              >
+                View Client Testimonials →
+              </a>
+            </div>
+          </div>
           <SuccessStories {...financeStoriesData} />
         </div>
       </section>
@@ -37,6 +83,25 @@ const CustomerStories = () => {
       {/* Retail Success Stories */}
       <section className="pb-16">
         <div className="container max-w-7xl">
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-medium mb-3">
+              Retail Success Stories
+            </h2>
+            <div className="flex gap-6 text-xs text-zinc-500">
+              <a
+                href="/case-studies/retail"
+                className="hover:text-primary transition-colors"
+              >
+                Read Retail Case Studies →
+              </a>
+              <a
+                href="/testimonials/retail"
+                className="hover:text-primary transition-colors"
+              >
+                View Retail Testimonials →
+              </a>
+            </div>
+          </div>
           <SuccessStories {...retailStoriesData} />
         </div>
       </section>
@@ -44,34 +109,58 @@ const CustomerStories = () => {
       {/* KYC & Compliance Stories */}
       <section className="pb-16">
         <div className="container max-w-7xl">
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-medium mb-3">
+              KYC & Compliance Success Stories
+            </h2>
+            <div className="flex gap-6 text-xs text-zinc-500">
+              <a
+                href="/case-studies/compliance"
+                className="hover:text-primary transition-colors"
+              >
+                Read Compliance Case Studies →
+              </a>
+              <a
+                href="/testimonials/compliance"
+                className="hover:text-primary transition-colors"
+              >
+                Customer Testimonials →
+              </a>
+            </div>
+          </div>
           <SuccessStories {...kycStoriesData} />
         </div>
       </section>
 
-      {/* CTA Section - Bento Style */}
-      <section className="py-16 md:py-24 bg-zinc50">
-        <div className="container max-w-6xl px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-medium text-zinc-900 mb-4">
-              Ready to Write Your Success Story?
-            </h2>
-            <p className="text-lg font-light text-zinc-600 mb-8 leading-relaxed">
-              Join thousands of businesses already growing with Foundry
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => (window.location.href = "/onboarding")}
-                className="bg-primary text-white px-8 py-3 rounded-lg font-normal hover:opacity-90 transition-all"
-              >
-                Get Started
-              </button>
-              <button
-                onClick={() => (window.location.href = "/book-a-demo")}
-                className="bg-white border-2 border-zinc-200 text-zinc-900 px-8 py-3 rounded-lg font-normal hover:border-primary hover:text-primary transition-all"
-              >
-                Contact Sales
-              </button>
-            </div>
+      {/* CTA Section */}
+      <section className="container mx-auto  py-16">
+        <p className="text-xs uppercase tracking-wider text-zinc-500 mb-3 text-center">
+          Get started
+        </p>
+
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-medium mb-4">
+            Ready to Write Your{" "}
+            <span className="italic font-serif">Success Story?</span>
+          </h2>
+
+          <p className="text-base text-zinc-600 leading-relaxed mb-6">
+            Join thousands of businesses already growing with Foundry
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <button
+              onClick={() => (window.location.href = "/onboarding")}
+              className="bg-primary text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
+            >
+              Get Started
+            </button>
+            <button
+              onClick={() => (window.location.href = "/book-a-demo")}
+              className="bg-white border-2 border-zinc-200 text-zinc-900 px-6 py-3 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-colors"
+            >
+              Contact Sales
+            </button>
           </div>
         </div>
       </section>
