@@ -47,7 +47,7 @@ const retailData = {
 };
 
 const Retail = () => {
-  const { hero, features, wholesale, cta } = retailData;
+  const { features, wholesale, cta } = retailData;
   const location = useLocation();
 
   const getHeroContent = () => {
