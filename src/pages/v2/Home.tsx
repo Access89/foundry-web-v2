@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import LoadingScreen from "./components/LoadingScreen";
 import { useV2Context } from "./context";
+import SEO from "@/components/SEO";
 import HeroSection from "./components/HeroSection";
 import FeatureGrid from "./components/FeatureGrid";
 import KYCSection from "./components/KYCSection";
@@ -32,6 +33,11 @@ const Home = () => {
 
   return (
     <>
+      <SEO
+        title="Comprehensive B2B Ecosystem for African SMEs"
+        description="Discover Foundry Platform, a comprehensive B2B ecosystem tailored for small and medium enterprises (SMEs) in Africa. Streamline transactions, secure financing, manage inventory, and simplify business operations."
+        keywords="Foundry Platform, B2B ecosystem, African SMEs, SME support, business transactions, financing for SMEs, inventory management, POS solutions, digital banking, embedded finance, supply chain"
+      />
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.div

@@ -1,4 +1,5 @@
 import { Zap, Battery, Wifi, ShieldCheck } from "lucide-react";
+import SEO from "@/components/SEO";
 
 // Page Data
 const hardwareData = {
@@ -70,6 +71,11 @@ const Hardware = () => {
   const { hero, products, specs } = hardwareData;
   return (
     <div className="px-4 lg:px-8 min-h-screen bg-white text-zinc-900">
+      <SEO
+        title="Point of Sale Hardware & Payment Terminals"
+        description="Beautiful, reliable POS hardware ready out of the box. Accept every payment type with security built-in. Mobile, terminal, and countertop solutions for your business."
+        keywords="POS hardware, payment terminal, point of sale system, card reader, mobile POS, payment processing, business hardware"
+      />
       {/* Hero Section */}
       <header className="relative pt-32 md:pt-28 xl:pt-44 pb-16 md:pb-24 xl:pb-32 px-4 md:px-8 overflow-hidden bg-white">
         <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
@@ -171,10 +177,7 @@ const Hardware = () => {
         {/* Specs Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24 text-center">
           {specs.map((spec, idx) => (
-            <div
-              key={idx}
-              className="p-6 bg-zinc-50  rounded-xl"
-            >
+            <div key={idx} className="p-6 bg-zinc-50  rounded-xl">
               <spec.icon className="w-8 h-8 mx-auto mb-3" />
               <div className="font-medium text-3xl mb-1">{spec.value}</div>
               <div className="text-sm text-zinc-500">{spec.label}</div>

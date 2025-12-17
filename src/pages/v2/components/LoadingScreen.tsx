@@ -5,12 +5,18 @@ const LoadingScreen = () => {
     <div className="w-full h-full bg-primary-dark flex flex-col items-center justify-center overflow-hidden">
       <motion.div
         variants={{
-          initial: { y: 300, opacity: 0, rotateX: 90, rotate: 0 },
+          initial: {
+            y: 300,
+            opacity: 0,
+            rotateX: 90,
+            rotate: 0,
+            transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+          },
           enter: {
             y: 0,
             opacity: 1,
             rotateX: 0,
-            rotate: 360,
+            // rotate: 360,
             transition: {
               duration: 1.2,
               ease: [0.16, 1, 0.3, 1],
@@ -29,11 +35,19 @@ const LoadingScreen = () => {
         exit="exit"
         className="relative"
       >
-        <img
-          src="/icons/logo_white.svg"
-          alt="Foundry"
-          className="w-16 h-16 md:w-20 md:h-20 object-contain"
-        />
+        <div className="relative">
+          {/* Animated Text */}
+          <h1 className="text-white text-4xl md:text-5xl font-medium tracking-tighter animate-in fade-in zoom-in duration-700">
+            Foundry.
+          </h1>
+
+          {/* Subtle Loading Indicator */}
+          <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-full flex justify-center">
+            <div className="w-1.5 h-1.5 bg-zinc-800 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+            <div className="w-1.5 h-1.5 bg-zinc-800 rounded-full animate-bounce [animation-delay:-0.15s] mx-1"></div>
+            <div className="w-1.5 h-1.5 bg-zinc-800 rounded-full animate-bounce"></div>
+          </div>
+        </div>
       </motion.div>
     </div>
   );
