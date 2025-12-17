@@ -630,12 +630,14 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     return cardWidth + (Number.isNaN(gap) ? 20 : gap);
   };
 
+  const [isHovering, setIsHovering] = useState(false);
+
   // Auto-advance slider
   useEffect(() => {
-    if (!scrollRef.current || !data.length) return;
+    if (!scrollRef.current || !data.length || isHovering) return;
 
     const interval = setInterval(() => {
-      if (!scrollRef.current || !data.length) return;
+      if (!scrollRef.current || !data.length || isHovering) return;
 
       const container = scrollRef.current;
       const totalCards = data.length;
@@ -656,7 +658,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [data]);
+  }, [data, isHovering]);
 
   // Reset index when segment changes
   useEffect(() => {
@@ -760,6 +762,8 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
                 data-card
                 key={idx}
                 onClick={() => handleCardClick(item)}
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
                 className={`snap-start cursor-pointer min-w-[340px] lg:max-w-[360px] lg:min-w-[360px] h-[32rem] md:h-[34rem] lg:h-[34rem]
                   ${
                     activeSegment === "bank"
