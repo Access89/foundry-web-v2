@@ -7,6 +7,7 @@ import {
   Code2,
 } from "lucide-react";
 import { useEffect } from "react";
+import SEO from "@/components/SEO";
 import ImageHero from "./components/ImageHero";
 import { useV2Context } from "./context";
 
@@ -78,6 +79,11 @@ const KYC = () => {
 
   return (
     <div className="lg:px-8 min-h-screen bg-white text-zinc-900">
+      <SEO
+        title="Identity Verification & KYC Solutions"
+        description="Verify users in seconds with biometric authentication and global document checks. Prevent fraud with Foundry's comprehensive KYC and identity verification platform."
+        keywords="KYC, identity verification, biometric authentication, document verification, fraud prevention, compliance, AML, know your customer"
+      />
       <ImageHero
         badge={hero.badge}
         title={hero.title}

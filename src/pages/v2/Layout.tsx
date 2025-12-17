@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { getNavData } from "./constants";
 import { V2Context } from "./context";
+import { usePageTracking } from "@/hooks/usePageTracking";
 import Navbar from "./components/Navbar";
 import MobileMenu from "./components/MobileMenu";
 import Footer from "./components/Footer";
@@ -11,6 +12,9 @@ const Layout = () => {
   const [activeSegment, setActiveSegment] = useState("merchant");
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   const navigate = useNavigate();
+
+  // Track page views with Google Analytics
+  usePageTracking();
 
   const navData = getNavData(navigate, setActiveSegment);
 

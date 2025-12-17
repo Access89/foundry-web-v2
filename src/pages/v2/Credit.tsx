@@ -5,6 +5,7 @@ import {
   CheckCircle2,
   Database,
 } from "lucide-react";
+import SEO from "@/components/SEO";
 import ImageHero from "./components/ImageHero";
 
 // Page Data
@@ -74,6 +75,11 @@ const Credit = () => {
   const { hero, products, dataSection, pricingExample } = creditData;
   return (
     <div className="lg:px-8 min-h-screen bg-white text-zinc-900">
+      <SEO
+        title="Business Credit & Lending Solutions"
+        description="Access capital based on your sales history and inventory. No paperwork, no personal guarantees. Get funds deposited as soon as tomorrow with Foundry Capital."
+        keywords="business credit, business loans, invoice discounting, inventory financing, working capital, SME lending, business financing"
+      />
       <ImageHero
         badge={hero.badge}
         title={hero.title}

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useV2Context } from "./context";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 import SuccessStories, {
   SuccessStoriesProps,
 } from "@/components/reusable/success-stories-section";
@@ -14,6 +15,11 @@ const CustomerStories = () => {
 
   return (
     <div className="bg-white min-h-screen">
+      <SEO
+        title="Customer Success Stories & Testimonials"
+        description="Discover how businesses and financial institutions are transforming their operations with Foundry. Real success stories from our customers across business, finance, retail, and compliance."
+        keywords="customer stories, success stories, testimonials, case studies, customer reviews, business transformation, Foundry customers"
+      />
       {/* Hero Section */}
       <section className="pt-32 md:pt-28 xl:pt-44 pb-16 md:pb-24 xl:pb-32">
         <div className="container max-w-7xl px-4 md:px-6">
@@ -52,26 +58,6 @@ const CustomerStories = () => {
             >
               Business Success Stories
             </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex gap-6 text-xs text-zinc-500"
-            >
-              <a
-                href="/foundry-reviews"
-                className="hover:text-primary transition-colors"
-              >
-                Read Foundry Reviews →
-              </a>
-              <a
-                href="/testimonials"
-                className="hover:text-primary transition-colors"
-              >
-                View all Testimonials →
-              </a>
-            </motion.div>
           </div>
           <SuccessStories {...businessStoriesData} />
         </div>
@@ -90,26 +76,6 @@ const CustomerStories = () => {
             >
               Finance Success Stories
             </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex gap-6 text-xs text-zinc-500"
-            >
-              <a
-                href="/finance-cases"
-                className="hover:text-primary transition-colors"
-              >
-                Discover Finance Case Studies →
-              </a>
-              <a
-                href="/client-testimonials"
-                className="hover:text-primary transition-colors"
-              >
-                View Client Testimonials →
-              </a>
-            </motion.div>
           </div>
           <SuccessStories {...financeStoriesData} />
         </div>
@@ -128,26 +94,6 @@ const CustomerStories = () => {
             >
               Retail Success Stories
             </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex gap-6 text-xs text-zinc-500"
-            >
-              <a
-                href="/case-studies/retail"
-                className="hover:text-primary transition-colors"
-              >
-                Read Retail Case Studies →
-              </a>
-              <a
-                href="/testimonials/retail"
-                className="hover:text-primary transition-colors"
-              >
-                View Retail Testimonials →
-              </a>
-            </motion.div>
           </div>
           <SuccessStories {...retailStoriesData} />
         </div>
@@ -166,26 +112,6 @@ const CustomerStories = () => {
             >
               KYC & Compliance Success Stories
             </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex gap-6 text-xs text-zinc-500"
-            >
-              <a
-                href="/case-studies/compliance"
-                className="hover:text-primary transition-colors"
-              >
-                Read Compliance Case Studies →
-              </a>
-              <a
-                href="/testimonials/compliance"
-                className="hover:text-primary transition-colors"
-              >
-                Customer Testimonials →
-              </a>
-            </motion.div>
           </div>
           <SuccessStories {...kycStoriesData} />
         </div>

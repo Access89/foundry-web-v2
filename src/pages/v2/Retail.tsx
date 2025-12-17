@@ -1,6 +1,7 @@
 import { Layers, Users, Star, CheckCircle2 } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import ImageHero from "./components/ImageHero";
+import SEO from "@/components/SEO";
 
 // Page Data
 const retailData = {
@@ -64,37 +65,89 @@ const Retail = () => {
           ...baseHero,
           badge: "EXPENSE MANAGEMENT",
           title: ["Control spend.", "Empower teams."],
-          description: "Issue physical and virtual cards with built-in controls. Track every expense in real-time and automate reconciliation.",
-          heroImage: "/images/v2/Space_Black.png"
+          description:
+            "Issue physical and virtual cards with built-in controls. Track every expense in real-time and automate reconciliation.",
+          heroImage: "/images/v2/Space_Black.png",
         };
       case "/inventory":
         return {
           ...baseHero,
           badge: "SMART INVENTORY",
           title: ["Real-time tracking.", "Zero stockouts."],
-          description: "Sync inventory across all your locations and online store instantly. Automate reordering and transfer stock with ease.",
-          heroImage: "/images/RetailPage.png"
+          description:
+            "Sync inventory across all your locations and online store instantly. Automate reordering and transfer stock with ease.",
+          heroImage: "/images/RetailPage.png",
         };
       case "/staff":
         return {
           ...baseHero,
           badge: "TEAM MANAGEMENT",
           title: ["Schedule smarter.", "Pay faster."],
-          description: "Manage shifts, track performance, and run payroll in minutes. Keep your team happy and your business compliant.",
-          heroImage: "/images/v2/payroll_hero.png"
+          description:
+            "Manage shifts, track performance, and run payroll in minutes. Keep your team happy and your business compliant.",
+          heroImage: "/images/v2/payroll_hero.png",
         };
       default:
         return {
           ...baseHero,
-          heroImage: "/images/RetailPage.png"
+          heroImage: "/images/RetailPage.png",
         };
     }
   };
 
   const currentHero = getHeroContent();
 
+  const getSEOContent = () => {
+    const path =
+      location.pathname.endsWith("/") && location.pathname.length > 1
+        ? location.pathname.slice(0, -1)
+        : location.pathname;
+
+    switch (path) {
+      case "/expenses":
+        return {
+          title: "Expense Management & Corporate Cards",
+          description:
+            "Issue physical and virtual cards with built-in controls. Track every expense in real-time and automate reconciliation with Foundry's expense management solution.",
+          keywords:
+            "expense management, corporate cards, business expenses, expense tracking, virtual cards, physical cards",
+        };
+      case "/inventory":
+        return {
+          title: "Smart Inventory Management System",
+          description:
+            "Real-time inventory tracking across all locations. Sync inventory across your store and online automatically. Never oversell with Foundry's smart inventory system.",
+          keywords:
+            "inventory management, stock tracking, inventory sync, real-time inventory, warehouse management, stock control",
+        };
+      case "/staff":
+        return {
+          title: "Team Management & Payroll Solutions",
+          description:
+            "Manage shifts, track performance, and run payroll in minutes. Automated payroll solution ensuring accurate and timely payments for your team.",
+          keywords:
+            "payroll management, staff management, team scheduling, employee management, payroll software, HR management",
+        };
+      default:
+        return {
+          title: "Retail Solutions - POS & Business Management",
+          description:
+            "Complete point-of-sale system for retail businesses. Manage sales, inventory, and operations in one platform. Sync online and offline sales in real-time.",
+          keywords:
+            "retail POS, point of sale, retail management, business operations, inventory management, sales tracking",
+        };
+    }
+  };
+
+  const seoContent = getSEOContent();
+
   return (
     <div className="min-h-screen bg-white text-zinc-900 md:px-8">
+      <SEO
+        title={seoContent.title}
+        description={seoContent.description}
+        keywords={seoContent.keywords}
+      />
       <ImageHero
         badge={currentHero.badge}
         title={currentHero.title}
