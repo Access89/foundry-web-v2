@@ -164,9 +164,9 @@ const Retail = () => {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="p-8 bg-zinc-50  hover:shadow-lg transition-shadow rounded-xl"
+              className="p-8 bg-zinc-50 transition-shadow rounded-xl"
             >
-              <div className="w-12 h-12 bg-white border border-zinc-200 flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-white flex items-center justify-center mb-6">
                 <feature.icon className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-medium mb-2">{feature.title}</h3>
