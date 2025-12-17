@@ -59,7 +59,7 @@ const Engagement = () => {
   const { hero, channels, platform, systemsOfRecord, systems, features } =
     engagementData;
   return (
-    <div className="min-h-screen bg-[#1C1C1C] text-white">
+    <div className="min-h-screen bg-[#1C1C1C] text-white pb-20">
       {/* Hero Section */}
       <header className="relative pt-32 md:pt-28 xl:pt-44 pb-16 md:pb-24 xl:pb-32 px-4 md:px-8 overflow-hidden bg-[#1C1C1C]">
         <div className="max-w-10xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
@@ -146,7 +146,7 @@ const Engagement = () => {
         </div>
 
         {/* Features */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, idx) => (
             <div
               key={idx}

@@ -37,7 +37,7 @@ const ImageHero = ({
             <div
               className={`inline-block px-4 py-1.5 ${
                 isDark ? "bg-zinc-800" : "bg-zinc-100"
-              } text-[10px] md:text-xs font-medium mb-4 md:mb-6 uppercase tracking-wider rounded hidden`}
+              } text-[10px] md:text-xs font-medium mb-4 md:mb-6 uppercase tracking-wider rounded`}
             >
               {badge}
             </div>
