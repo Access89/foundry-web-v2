@@ -19,6 +19,7 @@ import BusinessBanking from "./pages/v2/BusinessBanking";
 import RetailBanking from "./pages/v2/RetailBanking";
 import CorporateBanking from "./pages/v2/CorporateBanking";
 import WealthManagement from "./pages/v2/WealthManagement";
+import PricingPage from "./pages/v2/PricingPage";
 // import EngagementBanking from "./pages/v2/EngagementBanking";
 import MainLayout from "./layout/main_layout";
 import BookingManagement from "./pages/logistics/booking_management";
@@ -92,6 +93,7 @@ const App = () => {
           <Route path="retail-banking" element={<RetailBanking />} />
           <Route path="corporate-banking" element={<CorporateBanking />} />
           <Route path="wealth-management" element={<WealthManagement />} />
+          <Route path="pricing" element={<PricingPage />} />
           {/* <Route path="engagement-banking" element={<EngagementBanking />} /> */}
         </Route>
 
@@ -127,7 +129,7 @@ const App = () => {
             element={<FinancialServiceExpansion />}
           />
 
-          <Route path="pricing" element={<Pricing />} />
+          {/* <Route path="pricing" element={<Pricing />} /> */}
           <Route path="about" element={<AboutUs />} />
 
           <Route path="business/:service" element={<BusinessExpansion />} />

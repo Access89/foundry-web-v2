@@ -4,12 +4,9 @@ import {
   Store,
   Users,
   Warehouse,
-  Calculator,
   BarChart3,
   Users2,
   Plus,
-  Menu,
-  X as CloseIcon,
   FileText,
   Banknote,
   Globe,
@@ -17,9 +14,70 @@ import {
   ArrowLeft,
   CreditCard,
   ShieldCheck,
-  ChevronRight,
-  Star,
+  LucideIcon,
 } from "lucide-react";
+
+// --- TypeScript Interfaces ---
+
+interface PlanLimits {
+  users: number;
+  warehouses: number;
+  shops: number;
+}
+
+interface PlanFeatures {
+  shops: string;
+  users: string;
+  warehouses: string;
+  pos: string;
+  payment: string;
+  inventory: string;
+  reports: string;
+  crm: string;
+}
+
+interface Plan {
+  id: string;
+  name: string;
+  subname?: string;
+  description: string;
+  basePrice: number | null;
+  type: "fixed" | "per-shop" | "custom";
+  unitLabel: string;
+  limits: PlanLimits;
+  features: PlanFeatures;
+  addonsText: string;
+  color: string;
+  popular: boolean;
+}
+
+interface Addon {
+  id: string;
+  title: string;
+  price: number;
+  description: string;
+  IconComponent: LucideIcon;
+  iconColor: string;
+  features: string[];
+}
+
+interface PricingHomeProps {
+  onSelectPlan: (plan: Plan, isAnnual: boolean) => void;
+  onSelectAddon: (addon: Addon) => void;
+}
+
+interface CheckoutFlowProps {
+  selectedPlan: Plan;
+  initialAddon: Addon | null;
+  initialAnnual: boolean;
+  onBack: () => void;
+  onSuccess: () => void;
+  onChangePlan: () => void;
+}
+
+interface SuccessViewProps {
+  onReset: () => void;
+}
 
 // --- Constants & Data ---
 
@@ -27,7 +85,7 @@ const EXTRA_USER_PRICE = 5; // USD per month
 const EXTRA_WAREHOUSE_PRICE = 15; // USD per month
 const EXTRA_SHOP_PRICE = 15; // USD per month (For fixed plans adding branches)
 
-const PLANS = [
+const PLANS: Plan[] = [
   {
     id: "service",
     name: "Service Business",
@@ -103,7 +161,7 @@ const PLANS = [
       crm: "Customer & supplier",
     },
     addonsText: "Shops, warehouses, users, inventory",
-    color: "indigo",
+    color: "primary",
     popular: true,
   },
   {
@@ -135,14 +193,15 @@ const PLANS = [
   },
 ];
 
-const ADDONS = [
+const ADDONS: Addon[] = [
   {
     id: "payroll",
     title: "Payroll Management",
     price: 5,
     description:
       "Streamline your employee payments and tax filings directly from your POS.",
-    icon: <Banknote className="w-6 h-6 text-indigo-600" />,
+    IconComponent: Banknote,
+    iconColor: "text-primary",
     features: [
       "Automated salary calculations",
       "Tax deduction reports",
@@ -155,7 +214,8 @@ const ADDONS = [
     price: 10,
     description:
       "For businesses with complex stock needs across multiple locations.",
-    icon: <Boxes className="w-6 h-6 text-teal-600" />,
+    IconComponent: Boxes,
+    iconColor: "text-teal-600",
     features: [
       "Multi-warehouse transfer",
       "Low stock alerts",
@@ -168,7 +228,8 @@ const ADDONS = [
     price: 8,
     description:
       "Professional invoicing and expense tracking to keep your finances in check.",
-    icon: <FileText className="w-6 h-6 text-blue-600" />,
+    IconComponent: FileText,
+    iconColor: "text-blue-600",
     features: [
       "Professional invoice templates",
       "Expense tracking",
@@ -181,7 +242,8 @@ const ADDONS = [
     price: 15,
     description:
       "Sync your physical store with your online presence effortlessly.",
-    icon: <Globe className="w-6 h-6 text-purple-600" />,
+    IconComponent: Globe,
+    iconColor: "text-secondary",
     features: [
       "Real-time stock sync",
       "Online order management",
@@ -192,19 +254,22 @@ const ADDONS = [
 
 // --- Sub-Components ---
 
-const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
-  const [isAnnual, setIsAnnual] = useState(false);
+const PricingHome: React.FC<PricingHomeProps> = ({
+  onSelectPlan,
+  onSelectAddon,
+}) => {
+  const [isAnnual, setIsAnnual] = useState<boolean>(false);
 
   // Helper to calculate display price
-  const getDisplayPrice = (plan) => {
+  const getDisplayPrice = (plan: Plan): string => {
     if (plan.type === "custom") return "Custom Pricing";
     const price = isAnnual
-      ? Math.floor(plan.basePrice * 12 * 0.9)
-      : plan.basePrice;
+      ? Math.floor((plan.basePrice || 0) * 12 * 0.9)
+      : plan.basePrice || 0;
     return `$${price.toLocaleString()}`;
   };
 
-  const getPeriod = (plan) => {
+  const getPeriod = (plan: Plan): string => {
     if (plan.type === "custom") return "";
     const base = isAnnual ? "/ year" : "/ month";
     return plan.type === "per-shop"
@@ -214,7 +279,7 @@ const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
 
   return (
     <div className="animate-in fade-in duration-500">
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-10xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
             Pricing that scales with you
@@ -235,8 +300,8 @@ const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
             <button
               onClick={() => setIsAnnual(!isAnnual)}
               aria-label="Toggle between monthly and annual billing"
-              className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
-                isAnnual ? "bg-indigo-600" : "bg-gray-200"
+              className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                isAnnual ? "bg-primary" : "bg-gray-200"
               }`}
             >
               <span
@@ -251,7 +316,7 @@ const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
               }`}
             >
               Annual billing{" "}
-              <span className="ml-1 text-indigo-600 font-bold">(Save 10%)</span>
+              <span className="ml-1 text-primary font-bold">(Save 10%)</span>
             </span>
           </div>
         </div>
@@ -263,13 +328,13 @@ const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
               key={plan.id}
               className={`relative flex flex-col rounded-2xl bg-white shadow-xl transition-all duration-300 hover:shadow-2xl ${
                 plan.popular
-                  ? "border-2 border-indigo-500 transform scale-105 z-10"
+                  ? "border-2 border-primary transform scale-105 z-10"
                   : "border border-gray-200"
               }`}
             >
               {plan.popular && (
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <span className="inline-flex items-center rounded-full bg-indigo-500 px-4 py-1 text-sm font-medium text-white shadow-sm ring-1 ring-inset ring-indigo-500">
+                  <span className="inline-flex items-center rounded-full bg-primary px-4 py-1 text-sm font-medium text-white shadow-sm ring-1 ring-inset ring-primary">
                     Most Popular
                   </span>
                 </div>
@@ -278,7 +343,7 @@ const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
               <div className="p-6 md:p-8 flex-1">
                 <h3
                   className={`text-xl font-bold ${
-                    plan.popular ? "text-indigo-600" : "text-gray-900"
+                    plan.popular ? "text-primary" : "text-gray-900"
                   }`}
                 >
                   {plan.name}
@@ -303,7 +368,7 @@ const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
 
                 <ul className="mt-8 space-y-3">
                   <li className="flex items-start">
-                    <Store className="h-5 w-5 text-indigo-500 flex-shrink-0" />
+                    <Store className="h-5 w-5 text-primary flex-shrink-0" />
                     <p className="ml-3 text-sm text-gray-700">
                       <span className="font-semibold">
                         {plan.features.shops}
@@ -313,7 +378,7 @@ const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
                     </p>
                   </li>
                   <li className="flex items-start">
-                    <Users className="h-5 w-5 text-indigo-500 flex-shrink-0" />
+                    <Users className="h-5 w-5 text-primary flex-shrink-0" />
                     <p className="ml-3 text-sm text-gray-700">
                       <span className="font-semibold">
                         {plan.features.users}
@@ -326,7 +391,7 @@ const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
                       className={`h-5 w-5 flex-shrink-0 ${
                         plan.features.warehouses === "0"
                           ? "text-gray-300"
-                          : "text-indigo-500"
+                          : "text-primary"
                       }`}
                     />
                     <p
@@ -346,26 +411,26 @@ const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
                     </p>
                   </li>
                   <li className="flex items-start">
-                    <CreditCard className="h-5 w-5 text-indigo-500 flex-shrink-0" />
+                    <CreditCard className="h-5 w-5 text-primary flex-shrink-0" />
                     <p className="ml-3 text-sm text-gray-700">
                       {plan.features.payment}
                     </p>
                   </li>
                   <li className="flex items-start">
-                    <Boxes className="h-5 w-5 text-indigo-500 flex-shrink-0" />
+                    <Boxes className="h-5 w-5 text-primary flex-shrink-0" />
                     <p className="ml-3 text-sm text-gray-700">
                       <span className="font-semibold">Inventory:</span>{" "}
                       {plan.features.inventory}
                     </p>
                   </li>
                   <li className="flex items-start">
-                    <BarChart3 className="h-5 w-5 text-indigo-500 flex-shrink-0" />
+                    <BarChart3 className="h-5 w-5 text-primary flex-shrink-0" />
                     <p className="ml-3 text-sm text-gray-700">
                       {plan.features.reports}
                     </p>
                   </li>
                   <li className="flex items-start">
-                    <Users2 className="h-5 w-5 text-indigo-500 flex-shrink-0" />
+                    <Users2 className="h-5 w-5 text-primary flex-shrink-0" />
                     <p className="ml-3 text-sm text-gray-700">
                       {plan.features.crm}
                     </p>
@@ -387,8 +452,8 @@ const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
                   onClick={() => onSelectPlan(plan, isAnnual)}
                   className={`block w-full text-center rounded-lg px-6 py-3 text-sm font-semibold shadow-sm transition-all ${
                     plan.popular
-                      ? "bg-indigo-600 text-white hover:bg-indigo-700 shadow-indigo-200"
-                      : "bg-white text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 hover:bg-indigo-50"
+                      ? "bg-primary text-white hover:bg-primary-dark shadow-primary-light"
+                      : "bg-white text-primary ring-1 ring-inset ring-primary-light hover:ring-primary hover:bg-primary-light"
                   }`}
                 >
                   {plan.type === "custom"
@@ -412,43 +477,48 @@ const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
-            {ADDONS.map((addon) => (
-              <div
-                key={addon.id}
-                className="flex flex-col sm:flex-row bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <div className="p-6 sm:w-2/3">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-indigo-50 rounded-lg">
-                      {addon.icon}
+            {ADDONS.map((addon) => {
+              const IconComponent = addon.IconComponent;
+              return (
+                <div
+                  key={addon.id}
+                  className="flex flex-col sm:flex-row bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow"
+                >
+                  <div className="p-6 sm:w-2/3">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 bg-primary-light rounded-lg">
+                        <IconComponent
+                          className={`w-6 h-6 ${addon.iconColor}`}
+                        />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900">
+                        {addon.title}
+                      </h3>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      {addon.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-600 mt-2 text-sm leading-relaxed">
-                    {addon.description}
-                  </p>
-                </div>
-                <div className="bg-gray-50 p-6 sm:w-1/3 flex flex-col justify-center items-center border-l border-gray-100 sm:border-t-0 border-t">
-                  <div className="text-center">
-                    <p className="text-sm text-gray-500 font-medium">
-                      Starting at
+                    <p className="text-gray-600 mt-2 text-sm leading-relaxed">
+                      {addon.description}
                     </p>
-                    <p className="text-3xl font-bold text-gray-900 mt-1">
-                      ${addon.price}
-                    </p>
-                    <p className="text-xs text-gray-400">/ month</p>
                   </div>
-                  <button
-                    onClick={() => onSelectAddon(addon)}
-                    className="mt-4 w-full bg-white text-indigo-600 border border-indigo-200 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-50 transition-colors"
-                  >
-                    Add to Plan
-                  </button>
+                  <div className="bg-gray-50 p-6 sm:w-1/3 flex flex-col justify-center items-center border-l border-gray-100 sm:border-t-0 border-t">
+                    <div className="text-center">
+                      <p className="text-sm text-gray-500 font-medium">
+                        Starting at
+                      </p>
+                      <p className="text-3xl font-bold text-gray-900 mt-1">
+                        ${addon.price}
+                      </p>
+                      <p className="text-xs text-gray-400">/ month</p>
+                    </div>
+                    <button
+                      onClick={() => onSelectAddon(addon)}
+                      className="mt-4 w-full bg-white text-primary border border-primary-light px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-light transition-colors"
+                    >
+                      Add to Plan
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
@@ -456,7 +526,7 @@ const PricingHome = ({ onSelectPlan, onSelectAddon }) => {
   );
 };
 
-const CheckoutFlow = ({
+const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
   selectedPlan,
   initialAddon,
   initialAnnual,
@@ -464,18 +534,18 @@ const CheckoutFlow = ({
   onSuccess,
   onChangePlan,
 }) => {
-  const [isAnnual, setIsAnnual] = useState(initialAnnual || false);
-  const [selectedAddons, setSelectedAddons] = useState(
+  const [isAnnual, setIsAnnual] = useState<boolean>(initialAnnual || false);
+  const [selectedAddons, setSelectedAddons] = useState<string[]>(
     initialAddon ? [initialAddon.id] : []
   );
-  const [shopCount, setShopCount] = useState(1);
-  const [userCount, setUserCount] = useState(selectedPlan.limits.users);
-  const [warehouseCount, setWarehouseCount] = useState(
+  const [shopCount, setShopCount] = useState<number>(1);
+  const [userCount, setUserCount] = useState<number>(selectedPlan.limits.users);
+  const [warehouseCount, setWarehouseCount] = useState<number>(
     selectedPlan.limits.warehouses
   );
 
   // Determine if extra warehouses can be added
-  const canAddWarehouses =
+  const canAddWarehouses: boolean =
     selectedPlan.id !== "service" && selectedPlan.id !== "retail-starter";
 
   // Update resource defaults if plan changes
@@ -490,28 +560,28 @@ const CheckoutFlow = ({
     if (initialAddon && !selectedAddons.includes(initialAddon.id)) {
       setSelectedAddons((prev) => [...prev, initialAddon.id]);
     }
-  }, [initialAddon]);
+  }, [initialAddon, selectedAddons]);
 
-  const toggleAddon = (id) => {
+  const toggleAddon = (id: string): void => {
     setSelectedAddons((prev) =>
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
     );
   };
 
   // Pricing Logic
-  const getPeriodPrice = (monthlyPrice) =>
+  const getPeriodPrice = (monthlyPrice: number): number =>
     isAnnual ? monthlyPrice * 12 * 0.9 : monthlyPrice;
 
-  const getPlanCost = () => {
+  const getPlanCost = (): number => {
     if (!selectedPlan || selectedPlan.type === "custom") return 0;
-    let base = getPeriodPrice(selectedPlan.basePrice);
+    let base = getPeriodPrice(selectedPlan.basePrice || 0);
     if (selectedPlan.type === "per-shop") {
       base = base * shopCount;
     }
     return base;
   };
 
-  const getExtrasCost = () => {
+  const getExtrasCost = (): number => {
     let cost = 0;
 
     // Extra Users
@@ -534,7 +604,7 @@ const CheckoutFlow = ({
     return cost;
   };
 
-  const getAddonCost = () => {
+  const getAddonCost = (): number => {
     return ADDONS.filter((addon) => selectedAddons.includes(addon.id)).reduce(
       (sum, addon) => sum + getPeriodPrice(addon.price),
       0
@@ -566,7 +636,7 @@ const CheckoutFlow = ({
               </div>
               <button
                 onClick={onChangePlan}
-                className="text-indigo-600 text-sm font-medium hover:text-indigo-800"
+                className="text-primary text-sm font-medium hover:text-primary-dark"
               >
                 Change
               </button>
@@ -591,7 +661,8 @@ const CheckoutFlow = ({
               </div>
               <div className="text-right">
                 <p className="font-bold text-gray-900">
-                  ${getPeriodPrice(selectedPlan.basePrice).toLocaleString()}
+                  $
+                  {getPeriodPrice(selectedPlan.basePrice || 0).toLocaleString()}
                 </p>
                 <p className="text-xs text-gray-500">
                   {isAnnual ? "/ year" : "/ month"}
@@ -621,7 +692,7 @@ const CheckoutFlow = ({
                     onClick={() => setIsAnnual(true)}
                     className={`px-3 py-1 text-xs font-medium rounded-md transition-all ${
                       isAnnual
-                        ? "bg-white shadow-sm text-indigo-600"
+                        ? "bg-white shadow-sm text-primary"
                         : "text-gray-500 hover:text-gray-900"
                     }`}
                   >
@@ -778,14 +849,14 @@ const CheckoutFlow = ({
                     onClick={() => toggleAddon(addon.id)}
                     className={`flex items-start p-4 rounded-lg border cursor-pointer transition-all ${
                       isSelected
-                        ? "border-indigo-500 bg-indigo-50 ring-1 ring-indigo-500"
-                        : "border-gray-200 hover:border-indigo-200 hover:bg-gray-50"
+                        ? "border-primary bg-primary-light ring-1 ring-primary"
+                        : "border-gray-200 hover:border-primary-light hover:bg-gray-50"
                     }`}
                   >
                     <div
                       className={`mt-0.5 mr-3 flex-shrink-0 w-5 h-5 rounded border flex items-center justify-center transition-colors ${
                         isSelected
-                          ? "bg-indigo-600 border-indigo-600"
+                          ? "bg-primary border-primary"
                           : "bg-white border-gray-300"
                       }`}
                     >
@@ -797,7 +868,7 @@ const CheckoutFlow = ({
                       <div className="flex justify-between">
                         <h3
                           className={`text-sm font-semibold ${
-                            isSelected ? "text-indigo-900" : "text-gray-900"
+                            isSelected ? "text-primary-dark" : "text-gray-900"
                           }`}
                         >
                           {addon.title}
@@ -934,7 +1005,7 @@ const CheckoutFlow = ({
               <div className="space-y-3">
                 <button
                   onClick={onSuccess}
-                  className="w-full mt-4 bg-indigo-600 text-white px-4 py-3 rounded-lg text-sm font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200"
+                  className="w-full mt-4 bg-primary text-white px-4 py-3 rounded-lg text-sm font-bold hover:bg-primary-dark transition-all shadow-lg shadow-primary-light"
                 >
                   Get Started
                 </button>
@@ -946,9 +1017,9 @@ const CheckoutFlow = ({
             </div>
           </div>
 
-          <div className="bg-indigo-50 rounded-lg p-4 border border-indigo-100 flex items-start">
-            <ShieldCheck className="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-            <p className="text-xs text-indigo-800">
+          <div className="bg-primary-light rounded-lg p-4 border border-primary-light flex items-start">
+            <ShieldCheck className="w-5 h-5 text-primary mr-2 flex-shrink-0" />
+            <p className="text-xs text-primary-dark">
               <strong>Secure Checkout:</strong> Your data is encrypted with
               256-bit SSL security. We never sell your information.
             </p>
@@ -959,7 +1030,7 @@ const CheckoutFlow = ({
   );
 };
 
-const SuccessView = ({ onReset }) => (
+const SuccessView: React.FC<SuccessViewProps> = ({ onReset }) => (
   <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4 animate-in zoom-in-95 duration-500">
     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
       <Check className="w-8 h-8 text-green-600" />
@@ -978,7 +1049,7 @@ const SuccessView = ({ onReset }) => (
       >
         Back to Site
       </button>
-      <button className="px-6 py-2 bg-indigo-600 rounded-lg text-white hover:bg-indigo-700 font-medium transition-colors shadow-lg shadow-indigo-200">
+      <button className="px-6 py-2 bg-primary rounded-lg text-white hover:bg-primary-dark font-medium transition-colors shadow-lg shadow-primary-light">
         Go to Dashboard
       </button>
     </div>
@@ -987,13 +1058,15 @@ const SuccessView = ({ onReset }) => (
 
 // --- Main Component ---
 
-const PricingPage = () => {
-  const [currentView, setCurrentView] = useState("home"); // 'home', 'checkout', 'success'
-  const [selectedPlan, setSelectedPlan] = useState(null);
-  const [initialAddon, setInitialAddon] = useState(null);
-  const [isAnnualSelection, setIsAnnualSelection] = useState(false);
+const PricingPage: React.FC = () => {
+  const [currentView, setCurrentView] = useState<
+    "home" | "checkout" | "success"
+  >("home");
+  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
+  const [initialAddon, setInitialAddon] = useState<Addon | null>(null);
+  const [isAnnualSelection, setIsAnnualSelection] = useState<boolean>(false);
 
-  const handleSelectPlan = (plan, isAnnual) => {
+  const handleSelectPlan = (plan: Plan, isAnnual: boolean): void => {
     if (plan.type === "custom") {
       window.alert("Contacting sales..."); // Placeholder for sales modal
       return;
@@ -1005,27 +1078,29 @@ const PricingPage = () => {
     window.scrollTo(0, 0);
   };
 
-  const handleSelectAddon = (addon) => {
+  const handleSelectAddon = (addon: Addon): void => {
     // Default to Retail Business if they click an Add-on directly
     const defaultPlan = PLANS.find((p) => p.id === "retail-business");
-    setSelectedPlan(defaultPlan);
-    setInitialAddon(addon);
-    setCurrentView("checkout");
-    window.scrollTo(0, 0);
+    if (defaultPlan) {
+      setSelectedPlan(defaultPlan);
+      setInitialAddon(addon);
+      setCurrentView("checkout");
+      window.scrollTo(0, 0);
+    }
   };
 
-  const handleBack = () => {
+  const handleBack = (): void => {
     setCurrentView("home");
     window.scrollTo(0, 0);
   };
 
-  const handleSuccess = () => {
+  const handleSuccess = (): void => {
     setCurrentView("success");
     window.scrollTo(0, 0);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
+    <div className="min-h-screen font-sans text-gray-900 pt-20">
       <main>
         {currentView === "home" && (
           <PricingHome
