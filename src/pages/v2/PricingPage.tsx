@@ -229,7 +229,7 @@ const ADDONS: Addon[] = [
     description:
       "Professional invoicing and expense tracking to keep your finances in check.",
     IconComponent: FileText,
-    iconColor: "text-blue-600",
+    iconColor: "text-primary",
     features: [
       "Professional invoice templates",
       "Expense tracking",
@@ -278,20 +278,20 @@ const PricingHome: React.FC<PricingHomeProps> = ({
   };
 
   return (
-    <div className="animate-in fade-in duration-500">
+    <div className="animate-in fade-in duration-500 lg:px-8">
       <div className="max-w-10xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+        <div className="text-start md:text-center">
+          <h1 className="text-3xl max-w-xs sm:max-w-none md:text-4xl font-medium text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
             Pricing that scales with you
           </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+          <p className="mt-4 max-w-2xl md:mx-auto text-lg md:text-xl font-normal text-gray-500">
             From single service providers to large retail chains, we have a plan
             for everyone.
           </p>
 
-          <div className="mt-8 flex justify-center items-center space-x-4">
+          <div className="mt-8 flex justify-start md:justify-center items-center space-x-4">
             <span
-              className={`text-sm font-medium ${
+              className={`text-sm font-normal ${
                 !isAnnual ? "text-gray-900" : "text-gray-500"
               }`}
             >
@@ -311,22 +311,22 @@ const PricingHome: React.FC<PricingHomeProps> = ({
               />
             </button>
             <span
-              className={`text-sm font-medium ${
+              className={`text-sm font-normal ${
                 isAnnual ? "text-gray-900" : "text-gray-500"
               }`}
             >
               Annual billing{" "}
-              <span className="ml-1 text-primary font-bold">(Save 10%)</span>
+              <span className="ml-1 text-primary font-medium">(Save 10%)</span>
             </span>
           </div>
         </div>
 
         {/* Plans Grid */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
+        <div className="mt-16 grid gap-6 lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
           {PLANS.map((plan) => (
             <div
               key={plan.id}
-              className={`relative flex flex-col rounded-2xl bg-white shadow-xl transition-all duration-300 hover:shadow-2xl ${
+              className={`relative flex flex-col rounded-2xl bg-white shadow-md transition-all duration-300 hover:shadow-xl ${
                 plan.popular
                   ? "border-2 border-primary transform scale-105 z-10"
                   : "border border-gray-200"
@@ -342,18 +342,18 @@ const PricingHome: React.FC<PricingHomeProps> = ({
 
               <div className="p-6 md:p-8 flex-1">
                 <h3
-                  className={`text-xl font-bold ${
+                  className={`text-xl font-medium ${
                     plan.popular ? "text-primary" : "text-gray-900"
                   }`}
                 >
                   {plan.name}
                 </h3>
                 {plan.subname && (
-                  <span className="block text-sm font-medium text-gray-500">
+                  <span className="block text-sm font-normal text-gray-500">
                     {plan.subname}
                   </span>
                 )}
-                <p className="mt-2 text-sm text-gray-500 h-10">
+                <p className="mt-2 text-sm font-normal text-gray-500 h-10">
                   {plan.description}
                 </p>
 
@@ -361,7 +361,7 @@ const PricingHome: React.FC<PricingHomeProps> = ({
                   <span className="text-4xl font-extrabold tracking-tight text-gray-900">
                     {getDisplayPrice(plan)}
                   </span>
-                  <span className="ml-1 text-sm font-semibold text-gray-500 whitespace-nowrap">
+                  <span className="ml-1 text-sm font-normal text-gray-500 whitespace-nowrap">
                     {getPeriod(plan)}
                   </span>
                 </div>
@@ -369,20 +369,16 @@ const PricingHome: React.FC<PricingHomeProps> = ({
                 <ul className="mt-8 space-y-3">
                   <li className="flex items-start">
                     <Store className="h-5 w-5 text-primary flex-shrink-0" />
-                    <p className="ml-3 text-sm text-gray-700">
-                      <span className="font-semibold">
-                        {plan.features.shops}
-                      </span>{" "}
+                    <p className="ml-3 text-sm font-normal text-gray-700">
+                      <span className="font-medium">{plan.features.shops}</span>{" "}
                       {plan.unitLabel}
                       {plan.features.shops !== "1" && "s"}
                     </p>
                   </li>
                   <li className="flex items-start">
                     <Users className="h-5 w-5 text-primary flex-shrink-0" />
-                    <p className="ml-3 text-sm text-gray-700">
-                      <span className="font-semibold">
-                        {plan.features.users}
-                      </span>{" "}
+                    <p className="ml-3 text-sm font-normal text-gray-700">
+                      <span className="font-medium">{plan.features.users}</span>{" "}
                       User{plan.features.users !== "1" && "s"}
                     </p>
                   </li>
@@ -395,7 +391,7 @@ const PricingHome: React.FC<PricingHomeProps> = ({
                       }`}
                     />
                     <p
-                      className={`ml-3 text-sm ${
+                      className={`ml-3 text-sm font-normal ${
                         plan.features.warehouses === "0"
                           ? "text-gray-400"
                           : "text-gray-700"
@@ -406,32 +402,32 @@ const PricingHome: React.FC<PricingHomeProps> = ({
                   </li>
                   <li className="flex items-start">
                     <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                    <p className="ml-3 text-sm text-gray-700">
+                    <p className="ml-3 text-sm font-normal text-gray-700">
                       {plan.features.pos}
                     </p>
                   </li>
                   <li className="flex items-start">
                     <CreditCard className="h-5 w-5 text-primary flex-shrink-0" />
-                    <p className="ml-3 text-sm text-gray-700">
+                    <p className="ml-3 text-sm font-normal text-gray-700">
                       {plan.features.payment}
                     </p>
                   </li>
                   <li className="flex items-start">
                     <Boxes className="h-5 w-5 text-primary flex-shrink-0" />
-                    <p className="ml-3 text-sm text-gray-700">
-                      <span className="font-semibold">Inventory:</span>{" "}
+                    <p className="ml-3 text-sm font-normal text-gray-700">
+                      <span className="font-medium">Inventory:</span>{" "}
                       {plan.features.inventory}
                     </p>
                   </li>
                   <li className="flex items-start">
                     <BarChart3 className="h-5 w-5 text-primary flex-shrink-0" />
-                    <p className="ml-3 text-sm text-gray-700">
+                    <p className="ml-3 text-sm font-normal text-gray-700">
                       {plan.features.reports}
                     </p>
                   </li>
                   <li className="flex items-start">
                     <Users2 className="h-5 w-5 text-primary flex-shrink-0" />
-                    <p className="ml-3 text-sm text-gray-700">
+                    <p className="ml-3 text-sm font-normal text-gray-700">
                       {plan.features.crm}
                     </p>
                   </li>
@@ -441,7 +437,7 @@ const PricingHome: React.FC<PricingHomeProps> = ({
                   <p className="text-xs font-semibold text-gray-500 uppercase flex items-center mb-2">
                     <Plus className="w-3 h-3 mr-1" /> Add-ons Available
                   </p>
-                  <p className="text-sm text-gray-600 leading-snug">
+                  <p className="text-sm font-normal text-gray-600 leading-snug">
                     {plan.addonsText}
                   </p>
                 </div>
@@ -466,12 +462,12 @@ const PricingHome: React.FC<PricingHomeProps> = ({
         </div>
 
         {/* Add-ons Section */}
-        <div className="mt-24">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <div className="mt-24 max-w-7xl mx-auto">
+          <div className="text-start md:text-center mb-12">
+            <h2 className="text-3xl font-medium tracking-tight text-gray-900 sm:text-4xl">
               Powerful Add-ons
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg font-normal text-gray-600">
               Customize your plan with additional modules as you grow.
             </p>
           </div>
@@ -491,23 +487,25 @@ const PricingHome: React.FC<PricingHomeProps> = ({
                           className={`w-6 h-6 ${addon.iconColor}`}
                         />
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900">
+                      <h3 className="text-xl font-medium text-gray-900">
                         {addon.title}
                       </h3>
                     </div>
-                    <p className="text-gray-600 mt-2 text-sm leading-relaxed">
+                    <p className="text-gray-600 mt-2 text-sm font-normal leading-relaxed">
                       {addon.description}
                     </p>
                   </div>
                   <div className="bg-gray-50 p-6 sm:w-1/3 flex flex-col justify-center items-center border-l border-gray-100 sm:border-t-0 border-t">
                     <div className="text-center">
-                      <p className="text-sm text-gray-500 font-medium">
+                      <p className="text-sm text-gray-500 font-normal">
                         Starting at
                       </p>
                       <p className="text-3xl font-bold text-gray-900 mt-1">
                         ${addon.price}
                       </p>
-                      <p className="text-xs text-gray-400">/ month</p>
+                      <p className="text-xs font-normal text-gray-400">
+                        / month
+                      </p>
                     </div>
                     <button
                       onClick={() => onSelectAddon(addon)}
@@ -629,8 +627,8 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex justify-between items-start mb-6">
               <div>
-                <h2 className="text-xl font-bold text-gray-900">Your Plan</h2>
-                <p className="text-sm text-gray-500">
+                <h2 className="text-xl font-medium text-gray-900">Your Plan</h2>
+                <p className="text-sm font-normal text-gray-500">
                   Configure your subscription details
                 </p>
               </div>
@@ -650,21 +648,21 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
                   <Store className={`w-5 h-5 text-${selectedPlan.color}-600`} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">
+                  <h3 className="font-medium text-gray-900">
                     {selectedPlan.name}
                   </h3>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm font-normal text-gray-500">
                     {selectedPlan.features.shops} {selectedPlan.unitLabel}{" "}
                     included
                   </p>
                 </div>
               </div>
               <div className="text-right">
-                <p className="font-bold text-gray-900">
+                <p className="font-medium text-gray-900">
                   $
                   {getPeriodPrice(selectedPlan.basePrice || 0).toLocaleString()}
                 </p>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs font-normal text-gray-500">
                   {isAnnual ? "/ year" : "/ month"}
                 </p>
               </div>
@@ -835,7 +833,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
 
           {/* Add-ons List */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <h2 className="text-lg font-bold text-gray-900 mb-4">
+            <h2 className="text-lg font-medium text-gray-900 mb-4">
               Premium Modules
             </h2>
             <div className="space-y-3">
@@ -984,7 +982,9 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
 
               <div className="border-t border-gray-200 pt-4 flex justify-between items-end">
                 <div>
-                  <p className="text-sm text-gray-500">Total due today</p>
+                  <p className="text-sm font-normal text-gray-500">
+                    Total due today
+                  </p>
                   <p className="text-xs text-green-600 font-medium">
                     30-Day Free Trial included
                   </p>
@@ -999,7 +999,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
 
             {/* Registration Form (Simplified) */}
             <div className="bg-gray-50 p-6 border-t border-gray-200">
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">
+              <h3 className="text-sm font-medium text-gray-900 mb-4">
                 Create your account
               </h3>
               <div className="space-y-3">
@@ -1009,7 +1009,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
                 >
                   Get Started
                 </button>
-                <p className="text-xs text-center text-gray-400 mt-3">
+                <p className="text-xs font-normal text-center text-gray-400 mt-3">
                   By clicking "Get Started", you agree to our Terms of Service.
                   No credit card required for trial.
                 </p>
@@ -1031,14 +1031,14 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
 };
 
 const SuccessView: React.FC<SuccessViewProps> = ({ onReset }) => (
-  <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4 animate-in zoom-in-95 duration-500">
+  <div className="min-h-[60vh] flex flex-col items-center justify-center text-start md:text-center px-4 animate-in zoom-in-95 duration-500">
     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
       <Check className="w-8 h-8 text-green-600" />
     </div>
-    <h1 className="text-3xl font-bold text-gray-900 mb-2">
+    <h1 className="text-3xl font-medium text-gray-900 mb-2">
       Welcome to POSMaster!
     </h1>
-    <p className="text-gray-500 max-w-md mb-8">
+    <p className="text-gray-500 font-normal max-w-md mb-8">
       Your 30-day free trial has been successfully activated. We've sent a
       verification email to your inbox.
     </p>
@@ -1100,7 +1100,7 @@ const PricingPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen font-sans text-gray-900 pt-20">
+    <div className="min-h-screen font-sans text-gray-900 pt-12 md:pt-20">
       <main>
         {currentView === "home" && (
           <PricingHome
