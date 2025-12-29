@@ -25,7 +25,7 @@ import MainLayout from "./layout/main_layout";
 import BookingManagement from "./pages/logistics/booking_management";
 import OrderManagement from "./pages/logistics/order_management";
 import Trucking from "./pages/logistics/trucking";
-import Pricing from "./pages/pricing";
+// import Pricing from "./pages/pricing";
 import Manage from "./pages/manage business";
 import BusinessExpansion from "./pages/business-expansion";
 import OperationsExpansion from "./pages/operations-expansion";
