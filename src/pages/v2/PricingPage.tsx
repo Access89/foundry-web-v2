@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   LucideIcon,
 } from "lucide-react";
+import { useV2Context } from "./context";
 
 // --- TypeScript Interfaces ---
 
@@ -323,7 +324,7 @@ const PricingHome: React.FC<PricingHomeProps> = ({
         </div>
 
         {/* Plans Grid */}
-        <div className="mt-16 grid gap-7 lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
+        <div className="mt-10 md:mt-16 grid gap-7 xl:grid-cols-4 md:grid-cols-2 grid-cols-1">
           {PLANS.map((plan) => (
             <div
               key={plan.id}
@@ -1061,6 +1062,12 @@ const SuccessView: React.FC<SuccessViewProps> = ({ onReset }) => (
 
 const PricingPage: React.FC = () => {
   const navigate = useNavigate();
+  const { setActiveSegment } = useV2Context();
+
+  useEffect(() => {
+    setActiveSegment("merchant");
+  }, [setActiveSegment]);
+
   const [currentView, setCurrentView] = useState<
     "home" | "checkout" | "success"
   >("home");
@@ -1097,12 +1104,11 @@ const PricingPage: React.FC = () => {
   };
 
   const handleSuccess = (): void => {
-    setCurrentView("success");
-    window.scrollTo(0, 0);
+    navigate("/onboarding");
   };
 
   return (
-    <div className="min-h-screen font-sans text-gray-900 pt-12 md:pt-20">
+    <div className="min-h-screen font-sans text-gray-900 pt-10 sm:pt-12 md:pt-20">
       <main>
         {currentView === "home" && (
           <PricingHome

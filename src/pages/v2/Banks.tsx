@@ -1,4 +1,6 @@
 import { Smartphone, ShieldCheck, PieChart } from "lucide-react";
+import { useEffect } from "react";
+import { useV2Context } from "./context";
 
 // Page Data
 const banksData = {
@@ -31,6 +33,12 @@ const banksData = {
 };
 
 const Banks = () => {
+  const { setActiveSegment } = useV2Context();
+
+  useEffect(() => {
+    setActiveSegment("bank");
+  }, [setActiveSegment]);
+
   const { hero, features } = banksData;
   return (
     <div className="min-h-screen bg-[#1C1C1C] text-white pb-20">
