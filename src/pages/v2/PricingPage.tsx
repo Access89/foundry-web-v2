@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Check,
   Store,
@@ -322,7 +323,7 @@ const PricingHome: React.FC<PricingHomeProps> = ({
         </div>
 
         {/* Plans Grid */}
-        <div className="mt-16 grid gap-6 lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
+        <div className="mt-16 grid gap-7 lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
           {PLANS.map((plan) => (
             <div
               key={plan.id}
@@ -478,7 +479,7 @@ const PricingHome: React.FC<PricingHomeProps> = ({
               return (
                 <div
                   key={addon.id}
-                  className="flex flex-col sm:flex-row bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow"
+                  className="flex flex-col sm:flex-row bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
                 >
                   <div className="p-6 sm:w-2/3">
                     <div className="flex items-center gap-3 mb-2">
@@ -643,9 +644,9 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
             <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-center justify-between">
               <div className="flex items-center">
                 <div
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center bg-${selectedPlan.color}-100 mr-4`}
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center mr-4`}
                 >
-                  <Store className={`w-5 h-5 text-${selectedPlan.color}-600`} />
+                  <Store className={`w-5 h-5 text-primary`} />
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-900">
@@ -1059,6 +1060,7 @@ const SuccessView: React.FC<SuccessViewProps> = ({ onReset }) => (
 // --- Main Component ---
 
 const PricingPage: React.FC = () => {
+  const navigate = useNavigate();
   const [currentView, setCurrentView] = useState<
     "home" | "checkout" | "success"
   >("home");
@@ -1068,7 +1070,7 @@ const PricingPage: React.FC = () => {
 
   const handleSelectPlan = (plan: Plan, isAnnual: boolean): void => {
     if (plan.type === "custom") {
-      window.alert("Contacting sales..."); // Placeholder for sales modal
+      navigate("/book-a-demo");
       return;
     }
     setSelectedPlan(plan);
