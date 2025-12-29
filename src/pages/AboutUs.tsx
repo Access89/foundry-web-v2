@@ -7,7 +7,7 @@ export default function AboutUs() {
   const navigate = useNavigate();
 
   return (
-    <main className="overflow-x-hidden">
+    <main className="">
       {/* Hero Section - "Who we are" */}
       <section className="container mx-auto px-6 md:px-12 lg:px-24 pt-32 pb-16">
         <p className="text-sm uppercase tracking-wider text-zinc-500 mb-4">

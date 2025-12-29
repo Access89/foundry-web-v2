@@ -64,12 +64,13 @@ const App = () => {
 
   return (
     <main className="w-full h-[100dvh] flex flex-col text-base">
+      <ScrollToTop />
+
       <motion.div
         style={{ scaleX: scrollYProgress }}
         className="fixed top-0 left-0 right-0"
       />
 
-      <ScrollToTop />
       <Routes>
         {/* V2 Routes - Now Main Routes */}
         <Route path="/" element={<Layout />}>
@@ -94,6 +95,7 @@ const App = () => {
           <Route path="corporate-banking" element={<CorporateBanking />} />
           <Route path="wealth-management" element={<WealthManagement />} />
           <Route path="pricing" element={<PricingPage />} />
+          <Route path="about" element={<AboutUs />} />
           {/* <Route path="engagement-banking" element={<EngagementBanking />} /> */}
         </Route>
 
@@ -130,7 +132,6 @@ const App = () => {
           />
 
           {/* <Route path="pricing" element={<Pricing />} /> */}
-          <Route path="about" element={<AboutUs />} />
 
           <Route path="business/:service" element={<BusinessExpansion />} />
 
