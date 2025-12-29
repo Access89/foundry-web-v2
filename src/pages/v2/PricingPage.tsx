@@ -282,7 +282,7 @@ const PricingHome: React.FC<PricingHomeProps> = ({
     <div className="animate-in fade-in duration-500 lg:px-8">
       <div className="max-w-10xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="text-start md:text-center">
-          <h1 className="text-3xl max-w-xs sm:max-w-none md:text-4xl font-medium text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+          <h1 className="text-3xl max-w-xs sm:max-w-none font-medium text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
             Pricing that scales with you
           </h1>
           <p className="mt-4 max-w-2xl md:mx-auto text-lg md:text-xl font-normal text-gray-500">
