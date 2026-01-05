@@ -1,132 +1,143 @@
-import { CustomButton } from '@/components/shared/shared_customs';
-import { Icon } from '@iconify/react/dist/iconify.js';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { parseCurrency } from '@/utils/helper';
-import { useSubscriptionPlans } from '@/utils/useSubscriptionPlans';
-import { useDispatch } from 'react-redux';
-import toast from 'react-hot-toast';
-import { mutateFn } from '@/services/mutation.api';
-import { useMutation } from 'react-query';
+import { CustomButton } from "@/components/shared/shared_customs";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import { parseCurrency } from "@/utils/helper";
+import { useSubscriptionPlans } from "@/utils/useSubscriptionPlans";
+import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
+import { mutateFn } from "@/services/mutation.api";
+import { useMutation } from "react-query";
 import {
   resetSubscriber,
   SubscriberStateType,
-} from '@/store/features/subscriber';
+} from "@/store/features/subscriber";
 
 const appList = [
   {
-    name: 'Foundry Books',
+    name: "Foundry Books",
     plan_id: 5,
-    plan_type: 'FREE',
+    plan_type: "FREE",
     plan_category: 3,
-    qr_code: 'https://www.avasam.com/wp-content/uploads/2019/10/qr-sample.png',
-    image: '/icons/app_icons/icon.pos.png',
+    qr_code: "https://www.avasam.com/wp-content/uploads/2019/10/qr-sample.png",
+    image: "/icons/app_icons/icon.pos.png",
     description:
-      'Easily start selling in person, online, by phone, or on the go',
-    appstore_link: 'https://apps.apple.com/gh/developer/access89/id1781630972',
+      "Easily start selling in person, online, by phone, or on the go",
+    appstore_link: "https://apps.apple.com/gh/developer/access89/id1781630972",
     playstore_link:
-      'https://play.google.com/store/apps/developer?id=access+89&hl=en_US',
-    displayImage: '/images/FOUND2.png',
+      "https://play.google.com/store/apps/developer?id=access+89&hl=en_US",
+    displayImage: "/images/FOUND2.png",
     use_cases_list: [
-      'Fashion, electronics, grocery, convenience shops',
-      'Chain stores, local provision shops',
-      'Chemists, medical supply stores',
-      'Restaurants, fast food joints, cafes, bars, food trucks',
-      'Stockists, FMCG distributors',
-      'Hotels, motels, nightclubs, gyms',
-      'Auto parts stores, filling stations',
-      'MoMo agents, remittance shops, bill payment agents',
+      "Fashion, electronics, grocery, convenience shops",
+      "Chain stores, local provision shops",
+      "Chemists, medical supply stores",
+      "Restaurants, fast food joints, cafes, bars, food trucks",
+      "Stockists, FMCG distributors",
+      "Hotels, motels, nightclubs, gyms",
+      "Auto parts stores, filling stations",
+      "MoMo agents, remittance shops, bill payment agents",
     ],
   },
   {
-    name: 'Foundry POS',
+    name: "Foundry POS",
     plan_id: 13,
-    plan_type: 'FREE',
+    plan_type: "FREE",
     plan_category: 5,
-    qr_code: 'https://www.avasam.com/wp-content/uploads/2019/10/qr-sample.png',
-    image: '/icons/app_icons/icon.books.png',
-    description: 'Manage your books and finances with ease.',
-    appstore_link: 'https://apps.apple.com/gh/developer/access89/id1781630972',
+    qr_code: "https://www.avasam.com/wp-content/uploads/2019/10/qr-sample.png",
+    image: "/icons/app_icons/icon.books.png",
+    description: "Manage your books and finances with ease.",
+    appstore_link: "https://apps.apple.com/gh/developer/access89/id1781630972",
     playstore_link:
-      'https://play.google.com/store/apps/developer?id=access+89&hl=en_US',
+      "https://play.google.com/store/apps/developer?id=access+89&hl=en_US",
     // displayImage: '/images/apps/FOUND 1.svg',
 
     use_cases_list: [
-      'Consultants, designers, tutors, artisans',
-      'Boutiques, cosmetics shops, corner shops, general stores',
-      'Hair salons, barber shops, spas, mechanics, cleaning services',
-      'Caterers, small restaurants, bakeries, food vendors',
-      'Wholesalers, distributors, suppliers',
-      'Law firms, audit firms, small clinics, private schools',
-      'E-commerce sellers, social media sellers (Instagram, WhatsApp shops)',
-      'Small lending operations, susu collectors, savings groups',
+      "Consultants, designers, tutors, artisans",
+      "Boutiques, cosmetics shops, corner shops, general stores",
+      "Hair salons, barber shops, spas, mechanics, cleaning services",
+      "Caterers, small restaurants, bakeries, food vendors",
+      "Wholesalers, distributors, suppliers",
+      "Law firms, audit firms, small clinics, private schools",
+      "E-commerce sellers, social media sellers (Instagram, WhatsApp shops)",
+      "Small lending operations, susu collectors, savings groups",
     ],
   },
 ];
 
+const normalizeErrorMessage = (value: unknown) => {
+  if (typeof value === "string") return value;
+  if (value && typeof value === "object") {
+    try {
+      return JSON.stringify(value);
+    } catch {
+      return "Details were not submitted, please try again.";
+    }
+  }
+  return "Details were not submitted, please try again.";
+};
+
 const InfoSection = ({
-  isLoadingSubscriber,
-  isSetupComplete,
-  errorSubscriber,
+  setupStatus,
+  errorMessage,
 }: {
-  isLoadingSubscriber: boolean;
-  isSetupComplete: boolean;
-  errorSubscriber: any;
+  setupStatus: 'idle' | 'loading' | 'success' | 'error';
+  errorMessage?: string | null;
 }) => {
   const location = useLocation();
-  const { business_owner } = location.state?.payload || {};
+  const { payload_data } = location.state?.payload || {};
+  const businessOwner = payload_data?.business_owner;
 
   // console.log('errorSubscriber', errorSubscriber?.response?.data?.message);
 
   // Determine the current state
   const getStateInfo = () => {
-    if (errorSubscriber) {
+    if (setupStatus === "error") {
       return {
-        icon: 'mdi:alert-circle',
-        iconColor: 'text-red-500',
-        bgColor: 'bg-red-50',
-        borderColor: 'border-red-500',
-        title: 'Setup Failed',
+        icon: "mdi:alert-circle",
+        iconColor: "text-red-500",
+        bgColor: "bg-red-50",
+        borderColor: "border-red-500",
+        title: "Setup Failed",
         message: `Sorry ${
-          business_owner || 'User'
+          businessOwner || "User"
         }, there was an issue setting up your account. Please try again.`,
-        titleColor: 'text-red-600',
+        titleColor: "text-red-600",
       };
-    } else if (isSetupComplete) {
+    } else if (setupStatus === "success") {
       return {
-        icon: 'mdi:check-circle',
-        iconColor: 'text-green-500',
-        bgColor: 'bg-green-50',
-        borderColor: 'border-green-500',
-        title: 'Setup Complete!',
+        icon: "mdi:check-circle",
+        iconColor: "text-green-500",
+        bgColor: "bg-green-50",
+        borderColor: "border-green-500",
+        title: "Setup Complete!",
         message: `Welcome ${
-          business_owner || 'User'
+          businessOwner || "User"
         }! Your Foundry account is ready.`,
-        titleColor: 'text-green-600',
+        titleColor: "text-green-600",
       };
-    } else if (isLoadingSubscriber) {
+    } else if (setupStatus === "loading") {
       return {
-        icon: 'eos-icons:loading',
-        iconColor: 'text-primary',
-        bgColor: 'bg-primary/10',
-        borderColor: 'border-primary',
-        title: 'Setting things up for you...',
+        icon: "eos-icons:loading",
+        iconColor: "text-primary",
+        bgColor: "bg-primary/10",
+        borderColor: "border-primary",
+        title: "Setting things up for you...",
         message: `Congratulations ${
-          business_owner || 'User'
+          businessOwner || "User"
         }! We're preparing your Foundry experience.`,
-        titleColor: 'text-primary',
+        titleColor: "text-primary",
       };
     } else {
       return {
-        icon: 'mdi:clock-outline',
-        iconColor: 'text-gray-500',
-        bgColor: 'bg-gray-50',
-        borderColor: 'border-gray-300',
-        title: 'Getting Ready...',
+        icon: "mdi:clock-outline",
+        iconColor: "text-gray-500",
+        bgColor: "bg-gray-50",
+        borderColor: "border-gray-300",
+        title: "Getting Ready...",
         message: `Hello ${
-          business_owner || 'User'
+          businessOwner || "User"
         }, we're about to set up your account.`,
-        titleColor: 'text-gray-600',
+        titleColor: "text-gray-600",
       };
     }
   };
@@ -141,7 +152,7 @@ const InfoSection = ({
         <Icon
           icon={stateInfo.icon}
           className={`${stateInfo.iconColor} text-2xl ${
-            isLoadingSubscriber ? 'animate-spin' : ''
+            setupStatus === "loading" ? "animate-spin" : ""
           }`}
         />
         <div>
@@ -152,12 +163,13 @@ const InfoSection = ({
           </h3>
           <p className="text-gray-600 text-xs md:text-base">
             {stateInfo.message}
-            {errorSubscriber?.response?.data?.message && (
-              <p className="text-xs md:text-base mt-2 text-red-500">
-                <Link to="/contact"> or contact support</Link>
-              </p>
-            )}
           </p>
+          {setupStatus === "error" && (
+            <p className="text-xs md:text-base mt-2 text-red-500">
+              {normalizeErrorMessage(errorMessage)}{" "}
+              <Link to="/contact">Contact support</Link>
+            </p>
+          )}
           {/* {errorSubscriber && (
             <p className="text-red-500 text-xs md:text-base mt-2">
               Error:{' '}
@@ -199,7 +211,7 @@ const RecommendedAppSection = () => {
   const { payload_data } = location.state?.payload || {};
   const recommendedApp = getRecommendedApp(payload_data?.business_type);
 
-  console.log('recommendedApp', recommendedApp);
+  console.log("recommendedApp", recommendedApp);
 
   if (!recommendedApp) return null;
 
@@ -218,7 +230,7 @@ const RecommendedAppSection = () => {
           {/* App Store Button */}
           <div
             className="flex-1 bg-[#1C1C1E] rounded-xl p-3 cursor-pointer hover:bg-[#2C2C2E] transition-colors group flex items-center justify-between"
-            onClick={() => window.open(recommendedApp.appstore_link, '_blank')}
+            onClick={() => window.open(recommendedApp.appstore_link, "_blank")}
           >
             <div className="flex items-center gap-2">
               <Icon icon="simple-icons:apple" className="text-white text-2xl" />
@@ -236,10 +248,13 @@ const RecommendedAppSection = () => {
           {/* Google Play Button */}
           <div
             className="flex-1 bg-[#16232A] rounded-xl p-3 cursor-pointer hover:bg-[#028C67] transition-colors group flex items-center justify-between"
-            onClick={() => window.open(recommendedApp.playstore_link, '_blank')}
+            onClick={() => window.open(recommendedApp.playstore_link, "_blank")}
           >
             <div className="flex items-center gap-2">
-              <Icon icon="simple-icons:googleplay" className="text-white text-2xl" />
+              <Icon
+                icon="simple-icons:googleplay"
+                className="text-white text-2xl"
+              />
               <div>
                 <p className="text-white text-xs">Get it on</p>
                 <p className="text-white font-semibold">Google Play</p>
@@ -256,7 +271,8 @@ const RecommendedAppSection = () => {
         <div className="rounded-lg bg-primary-light p-6 flex flex-col md:flex-row justify-between items-center gap-4 cursor-pointer group">
           <div className="flex flex-col justify-center text-center md:text-left group-hover:text-primary transition-colors">
             <span className="text-primary text-lg md:text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-              Scan to download <Icon icon="material-symbols:arrow-outward" className="inline" />
+              Scan to download{" "}
+              <Icon icon="material-symbols:arrow-outward" className="inline" />
             </span>
           </div>
           <div className="flex-shrink-0">
@@ -288,7 +304,7 @@ const FreePlanSection = () => {
     1,
     100,
     getRecommendedApp(payload_data?.business_type)?.plan_category?.toString() ||
-      '',
+      "",
   );
 
   // Get the free plan features (assuming the first plan is free or we filter for free plans)
@@ -310,7 +326,7 @@ const FreePlanSection = () => {
     ) {
       // If features has a feature_list property
       freePlanFeatures = foundPlan.features.feature_list
-        .map((feature: string) => feature.split(':')[1])
+        .map((feature: string) => feature.split(":")[1])
         .filter((featureText: string) => featureText && featureText.trim());
     }
   }
@@ -369,15 +385,19 @@ const DownloadAppsAndOtherOffers = () => {
   const [collapsedFeatures, setCollapsedFeatures] = useState<{
     [key: string]: boolean;
   }>({});
+  const [setupStatus, setSetupStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [setupErrorMessage, setSetupErrorMessage] = useState<string | null>(
+    null,
+  );
   const dispatch = useDispatch();
+  const hasSubmittedRef = useRef(false);
 
-  const pos_api_base_url = 'https://api.access89.com/support/v1';
+  const pos_api_base_url = "https://api.access89.com/support/v1";
 
   const {
     mutate: mutateSubscriber,
-    isLoading: isLoadingSubscriber,
-    isSuccess: isSuccessSubscriber,
-    error: errorSubscriber,
   } = useMutation(
     (newData: SubscriberStateType) =>
       mutateFn({
@@ -385,14 +405,30 @@ const DownloadAppsAndOtherOffers = () => {
         data: newData,
       }),
     {
-      onSuccess: () => {
-        // console.log('Subscriber created successfully');
+      onSuccess: (data) => {
+        const responseCode = data?.responseInfo?.responseCode;
+        if (responseCode && responseCode !== "000") {
+          const message = normalizeErrorMessage(
+            data?.message || data?.responseInfo?.responseMessage,
+          );
+          setSetupStatus("error");
+          setSetupErrorMessage(message);
+          toast.error(message);
+          return;
+        }
+
+        setSetupStatus("success");
+        setSetupErrorMessage(null);
         dispatch(resetSubscriber());
-        toast.success('Account created successfully!');
+        toast.success("Account created successfully!");
       },
-      onError: () => {
-        // console.error('Error creating subscriber:', error);
-        toast.error('Details were not submitted, please try again');
+      onError: (error: any) => {
+        const message = normalizeErrorMessage(
+          error?.response?.data?.message,
+        );
+        setSetupStatus("error");
+        setSetupErrorMessage(message);
+        toast.error(message);
       },
     },
   );
@@ -400,6 +436,13 @@ const DownloadAppsAndOtherOffers = () => {
   // Fire API call when component mounts
   useEffect(() => {
     const recommendedApp = getRecommendedApp(payload_data?.business_type);
+    if (!payload_data || hasSubmittedRef.current) {
+      return;
+    }
+
+    hasSubmittedRef.current = true;
+    setSetupStatus("loading");
+    setSetupErrorMessage(null);
     if (payload_data) {
       mutateSubscriber({
         ...payload_data,
@@ -419,7 +462,7 @@ const DownloadAppsAndOtherOffers = () => {
     1,
     100,
     getRecommendedApp(payload_data?.business_type)?.plan_category?.toString() ||
-      '',
+      "",
   );
 
   const toggleFeatures = (planId: string) => {
@@ -435,9 +478,8 @@ const DownloadAppsAndOtherOffers = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Setup message at top */}
       <InfoSection
-        isLoadingSubscriber={isLoadingSubscriber}
-        isSetupComplete={isSuccessSubscriber}
-        errorSubscriber={errorSubscriber}
+        setupStatus={setupStatus}
+        errorMessage={setupErrorMessage}
       />
 
       <div className="max-w-7xl mx-auto px-4 py-8">
@@ -509,7 +551,7 @@ const DownloadAppsAndOtherOffers = () => {
               {/* Plans by Category */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {allPlansFromAPI
-                  .filter((plan) => plan.plan_name !== 'Enterprise')
+                  .filter((plan) => plan.plan_name !== "Enterprise")
                   .reverse()
                   .map((plan) => (
                     <div
@@ -526,7 +568,7 @@ const DownloadAppsAndOtherOffers = () => {
                       </div>
 
                       <div className="mt-20">
-                        {['Enterprise'].includes(plan.plan_name) ? (
+                        {["Enterprise"].includes(plan.plan_name) ? (
                           <p></p>
                         ) : (
                           <p>
@@ -534,8 +576,8 @@ const DownloadAppsAndOtherOffers = () => {
                               {parseCurrency(
                                 plan?.bundles?.[0]?.currency?.String ||
                                   plan.currency,
-                              ) || '₵'}{' '}
-                              {plan?.bundles?.[0]?.price || '0'}
+                              ) || "₵"}{" "}
+                              {plan?.bundles?.[0]?.price || "0"}
                             </span>
                             <span className="text-sm">
                               /{plan.billing_frequency}
@@ -543,12 +585,12 @@ const DownloadAppsAndOtherOffers = () => {
                           </p>
                         )}
 
-                        {['free'].includes(plan.plan_name.toLowerCase()) ? (
+                        {["free"].includes(plan.plan_name.toLowerCase()) ? (
                           <div className="h-10"></div>
                         ) : (
                           <CustomButton
                             className="bg-[#16232A] text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
-                            onPress={() => navigate('/onboarding')}
+                            onPress={() => navigate("/onboarding")}
                           >
                             Get Started
                           </CustomButton>
@@ -564,8 +606,8 @@ const DownloadAppsAndOtherOffers = () => {
                           <Icon
                             icon={
                               collapsedFeatures[plan.id.toString()]
-                                ? 'lucide:chevron-down'
-                                : 'lucide:chevron-up'
+                                ? "lucide:chevron-down"
+                                : "lucide:chevron-up"
                             }
                             className="text-primary transition-transform duration-200"
                           />
@@ -575,13 +617,13 @@ const DownloadAppsAndOtherOffers = () => {
                           <div
                             className={` h-full transition-all duration-300 ease-in-out scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 ${
                               collapsedFeatures[plan.id.toString()]
-                                ? 'max-h-0 opacity-0'
-                                : 'max-h-96 opacity-100'
+                                ? "max-h-0 opacity-0"
+                                : "max-h-96 opacity-100"
                             }`}
                           >
                             <ul className="space-y-1 text-[0.8rem] lg:text-[0.9rem] pr-2">
                               {plan.features.feature_list
-                                .map((feature) => feature.split(':')[1])
+                                .map((feature) => feature.split(":")[1])
                                 .filter(
                                   (featureText) =>
                                     featureText && featureText.trim(),
@@ -593,7 +635,7 @@ const DownloadAppsAndOtherOffers = () => {
                                   >
                                     <p>
                                       <Icon
-                                        icon={'uil:check'}
+                                        icon={"uil:check"}
                                         className="text-primary"
                                       />
                                     </p>
@@ -621,7 +663,7 @@ const DownloadAppsAndOtherOffers = () => {
                   <div>
                     <CustomButton
                       className="bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]"
-                      onPress={() => navigate('/contact')}
+                      onPress={() => navigate("/contact")}
                     >
                       Contact Sales
                     </CustomButton>
