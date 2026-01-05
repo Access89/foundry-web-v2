@@ -811,7 +811,7 @@ const MadeForSection = ({ activeSegment }: MadeForSectionProps) => {
 
                 {/* Media area */}
                 <div
-                  className={`mt-6 w-full h-[18rem] md:h-[20rem] lg:h-[22rem] bg-transparent overflow-hidden  ${item.bgPosition}`}
+                  className={`mt-6 w-full h-[18rem] md:h-[20rem] lg:h-[22rem] bg-transparent overflow-hidden hover:scale-105 transition-transform duration-500 ease-in-out ${item.bgPosition}`}
                 >
                   <div
                     className="w-full h-full bg-center bg-no-repeat"
