@@ -17,8 +17,10 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
   };
 
   return (
-    <footer className="lg:px-8 
-    pt-16 pb-8 bg-[#1C1C1C] text-white border-t border-zinc-800">
+    <footer
+      className="lg:px-8 
+    pt-16 pb-8 bg-[#1C1C1C] text-white border-t border-zinc-800"
+    >
       {/* Breadcrumb */}
       <div className="max-w-10xl mx-auto px-8 mb-12">
         {/* <div className="flex items-center gap-2 text-sm text-gray-400">
@@ -29,17 +31,24 @@ const Footer: React.FC<FooterProps> = ({ setActiveSegment }) => {
       </div>
 
       {/* Main footer content */}
-      <div className="max-w-10xl mx-auto px-8 grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
+      <div className="max-w-10xl mx-auto px-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-16">
         {/* Logo column */}
         <div className="col-span-2 md:col-span-1">
           <div className="flex md:flex-col items-center md:items-start gap-3 lg:gap-4 mb-6">
             <img
               src="/icons/logo_white.svg"
               alt="Foundry Logo"
-              className="h-8 md:h-12 lg:h-12 w-auto"
+              className="h-8 md:h-10 lg:h-11 w-auto"
             />
-            <span className=" text-2xl uppercase md:capitalize md:text-3xl font-medium">Foundry</span>
+            <span className=" text-2xl uppercase md:capitalize md:text-3xl font-medium">
+              Foundry
+            </span>
           </div>
+          <img
+            src="/images/iso/isoLogo.png"
+            alt="Iso Logo"
+            className="h-8 md:h-20 lg:h-20 w-auto"
+          />
         </div>
 
         {/* Foundry column */}
