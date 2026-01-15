@@ -23,7 +23,7 @@ const KYCSection: React.FC<KYCSectionProps> = ({ activeSegment }) => {
               onboarding and engaging with Foundry users.
             </p>
             <button
-              onClick={() => (window.location.href = "/onboarding")}
+              onClick={() => (window.location.href = "/pricing")}
               className="px-6 py-3 bg-white text-black rounded-lg font-medium text-sm hover:bg-gray-100 transition-colors uppercase"
             >
               Get Started

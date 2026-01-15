@@ -99,7 +99,7 @@ const WealthManagement = () => {
 
           <div className="flex flex-col sm:flex-row items-start gap-4">
             <button
-              onClick={() => navigate("/onboarding")}
+              onClick={() => navigate("/pricing")}
               className="px-8 py-4 bg-white hover:bg-gray-200 text-black rounded-lg font-medium transition-all flex items-center gap-2 group"
             >
               {hero.ctas.primary}

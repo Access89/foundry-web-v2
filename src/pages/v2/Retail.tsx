@@ -153,7 +153,7 @@ const Retail = () => {
         title={currentHero.title}
         description={currentHero.description}
         cta={currentHero.cta}
-        onCtaClick={() => (window.location.href = "/onboarding")}
+        onCtaClick={() => (window.location.href = "/pricing")}
         heroImage={currentHero.heroImage}
         heroImageAlt="Foundry specific solution hero"
         theme="light"
@@ -201,7 +201,7 @@ const Retail = () => {
             </h2>
             <p className="text-secondary-black mb-8">{cta.description}</p>
             <button
-              onClick={() => (window.location.href = "/onboarding")}
+              onClick={() => (window.location.href = "/pricing")}
               className="px-8 py-4 bg-primary text-white font-medium hover:opacity-90 transition-opacity rounded-lg"
             >
               {cta.button}

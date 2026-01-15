@@ -1,9 +1,10 @@
 import InfoSectionWithVideo from '@/components/reusable/info_section_with_videos';
 import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Trucking = () => {
+	const navigate = useNavigate();
 	return (
 		<main>
 			<section className="container">
@@ -18,7 +19,10 @@ const Trucking = () => {
 						</p>
 
 						<div className="flex items-center gap-x-4">
-							<CustomButton className="bg-transparent border-2 border-primary px-5 ">
+							<CustomButton
+							className="bg-transparent border-2 border-primary px-5 "
+							onPress={() => navigate('/pricing')}
+						>
 								Get Started
 							</CustomButton>
 							<CustomButton className="bg-primary text-white font-medium px-5 ">

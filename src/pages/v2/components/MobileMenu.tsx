@@ -213,7 +213,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           <div className="flex flex-col gap-2">
             <button
               onClick={() => {
-                navigate("/onboarding");
+                navigate("/pricing");
                 setIsMenuOpen(false);
               }}
               className={`w-full py-3 px-4 rounded-lg font-medium text-sm transition-colors ${

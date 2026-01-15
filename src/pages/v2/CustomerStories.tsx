@@ -135,7 +135,7 @@ const CustomerStories = () => {
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
-              onClick={() => (window.location.href = "/onboarding")}
+              onClick={() => (window.location.href = "/pricing")}
               className="bg-primary text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
             >
               Get Started

@@ -1,6 +1,6 @@
 import { CustomButton } from '@/components/shared/shared_customs';
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Accordion, AccordionItem, Image, cn } from '@nextui-org/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Retail from './retail';
@@ -12,6 +12,7 @@ import AllExperience from './all_experience';
 import { useInView } from 'react-intersection-observer';
 
 const UseCases = () => {
+	const navigate = useNavigate();
 	const { ref, inView } = useInView({
 		threshold: 0,
 		initialInView: true,
@@ -47,7 +48,10 @@ const UseCases = () => {
 								trusted by millions of businesses.
 							</p>
 							<div className="flex items-center gap-x-4">
-								<CustomButton className="bg-transparent border-2 border-primary px-5 ">
+								<CustomButton
+									className="bg-transparent border-2 border-primary px-5 "
+									onPress={() => navigate('/pricing')}
+								>
 									Get Started
 								</CustomButton>
 								<CustomButton className="bg-primary text-white font-medium px-5 ">
@@ -217,7 +221,10 @@ const UseCases = () => {
 							animate={{ x: 0 }}
 							exit={{ x: -40, opacity: 0 }}
 							className=" items-center gap-x-4 hidden xl:flex">
-							<CustomButton className="bg-transparent border-2 border-primary px-5 ">
+							<CustomButton
+								className="bg-transparent border-2 border-primary px-5 "
+								onPress={() => navigate('/pricing')}
+							>
 								Get Started
 							</CustomButton>
 							<CustomButton className="bg-primary text-white font-medium px-5 ">

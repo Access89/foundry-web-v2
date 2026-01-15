@@ -267,7 +267,7 @@ const Navbar: React.FC<NavbarProps> = ({
               Sign In
             </button>
             <button
-              onClick={() => navigate("/onboarding")}
+              onClick={() => navigate("/pricing")}
               className={`border-2  px-6 py-2.5 rounded-lg font-medium text-sm transition-all${
                 !isDark
                   ? " bg-primary text-white border-primary hover:bg-primary-dark hover:border-primary-dark hover:opacity-90"

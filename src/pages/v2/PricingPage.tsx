@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateSubscriberState } from "@/store/features/subscriber";
 import {
   Check,
   Store,
@@ -51,6 +53,7 @@ interface Plan {
   addonsText: string;
   color: string;
   popular: boolean;
+  plan_id: number;
 }
 
 interface Addon {
@@ -113,6 +116,7 @@ const PLANS: Plan[] = [
     addonsText: "Extra users, locations, payroll",
     color: "blue",
     popular: false,
+    plan_id: 51,
   },
   {
     id: "retail-starter",
@@ -139,6 +143,7 @@ const PLANS: Plan[] = [
     addonsText: "Users, full inventory, invoicing, expense",
     color: "teal",
     popular: false,
+    plan_id: 52,
   },
   {
     id: "retail-business",
@@ -165,6 +170,7 @@ const PLANS: Plan[] = [
     addonsText: "Shops, warehouses, users, inventory",
     color: "primary",
     popular: true,
+    plan_id: 51,
   },
   {
     id: "chain",
@@ -192,6 +198,7 @@ const PLANS: Plan[] = [
     addonsText: "Custom modules available",
     color: "slate",
     popular: false,
+    plan_id: 0,
   },
 ];
 
@@ -536,12 +543,12 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
 }) => {
   const [isAnnual, setIsAnnual] = useState<boolean>(initialAnnual || false);
   const [selectedAddons, setSelectedAddons] = useState<string[]>(
-    initialAddon ? [initialAddon.id] : []
+    initialAddon ? [initialAddon.id] : [],
   );
   const [shopCount, setShopCount] = useState<number>(1);
   const [userCount, setUserCount] = useState<number>(selectedPlan.limits.users);
   const [warehouseCount, setWarehouseCount] = useState<number>(
-    selectedPlan.limits.warehouses
+    selectedPlan.limits.warehouses,
   );
 
   // Determine if extra warehouses can be added
@@ -564,7 +571,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
 
   const toggleAddon = (id: string): void => {
     setSelectedAddons((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
     );
   };
 
@@ -591,7 +598,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
     // Extra Warehouses
     const extraWarehouses = Math.max(
       0,
-      warehouseCount - selectedPlan.limits.warehouses
+      warehouseCount - selectedPlan.limits.warehouses,
     );
     if (extraWarehouses > 0)
       cost += getPeriodPrice(EXTRA_WAREHOUSE_PRICE * extraWarehouses);
@@ -607,7 +614,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
   const getAddonCost = (): number => {
     return ADDONS.filter((addon) => selectedAddons.includes(addon.id)).reduce(
       (sum, addon) => sum + getPeriodPrice(addon.price),
-      0
+      0,
     );
   };
 
@@ -754,7 +761,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
                     <button
                       onClick={() =>
                         setUserCount(
-                          Math.max(selectedPlan.limits.users, userCount - 1)
+                          Math.max(selectedPlan.limits.users, userCount - 1),
                         )
                       }
                       className={`w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center transition-colors ${
@@ -788,8 +795,8 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
                       {!canAddWarehouses
                         ? "Not available on this plan"
                         : warehouseCount <= selectedPlan.limits.warehouses
-                        ? `Included`
-                        : `Extra warehouses +$${EXTRA_WAREHOUSE_PRICE}/mo`}
+                          ? `Included`
+                          : `Extra warehouses +$${EXTRA_WAREHOUSE_PRICE}/mo`}
                     </p>
                   </div>
                   <div className="flex items-center">
@@ -798,8 +805,8 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
                         setWarehouseCount(
                           Math.max(
                             selectedPlan.limits.warehouses,
-                            warehouseCount - 1
-                          )
+                            warehouseCount - 1,
+                          ),
                         )
                       }
                       className={`w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center transition-colors ${
@@ -925,7 +932,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
                         $
                         {getPeriodPrice(
                           EXTRA_USER_PRICE *
-                            (userCount - selectedPlan.limits.users)
+                            (userCount - selectedPlan.limits.users),
                         ).toLocaleString()}
                       </span>
                     </div>
@@ -940,7 +947,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
                         $
                         {getPeriodPrice(
                           EXTRA_WAREHOUSE_PRICE *
-                            (warehouseCount - selectedPlan.limits.warehouses)
+                            (warehouseCount - selectedPlan.limits.warehouses),
                         ).toLocaleString()}
                       </span>
                     </div>
@@ -953,7 +960,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
                       <span className="font-medium text-gray-900">
                         $
                         {getPeriodPrice(
-                          EXTRA_SHOP_PRICE * (shopCount - 1)
+                          EXTRA_SHOP_PRICE * (shopCount - 1),
                         ).toLocaleString()}
                       </span>
                     </div>
@@ -977,7 +984,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
                           ${getPeriodPrice(addon.price).toLocaleString()}
                         </span>
                       </div>
-                    )
+                    ),
                   )}
                 </div>
               )}
@@ -1062,6 +1069,7 @@ const SuccessView: React.FC<SuccessViewProps> = ({ onReset }) => (
 
 const PricingPage: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { setActiveSegment } = useV2Context();
 
   useEffect(() => {
@@ -1104,6 +1112,15 @@ const PricingPage: React.FC = () => {
   };
 
   const handleSuccess = (): void => {
+    // Store the selected plan_id in Redux before navigating to onboarding
+    if (selectedPlan) {
+      dispatch(
+        updateSubscriberState({
+          plan_id: selectedPlan.plan_id,
+          subscription_plan: selectedPlan.name,
+        })
+      );
+    }
     navigate("/onboarding");
   };
 

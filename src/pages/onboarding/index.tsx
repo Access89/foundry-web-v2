@@ -1,16 +1,16 @@
-import Country from './_components/_tabs/Country';
-import { useState, useEffect } from 'react';
-import BasicInformation from './_components/_tabs/basic-information';
-import { Icon } from '@iconify/react/dist/iconify.js';
-import BusinessInformation from './_components/_tabs/business-information';
+import Country from "./_components/_tabs/Country";
+import { useState, useEffect } from "react";
+import BasicInformation from "./_components/_tabs/basic-information";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import BusinessInformation from "./_components/_tabs/business-information";
 // import PasswordSetting from "./_components/_tabs/password";
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
-import { updateSubscriberState } from '@/store/features/subscriber';
-import { CustomButton } from '@/components/shared/shared_customs';
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { updateSubscriberState } from "@/store/features/subscriber";
+import { CustomButton } from "@/components/shared/shared_customs";
 
-type ITab = 'country' | 'basic-information' | 'business-information';
+type ITab = "country" | "basic-information" | "business-information";
 type TReturnValue = void | string;
 
 const Onboarding = () => {
@@ -21,7 +21,7 @@ const Onboarding = () => {
 
   const dispatch = useDispatch();
 
-  const [activeTab, setActiveTab] = useState<ITab>('country');
+  const [activeTab, setActiveTab] = useState<ITab>("country");
 
   // Reset validation state when switching tabs
   useEffect(() => {
@@ -45,33 +45,33 @@ const Onboarding = () => {
         navigate(-1);
       },
       next: () => {
-        return 'business-information';
+        return "business-information";
       },
       component: <Country />,
     },
-    'business-information': {
+    "business-information": {
       prev: () => {
-        return 'country';
+        return "country";
       },
       next: () => {
         if (
-          nature_of_business === 'Sole Proprietorship'
+          nature_of_business === "Sole Proprietorship"
           // business_type === 'Retail'
         ) {
-          return 'basic-information';
+          return "basic-information";
         } else {
-          navigate('/book-a-demo');
+          navigate("/book-a-demo");
         }
       },
       component: <BusinessInformation />,
     },
 
-    'basic-information': {
+    "basic-information": {
       prev: () => {
-        return 'business-information';
+        return "business-information";
       },
       next: () => {
-        navigate('password');
+        navigate("password");
       },
       component: <BasicInformation />,
     },
@@ -94,23 +94,23 @@ const Onboarding = () => {
           onClick={(event) => {
             event.preventDefault();
             const returnValue = tabs?.[activeTab]?.prev();
-            if (typeof returnValue == 'string') {
+            if (typeof returnValue == "string") {
               setActiveTab(returnValue as ITab);
             }
           }}
         >
-          <Icon icon={'fluent:arrow-left-16-filled'} height={25} />
+          <Icon icon={"fluent:arrow-left-16-filled"} height={25} />
         </div>
         {tabs?.[activeTab]?.component}
       </div>
 
       <CustomButton
-        className={`py-6 transition-all duration-300 bg-primary text-white 
-      
+        className={`py-6 transition-all duration-300 bg-primary text-white
+
             `}
         onPress={() => {
           const returnValue = tabs?.[activeTab]?.next();
-          if (typeof returnValue == 'string') {
+          if (typeof returnValue == "string") {
             setActiveTab(returnValue as ITab);
           }
           // Don't reset safe state here - let each tab handle its own validation

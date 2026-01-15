@@ -128,7 +128,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
               <button
-                onClick={() => navigate("/onboarding")}
+                onClick={() => navigate("/pricing")}
                 className={`px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg transition-all shadow hover:shadow-xl ${
                   activeSegment === "merchant"
                     ? "bg-primary text-white hover:bg-primary-dark"

@@ -1,58 +1,58 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type SubscriberStateType = {
-	customer_name: string;
-	// subscription_plan: string;
-	country: string;
-	country_code?: string;
-	email: string;
-	mobile: string;
-	password: string,
-	business_location: string,
-	nature_of_business: string,
-	business_type: string,
-	safe?: boolean
-	business_owner: string,
+  customer_name: string;
+  subscription_plan: string;
+  plan_id?: number;
+  country: string;
+  country_code?: string;
+  email: string;
+  mobile: string;
+  password: string;
+  business_location: string;
+  nature_of_business: string;
+  business_type: string;
+  safe?: boolean;
+  business_owner: string;
 };
 
 const initialState: SubscriberStateType = {
-	customer_name: "",
-	// subscription_plan: "",
-	business_owner: "",
-	country: "",
-	country_code: "",
-	email: "",
-	mobile: "",
-	password: "",
-	business_location: "",
-	nature_of_business: "Sole Proprietorship",
-	business_type: "",
-	safe: false
+  customer_name: "",
+  subscription_plan: "",
+  plan_id: undefined,
+  business_owner: "",
+  country: "",
+  country_code: "",
+  email: "",
+  mobile: "",
+  password: "",
+  business_location: "",
+  nature_of_business: "Sole Proprietorship",
+  business_type: "",
+  safe: false,
 };
 
-
-
-
 const subscriberSlice = createSlice({
-	name: 'subscriber',
-	initialState,
-	reducers: {
-		updateSubscriberState: (
-			state,
-			action: PayloadAction<Partial<typeof initialState>>,
-		) => {
-			return {
-				...state,
-				...action.payload,
-			};
-		},
+  name: "subscriber",
+  initialState,
+  reducers: {
+    updateSubscriberState: (
+      state,
+      action: PayloadAction<Partial<typeof initialState>>,
+    ) => {
+      return {
+        ...state,
+        ...action.payload,
+      };
+    },
 
-		resetSubscriber: () => {
-			return initialState;
-		},
-	},
+    resetSubscriber: () => {
+      return initialState;
+    },
+  },
 });
 
-export const { resetSubscriber, updateSubscriberState } = subscriberSlice.actions;
+export const { resetSubscriber, updateSubscriberState } =
+  subscriberSlice.actions;
 
 export default subscriberSlice;

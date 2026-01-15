@@ -30,7 +30,7 @@ const CTASection: React.FC<CTASectionProps> = ({ activeSegment }) => {
             </p>
 
             <button
-              onClick={() => (window.location.href = "/onboarding")}
+              onClick={() => (window.location.href = "/pricing")}
               className="px-8 py-4 bg-black text-white rounded-lg font-medium uppercase text-sm hover:bg-gray-800 transition-colors"
             >
               Get Started

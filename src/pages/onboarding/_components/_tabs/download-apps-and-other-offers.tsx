@@ -11,6 +11,7 @@ import { useMutation } from "react-query";
 import {
   resetSubscriber,
   SubscriberStateType,
+  updateSubscriberState,
 } from "@/store/features/subscriber";
 
 const appList = [
@@ -68,7 +69,7 @@ const normalizeErrorMessage = (value: unknown) => {
   if (typeof value === "string") return value;
   if (value && typeof value === "object") {
     try {
-      return JSON.stringify(value);
+      return (value as any)?.message || JSON.stringify(value);
     } catch {
       return "Details were not submitted, please try again.";
     }
@@ -80,16 +81,13 @@ const InfoSection = ({
   setupStatus,
   errorMessage,
 }: {
-  setupStatus: 'idle' | 'loading' | 'success' | 'error';
+  setupStatus: "idle" | "loading" | "success" | "error";
   errorMessage?: string | null;
 }) => {
   const location = useLocation();
   const { payload_data } = location.state?.payload || {};
   const businessOwner = payload_data?.business_owner;
 
-  // console.log('errorSubscriber', errorSubscriber?.response?.data?.message);
-
-  // Determine the current state
   const getStateInfo = () => {
     if (setupStatus === "error") {
       return {
@@ -394,11 +392,10 @@ const DownloadAppsAndOtherOffers = () => {
   const dispatch = useDispatch();
   const hasSubmittedRef = useRef(false);
 
-  const pos_api_base_url = "https://api.access89.com/support/v1";
+  // const pos_api_base_url = "https://api.access89.com/support/v1";
+  const pos_api_base_url = "http://localhost:7071/api";
 
-  const {
-    mutate: mutateSubscriber,
-  } = useMutation(
+  const { mutate: mutateSubscriber } = useMutation(
     (newData: SubscriberStateType) =>
       mutateFn({
         url: `${pos_api_base_url}/setup/create`,
@@ -419,13 +416,26 @@ const DownloadAppsAndOtherOffers = () => {
 
         setSetupStatus("success");
         setSetupErrorMessage(null);
+
+        // Extract plan_id from API response
+        const apiPlanId = data?.data?.plan_id;
+
+        // Reset subscriber data
         dispatch(resetSubscriber());
+
+        // Restore plan_id from API response after reset
+        if (apiPlanId) {
+          dispatch(
+            updateSubscriberState({
+              plan_id: apiPlanId,
+            }),
+          );
+        }
+
         toast.success("Account created successfully!");
       },
       onError: (error: any) => {
-        const message = normalizeErrorMessage(
-          error?.response?.data?.message,
-        );
+        const message = normalizeErrorMessage(error?.response?.data?.message);
         setSetupStatus("error");
         setSetupErrorMessage(message);
         toast.error(message);
@@ -446,7 +456,7 @@ const DownloadAppsAndOtherOffers = () => {
     if (payload_data) {
       mutateSubscriber({
         ...payload_data,
-        plan_id: recommendedApp?.plan_id,
+        plan_id: payload_data.plan_id,
         subscription: recommendedApp?.plan_type,
         product: recommendedApp?.name,
       } as any);
@@ -477,10 +487,7 @@ const DownloadAppsAndOtherOffers = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Setup message at top */}
-      <InfoSection
-        setupStatus={setupStatus}
-        errorMessage={setupErrorMessage}
-      />
+      <InfoSection setupStatus={setupStatus} errorMessage={setupErrorMessage} />
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Recommended app based on business type */}

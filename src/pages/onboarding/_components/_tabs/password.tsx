@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useFormik } from 'formik';
-import CustomInput from '../_form/Input';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateSubscriberState } from '@/store/features/subscriber';
-import { RootState } from '@/store/store';
-import { useEffect } from 'react';
-import { CustomButton } from '@/components/shared/shared_customs';
-import { cn } from '@nextui-org/react';
-import { useNavigate } from 'react-router-dom';
+import { useFormik } from "formik";
+import CustomInput from "../_form/Input";
+import { useDispatch, useSelector } from "react-redux";
+import { updateSubscriberState } from "@/store/features/subscriber";
+import { RootState } from "@/store/store";
+import { useEffect } from "react";
+import { CustomButton } from "@/components/shared/shared_customs";
+import { cn } from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
 
 const PasswordSetting = () => {
   const dispatch = useDispatch();
@@ -24,6 +24,7 @@ const PasswordSetting = () => {
     password,
     country_code,
     business_owner,
+    plan_id,
   } = useSelector((state: RootState) => state.subscriber);
 
   const validate = (values: any) => {
@@ -31,24 +32,24 @@ const PasswordSetting = () => {
 
     // Password validation
     if (!values.password) {
-      errors.password = 'Password is required';
+      errors.password = "Password is required";
     } else if (values.password.length < 8) {
-      errors.password = 'Password must be at least 8 characters';
+      errors.password = "Password must be at least 8 characters";
     } else if (!/[A-Z]/.test(values.password)) {
-      errors.password = 'Password must contain at least one uppercase letter';
+      errors.password = "Password must contain at least one uppercase letter";
     } else if (!/[a-z]/.test(values.password)) {
-      errors.password = 'Password must contain at least one lowercase letter';
+      errors.password = "Password must contain at least one lowercase letter";
     } else if (!/[0-9]/.test(values.password)) {
-      errors.password = 'Password must contain at least one number';
+      errors.password = "Password must contain at least one number";
     } else if (!/[^A-Za-z0-9]/.test(values.password)) {
-      errors.password = 'Password must contain at least one special character';
+      errors.password = "Password must contain at least one special character";
     }
 
     // Confirm password validation
     if (!values.confirm_password) {
-      errors.confirm_password = 'Please confirm your password';
+      errors.confirm_password = "Please confirm your password";
     } else if (values.password !== values.confirm_password) {
-      errors.confirm_password = 'Passwords must match';
+      errors.confirm_password = "Passwords must match";
     }
 
     return errors;
@@ -56,8 +57,8 @@ const PasswordSetting = () => {
 
   const { ...form } = useFormik({
     initialValues: {
-      password: password || '',
-      confirm_password: '',
+      password: password || "",
+      confirm_password: "",
     },
     validate,
     validateOnChange: true,
@@ -102,9 +103,10 @@ const PasswordSetting = () => {
       business_location: business_location,
       business_type: business_type,
       nature_of_business: nature_of_business,
+      plan_id: plan_id, // Include plan_id from Redux state
     };
 
-    navigate('/onboarding/download-apps-and-other-offers', {
+    navigate("/onboarding/download-apps-and-other-offers", {
       state: {
         payload: {
           payload_data: payload,
@@ -132,29 +134,29 @@ const PasswordSetting = () => {
 
         <div className="lg:pt-6 flex flex-col gap-4 pt-4">
           <CustomInput
-            type={'password'}
-            label={'Password'}
-            placeholder={''}
-            id={'password'}
+            type={"password"}
+            label={"Password"}
+            placeholder={""}
+            id={"password"}
             values={form.values}
             errors={form.errors as any}
             handleChange={(e: any) => {
-              form.setFieldValue('password', e.target.value);
+              form.setFieldValue("password", e.target.value);
               dispatch(updateSubscriberState({ password: e.target.value }));
-              form.setFieldTouched('password', true, false);
+              form.setFieldTouched("password", true, false);
             }}
             handleBlur={form.handleBlur}
           />
           <CustomInput
-            type={'password'}
-            label={'Confirm Password'}
-            placeholder={''}
-            id={'confirm_password'}
+            type={"password"}
+            label={"Confirm Password"}
+            placeholder={""}
+            id={"confirm_password"}
             values={form.values}
-          errors={form.errors as any} 
+            errors={form.errors as any}
             handleChange={(e: any) => {
-              form.setFieldValue('confirm_password', e.target.value);
-              form.setFieldTouched('confirm_password', true, false);
+              form.setFieldValue("confirm_password", e.target.value);
+              form.setFieldTouched("confirm_password", true, false);
             }}
             handleBlur={form.handleBlur}
           />
@@ -163,8 +165,8 @@ const PasswordSetting = () => {
 
       <CustomButton
         className={cn(
-          'bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]',
-          isDisabled && 'opacity-50 cursor-not-allowed',
+          "bg-primary text-white font-medium w-full mt-2 py-2 lg:py-4 lg:text-[0.9rem]",
+          isDisabled && "opacity-50 cursor-not-allowed",
         )}
         onPress={() => {
           if (

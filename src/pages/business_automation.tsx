@@ -20,7 +20,7 @@ const BusinessAutomation = () => {
         </p>
         <div className="flex gap-4 items-center justify-center">
           <CustomButton
-            onPress={() => navigate("/onboarding")}
+            onPress={() => navigate("/pricing")}
             className="bg-primary text-white font-medium px-5 "
           >
             Get Started
