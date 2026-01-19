@@ -392,8 +392,8 @@ const DownloadAppsAndOtherOffers = () => {
   const dispatch = useDispatch();
   const hasSubmittedRef = useRef(false);
 
-  // const pos_api_base_url = "https://api.access89.com/support/v1";
-  const pos_api_base_url = "http://localhost:7071/api";
+  const pos_api_base_url = "https://api.access89.com/support/v1";
+  // const pos_api_base_url = "http://localhost:7071/api";
 
   const { mutate: mutateSubscriber } = useMutation(
     (newData: SubscriberStateType) =>
