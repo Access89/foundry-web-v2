@@ -4,7 +4,7 @@ import BasicInformation from "./_components/_tabs/basic-information";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import BusinessInformation from "./_components/_tabs/business-information";
 // import PasswordSetting from "./_components/_tabs/password";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { updateSubscriberState } from "@/store/features/subscriber";
@@ -15,13 +15,26 @@ type TReturnValue = void | string;
 
 const Onboarding = () => {
   const navigate = useNavigate();
-  const { safe, nature_of_business } = useSelector(
+  const [searchParams] = useSearchParams();
+  const { safe, nature_of_business, plan_id } = useSelector(
     (state: RootState) => state.subscriber,
   );
 
   const dispatch = useDispatch();
 
   const [activeTab, setActiveTab] = useState<ITab>("country");
+
+  // Read plan_id from URL search params and update Redux state
+  useEffect(() => {
+    const planIdFromUrl = searchParams.get("plan_id");
+    if (planIdFromUrl && !plan_id) {
+      dispatch(
+        updateSubscriberState({
+          plan_id: parseInt(planIdFromUrl, 10),
+        }),
+      );
+    }
+  }, [searchParams, plan_id, dispatch]);
 
   // Reset validation state when switching tabs
   useEffect(() => {
@@ -71,7 +84,8 @@ const Onboarding = () => {
         return "business-information";
       },
       next: () => {
-        navigate("password");
+        const planIdParam = plan_id ? `?plan_id=${plan_id}` : "";
+        navigate(`password${planIdParam}`);
       },
       component: <BasicInformation />,
     },
@@ -89,6 +103,7 @@ const Onboarding = () => {
   return (
     <div className="lg:w-[700px] w-full h-full lg:pt-12 lg:px-6 mx-auto flex flex-col justify-between lg:pb-12 px-6 py-6">
       <div className="flex flex-col gap-4">
+        <p>{plan_id}</p>
         <div
           className="flex items-center justify-start cursor-pointer"
           onClick={(event) => {
@@ -103,7 +118,6 @@ const Onboarding = () => {
         </div>
         {tabs?.[activeTab]?.component}
       </div>
-
       <CustomButton
         className={`py-6 transition-all duration-300 bg-primary text-white
 

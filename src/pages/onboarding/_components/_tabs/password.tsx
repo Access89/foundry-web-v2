@@ -7,11 +7,12 @@ import { RootState } from "@/store/store";
 import { useEffect } from "react";
 import { CustomButton } from "@/components/shared/shared_customs";
 import { cn } from "@nextui-org/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const PasswordSetting = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   const {
     customer_name,
@@ -26,6 +27,18 @@ const PasswordSetting = () => {
     business_owner,
     plan_id,
   } = useSelector((state: RootState) => state.subscriber);
+
+  // Read plan_id from URL search params and update Redux state
+  useEffect(() => {
+    const planIdFromUrl = searchParams.get("plan_id");
+    if (planIdFromUrl && !plan_id) {
+      dispatch(
+        updateSubscriberState({
+          plan_id: parseInt(planIdFromUrl, 10),
+        }),
+      );
+    }
+  }, [searchParams, plan_id, dispatch]);
 
   const validate = (values: any) => {
     const errors: any = {};
@@ -106,7 +119,8 @@ const PasswordSetting = () => {
       plan_id: plan_id, // Include plan_id from Redux state
     };
 
-    navigate("/onboarding/download-apps-and-other-offers", {
+    const planIdParam = plan_id ? `?plan_id=${plan_id}` : "";
+    navigate(`/onboarding/download-apps-and-other-offers${planIdParam}`, {
       state: {
         payload: {
           payload_data: payload,

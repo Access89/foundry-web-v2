@@ -170,7 +170,7 @@ const PLANS: Plan[] = [
     addonsText: "Shops, warehouses, users, inventory",
     color: "primary",
     popular: true,
-    plan_id: 51,
+    plan_id: 53,
   },
   {
     id: "chain",
@@ -1088,6 +1088,11 @@ const PricingPage: React.FC = () => {
       navigate("/book-a-demo");
       return;
     }
+    dispatch(
+      updateSubscriberState({
+        plan_id: plan.plan_id,
+      }),
+    );
     setSelectedPlan(plan);
     setIsAnnualSelection(isAnnual);
     setInitialAddon(null);
@@ -1112,16 +1117,17 @@ const PricingPage: React.FC = () => {
   };
 
   const handleSuccess = (): void => {
-    // Store the selected plan_id in Redux before navigating to onboarding
     if (selectedPlan) {
       dispatch(
         updateSubscriberState({
           plan_id: selectedPlan.plan_id,
           subscription_plan: selectedPlan.name,
-        })
+        }),
       );
+      navigate(`/onboarding?plan_id=${selectedPlan.plan_id}`);
+    } else {
+      navigate("/onboarding");
     }
-    navigate("/onboarding");
   };
 
   return (
