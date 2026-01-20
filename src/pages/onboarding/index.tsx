@@ -16,9 +16,7 @@ type TReturnValue = void | string;
 const Onboarding = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { safe, nature_of_business, plan_id } = useSelector(
-    (state: RootState) => state.subscriber,
-  );
+  const { safe, plan_id } = useSelector((state: RootState) => state.subscriber);
 
   const dispatch = useDispatch();
 
