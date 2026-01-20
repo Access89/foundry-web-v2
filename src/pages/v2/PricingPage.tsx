@@ -516,12 +516,12 @@ const PricingHome: React.FC<PricingHomeProps> = ({
                         / month
                       </p>
                     </div>
-                    <button
+                    {/*<button
                       onClick={() => onSelectAddon(addon)}
                       className="mt-4 w-full bg-white text-primary border border-primary-light px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-light transition-colors"
                     >
                       Add to Plan
-                    </button>
+                    </button>*/}
                   </div>
                 </div>
               );
@@ -843,7 +843,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
           {/* Add-ons List */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <h2 className="text-lg font-medium text-gray-900 mb-4">
-              Premium Modules
+              Add-ons
             </h2>
             <div className="space-y-3">
               {ADDONS.map((addon) => {
