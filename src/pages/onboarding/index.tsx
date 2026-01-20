@@ -67,14 +67,7 @@ const Onboarding = () => {
         return "country";
       },
       next: () => {
-        if (
-          nature_of_business === "Sole Proprietorship"
-          // business_type === 'Retail'
-        ) {
-          return "basic-information";
-        } else {
-          navigate("/book-a-demo");
-        }
+        return "basic-information";
       },
       component: <BusinessInformation />,
     },
@@ -126,7 +119,6 @@ const Onboarding = () => {
           if (typeof returnValue == "string") {
             setActiveTab(returnValue as ITab);
           }
-          // Don't reset safe state here - let each tab handle its own validation
         }}
         disabled={!safe}
       >
