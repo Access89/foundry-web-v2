@@ -226,7 +226,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             </button>
             <button
               onClick={() => {
-                window.open("https://app.foundry-platform.app/", "_blank");
+                window.open("https://business.foundry-platform.app/", "_blank");
               }}
               className={`w-full py-3 px-4 rounded-lg font-medium text-sm border-2 transition-colors ${
                 isDark
