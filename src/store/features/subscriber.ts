@@ -14,6 +14,7 @@ export type SubscriberStateType = {
   business_type: string;
   safe?: boolean;
   business_owner: string;
+  showValidationErrors?: boolean;
 };
 
 const initialState: SubscriberStateType = {
@@ -30,6 +31,7 @@ const initialState: SubscriberStateType = {
   nature_of_business: "Sole Proprietorship",
   business_type: "",
   safe: false,
+  showValidationErrors: false,
 };
 
 const subscriberSlice = createSlice({

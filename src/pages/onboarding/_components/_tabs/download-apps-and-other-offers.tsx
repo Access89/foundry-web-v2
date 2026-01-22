@@ -86,7 +86,8 @@ const InfoSection = ({
 }) => {
   const location = useLocation();
   const { payload_data } = location.state?.payload || {};
-  const businessOwner = payload_data?.business_owner;
+  console.log({ payload_data });
+  const businessOwner = payload_data?.user_name;
 
   const getStateInfo = () => {
     if (setupStatus === "error") {
@@ -208,8 +209,6 @@ const RecommendedAppSection = () => {
   const location = useLocation();
   const { payload_data } = location.state?.payload || {};
   const recommendedApp = getRecommendedApp(payload_data?.business_type);
-
-  console.log("recommendedApp", recommendedApp);
 
   if (!recommendedApp) return null;
 

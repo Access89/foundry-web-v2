@@ -7,6 +7,7 @@ interface props {
   placeholder: string;
   values: Record<string, string>;
   errors: Record<string, string>;
+  touched?: Record<string, boolean>;
   id: string;
   handleChange: any;
   handleBlur: any;
@@ -16,6 +17,7 @@ const CustomInput = ({
   label,
   placeholder,
   errors,
+  touched,
   id,
   values,
   handleChange,
@@ -27,6 +29,8 @@ const CustomInput = ({
     setShowPassword(prev => !prev);
   };
 
+  const showError = touched?.[id] && errors?.[id];
+
   return (
     <div className="relative">
       <Input
@@ -35,7 +39,8 @@ const CustomInput = ({
         type={type === "password" && showPassword ? "text" : type}
         label={label}
         placeholder={placeholder}
-        errorMessage={errors?.[id] || ''} // Use optional chaining to avoid undefined error
+        errorMessage={showError || ''} // Only show error if field is touched
+        isInvalid={!!showError} // Show error state only if touched
         value={values?.[id] || ''} // Ensure default empty value
         onChange={handleChange}
         onBlur={handleBlur}

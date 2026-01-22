@@ -11,6 +11,7 @@ interface props {
   placeholder: string;
   values: Record<string, string>;
   errors: Record<string, string>;
+  touched?: Record<string, boolean>;
   id: string;
   handleChange: any;
   handleBlur: any;
@@ -20,6 +21,7 @@ const PhoneInput = ({
   label,
   placeholder,
   errors,
+  touched,
   id,
   values,
   handleChange,
@@ -29,6 +31,8 @@ const PhoneInput = ({
   //   ...countries.map((c) => c).sort((a, b) => a.name.localeCompare(b.name)),
   // ];
   const { country_code } = useSelector((state: RootState) => state.subscriber);
+
+  const showError = touched?.[id] && errors?.[id];
 
   return (
     <div className="grid grid-cols-7 gap-3">
@@ -73,8 +77,9 @@ const PhoneInput = ({
         type={type}
         label={label}
         placeholder={placeholder}
-        errorMessage={errors[id]}
-        value={values[id]}
+        errorMessage={showError || ''}
+        isInvalid={!!showError}
+        value={values?.[id] || ''}
         onChange={handleChange}
         onBlur={handleBlur}
         className="col-span-5"

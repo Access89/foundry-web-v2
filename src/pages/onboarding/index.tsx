@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { updateSubscriberState } from "@/store/features/subscriber";
 import { CustomButton } from "@/components/shared/shared_customs";
+import { toast } from "react-hot-toast";
 
 type ITab = "country" | "basic-information" | "business-information";
 type TReturnValue = void | string;
@@ -39,6 +40,7 @@ const Onboarding = () => {
     dispatch(
       updateSubscriberState({
         safe: false,
+        showValidationErrors: false,
       }),
     );
   }, [activeTab, dispatch]);
@@ -109,16 +111,25 @@ const Onboarding = () => {
         {tabs?.[activeTab]?.component}
       </div>
       <CustomButton
-        className={`py-6 transition-all duration-300 bg-primary text-white
-
-            `}
+        className={`py-6 transition-all duration-300 bg-primary text-white`}
         onPress={() => {
+          // Check if form is valid
+          if (!safe) {
+            // Trigger validation errors to show on all fields
+            dispatch(updateSubscriberState({ showValidationErrors: true }));
+            toast.error("Please fill in all required fields correctly");
+            return;
+          }
+
+          // Reset validation errors flag
+          dispatch(updateSubscriberState({ showValidationErrors: false }));
+
+          // Proceed to next step
           const returnValue = tabs?.[activeTab]?.next();
           if (typeof returnValue == "string") {
             setActiveTab(returnValue as ITab);
           }
         }}
-        disabled={!safe}
       >
         Continue
       </CustomButton>

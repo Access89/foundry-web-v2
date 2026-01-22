@@ -5,6 +5,7 @@ interface props {
   placeholder: string;
   values: Record<string, string>;
   errors: Record<string, string>;
+  touched?: Record<string, boolean>;
   id: string;
   handleBlur: any;
   handleChange: any;
@@ -19,11 +20,15 @@ const SelectInput = ({
   placeholder,
   id,
   values,
+  errors,
+  touched,
   handleBlur,
   handleChange,
   items,
   defaultSelected,
 }: props) => {
+  const showError = touched?.[id] && errors?.[id];
+
   return (
     <Select
       id={id}
@@ -34,6 +39,8 @@ const SelectInput = ({
       placeholder={placeholder}
       value={values[id] || defaultSelected}
       defaultSelectedKeys={defaultSelected ? [defaultSelected] : undefined}
+      errorMessage={showError || ''}
+      isInvalid={!!showError}
       className="max-w-full"
     >
       {(itms) => <SelectItem key={itms.value}>{itms.label}</SelectItem>}

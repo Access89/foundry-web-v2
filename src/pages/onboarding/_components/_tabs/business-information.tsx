@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useFormik } from "formik";
+import * as Yup from 'yup';
 import CustomInput from "../_form/Input";
 import SelectInput from "../_form/Select-Input";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +8,29 @@ import { updateSubscriberState } from "@/store/features/subscriber";
 import { useEffect } from "react";
 import { RootState } from "@/store/store";
 import { use_cases_list } from "@/utils/helper";
+
+const businessValidationSchema = Yup.object({
+  business_name: Yup.string()
+    .required('Business name is required')
+    .min(2, 'Business name must be at least 2 characters')
+    .max(100, 'Business name must not exceed 100 characters')
+    .trim(),
+  business_owner: Yup.string()
+    .required('Your name is required')
+    .min(2, 'Name must be at least 2 characters')
+    .max(100, 'Name must not exceed 100 characters')
+    .matches(/^[a-zA-Z\s]+$/, 'Name can only contain letters and spaces')
+    .trim(),
+  location: Yup.string()
+    .required('Location is required')
+    .min(2, 'Location must be at least 2 characters')
+    .max(100, 'Location must not exceed 100 characters')
+    .trim(),
+  business_type: Yup.string()
+    .required('Business type is required'),
+  nature_of_business: Yup.string()
+    .required('Nature of business is required'),
+});
 
 const BasicInformation = () => {
   const dispatch = useDispatch();
@@ -16,17 +40,48 @@ const BasicInformation = () => {
     business_type,
     business_owner,
     nature_of_business,
+    showValidationErrors,
   } = useSelector((state: RootState) => state.subscriber);
 
+  const form = useFormik({
+    initialValues: {
+      business_name: customer_name || "",
+      location: business_location || "",
+      business_type: business_type || "",
+      business_owner: business_owner || "",
+      nature_of_business: nature_of_business || "",
+    },
+    validationSchema: businessValidationSchema,
+    validateOnChange: true,
+    validateOnBlur: true,
+    onSubmit: () => {},
+  });
+
+  // Watch for validation trigger from continue button
   useEffect(() => {
-    // Check if all required fields are filled
-    const isValidationPassed =
+    if (showValidationErrors) {
+      form.setTouched({
+        business_name: true,
+        location: true,
+        business_type: true,
+        business_owner: true,
+        nature_of_business: true,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showValidationErrors]);
+
+  useEffect(() => {
+    // Check if all required fields are filled and have no validation errors
+    const hasAllFields =
       customer_name !== "" &&
       business_location !== "" &&
       business_owner !== "" &&
       nature_of_business !== "" &&
-      // Only require business_type if nature_of_business is 'Sole Proprietorship'
-      (nature_of_business !== "Sole Proprietorship" || business_type !== "");
+      business_type !== "";
+
+    const hasNoErrors = Object.keys(form.errors).length === 0;
+    const isValidationPassed = hasAllFields && hasNoErrors;
 
     dispatch(
       updateSubscriberState({
@@ -39,19 +94,9 @@ const BasicInformation = () => {
     business_type,
     business_owner,
     nature_of_business,
+    form.errors,
     dispatch,
   ]);
-
-  const form = useFormik({
-    initialValues: {
-      business_name: customer_name || "",
-      location: business_location || "",
-      business_type: business_type || "",
-      business_owner: business_owner || "",
-      nature_of_business: nature_of_business || "",
-    },
-    onSubmit: () => {},
-  });
 
   return (
     <div className="">
@@ -70,35 +115,44 @@ const BasicInformation = () => {
           label={"Business name"}
           placeholder={"e.g. JD Enterprise"}
           id={"business_name"}
-          {...form}
+          values={form.values}
+          errors={form.errors}
+          touched={form.touched}
           handleChange={(e: any) => {
             form.handleChange(e);
             dispatch(updateSubscriberState({ customer_name: e.target.value }));
           }}
+          handleBlur={form.handleBlur}
         />
         <CustomInput
           type={"text"}
           label={"Your name"}
           placeholder={"e.g. Jane Doe"}
           id={"business_owner"}
-          {...form}
+          values={form.values}
+          errors={form.errors}
+          touched={form.touched}
           handleChange={(e: any) => {
             form.handleChange(e);
             dispatch(updateSubscriberState({ business_owner: e.target.value }));
           }}
+          handleBlur={form.handleBlur}
         />
         <CustomInput
           type={"text"}
           label={"Location"}
           placeholder={"e.g. Accra"}
           id={"location"}
-          {...form}
+          values={form.values}
+          errors={form.errors}
+          touched={form.touched}
           handleChange={(e: any) => {
             form.handleChange(e);
             dispatch(
               updateSubscriberState({ business_location: e.target.value }),
             );
           }}
+          handleBlur={form.handleBlur}
         />
 
         <SelectInput
@@ -125,23 +179,35 @@ const BasicInformation = () => {
           label={"Business Type"}
           id={"business_type"}
           defaultSelected={business_type}
-          {...form}
+          values={form.values}
+          errors={form.errors}
+          touched={form.touched}
           handleChange={(e: any) => {
-            dispatch(updateSubscriberState({ business_type: e.target.value }));
+            const value = e.target.value;
+            form.setFieldValue("business_type", value);
+            form.setFieldTouched("business_type", true);
+            dispatch(updateSubscriberState({ business_type: value }));
           }}
+          handleBlur={form.handleBlur}
         />
         <SelectInput
           items={use_cases_list.map((e) => ({ label: e, value: e }))}
           label={"Nature of Business"}
           placeholder={"e.g. Fashion"}
           id={"nature_of_business"}
-          {...form}
-          defaultSelected={"Sole Proprietorship"}
+          values={form.values}
+          errors={form.errors}
+          touched={form.touched}
+          defaultSelected={nature_of_business || "Sole Proprietorship"}
           handleChange={(e: any) => {
+            const value = e.target.value;
+            form.setFieldValue("nature_of_business", value);
+            form.setFieldTouched("nature_of_business", true);
             dispatch(
-              updateSubscriberState({ nature_of_business: e.target.value }),
+              updateSubscriberState({ nature_of_business: value }),
             );
           }}
+          handleBlur={form.handleBlur}
         />
       </div>
     </div>
