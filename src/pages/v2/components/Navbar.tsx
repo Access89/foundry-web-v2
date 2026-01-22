@@ -256,7 +256,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <div className="hidden lg:flex gap-3 items-center">
             <button
               onClick={() =>
-                window.open("https://business.foundry-platform.app/", "_blank")
+                window.open("https://app.foundry-platform.app/", "_blank")
               }
               className={`border-2 px-6 py-2.5 rounded-lg font-medium text-sm transition-all ${
                 isDark
