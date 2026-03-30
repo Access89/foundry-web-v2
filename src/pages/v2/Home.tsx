@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import LoadingScreen from "./components/LoadingScreen";
 import { useV2Context } from "./context";
@@ -12,7 +13,20 @@ import PartnersSection from "@/components/reusable/partners-section";
 
 const Home = () => {
   const { activeSegment, setActiveSegment } = useV2Context();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const segment = searchParams.get("segment");
+    if (segment === "bank" || segment === "merchant") {
+      setActiveSegment(segment);
+    }
+  }, []); // Run on mount
+
+  const handleSegmentChange = (segment: string) => {
+    setActiveSegment(segment);
+    setSearchParams({ segment });
+  };
 
   useEffect(() => {
     // Force min load time of 2s for the branding loop
@@ -66,7 +80,7 @@ const Home = () => {
         {/* Hero Section Component */}
         <HeroSection
           activeSegment={activeSegment}
-          setActiveSegment={setActiveSegment}
+          setActiveSegment={handleSegmentChange}
         />
         <PartnersSection />
 
