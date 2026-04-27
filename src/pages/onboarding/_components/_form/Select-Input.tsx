@@ -1,14 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Select, SelectItem } from '@nextui-org/react';
-interface props {
+import type { ChangeEventHandler, FocusEventHandler } from 'react';
+
+type FormValues = Record<string, string>;
+type FormErrors = Partial<Record<string, string>>;
+type FormTouched = Partial<Record<string, boolean>>;
+
+interface Props {
   label: string;
   placeholder: string;
-  values: Record<string, string>;
-  errors: Record<string, string>;
-  touched?: Record<string, boolean>;
+  values: FormValues;
+  errors: FormErrors;
+  touched?: FormTouched;
   id: string;
-  handleBlur: any;
-  handleChange: any;
+  handleBlur: FocusEventHandler<HTMLElement>;
+  handleChange: ChangeEventHandler<HTMLSelectElement>;
   items: {
     label: string;
     value: string;
@@ -26,8 +31,9 @@ const SelectInput = ({
   handleChange,
   items,
   defaultSelected,
-}: props) => {
+}: Props) => {
   const showError = touched?.[id] && errors?.[id];
+  const selectedValue = values[id] || defaultSelected || "";
 
   return (
     <Select
@@ -37,8 +43,7 @@ const SelectInput = ({
       items={items}
       label={label}
       placeholder={placeholder}
-      value={values[id] || defaultSelected}
-      defaultSelectedKeys={defaultSelected ? [defaultSelected] : undefined}
+      selectedKeys={selectedValue ? [selectedValue] : []}
       errorMessage={showError || ''}
       isInvalid={!!showError}
       className="max-w-full"

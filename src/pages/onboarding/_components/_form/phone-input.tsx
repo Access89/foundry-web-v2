@@ -1,20 +1,22 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Input } from "@nextui-org/react";
-// import { Autocomplete, AutocompleteItem } from "@nextui-org/autocomplete";
-// import { countries } from "../../_utils/misc";
-// import { Icon } from "@iconify/react/dist/iconify.js";
+import type { ChangeEventHandler, FocusEventHandler } from "react";
 import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
-interface props {
+
+type FormValues = Record<string, string>;
+type FormErrors = Partial<Record<string, string>>;
+type FormTouched = Partial<Record<string, boolean>>;
+
+interface Props {
   type: string;
   label: string;
   placeholder: string;
-  values: Record<string, string>;
-  errors: Record<string, string>;
-  touched?: Record<string, boolean>;
+  values: FormValues;
+  errors: FormErrors;
+  touched?: FormTouched;
   id: string;
-  handleChange: any;
-  handleBlur: any;
+  handleChange: ChangeEventHandler<HTMLInputElement>;
+  handleBlur: FocusEventHandler<HTMLInputElement>;
 }
 const PhoneInput = ({
   type,
@@ -26,10 +28,7 @@ const PhoneInput = ({
   values,
   handleChange,
   handleBlur,
-}: props) => {
-  // const reordered_counties = [
-  //   ...countries.map((c) => c).sort((a, b) => a.name.localeCompare(b.name)),
-  // ];
+}: Props) => {
   const { country_code } = useSelector((state: RootState) => state.subscriber);
 
   const showError = touched?.[id] && errors?.[id];
@@ -55,20 +54,17 @@ const PhoneInput = ({
           )}
         </Autocomplete> */}
         <Input
-          id={id}
+          id={`${id}_country_code`}
           type={type}
-          label={'Country Code'}
+          label={"Country Code"}
           placeholder={placeholder}
-          errorMessage={errors[id]}
-          value={country_code}
-          onChange={handleChange}
-          onBlur={handleBlur}
+          value={country_code || ""}
           disabled
           className="col-span-5"
           classNames={{
-            inputWrapper: 'h-14',
-            input: 'text-[16px]',
-            label: "whitespace-nowrap"
+            inputWrapper: "h-14",
+            input: "text-[16px]",
+            label: "whitespace-nowrap",
           }}
         />
       </div>
@@ -77,15 +73,15 @@ const PhoneInput = ({
         type={type}
         label={label}
         placeholder={placeholder}
-        errorMessage={showError || ''}
+        errorMessage={showError || ""}
         isInvalid={!!showError}
-        value={values?.[id] || ''}
+        value={values?.[id] || ""}
         onChange={handleChange}
         onBlur={handleBlur}
         className="col-span-5"
         classNames={{
-          inputWrapper: 'h-14',
-          input: 'text-[16px]',
+          inputWrapper: "h-14",
+          input: "text-[16px]",
         }}
       />
     </div>

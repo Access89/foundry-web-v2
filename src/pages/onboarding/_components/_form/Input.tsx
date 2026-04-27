@@ -1,16 +1,20 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Input } from "@nextui-org/react";
-import { useState } from "react";
-interface props {
+import { useState, type ChangeEventHandler, type FocusEventHandler } from "react";
+
+type FormValues = Record<string, string>;
+type FormErrors = Partial<Record<string, string>>;
+type FormTouched = Partial<Record<string, boolean>>;
+
+interface Props {
   type: string;
   label: string;
   placeholder: string;
-  values: Record<string, string>;
-  errors: Record<string, string>;
-  touched?: Record<string, boolean>;
+  values: FormValues;
+  errors: FormErrors;
+  touched?: FormTouched;
   id: string;
-  handleChange: any;
-  handleBlur: any;
+  handleChange: ChangeEventHandler<HTMLInputElement>;
+  handleBlur: FocusEventHandler<HTMLInputElement>;
 }
 const CustomInput = ({
   type,
@@ -22,7 +26,7 @@ const CustomInput = ({
   values,
   handleChange,
   handleBlur
-}: props) => {
+}: Props) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleTogglePassword = () => {

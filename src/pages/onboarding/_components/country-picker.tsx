@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react-hooks/exhaustive-deps */
 import CustomModal from "@/components/shared/modal";
 import { updateSubscriberState } from "@/store/features/subscriber";
 import { Icon } from "@iconify/react/dist/iconify.js";
@@ -9,7 +7,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { countries } from "../_utils/misc";
 import { RootState } from "@/store/store";
 
-const CountryPicker = () => {
+type CountryOption = {
+  name: string;
+  phoneCode?: string;
+  icon: string;
+};
+
+type CountryPickerProps = {
+  onSelect?: (country: Pick<CountryOption, "name" | "phoneCode">) => void;
+};
+
+const CountryPicker = ({ onSelect }: CountryPickerProps) => {
   const { onOpenChange, onClose, isOpen, onOpen } = useDisclosure();
   const { country } = useSelector((state: RootState) => state.subscriber);
 
@@ -22,13 +30,14 @@ const CountryPicker = () => {
     setSelected(country || "");
   }, [country]);
 
-  const onSelectCountry = (country: any) => {
+  const onSelectCountry = (country: CountryOption) => {
     dispatch(
       updateSubscriberState({
         country: country.name,
         country_code: country.phoneCode,
       }),
     );
+    onSelect?.({ name: country.name, phoneCode: country.phoneCode });
     setSelected(country.name);
 
     setSearchQuery("");
@@ -109,6 +118,7 @@ const CountryPicker = () => {
                     ?.map((country) => {
                       return (
                         <div
+                          key={country.name}
                           onClick={(event) => {
                             event.preventDefault();
                             event.stopPropagation();
@@ -146,6 +156,7 @@ const CountryPicker = () => {
                 reordered_counties.map((country) => {
                   return (
                     <div
+                      key={country.name}
                       onClick={(event) => {
                         event.preventDefault();
                         event.stopPropagation();

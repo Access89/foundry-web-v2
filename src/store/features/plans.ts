@@ -40,7 +40,7 @@ interface Plan {
   };
   is_active: boolean;
   is_default: boolean;
-  bundles: Bundle[];
+  bundles: Bundle[] | null;
 }
 
 interface PlansListApiResponse {
@@ -64,18 +64,9 @@ interface PlansListApiResponse {
       };
       is_active: boolean;
       is_default: boolean;
-      bundles: null;
+      bundles: Bundle[] | null;
     }[];
   };
-}
-
-interface PlanDetailApiResponse {
-  responseInfo: {
-    responseCode: string;
-    responseMessage: string;
-  };
-  data: Plan;
-  message: string;
 }
 
 interface PlansState {
@@ -98,8 +89,10 @@ export const fetchSubscriptionPlans = createAsyncThunk(
   async (params: { page?: number; limit?: number; category_id?: string } = {}) => {
     const { page = 1, limit = 1000, category_id = '' } = params;
     
-    // First, fetch the plans list
-    const listParams: any = { page, limit };
+    const listParams: { page: number; limit: number; category_id?: string } = {
+      page,
+      limit,
+    };
     if (category_id) {
       listParams.category_id = category_id;
     }
@@ -109,19 +102,7 @@ export const fetchSubscriptionPlans = createAsyncThunk(
       params: listParams
     });
 
-    const planIds = plansListResponse.data.data.map(plan => plan.id);
-
-    // Then fetch details for each plan
-    const promises = planIds.map(id => 
-      queryFn<PlanDetailApiResponse>({
-        url: `${variables.subscription_base_url}/plans/${id}`
-      })
-    );
-    
-    const planDetailsResponses = await Promise.all(promises);
-    const plans = planDetailsResponses.map(response => response.data);
-
-    return plans;
+    return plansListResponse.data.data;
   }
 );
 

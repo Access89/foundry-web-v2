@@ -1,217 +1,172 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useFormik } from "formik";
-import * as Yup from 'yup';
-import CustomInput from "../_form/Input";
-import SelectInput from "../_form/Select-Input";
-import { useDispatch, useSelector } from "react-redux";
 import { updateSubscriberState } from "@/store/features/subscriber";
-import { useEffect } from "react";
 import { RootState } from "@/store/store";
 import { use_cases_list } from "@/utils/helper";
+import { useFormik } from "formik";
+import type { ChangeEvent } from "react";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import {
+  getOnboardingStep,
+  getOnboardingStepPath,
+  getPreviousOnboardingStepPath,
+} from "../../_config/steps";
+import { useOnboardingGuard } from "../../_hooks/use-onboarding-guard";
+import OnboardingLayout from "../../_layouts/onboarding-layout";
+import {
+  businessValidationSchema,
+  getBusinessInitialValues,
+} from "../../_utils/validation";
+import CustomInput from "../_form/Input";
+import SelectInput from "../_form/Select-Input";
 
-const businessValidationSchema = Yup.object({
-  business_name: Yup.string()
-    .required('Business name is required')
-    .min(2, 'Business name must be at least 2 characters')
-    .max(100, 'Business name must not exceed 100 characters')
-    .trim(),
-  business_owner: Yup.string()
-    .required('Your name is required')
-    .min(2, 'Name must be at least 2 characters')
-    .max(100, 'Name must not exceed 100 characters')
-    .matches(/^[a-zA-Z\s]+$/, 'Name can only contain letters and spaces')
-    .trim(),
-  location: Yup.string()
-    .required('Location is required')
-    .min(2, 'Location must be at least 2 characters')
-    .max(100, 'Location must not exceed 100 characters')
-    .trim(),
-  business_type: Yup.string()
-    .required('Business type is required'),
-  nature_of_business: Yup.string()
-    .required('Nature of business is required'),
-});
+const businessTypeOptions = [
+  { label: "Limited Liability Company", value: "Limited Liability Company" },
+  { label: "Sole Proprietorship", value: "Sole Proprietorship" },
+  { label: "Publicly Listed Company", value: "Publicly Listed Company" },
+  { label: "Private Limited Company", value: "Private Limited Company" },
+  { label: "General Partnership", value: "General Partnership" },
+  { label: "Limited Partnership", value: "Limited Partnership" },
+  { label: "Other", value: "Other" },
+];
 
-const BasicInformation = () => {
+const BusinessInformation = () => {
   const dispatch = useDispatch();
-  const {
-    customer_name,
-    business_location,
-    business_type,
-    business_owner,
-    nature_of_business,
-    showValidationErrors,
-  } = useSelector((state: RootState) => state.subscriber);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const subscriber = useSelector((state: RootState) => state.subscriber);
+  const step = getOnboardingStep("business-information");
+
+  useOnboardingGuard("business-information");
 
   const form = useFormik({
-    initialValues: {
-      business_name: customer_name || "",
-      location: business_location || "",
-      business_type: business_type || "",
-      business_owner: business_owner || "",
-      nature_of_business: nature_of_business || "",
-    },
+    initialValues: getBusinessInitialValues(subscriber),
     validationSchema: businessValidationSchema,
+    enableReinitialize: true,
     validateOnChange: true,
     validateOnBlur: true,
     onSubmit: () => {},
   });
 
-  // Watch for validation trigger from continue button
-  useEffect(() => {
-    if (showValidationErrors) {
+  const handleBack = () => {
+    const previousPath = getPreviousOnboardingStepPath(
+      "business-information",
+      location.search,
+    );
+
+    navigate(previousPath || getOnboardingStepPath("country", location.search));
+  };
+
+  const handleContinue = async () => {
+    const errors = await form.validateForm();
+
+    if (Object.keys(errors).length > 0) {
       form.setTouched({
         business_name: true,
+        business_owner: true,
         location: true,
         business_type: true,
-        business_owner: true,
         nature_of_business: true,
       });
+      toast.error("Please fill in all required fields correctly");
+      return;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [showValidationErrors]);
 
-  useEffect(() => {
-    // Check if all required fields are filled and have no validation errors
-    const hasAllFields =
-      customer_name !== "" &&
-      business_location !== "" &&
-      business_owner !== "" &&
-      nature_of_business !== "" &&
-      business_type !== "";
+    navigate(getOnboardingStepPath("basic-information", location.search));
+  };
 
-    const hasNoErrors = Object.keys(form.errors).length === 0;
-    const isValidationPassed = hasAllFields && hasNoErrors;
+  const handleTextChange =
+    (field: "customer_name" | "business_owner" | "business_location") =>
+    (event: ChangeEvent<HTMLInputElement>) => {
+      form.handleChange(event);
+      dispatch(updateSubscriberState({ [field]: event.target.value }));
+    };
 
-    dispatch(
-      updateSubscriberState({
-        safe: isValidationPassed,
-      }),
-    );
-  }, [
-    business_location,
-    customer_name,
-    business_type,
-    business_owner,
-    nature_of_business,
-    form.errors,
-    dispatch,
-  ]);
+  const handleSelectChange =
+    (field: "business_type" | "nature_of_business") =>
+    (event: ChangeEvent<HTMLSelectElement>) => {
+      const value = event.target.value;
+      form.setFieldValue(field, value);
+      form.setFieldTouched(field, true);
+      dispatch(updateSubscriberState({ [field]: value }));
+    };
 
   return (
-    <div className="">
-      <div>
-        <h4 className="font-semibold lg:text-[1.7rem] text-[1.2rem]">
-          Business Information
-        </h4>
-        <p className="text-[#717173] font-light lg:text-[0.9rem] text-[0.8rem]">
-          Tell as more about your business?
-        </p>
-      </div>
-
-      <div className="lg:pt-6 flex flex-col gap-4 pt-4">
+    <OnboardingLayout
+      title={step?.title || ""}
+      subtitle={step?.subtitle || ""}
+      onBack={handleBack}
+      onContinue={handleContinue}
+    >
+      <div className="lg:pt-2 flex flex-col gap-4 pt-1">
         <CustomInput
-          type={"text"}
-          label={"Business name"}
-          placeholder={"e.g. JD Enterprise"}
-          id={"business_name"}
+          type="text"
+          label="Business name"
+          placeholder="e.g. JD Enterprise"
+          id="business_name"
           values={form.values}
           errors={form.errors}
           touched={form.touched}
-          handleChange={(e: any) => {
-            form.handleChange(e);
-            dispatch(updateSubscriberState({ customer_name: e.target.value }));
-          }}
+          handleChange={handleTextChange("customer_name")}
           handleBlur={form.handleBlur}
         />
         <CustomInput
-          type={"text"}
-          label={"Your name"}
-          placeholder={"e.g. Jane Doe"}
-          id={"business_owner"}
+          type="text"
+          label="Your name"
+          placeholder="e.g. Jane Doe"
+          id="business_owner"
           values={form.values}
           errors={form.errors}
           touched={form.touched}
-          handleChange={(e: any) => {
-            form.handleChange(e);
-            dispatch(updateSubscriberState({ business_owner: e.target.value }));
-          }}
+          handleChange={handleTextChange("business_owner")}
           handleBlur={form.handleBlur}
         />
         <CustomInput
-          type={"text"}
-          label={"Location"}
-          placeholder={"e.g. Accra"}
-          id={"location"}
+          type="text"
+          label="Location"
+          placeholder="e.g. Accra"
+          id="location"
           values={form.values}
           errors={form.errors}
           touched={form.touched}
-          handleChange={(e: any) => {
-            form.handleChange(e);
+          handleChange={(event: ChangeEvent<HTMLInputElement>) => {
+            form.handleChange(event);
             dispatch(
-              updateSubscriberState({ business_location: e.target.value }),
+              updateSubscriberState({
+                business_location: event.target.value,
+              }),
             );
           }}
           handleBlur={form.handleBlur}
         />
-
         <SelectInput
-          items={[
-            {
-              label: "Limited Liability Company",
-              value: "Limited Liability Company",
-            },
-            { label: "Sole Proprietorship", value: "Sole Proprietorship" },
-            {
-              label: "Publicly Listed Company",
-              value: "Publicly Listed Company",
-            },
-            {
-              label: "Private Limited Company",
-              value: "Private Limited Company",
-            },
-
-            { label: "General Partnership", value: "General Partnership" },
-            { label: "Limited Partnership", value: "Limited Partnership" },
-            { label: "Other", value: "Other" },
-          ]}
-          placeholder={"e.g. Limited Liability Company"}
-          label={"Business Type"}
-          id={"business_type"}
-          defaultSelected={business_type}
+          items={businessTypeOptions}
+          placeholder="e.g. Limited Liability Company"
+          label="Business Type"
+          id="business_type"
           values={form.values}
           errors={form.errors}
           touched={form.touched}
-          handleChange={(e: any) => {
-            const value = e.target.value;
-            form.setFieldValue("business_type", value);
-            form.setFieldTouched("business_type", true);
-            dispatch(updateSubscriberState({ business_type: value }));
-          }}
+          handleChange={handleSelectChange("business_type")}
           handleBlur={form.handleBlur}
         />
         <SelectInput
-          items={use_cases_list.map((e) => ({ label: e, value: e }))}
-          label={"Nature of Business"}
-          placeholder={"e.g. Fashion"}
-          id={"nature_of_business"}
+          items={use_cases_list.map((useCase) => ({
+            label: useCase,
+            value: useCase,
+          }))}
+          label="Nature of Business"
+          placeholder="e.g. Fashion"
+          id="nature_of_business"
           values={form.values}
           errors={form.errors}
           touched={form.touched}
-          defaultSelected={nature_of_business || "Sole Proprietorship"}
-          handleChange={(e: any) => {
-            const value = e.target.value;
-            form.setFieldValue("nature_of_business", value);
-            form.setFieldTouched("nature_of_business", true);
-            dispatch(
-              updateSubscriberState({ nature_of_business: value }),
-            );
-          }}
+          handleChange={handleSelectChange("nature_of_business")}
           handleBlur={form.handleBlur}
         />
       </div>
-    </div>
+    </OnboardingLayout>
   );
 };
 
-export default BasicInformation;
+export default BusinessInformation;

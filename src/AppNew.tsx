@@ -41,7 +41,6 @@ import ScrollToTop from "./components/shared/scroll_to_top";
 import PrivacyPolicy from "./PrivacyPolicy";
 import TermsOfUse from "./TermsOfUse";
 import ISOSecurityPolicy from "./ISOSecurityPolicy";
-import PasswordSetting from "./pages/onboarding/_components/_tabs/password";
 import BookADemo from "./pages/book-a-demo";
 import BecomePartner from "./pages/contact/become-partner";
 import ContactPage from "./pages/contact";
@@ -100,10 +99,7 @@ const App = () => {
         </Route>
 
         {/* Shared Routes - Available from both layouts */}
-        <Route path="onboarding/">
-          <Route path="" element={<Onboarding />} />
-          <Route path="password" element={<PasswordSetting />} />
-        </Route>
+        <Route path="onboarding/*" element={<Onboarding />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="terms-of-use" element={<TermsOfUse />} />
         <Route
